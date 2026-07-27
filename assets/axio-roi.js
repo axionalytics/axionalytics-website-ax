@@ -237,7 +237,7 @@
      should not stare at a spinner because your form provider is slow, and the
      breakdown is not secret — the email is a courtesy, not a paywall.
      ---------------------------------------------------------------------- */
-  var LEAD_ENDPOINT = '';
+  var LEAD_ENDPOINT = 'https://formspree.io/f/xwvgabdz';
 
   var gate = $('roi-gate');
   var detail = $('roi-detail');

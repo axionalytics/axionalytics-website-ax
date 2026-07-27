@@ -33,7 +33,7 @@
 
     // Cloudflare Web Analytics: Dash > Analytics > Web Analytics > add site,
     // then copy the token out of the snippet it gives you.
-    cloudflareToken: '',      // e.g. 'a1b2c3d4e5f6...'
+    cloudflareToken: 'ec56d54fd71c4b89afdeef383856860d',      // e.g. 'a1b2c3d4e5f6...'
 
     // Plausible: the domain exactly as registered in your Plausible account.
     plausibleDomain: 'axionalytics.com',
