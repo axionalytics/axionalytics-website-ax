@@ -115,8 +115,8 @@ BODY = u"""
       <div>
         <p class="font-heading font-bold">Axionalytics</p>
         <p class="text-sm text-ax-ink/55">
-          <span data-lang-en>Davenport, Iowa &middot; working in English and Spanish</span>
-          <span data-lang-es>Davenport, Iowa &middot; trabajamos en ingl&eacute;s y espa&ntilde;ol</span>
+          <span data-lang-en>Quad Cities, Iowa &middot; working in English and Spanish</span>
+          <span data-lang-es>Quad Cities, Iowa &middot; trabajamos en ingl&eacute;s y espa&ntilde;ol</span>
         </p>
       </div>
     </div>

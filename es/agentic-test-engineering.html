@@ -49,15 +49,15 @@
       "@type": "Audience",
       "audienceType": "Test engineers, controls and systems engineers, QA leads, validation engineers, systems engineers"
     },
-    "description": "A test engineering platform that generates verification test cases along three axes — requirement documents, source repositories, and merged pull requests — and retrofits legacy test suites to a consistent structure, with human review before anything is written to Azure DevOps.",
+    "description": "A test engineering platform for embedded software that generates verification tests along three axes — requirement documents, source repositories, and merged pull requests — and retrofits legacy test suites to a consistent structure, with human review before anything is written to Azure DevOps.",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Test Engineering Subsystems",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Requirements to Tests", "description": "Parses PDF, Word, Excel, and PowerPoint specifications, extracts testable requirements, matches them to signal entities, and generates natural-language and executable test cases." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Code to Tests", "description": "Ingests model-based design repositories, normalizes artifacts into code chunks, and generates test cases per component with coverage-driven iteration." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Requirements to Tests", "description": "Parses PDF, Word, Excel, and PowerPoint specifications, extracts testable requirements, matches them to signal entities, and generates natural-language and executable tests." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Repository Coverage", "description": "Ingests model-based design repositories, normalizes artifacts into code chunks, and generates tests per component with coverage-driven iteration." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pull Requests to Tests", "description": "Monitors merged pull requests, triages them for behavioral relevance, and reconstructs testable intent from the diff." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Legacy Test Modernization", "description": "Reads existing test cases from suites, retrofits them to a golden structure with full signal enrichment, and writes approved updates back in place." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Legacy Test Modernization", "description": "Reads existing tests from suites, retrofits them to a golden structure with full signal enrichment, and writes approved updates back in place." } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coverage Gap Analysis", "description": "Proactive scanning for uncovered signals and functions per configuration, with optional model-assisted triage." } }
       ]
     }
@@ -71,7 +71,7 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Can generated test cases be pushed to Azure DevOps automatically?",
+        "name": "Can generated tests be pushed to Azure DevOps automatically?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Only after a human approves them. Every generated case lands in a review queue where an engineer can approve, edit, or reject it. Nothing is written to Azure DevOps without that step, and legacy updates show a field-level diff against the existing case before the write."
@@ -178,7 +178,7 @@
                 </span>
                 <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
                   
-                  Requisitos, código fuente y PRs fusionados se convierten en casos de prueba. Suites heredadas modernizadas en sitio.
+                  Requisitos, código fuente y PRs fusionados se convierten en pruebas. Suites heredadas modernizadas en sitio.
                 </span>
               </a>
 
@@ -401,7 +401,7 @@
 
         <p class="text-lg text-white/65 leading-relaxed max-w-2xl mb-9 ax-reveal">
           
-          Un documento de requisitos de 200 páginas contiene cientos de obligaciones verificables. Convertirlas en casos de prueba estructurados y trazables es mecánico, tedioso y le toma semanas a un ingeniero senior. Construimos una plataforma que hace la transcripción y deja el criterio a sus ingenieros — con revisión humana antes de tocar su herramienta ALM.
+          Un documento de requisitos de 500 páginas contiene cientos de obligaciones verificables. Convertirlas en pruebas estructuradas y trazables es mecánico, tedioso y le toma semanas a un ingeniero senior. Construimos una plataforma que hace la transcripción y deja el criterio a sus ingenieros — con revisión humana antes de tocar su herramienta ALM.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3.5 ax-reveal">
@@ -424,13 +424,13 @@
               <span class="text-sm text-white/55">
                 Entidades de señal indexadas
               </span>
-              <span class="ax-mono font-bold text-2xl text-ax-cyan whitespace-nowrap">~<span data-count-to="14000" data-count-suffix="+">0</span></span>
+              <span class="ax-mono font-bold text-2xl text-ax-cyan whitespace-nowrap">~<span data-count-to="35000" data-count-suffix="+">0</span></span>
             </div>
             <div class="flex items-baseline justify-between gap-4 pb-5 border-b border-white/10">
               <span class="text-sm text-white/55">
                 Fragmentos de código embebidos
               </span>
-              <span class="ax-mono font-bold text-2xl text-white whitespace-nowrap"><span data-count-to="18000" data-count-suffix="+">0</span></span>
+              <span class="ax-mono font-bold text-2xl text-white whitespace-nowrap"><span data-count-to="45000" data-count-suffix="+">0</span></span>
             </div>
             <div class="flex items-baseline justify-between gap-4 pb-5 border-b border-white/10">
               <span class="text-sm text-white/55">
@@ -480,18 +480,18 @@
         </h3>
         <p class="text-ax-ink/60 leading-relaxed text-[0.95rem]">
           
-          Los requisitos viven en PDFs, archivos Word y hojas de cálculo. Los casos de prueba deben vivir en una herramienta estructurada. El puente entre ambos es un humano transcribiendo una especificación, obligación por obligación, durante semanas — y equivocándose bajo presión de plazos.
+          Los requisitos viven en PDFs, archivos Word y hojas de cálculo. Los pruebas deben vivir en una herramienta estructurada. El puente entre ambos es un humano transcribiendo una especificación, obligación por obligación, durante semanas — y equivocándose bajo presión de plazos.
         </p>
       </article>
 
       <article class="ax-card ax-card-top p-7" style="--ax-accent:linear-gradient(90deg,#3B82F6,#4F46E5)">
         <p class="ax-mono text-2xs text-ax-ink/30 mb-4">GAP 02</p>
         <h3 class="font-heading font-bold text-xl mb-3">
-          De código a pruebas
+          De repositorio a cobertura
         </h3>
         <p class="text-ax-ink/60 leading-relaxed text-[0.95rem]">
           
-          Los repositorios de diseño basado en modelos definen el comportamiento real del sistema — modelos, diccionarios de datos, arneses — sin cobertura correspondiente. Los ingenieros deben rastrear la estructura del código a mano, y nadie puede decir qué porcentaje del comportamiento implementado está verificado.
+          Sus repositorios definen el comportamiento real del sistema — fuentes en C y C++, artefactos de diseño basado en modelos, componentes RTOS, definiciones de interfaz y arneses — sin cobertura correspondiente. Los ingenieros rastrean la estructura del código a mano, y nadie puede decir qué porcentaje del comportamiento implementado está verificado.
         </p>
       </article>
 
@@ -530,29 +530,29 @@
     </div>
 
     <div class="rounded-2xl border border-white/10 bg-ax-void/60 p-5 lg:p-8 ax-diagram ax-scroll-dark ax-reveal">
-      <pre class="text-white/70"><span class="text-white/35">  Requirement Documents        Code Repositories          Legacy Test Cases         Merged PRs
-  (PDF · DOCX · XLSX · PPTX)   (model-based design)       (existing suites)         (watched repos)</span>
+      <pre class="text-white/70"><span class="text-white/35">  Requirement Documents      Source Repositories       Existing Test Suites     Merged PRs
+  (PDF · DOCX · XLSX · PPTX) (C/C++ · MBD · RTOS)      (unit · integration)     (watched repos)</span>
            │                            │                          │                       │
            ▼                            ▼                          ▼                       ▼
   ┌────────────────┐         ┌────────────────────┐    ┌────────────────────┐   ┌──────────────────┐
-  │ <span class="text-ax-cyan">Requirements</span>   │         │ <span class="text-ax-cyan">Code to Tests</span>      │    │ <span class="text-ax-cyan">Test Case Update</span>   │   │ <span class="text-ax-cyan">PR Watch</span>         │
+  │ <span class="text-ax-cyan">Requirements</span>   │         │ <span class="text-ax-cyan">Coverage Builder</span>   │    │ <span class="text-ax-cyan">Suite Modernizer</span>   │   │ <span class="text-ax-cyan">Merge Monitor</span>    │
   │ Pipeline       │         │                    │    │                    │   │                  │
   │ 1 Parse        │         │ 1 Ingest repos     │    │ 1 Fetch suite      │   │ 1 Detect merge   │
   │ 2 Extract      │         │ 2 Normalize        │    │ 2 Resolve reqs     │   │ 2 Triage impact  │
   │ 3 Filter       │         │ 3 Embed chunks     │    │ 3 Match signals    │   │ 3 Rebuild intent │
   │ 4 Classify     │         │ 4 Match signals    │    │ 4 Regenerate       │   │ 4 Scope panel    │
-  │ 5 Match        │         │ 5 Generate cases   │    │ 5 Diff &amp; save      │   │ 5 Generate       │
+  │ 5 Match        │         │ 5 Generate tests   │    │ 5 Diff &amp; save      │   │ 5 Generate       │
   │ 6 Generate     │         │ 6 Review           │    │ 6 Write back       │   │                  │
   │ 7 <span class="text-ax-warn">Review</span>       │         │   <span class="text-ax-warn">↑ human</span>          │    │   <span class="text-ax-warn">↑ human</span>          │   │   <span class="text-ax-warn">↑ human</span>        │
   │ 8 Push to ALM  │         │                    │    │                    │   │                  │
   └───────┬────────┘         └─────────┬──────────┘    └─────────┬──────────┘   └────────┬─────────┘
-          │                            │                          │                      │
-          └────────────────────────────┼──────────────────────────┴──────────────────────┘
+          │                            │                         │                       │
+          └────────────────────────────┼─────────────────────────┴───────────────────────┘
                                        ▼
                      ┌──────────────────────────────────────┐
                      │      <span class="text-ax-violet">SHARED KNOWLEDGE BASE</span>           │
-                     │  14,000+ signal entities (AST-built) │
-                     │  18,000+ embedded code chunks         │
+                     │  35,000+ signal entities (indexed)   │
+                     │  45,000+ embedded code chunks        │
                      │  Requirement document memory         │
                      │  Resident embedding model            │
                      │  Your internal AI gateway transport  │
@@ -561,7 +561,7 @@
           ┌─────────────────────────────┼─────────────────────────────┐
           ▼                             ▼                             ▼
   ┌────────────────┐          ┌──────────────────┐          ┌──────────────────┐
-  │ <span class="text-ax-teal">Conversational</span> │          │ <span class="text-ax-teal">Gap Finder</span>       │          │ <span class="text-ax-teal">Knowledge</span>        │
+  │ <span class="text-ax-teal">Conversational</span> │          │ <span class="text-ax-teal">Coverage Scanner</span> │          │ <span class="text-ax-teal">Knowledge</span>        │
   │ Q&amp;A            │          │ Coverage scan    │          │ Browser          │
   │ [E#] signals   │          │ per config ×     │          │ Deterministic    │
   │ [D#] documents │          │ header, with     │          │ cards, zero LLM  │
@@ -612,17 +612,17 @@
             <td><span class="ax-pill ax-pill-cyan">Central</span></td>
           </tr>
           <tr>
-            <td class="font-bold whitespace-nowrap">Código a Pruebas</td>
-            <td class="text-ax-ink/65">Ingiere repositorios de diseño basado en modelos desde control de versiones o sistema de archivos, normaliza artefactos en fragmentos y genera casos ejecutables por componente con iteración guiada por cobertura.</td>
+            <td class="font-bold whitespace-nowrap">Generador de Cobertura</td>
+            <td class="text-ax-ink/65">Ingiere repositorios de software embebido — C/C++, diseño basado en modelos, componentes RTOS — desde control de versiones o sistema de archivos, normaliza artefactos en fragmentos y genera pruebas unitarias y de integración ejecutables por componente con iteración guiada por cobertura.</td>
             <td><span class="ax-pill bg-ax-go/10 text-ax-go border border-ax-go/25">Activo</span></td>
           </tr>
           <tr>
-            <td class="font-bold whitespace-nowrap">Vigilancia de PRs</td>
+            <td class="font-bold whitespace-nowrap">Monitor de Fusiones</td>
             <td class="text-ax-ink/65">Monitorea PRs fusionados en repositorios vigilados, evalúa la relevancia conductual de cada uno, reconstruye la intención verificable desde el diff y pasa por un panel de alcance antes de despachar.</td>
             <td><span class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15">Opcional</span></td>
           </tr>
           <tr>
-            <td class="font-bold whitespace-nowrap">Actualización de Casos</td>
+            <td class="font-bold whitespace-nowrap">Modernizador de Suites</td>
             <td class="text-ax-ink/65">Lee casos heredados de suites existentes, los adapta a una estructura estándar con enriquecimiento de señales, muestra un diff por campo con pasos editables y escribe las actualizaciones aprobadas en sitio.</td>
             <td><span class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15">Opcional</span></td>
           </tr>
@@ -637,7 +637,7 @@
             <td><span class="ax-pill bg-ax-go/10 text-ax-go border border-ax-go/25">Activo</span></td>
           </tr>
           <tr>
-            <td class="font-bold whitespace-nowrap">Detector de Brechas</td>
+            <td class="font-bold whitespace-nowrap">Escáner de Cobertura</td>
             <td class="text-ax-ink/65">Escaneo proactivo de señales y funciones sin cobertura en cada combinación de configuración, con triaje asistido opcional para priorizar lo que realmente importa.</td>
             <td><span class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15">Opcional</span></td>
           </tr>
@@ -670,7 +670,7 @@
         </h2>
         <p class="text-lg text-white/60 leading-relaxed mb-7">
           
-          Esta es la restricción que hace adoptable el sistema en una organización de verificación regulada. Generar es rápido y barato; un caso de prueba incorrecto escrito en silencio en un plan de pruebas no lo es. Por eso cada artefacto generado se detiene en una cola de revisión.
+          Esta es la restricción que hace adoptable el sistema en una organización de verificación regulada. Generar es rápido y barato; una prueba incorrecta escrito en silencio en un plan de pruebas no lo es. Por eso cada artefacto generado se detiene en una cola de revisión.
         </p>
         <ul class="space-y-4">
           <li class="flex gap-3.5">
@@ -710,17 +710,17 @@
             <span class="ax-terminal-dot bg-ax-stop/70"></span>
             <span class="ax-terminal-dot bg-ax-warn/70"></span>
             <span class="ax-terminal-dot bg-ax-go/70"></span>
-            <span class="ax-mono text-2xs text-white/40 ml-2">review queue · 1 of 148</span>
+            <span class="ax-mono text-2xs text-white/40 ml-2">review queue · 1 of 370</span>
           </div>
           <div class="p-5 ax-mono text-xs space-y-4">
 
             <div>
               <p class="text-white/30 mb-1.5">SOURCE REQUIREMENT</p>
               <div class="rounded-lg bg-white/[0.04] border border-white/10 p-3">
-                <p class="text-ax-cyan mb-1.5">REQ-4417 <span class="text-white/30">· §4.2.1</span></p>
+                <p class="text-ax-cyan mb-1.5">SRS-0912 <span class="text-white/30">· §4.2.1</span></p>
                 <p class="text-white/60 leading-relaxed">
                   
-                  "El controlador deberá inhibir el accionamiento cuando la señal de enclavamiento permanezca inactiva por más de 300 ms."
+                  "El controlador deberá deshabilitar la etapa de salida cuando la bandera de validez de entrada permanezca desactivada por más de 250 ms."
                 </p>
               </div>
             </div>
@@ -729,16 +729,16 @@
               <p class="text-white/30 mb-1.5">MATCHED SIGNALS <span class="text-white/20">· re-ranked</span></p>
               <div class="space-y-1.5">
                 <div class="flex items-center justify-between gap-3 rounded-md bg-white/[0.03] px-3 py-2">
-                  <span class="text-white/70">Interlock_PresenceState</span>
-                  <span class="text-ax-go text-2xs">0.94</span>
+                  <span class="text-white/70">SensorInput_Valid</span>
+                  <span class="text-ax-go text-2xs">0.96</span>
                 </div>
                 <div class="flex items-center justify-between gap-3 rounded-md bg-white/[0.03] px-3 py-2">
-                  <span class="text-white/70">Actuator_InhibitCmd</span>
-                  <span class="text-ax-go text-2xs">0.91</span>
+                  <span class="text-white/70">OutputEnable_Cmd</span>
+                  <span class="text-ax-go text-2xs">0.89</span>
                 </div>
                 <div class="flex items-center justify-between gap-3 rounded-md bg-white/[0.03] px-3 py-2">
-                  <span class="text-white/70">Debounce_Threshold_ms</span>
-                  <span class="text-ax-warn text-2xs">0.72</span>
+                  <span class="text-white/70">FilterWindow_ms</span>
+                  <span class="text-ax-warn text-2xs">0.74</span>
                 </div>
               </div>
             </div>
@@ -746,10 +746,10 @@
             <div>
               <p class="text-white/30 mb-1.5">GENERATED CASE</p>
               <div class="rounded-lg bg-white/[0.04] border border-white/10 p-3 space-y-1 text-white/60">
-                <p><span class="text-white/30">pre  </span>system in operational mode, engagement permitted</p>
-                <p><span class="text-white/30">step </span>drive Interlock_PresenceState inactive</p>
-                <p><span class="text-white/30">step </span>hold for 350 ms</p>
-                <p><span class="text-white/30">exp  </span>Actuator_InhibitCmd asserted within 300 ms</p>
+                <p><span class="text-white/30">pre  </span>device in run mode, output stage enabled</p>
+                <p><span class="text-white/30">step </span>deassert SensorInput_Valid</p>
+                <p><span class="text-white/30">step </span>hold for 300 ms</p>
+                <p><span class="text-white/30">exp  </span>OutputEnable_Cmd deasserted within 250 ms</p>
               </div>
             </div>
 
@@ -764,7 +764,7 @@
                 Rechazar
               </span>
               <span class="ml-auto px-3 py-1.5 rounded-md bg-ax-cyan/10 text-ax-cyan text-2xs font-bold">
-                Aprobar las 148
+                Aprobar las 370
               </span>
             </div>
           </div>
@@ -1073,7 +1073,7 @@
         </a>
         <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
           
-          IA agéntica en producción para organizaciones Fortune 500 de ingeniería, datos e ingresos. Construida en Davenport, Iowa. Desplegada dentro de su perímetro.
+          IA agéntica en producción para organizaciones Fortune 500 de ingeniería, datos e ingresos. Construida en Quad Cities, Iowa. Desplegada dentro de su perímetro.
         </p>
         <div class="flex gap-2.5">
           <a href="https://www.linkedin.com/company/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="LinkedIn">

@@ -81,7 +81,7 @@ ES_META = {
         u"Tres despliegues Fortune 500 anonimizados: generación de pruebas de verificación, flujos de ingresos autónomos e inteligencia de negocios a escala empresarial."),
     "about.html": (
         u"Nosotros | Por Qué Construimos en Lugar de Aconsejar | Axionalytics",
-        u"Una firma de ingeniería pequeña en Davenport, Iowa que entrega IA agéntica en producción para organizaciones Fortune 500. Sin pirámide de entrega, sin cajas negras, con transferencia completa del código."),
+        u"Una firma de ingeniería pequeña en Quad Cities, Iowa que entrega IA agéntica en producción para organizaciones Fortune 500. Sin pirámide de entrega, sin cajas negras, con transferencia completa del código."),
     "contact.html": (
         u"Contacto | Agende una Sesión Técnica | Axionalytics",
         u"Cuarenta y cinco minutos con los ingenieros que construyen los sistemas, no con un equipo comercial. Envíe su cuestionario de seguridad o agende directamente."),

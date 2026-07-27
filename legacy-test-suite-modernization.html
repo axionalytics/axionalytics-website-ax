@@ -84,9 +84,9 @@
     "mainEntity": [
       { "@type": "Question", "name": "Why is legacy test debt so hard to pay down?",
         "acceptedAnswer": { "@type": "Answer", "text": "Because the work is arithmetically impossible by hand. Modernising a suite of several thousand cases at even thirty minutes each consumes multiple engineer-years, which never survives prioritisation against feature delivery. The debt is not tolerated by choice; it is tolerated because no realistic schedule retires it." } },
-      { "@type": "Question", "name": "What does modernising a legacy test case actually involve?",
+      { "@type": "Question", "name": "What does modernising a legacy test actually involve?",
         "acceptedAnswer": { "@type": "Answer", "text": "Restructuring it to a consistent format, adding the pre-conditions the original omitted, enriching it with the interface elements it exercises, and attaching the requirement that justifies it. The assertion logic usually survives unchanged — what is missing is the surrounding structure that makes the case reviewable and traceable." } },
-      { "@type": "Question", "name": "Is it safe to let a tool rewrite existing test cases in place?",
+      { "@type": "Question", "name": "Is it safe to let a tool rewrite existing tests in place?",
         "acceptedAnswer": { "@type": "Answer", "text": "Only behind a field-level diff and human approval. A modernisation pass that overwrites cases unattended can silently weaken an assertion, and nobody would notice until the defect it used to catch escapes. Every change should be shown against the existing case before it is written." } }
     ]
   }
@@ -152,7 +152,7 @@
                   </span>
                 </span>
                 <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
-                  Requirements, source code, and merged PRs become verification test cases. Legacy suites modernized in place.
+                  Requirements, source code, and merged PRs become verification tests. Legacy suites modernized in place.
                   
                 </span>
               </a>
@@ -505,7 +505,7 @@
           
         </h4>
         <p>
-          Attaching requirements to legacy cases surfaces the orphans — cases verifying behaviour that no longer has a justification because the requirement was withdrawn. Those should be retired, not modernised. Teams consistently find this category larger than expected, and deleting it is the cheapest coverage improvement available.
+          Attaching requirements to legacy tests surfaces the orphans — cases verifying behaviour that no longer has a justification because the requirement was withdrawn. Those should be retired, not modernised. Teams consistently find this category larger than expected, and deleting it is the cheapest coverage improvement available.
           
         </p>
       </div>
@@ -617,7 +617,7 @@
           <span class="text-[1.35rem] font-heading font-bold">axionalytics</span>
         </a>
         <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
-          Production agentic AI for Fortune 500 engineering, data, and revenue organizations. Built in Davenport, Iowa. Deployed inside your perimeter.
+          Production agentic AI for Fortune 500 engineering, data, and revenue organizations. Built in the Quad Cities, Iowa. Deployed inside your perimeter.
           
         </p>
         <div class="flex gap-2.5">

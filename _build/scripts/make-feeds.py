@@ -88,7 +88,7 @@ def build_llms(ma):
         "> every factual claim is traceable to the tool call that produced it. Engagements",
         "> end in full source transfer.",
         "",
-        "Based in Davenport, Iowa. Work is delivered in English and Spanish.",
+        "Based in the Quad Cities, Iowa. Work is delivered in English and Spanish.",
         "",
         "## Solutions",
         "",

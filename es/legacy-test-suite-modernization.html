@@ -84,9 +84,9 @@
     "mainEntity": [
       { "@type": "Question", "name": "Why is legacy test debt so hard to pay down?",
         "acceptedAnswer": { "@type": "Answer", "text": "Because the work is arithmetically impossible by hand. Modernising a suite of several thousand cases at even thirty minutes each consumes multiple engineer-years, which never survives prioritisation against feature delivery. The debt is not tolerated by choice; it is tolerated because no realistic schedule retires it." } },
-      { "@type": "Question", "name": "What does modernising a legacy test case actually involve?",
+      { "@type": "Question", "name": "What does modernising a legacy test actually involve?",
         "acceptedAnswer": { "@type": "Answer", "text": "Restructuring it to a consistent format, adding the pre-conditions the original omitted, enriching it with the interface elements it exercises, and attaching the requirement that justifies it. The assertion logic usually survives unchanged — what is missing is the surrounding structure that makes the case reviewable and traceable." } },
-      { "@type": "Question", "name": "Is it safe to let a tool rewrite existing test cases in place?",
+      { "@type": "Question", "name": "Is it safe to let a tool rewrite existing tests in place?",
         "acceptedAnswer": { "@type": "Answer", "text": "Only behind a field-level diff and human approval. A modernisation pass that overwrites cases unattended can silently weaken an assertion, and nobody would notice until the defect it used to catch escapes. Every change should be shown against the existing case before it is written." } }
     ]
   }
@@ -153,7 +153,7 @@
                 </span>
                 <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
                   
-                  Requisitos, código fuente y PRs fusionados se convierten en casos de prueba. Suites heredadas modernizadas en sitio.
+                  Requisitos, código fuente y PRs fusionados se convierten en pruebas. Suites heredadas modernizadas en sitio.
                 </span>
               </a>
 
@@ -618,7 +618,7 @@
         </a>
         <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
           
-          IA agéntica en producción para organizaciones Fortune 500 de ingeniería, datos e ingresos. Construida en Davenport, Iowa. Desplegada dentro de su perímetro.
+          IA agéntica en producción para organizaciones Fortune 500 de ingeniería, datos e ingresos. Construida en Quad Cities, Iowa. Desplegada dentro de su perímetro.
         </p>
         <div class="flex gap-2.5">
           <a href="https://www.linkedin.com/company/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="LinkedIn">

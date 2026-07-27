@@ -50,7 +50,7 @@
     "dateModified": "2026-06-26",
     "articleSection": "Verification",
     "inLanguage": ["en", "es"],
-    "wordCount": 777,
+    "wordCount": 775,
     "timeRequired": "PT3M",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/coverage-gap-analysis.html" },
     "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
@@ -83,7 +83,7 @@
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "What is a verification coverage gap?",
-        "acceptedAnswer": { "@type": "Answer", "text": "An element of implemented behaviour — a signal, a function, a configuration path — that no test case exercises. It differs from code coverage, which measures whether lines executed during a run. A behaviour can be fully line-covered and still have no test asserting that it behaves correctly." } },
+        "acceptedAnswer": { "@type": "Answer", "text": "An element of implemented behaviour — a signal, a function, a configuration path — that no test exercises. It differs from code coverage, which measures whether lines executed during a run. A behaviour can be fully line-covered and still have no test asserting that it behaves correctly." } },
       { "@type": "Question", "name": "Why is code coverage insufficient for safety-critical verification?",
         "acceptedAnswer": { "@type": "Answer", "text": "Because it measures execution, not intent. A line executes whenever any test touches it, including tests that assert nothing about the behaviour that line implements. High line coverage with low requirement coverage is common and is exactly the state that produces audit findings." } },
       { "@type": "Question", "name": "How do you find untested behaviour across configuration variants?",
@@ -152,7 +152,7 @@
                   </span>
                 </span>
                 <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
-                  Requirements, source code, and merged PRs become verification test cases. Legacy suites modernized in place.
+                  Requirements, source code, and merged PRs become verification tests. Legacy suites modernized in place.
                   
                 </span>
               </a>
@@ -450,7 +450,7 @@
       </h2>
 
       <p>
-        Answering the third question is arithmetic once you have the two inputs. Enumerate what exists — every interface element and function in the implementation, across every configuration variant the product ships in. Then subtract everything an existing test case exercises. The remainder is the gap.
+        Answering the third question is arithmetic once you have the two inputs. Enumerate what exists — every interface element and function in the implementation, across every configuration variant the product ships in. Then subtract everything an existing test exercises. The remainder is the gap.
         
       </p>
 
@@ -460,7 +460,7 @@
       </p>
 
       <p>
-        The second input is available if test cases record which elements they exercise at the point they are authored, rather than in a separate document. Where that provenance exists, the subtraction is a query.
+        The second input is available if tests record which elements they exercise at the point they are authored, rather than in a separate document. Where that provenance exists, the subtraction is a query.
         
       </p>
 
@@ -627,7 +627,7 @@
           <span class="text-[1.35rem] font-heading font-bold">axionalytics</span>
         </a>
         <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
-          Production agentic AI for Fortune 500 engineering, data, and revenue organizations. Built in Davenport, Iowa. Deployed inside your perimeter.
+          Production agentic AI for Fortune 500 engineering, data, and revenue organizations. Built in the Quad Cities, Iowa. Deployed inside your perimeter.
           
         </p>
         <div class="flex gap-2.5">

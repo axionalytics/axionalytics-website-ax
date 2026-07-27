@@ -1,5 +1,5 @@
-<!--FAQ Why do requirements traceability matrices go stale? | Because they are maintained separately from the artifacts they describe. The link between a requirement and a test case lives in a spreadsheet rather than on the test case, so every requirement revision, test edit, or reorganisation silently breaks it and nothing surfaces the break until an audit.-->
-<!--FAQ How can requirements traceability be automated? | Generate the link at authoring time rather than reconstructing it later. When a test case is produced from a requirement, the requirement identifier and the matched signals are written onto the case as it is created, so traceability is a property of the artifact instead of a parallel document.-->
+<!--FAQ Why do requirements traceability matrices go stale? | Because they are maintained separately from the artifacts they describe. The link between a requirement and a test lives in a spreadsheet rather than on the test, so every requirement revision, test edit, or reorganisation silently breaks it and nothing surfaces the break until an audit.-->
+<!--FAQ How can requirements traceability be automated? | Generate the link at authoring time rather than reconstructing it later. When a test is produced from a requirement, the requirement identifier and the matched signals are written onto the case as it is created, so traceability is a property of the artifact instead of a parallel document.-->
 <!--FAQ What is bidirectional traceability? | The ability to answer both directions: which tests verify this requirement, and which requirement justifies this test. The second direction is the one that finds orphaned tests — cases that survive long after the requirement motivating them was withdrawn.-->
 
 <p>
@@ -8,8 +8,8 @@
 </p>
 
 <p>
-  <span data-lang-en>Every regulated engineering organization maintains one. Almost none trusts it. The ritual before an audit — freeze the requirements, reconstruct the mapping by hand, discover that four hundred test cases reference requirement identifiers that no longer exist — is familiar enough that teams budget weeks for it.</span>
-  <span data-lang-es>Toda organización de ingeniería regulada mantiene una. Casi ninguna confía en ella. El ritual previo a una auditoría — congelar los requisitos, reconstruir el mapeo a mano, descubrir que cuatrocientos casos de prueba referencian identificadores que ya no existen — es lo bastante familiar como para que los equipos presupuesten semanas para él.</span>
+  <span data-lang-en>Every regulated engineering organization maintains one. Almost none trusts it. The ritual before an audit — freeze the requirements, reconstruct the mapping by hand, discover that four hundred tests reference requirement identifiers that no longer exist — is familiar enough that teams budget weeks for it.</span>
+  <span data-lang-es>Toda organización de ingeniería regulada mantiene una. Casi ninguna confía en ella. El ritual previo a una auditoría — congelar los requisitos, reconstruir el mapeo a mano, descubrir que cuatrocientos pruebas referencian identificadores que ya no existen — es lo bastante familiar como para que los equipos presupuesten semanas para él.</span>
 </p>
 
 <h2>
@@ -38,8 +38,8 @@
 </h2>
 
 <p>
-  <span data-lang-en>The structural fix is to stop treating traceability as documentation and start treating it as provenance. When a test case is generated from a requirement, the requirement identifier and the specific signals it implicates are written onto the case as it is created — not recorded in a parallel spreadsheet afterwards.</span>
-  <span data-lang-es>La solución estructural es dejar de tratar la trazabilidad como documentación y empezar a tratarla como procedencia. Cuando un caso de prueba se genera desde un requisito, el identificador del requisito y las señales específicas que implica se escriben en el caso al crearlo — no se registran después en una hoja de cálculo paralela.</span>
+  <span data-lang-en>The structural fix is to stop treating traceability as documentation and start treating it as provenance. When a test is generated from a requirement, the requirement identifier and the specific signals it implicates are written onto the case as it is created — not recorded in a parallel spreadsheet afterwards.</span>
+  <span data-lang-es>La solución estructural es dejar de tratar la trazabilidad como documentación y empezar a tratarla como procedencia. Cuando una prueba se genera desde un requisito, el identificador del requisito y las señales específicas que implica se escriben en el caso al crearlo — no se registran después en una hoja de cálculo paralela.</span>
 </p>
 
 <p>

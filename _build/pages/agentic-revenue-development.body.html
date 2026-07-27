@@ -319,8 +319,8 @@
         <span data-lang-es>Los límites, declarados de entrada.</span>
       </h2>
       <p class="text-lg text-white/55 leading-relaxed">
-        <span data-lang-en>We run this on our own pipeline, so these are observed rather than theoretical.</span>
-        <span data-lang-es>Lo usamos en nuestro propio pipeline, así que estos límites son observados y no teóricos.</span>
+        <span data-lang-en>These come from production deployments, so they are observed rather than theoretical.</span>
+        <span data-lang-es>Provienen de despliegues en producción, así que son límites observados y no teóricos.</span>
       </p>
     </div>
 
@@ -441,14 +441,14 @@
         <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="ard-faq">
           <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
             <h3 class="font-heading font-bold text-[1.05rem]">
-              <span data-lang-en>Do you run this yourselves?</span>
-              <span data-lang-es>¿Ustedes lo usan?</span>
+              <span data-lang-en>How do you know the limits are real?</span>
+              <span data-lang-es>¿Cómo saben que los límites son reales?</span>
             </h3>
             <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-magenta" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
           </button>
           <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
-            <span data-lang-en><strong class="text-ax-ink">Yes — it was built for our own pipeline before it was offered to anyone.</strong> That is why the limitations section above is specific rather than generic: those are the constraints we actually hit. It also means the economics are ours to verify, and the per-lead cost sits in cents rather than dollars because of the model-tier routing.</span>
-            <span data-lang-es><strong class="text-ax-ink">Sí — se construyó para nuestro propio pipeline antes de ofrecerse a nadie.</strong> Por eso la sección de limitaciones es específica y no genérica: son las restricciones que realmente encontramos. También significa que la economía es verificable por nosotros, y el costo por cuenta está en centavos y no en dólares gracias al enrutamiento entre niveles de modelo.</span>
+            <span data-lang-en><strong class="text-ax-ink">Because they are measured, not estimated.</strong> The limitations section above is specific rather than generic: those are the constraints these deployments actually hit, recorded against real run volume. The same instrumentation is what puts the per-lead cost in cents rather than dollars — model-tier routing sends the binary qualification decision to a fast tier and reserves the deep tier for research that needs it.</span>
+            <span data-lang-es><strong class="text-ax-ink">Porque están medidos, no estimados.</strong> La sección de limitaciones es específica y no genérica: son las restricciones que estos despliegues realmente encontraron, registradas contra volumen real de ejecución. Esa misma instrumentación es la que deja el costo por cuenta en centavos y no en dólares — el enrutamiento entre niveles de modelo manda la decisión binaria de calificación a un nivel rápido y reserva el nivel profundo para la investigación que lo requiere.</span>
           </p></div></div>
         </div>
       </div>
