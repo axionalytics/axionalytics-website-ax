@@ -11,7 +11,7 @@
 #   4. add-breadcrumbs  injects BreadcrumbList into hand-written core meta files
 #  4b. add-local-business  LocalBusiness schema on home + contact
 #   5. make-author-page emits author.html once a name is set in author.py
-#   6. sanitize-sources strips client-identifying specifics; idempotent
+#   6. sanitize-sources applies the editorial substitution list; idempotent
 #   7. build.sh         assembles _build/pages/* + partials -> root *.html
 #                       (still bilingual at this point)
 #   8. add-contextual-links  inserts in-prose internal links; runs on built
@@ -21,7 +21,7 @@
 #  11. make-feeds       rss.xml + llms.txt from the article manifest
 #  12. make-sitemap     sitemap.xml across both language trees
 #  13. make-redirects   noindex stubs for retired URLs
-#  14. check-leaks      fails the build if a client term reached the output
+#  14. check-leaks      fails the build if a substitution was missed
 #
 # make-i18n must run after build.sh, because build.sh regenerates the bilingual
 # pages it consumes. Running build.sh alone leaves the site in an intermediate
@@ -78,7 +78,7 @@ python _build/scripts/make-sitemap.py
 step "13/14 redirect stubs"
 bash _build/scripts/make-redirects.sh
 
-step "14/14 confidentiality check"
+step "14/14 verification"
 python _build/scripts/check-leaks.py
 
 printf '\n\033[1mdone.\033[0m  %s pages en  ·  %s pages es\n' \

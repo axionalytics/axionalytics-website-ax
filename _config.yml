@@ -10,10 +10,9 @@
 # does not depend on a convention someone might not know about.
 #
 # WHY THIS MATTERS
-# Before this file existed, example.md sat at the site root and was downloadable
-# at https://www.axionalytics.com/example.md — 548 KB of internal platform
-# documentation naming a client. Anything placed at the root of this repository
-# is served to the public. Assume that by default.
+# Anything placed at the root of this repository is served to the public, whether
+# or not it looks like a web page. A working file dropped here is downloadable by
+# anyone who guesses the name. Assume that by default.
 #
 # THE RULE
 # If a file should not be downloadable by a stranger, it belongs in a folder
@@ -28,7 +27,7 @@
 exclude:
   - _build/          # build scripts, page sources, partials
   - _legacy/         # snapshot of the pre-2026 site, kept for rollback
-  - _private/        # client source documents, strategy notes, original artwork
+  - _private/        # local-only working material, not in version control
   - README.md        # repository documentation, not a web page
 
 # Jekyll would otherwise try to interpret Liquid syntax (double curly braces)

@@ -1,31 +1,28 @@
 # -*- coding: utf-8 -*-
 """
-Confirm nothing client-identifying escaped, by two independent routes.
+Verify the substitution list was fully applied, by two independent routes.
 
 WHY THIS EXISTS AS A SCRIPT
 ---------------------------
-The obvious way to check is a grep with the sensitive terms typed into it. That
-creates a second problem: the command itself names the client, so it cannot go
-in the README, a commit message, a CI log, or anywhere else someone might read.
+The obvious way to check is a grep with the terms typed into it. That defeats
+the purpose: the command itself then contains every string it is looking for,
+so it cannot go in a README, a commit message, or a build log.
 
-This reads the terms from _private/terms.py — the single place they are declared,
-and a file git never sees — and reports only counts and rule descriptions. The
-output is safe to paste anywhere. It also means the check can never drift from
-the sanitiser: add a rule there and it is covered here automatically.
+This loads the list from _private/terms.py — the one place it is declared, and a
+file git never sees — and reports only counts and rule descriptions. The output
+is safe to paste anywhere. It also means the check cannot drift from the
+substitution step: add a rule there and it is covered here automatically.
 
 TWO CHECKS, NOT ONE
 -------------------
-  1. TERM SCAN — does any sensitive string appear in the published output?
+  1. TERM SCAN — does any listed term still appear in the published output?
      Needs _private/terms.py. Skipped with a warning if absent.
 
-  2. TRACKING CHECK — is any file under _private/ staged or committed to git?
-     Needs nothing but git, and matters more than check 1 now that the
-     repository is public. The published site being clean is worth little if
-     the source documents are sitting in the repo next to it.
-
-Check 2 is the one that would catch the catastrophic mistake. A `git add -f`,
-a rewritten .gitignore, or a fresh clone without the ignore rules would all put
-_private/ into a public repository, and no amount of HTML scanning would notice.
+  2. TRACKING CHECK — has anything under _private/ been staged or committed?
+     Needs nothing but git. This one matters more, because a scan of the HTML
+     would never notice it: a `git add -f`, an edited .gitignore, or a clone
+     without the ignore rules would each put local working material into a
+     public repository silently.
 
 Exit code is 1 if either check fails, so it can gate a deploy.
 
@@ -43,7 +40,7 @@ TERMS_PATH = os.path.join(ROOT, "_private", "terms.py")
 
 
 def load_rules():
-    """Sensitive terms, or None when the private list is not present."""
+    """The substitution list, or None when it is not present locally."""
     if not os.path.exists(TERMS_PATH):
         return None
     spec = importlib.util.spec_from_file_location("axio_terms", TERMS_PATH)
@@ -66,19 +63,18 @@ def published_files():
 
 
 def check_terms():
-    """Scan the published output for sensitive strings. Returns 0 or 1."""
+    """Scan the published output for any remaining listed term. Returns 0 or 1."""
     rules = load_rules()
     if rules is None:
         print("  [1/2] term scan  SKIPPED - no _private/terms.py on this machine")
-        print("        Expected in a clone of the public repository. Expected")
-        print("        NOWHERE ELSE: if you are the maintainer and see this, the")
-        print("        term list is missing and the check is not protecting you.")
+        print("        Expected in a fresh clone. If you are the maintainer and")
+        print("        see this, the list is missing and the check is inactive.")
         return 0
 
     files = published_files()
 
-    # Only the "before" side of each rule is a sensitive term. Skip rules whose
-    # needle is a markup fragment rather than a word (counters, attributes).
+    # Only the "before" side of each rule is a term to look for. Skip rules
+    # whose needle is a markup fragment rather than a word (counters).
     terms = [(needle, why) for needle, _repl, why in rules
              if "data-count" not in needle and len(needle) > 3]
 
@@ -93,11 +89,11 @@ def check_terms():
             if needle in text:
                 findings.append((rel, why, text.count(needle)))
 
-    print("  [1/2] term scan  %d published files against %d sensitive terms"
+    print("  [1/2] term scan  %d published files against %d terms"
           % (len(files), len(terms)))
 
     if not findings:
-        print("        CLEAN - no client-identifying term reached the output")
+        print("        CLEAN - every substitution is reflected in the output")
         return 0
 
     print("\n        LEAKS FOUND (term withheld; see the rule reason):\n")
@@ -139,15 +135,14 @@ def check_tracking():
     if len(leaked) > 20:
         print("          ... and %d more" % (len(leaked) - 20))
     print("""
-        This repository is PUBLIC. These files must never be committed.
+        This repository is public. These files stay local.
 
         Fix:
           1. confirm .gitignore still contains a line reading  _private/
           2. if any are already staged:   git rm -r --cached _private
-          3. if any are already COMMITTED and pushed, the history is
-             compromised. Do not simply delete them in a new commit — git
-             keeps the old ones. Delete the GitHub repository, recreate it,
-             and push a fresh history.""")
+          3. if any are already COMMITTED and pushed, deleting them in a
+             new commit is not enough - git keeps the old objects. Delete
+             the remote repository, recreate it, and push a fresh history.""")
     return 1
 
 

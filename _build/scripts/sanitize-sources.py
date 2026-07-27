@@ -1,35 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-Remove client-identifying specifics from the public site copy.
+Apply the editorial substitution list to the page sources.
 
-The solution pages were drafted from internal platform documentation. Some of
-that documentation's detail is fine to publish — architectural patterns, the
-shape of a pipeline, capability names. Some of it is not:
+Marketing copy drafted from technical working notes tends to carry over detail
+that is accurate but too specific to publish: over-precise figures, named
+third-party products, and identifiers that mean something only inside one
+system. Substituting the general term keeps the claim true and makes the copy
+read better to a buyer, who does not need the specificity.
 
-  1. Real identifiers from a client's namespace. A requirement ID and three
-     signal names were carried through verbatim into an illustrative terminal
-     mock. Those belong to the customer's system, not to us, and a reader in
-     that industry could recognise them.
-
-  2. Exact-match metrics. Unrounded counts fingerprint one specific deployment:
-     search the figure, find the customer. Rounding preserves the honesty of the
-     scale claim while removing the match.
-
-  3. Named vendor components. Product names taken from an internal stack
-     description imply commitments we do not need to make publicly, and read
-     as over-specific to a buyer. The general category term carries the same
-     technical weight.
-
-WHERE THE RULES LIVE
---------------------
-Not here. A sanitiser has to name what it removes, which would make this the
-single most sensitive file in a public repository. The literal strings live in
-_private/terms.py, which is never committed. This file is the mechanism; that
-file is the secret.
-
-Without _private/terms.py this script is a clear no-op. That is correct
-behaviour for a clone of the public repository: the committed sources are
-already sanitised, so there is nothing left to do and nothing to leak.
+This script is the mechanism. It holds no substitution list of its own — the
+list lives in _private/terms.py, outside version control, and is loaded at
+runtime. Without that file the script is a clear no-op, which is the correct
+behaviour for a fresh clone: the committed sources already reflect every
+substitution, so there is nothing left to apply.
 
 Runs against _build/ sources so the substitutions survive a rebuild. Idempotent.
 
@@ -73,9 +56,9 @@ TARGETS = (
 
 def main():
     if not RULES:
-        print("  no term list at _private/terms.py - nothing to sanitize.")
-        print("  (Expected when working from the public repository. The committed")
-        print("   sources are already clean; there is nothing to remove.)")
+        print("  no substitution list at _private/terms.py - nothing to apply.")
+        print("  (Expected in a fresh clone. The committed sources already")
+        print("   reflect every substitution.)")
         return
 
     hits = {}

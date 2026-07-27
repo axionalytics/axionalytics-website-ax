@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-Scan staged content for client-identifying terms. Called by the pre-commit hook.
+Scan staged content against the substitution list. Called by the pre-commit hook.
 
 WHY SCAN CONTENT AND NOT JUST PATHS
 -----------------------------------
-Keeping _private/ out of git stops the obvious mistake: committing the source
-documents themselves. It does nothing about the quiet one — pasting a real
-requirement ID into an article, or a real signal name into a code sample, or an
-unrounded metric into the README. That has already happened once in this
-project: the README explained the exact-metrics rule by quoting a real metric.
+Keeping _private/ out of git stops the obvious mistake. It does nothing about
+the quiet one: a term from the substitution list pasted into an article, a code
+sample, or documentation, where no path rule would ever see it.
 
-Paths are easy to guard. Content is where the leak actually comes from.
+Paths are easy to guard. Content is where things actually slip through.
 
-Reads the terms from _private/terms.py. Prints matched file and rule reason,
-never the term itself, so the hook's output is safe in a terminal log.
+Reads the list from _private/terms.py. Prints the matched file and the rule
+reason, never the term itself, so the output is safe in a terminal log.
 
 Exit 1 blocks the commit. Exit 0 allows it.
 
@@ -36,7 +34,7 @@ def load_terms():
     spec = importlib.util.spec_from_file_location("axio_terms", TERMS_PATH)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    # Only the "before" side is sensitive. Short needles and markup fragments
+    # Only the "before" side is searched. Short needles and markup fragments
     # produce false positives that would train the user to bypass the hook,
     # which is worse than not having it.
     return [(n, why) for n, _r, why in mod.RULES
@@ -83,7 +81,7 @@ def main():
     print("")
     print("  COMMIT REFUSED")
     print("")
-    print("  Staged content contains client-identifying material:")
+    print("  Staged content matches the substitution list:")
     print("")
     seen = set()
     for path, why in findings:
@@ -99,7 +97,7 @@ def main():
     # Plain ASCII only below: this prints into a Windows console at the moment
     # someone is already alarmed, and a mojibaked warning reads as a broken tool.
     print("  If this is a false positive, commit with --no-verify - but read")
-    print("  the flagged line first. This hook has caught a real leak before.")
+    print("  the flagged line first.")
     print("")
     return 1
 

@@ -1,29 +1,22 @@
 # =============================================================================
-# THIS REPOSITORY IS PUBLIC.
-# -----------------------------------------------------------------------------
-# The line that matters is the _private/ rule below. Everything else here is
-# ordinary clutter; that one rule is the only thing standing between a public
-# repository and a customer's internal engineering documents.
+# This repository is public. Treat every committed file as published.
 #
-# _build/ and _legacy/ ARE committed, on purpose. _build/ is how anyone rebuilds
-# the site, and it is clean — the sanitiser lives there but the terms it removes
-# do not. _legacy/ is the pre-2026 site, which was public all along.
+# _build/ and _legacy/ are committed on purpose: _build/ is how the site is
+# rebuilt, and _legacy/ is the previous version of the same public website.
 #
-# Three independent guards, because one is not enough for an irreversible
-# mistake:
-#   1. this file                      — keeps _private/ out of `git add`
+# _private/ is working material that stays on the local machine. Three
+# independent checks keep it that way, because the mistake is not reversible:
+#   1. this file                      — keeps it out of `git add`
 #   2. .git/hooks/pre-commit          — refuses the commit even if forced
 #   3. _build/scripts/check-leaks.py  — fails the build if git can see it
 #
-# Guard 2 is not cloned with the repository. If you ever set this project up on
-# another machine, reinstall it: bash _build/scripts/install-hooks.sh
+# Guard 2 is not cloned with a repository. On a new machine, reinstall it:
+#   bash _build/scripts/install-hooks.sh
 # =============================================================================
 
 # -----------------------------------------------------------------------------
-# CONFIDENTIAL — never commit. Client source documents, the sanitiser term list,
-# original artwork, strategy notes, and the setup runbook.
-#
-# Not in version control means NOT BACKED UP. Copy this folder somewhere safe.
+# Local-only working material. Never commit.
+# Not in version control means NOT BACKED UP — keep a copy elsewhere.
 # -----------------------------------------------------------------------------
 _private/
 

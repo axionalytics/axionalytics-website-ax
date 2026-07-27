@@ -9,8 +9,7 @@
 # Run once per clone:  bash _build/scripts/install-hooks.sh
 #
 # The hook it installs refuses any commit that stages a file under _private/,
-# and refuses any commit whose staged content contains a known client term. It
-# is the last automatic thing standing between a slip and a public repository.
+# and any commit whose staged content matches the substitution list.
 # =============================================================================
 set -euo pipefail
 
@@ -26,7 +25,7 @@ mkdir -p .git/hooks
 
 cat > .git/hooks/pre-commit <<'HOOK'
 #!/usr/bin/env bash
-# Refuses to commit confidential material. Installed by
+# Refuses to commit local-only material. Installed by
 # _build/scripts/install-hooks.sh - do not edit here, edit there.
 set -uo pipefail
 
@@ -39,7 +38,7 @@ staged=$(git diff --cached --name-only --diff-filter=ACMR)
 private=$(echo "$staged" | grep '^_private/' || true)
 if [ -n "$private" ]; then
   fail
-  echo "  These files are under _private/ and this repository is PUBLIC:"
+  echo "  These files are under _private/ and stay local:"
   echo ""
   echo "$private" | sed 's/^/      /'
   echo ""
@@ -49,10 +48,10 @@ if [ -n "$private" ]; then
   exit 1
 fi
 
-# ---- 2. no known client term in staged content -----------------------------
-# The terms are read from _private/terms.py, which is not committed. If it is
-# absent this check cannot run - that is fine on a machine that has no secrets
-# to leak in the first place.
+# ---- 2. no listed term in staged content -----------------------------------
+# The list is read from _private/terms.py, which is not committed. If it is
+# absent the check cannot run, which is fine: that machine has nothing to
+# match against in the first place.
 if [ -f _private/terms.py ] && command -v python >/dev/null 2>&1; then
   if ! python _build/scripts/scan-staged.py; then
     exit 1
@@ -66,7 +65,7 @@ chmod +x .git/hooks/pre-commit
 echo "installed .git/hooks/pre-commit"
 echo
 echo "  guard 1: refuses any staged path under _private/"
-echo "  guard 2: refuses any staged content matching a known client term"
+echo "  guard 2: refuses any staged content matching the substitution list"
 echo
 echo "verifying it is executable and syntactically valid..."
 bash -n .git/hooks/pre-commit && echo "  ok"
