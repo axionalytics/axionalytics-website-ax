@@ -205,15 +205,15 @@
               browser performs a real POST. Left false, the gate unlocks
               client-side without submitting anywhere.
             -->
-            <form id="roi-gate-form" class="space-y-2.5">
+            <div id="roi-gate-form" class="space-y-2.5">
               <label for="field-email" class="sr-only">Work email</label>
               <input type="email" id="field-email" name="email" required
                      class="ax-input ax-input-dark"
                      placeholder="you@company.com">
-              <button type="submit" class="ax-btn ax-btn-primary w-full py-3.5 text-sm">
+              <button type="button" id="roi-gate-submit" class="ax-btn ax-btn-primary w-full py-3.5 text-sm">
                 <span data-lang-en>Unlock the breakdown</span><span data-lang-es>Desbloquear el desglose</span>
               </button>
-            </form>
+            </div>
             <p id="roi-gate-note" hidden class="text-2xs text-ax-cyan mt-3 leading-relaxed"></p>
             <p class="text-2xs text-white/30 mt-3 leading-relaxed">
               <span data-lang-en>Your modelling inputs stay in the browser. We use the address to send the summary and, if you want one, to arrange a briefing.</span>

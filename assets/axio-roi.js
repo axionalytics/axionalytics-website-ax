@@ -241,63 +241,85 @@
 
   var gate = $('roi-gate');
   var detail = $('roi-detail');
-  var gateForm = $('roi-gate-form');
+  var gateBtn = $('roi-gate-submit');
   var gateNote = $('roi-gate-note');
 
-  if (gateForm) {
-    gateForm.addEventListener('submit', function (e) {
-      e.preventDefault();
+  /* The gate is NOT a <form>, and must never become one again.
+     ------------------------------------------------------------------------
+     The whole calculator is wrapped in #roi-form, and HTML forbids nesting one
+     form inside another: the parser silently discards the inner start tag. An
+     earlier version had <form id="roi-gate-form"> here, so that element never
+     existed in the DOM, getElementById returned null, no submit listener was
+     ever attached, and the button — now owned by the outer form, which carries
+     onsubmit="return false" — did nothing at all when clicked. No console
+     error, no visible failure. The gate simply never worked in production.
 
-      var email = $('field-email');
-      if (!email || !email.checkValidity()) {
-        if (email) email.reportValidity();
-        return;
+     So: a plain button with a click handler, plus Enter on the email field to
+     keep the keyboard behaviour a form would have given for free. */
+  if (gateBtn) {
+    gateBtn.addEventListener('click', submitGate);
+  }
+
+  var emailField = $('field-email');
+  if (emailField) {
+    emailField.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.keyCode === 13) {
+        e.preventDefault();
+        submitGate();
       }
-
-      // Flat, human-readable keys. Form services (Formspree, Netlify) render
-      // each key as a row in the notification email; a nested object would
-      // arrive as "[object Object]" or raw JSON, which is unreadable in an
-      // inbox. Values are pre-formatted for the same reason.
-      var r = compute();
-      var scenarioLabel = {
-        test:  'Test Engineering',
-        bi:    'Business Intelligence',
-        agent: 'Autonomous Workflows'
-      }[state.scenario] || state.scenario;
-
-      var payload = {
-        email: email.value.trim(),
-        _subject: 'ROI calculator — ' + scenarioLabel + ' — ' + money(r.netRecovery) + '/yr',
-
-        scenario: scenarioLabel,
-        reclaimed_hours: hours(r.reclaimedHours) + ' hrs/yr',
-        fte_equivalent: r.fteEquivalent.toFixed(1) + ' FTE',
-        net_annual_recovery: money(r.netRecovery),
-        payback: isFinite(r.paybackMonths) ? r.paybackMonths.toFixed(1) + ' months' : 'n/a',
-        three_year_net: money(r.threeYearNet),
-
-        input_volume: num('roi-volume').toLocaleString('en-US'),
-        input_people: num('roi-people') + ' FTE',
-        input_loaded_cost: money(num('roi-salary')),
-
-        source: 'roi-calculator',
-        page: window.location.href
-      };
-
-      if (window.axioTrack) {
-        window.axioTrack('roi_unlock', {
-          scenario: state.scenario,
-          captured: LEAD_ENDPOINT ? 'yes' : 'no'
-        });
-      }
-
-      // Reveal first, transmit second.
-      unlock();
-
-      if (!LEAD_ENDPOINT) return;
-
-      send(payload);
     });
+  }
+
+  function submitGate() {
+    var email = $('field-email');
+    if (!email || !email.checkValidity()) {
+      if (email) email.reportValidity();
+      return;
+    }
+
+    // Flat, human-readable keys. Form services (Formspree, Netlify) render
+    // each key as a row in the notification email; a nested object would
+    // arrive as "[object Object]" or raw JSON, which is unreadable in an
+    // inbox. Values are pre-formatted for the same reason.
+    var r = compute();
+    var scenarioLabel = {
+      test:  'Test Engineering',
+      bi:    'Business Intelligence',
+      agent: 'Autonomous Workflows'
+    }[state.scenario] || state.scenario;
+
+    var payload = {
+      email: email.value.trim(),
+      _subject: 'ROI calculator — ' + scenarioLabel + ' — ' + money(r.netRecovery) + '/yr',
+
+      scenario: scenarioLabel,
+      reclaimed_hours: hours(r.reclaimedHours) + ' hrs/yr',
+      fte_equivalent: r.fteEquivalent.toFixed(1) + ' FTE',
+      net_annual_recovery: money(r.netRecovery),
+      payback: isFinite(r.paybackMonths) ? r.paybackMonths.toFixed(1) + ' months' : 'n/a',
+      three_year_net: money(r.threeYearNet),
+
+      input_volume: num('roi-volume').toLocaleString('en-US'),
+      input_people: num('roi-people') + ' FTE',
+      input_loaded_cost: money(num('roi-salary')),
+
+      source: 'roi-calculator',
+      page: window.location.href
+    };
+
+    if (window.axioTrack) {
+      window.axioTrack('roi_unlock', {
+        scenario: state.scenario,
+        captured: LEAD_ENDPOINT ? 'yes' : 'no'
+      });
+    }
+
+    // Reveal first, transmit second.
+    unlock();
+
+    if (!LEAD_ENDPOINT) return;
+
+    send(payload);
   }
 
   function send(payload) {
