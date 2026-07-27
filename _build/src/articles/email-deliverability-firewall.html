@@ -1,0 +1,109 @@
+<!--FAQ What is a catch-all email domain? | A domain configured to accept mail addressed to any name at it, whether or not that mailbox exists. Standard verification cannot distinguish a real recipient from a fabricated one there, because the server accepts both — which is why catch-all domains need separate handling rather than a pass or fail verdict.-->
+<!--FAQ Why is guessing an email address pattern harmful? | Because a guessed address that does not exist produces a hard bounce, and bounce rate is the primary signal mail providers use to judge a sender. A few percent of guessed addresses is enough to move a domain from the inbox to the spam folder, including for mail that has nothing to do with outreach.-->
+<!--FAQ How many verification tiers does an address actually need? | Three, because they answer different questions. Syntax validation catches malformed and disposable addresses at no cost. A mail-server probe confirms the mailbox exists. Confidence scoring handles catch-all domains, where the first two cannot produce a verdict.-->
+
+<p>
+  <span data-lang-en><strong>Sender reputation is the asset an outbound programme actually runs on, and bounces are what spend it. A few percent of undeliverable addresses is enough to move a domain from the inbox to the spam folder — for every message it sends, not just the campaign.</strong></span>
+  <span data-lang-es><strong>La reputación del remitente es el activo real sobre el que corre un programa de prospección, y los rebotes son lo que la gastan. Un pequeño porcentaje de direcciones no entregables basta para mover un dominio de la bandeja de entrada a la de spam — para todos sus mensajes, no solo los de la campaña.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>Teams discover this in the wrong order. The campaign underperforms, someone raises volume to compensate, and three weeks later a colleague mentions that a customer said an invoice went to junk.</span>
+  <span data-lang-es>Los equipos lo descubren en el orden equivocado. La campaña rinde poco, alguien sube el volumen para compensar, y tres semanas después un colega comenta que un cliente dijo que una factura fue a correo no deseado.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The habit that causes it</span>
+  <span data-lang-es>El hábito que lo causa</span>
+</h2>
+
+<p>
+  <span data-lang-en>Pattern guessing. A tool knows a name and a domain, infers <code>first.last@company.com</code>, and sends hopefully. Sometimes it is right. When it is wrong the message hard-bounces, and every hard bounce is recorded against the sending domain.</span>
+  <span data-lang-es>La adivinación de patrones. Una herramienta conoce un nombre y un dominio, infiere <code>nombre.apellido@empresa.com</code> y envía con esperanza. A veces acierta. Cuando falla, el mensaje rebota, y cada rebote se registra contra el dominio remitente.</span>
+</p>
+
+<p>
+  <span data-lang-en>The practice persists because it is free and the cost is deferred and diffuse. Nobody attributes the invoice in the spam folder to the prospecting sequence from six weeks ago.</span>
+  <span data-lang-es>La práctica persiste porque es gratis y el costo es diferido y difuso. Nadie atribuye la factura en la carpeta de spam a la secuencia de prospección de hace seis semanas.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Three tiers, because they answer different questions</span>
+  <span data-lang-es>Tres niveles, porque responden preguntas distintas</span>
+</h2>
+
+<h3>
+  <span data-lang-en>Tier one — syntax and disposability</span>
+  <span data-lang-es>Nivel uno — sintaxis y desechabilidad</span>
+</h3>
+
+<p>
+  <span data-lang-en>Structural validation, plus rejection of known disposable domains, plus correction of obvious typos in common providers. It costs nothing and eliminates a surprising share of what a scraper produces. It cannot tell you whether a well-formed address exists.</span>
+  <span data-lang-es>Validación estructural, más rechazo de dominios desechables conocidos, más corrección de erratas obvias en proveedores comunes. No cuesta nada y elimina una porción sorprendente de lo que produce un extractor. No puede decir si una dirección bien formada existe.</span>
+</p>
+
+<h3>
+  <span data-lang-en>Tier two — the mail-server probe</span>
+  <span data-lang-es>Nivel dos — el sondeo al servidor de correo</span>
+</h3>
+
+<p>
+  <span data-lang-en>Ask the receiving mail server whether the mailbox exists, without sending anything. This is where most genuine verification happens, and it returns a clean verdict for the majority of addresses.</span>
+  <span data-lang-es>Preguntar al servidor receptor si el buzón existe, sin enviar nada. Aquí ocurre la mayor parte de la verificación real, y devuelve un veredicto limpio para la mayoría de las direcciones.</span>
+</p>
+
+<p>
+  <span data-lang-en>For a meaningful minority it returns neither yes nor no, and that third answer is where naive verification quietly fails.</span>
+  <span data-lang-es>Para una minoría significativa no devuelve ni sí ni no, y esa tercera respuesta es donde la verificación ingenua falla en silencio.</span>
+</p>
+
+<h3>
+  <span data-lang-en>Tier three — catch-all scoring</span>
+  <span data-lang-es>Nivel tres — puntuación de dominios que aceptan todo</span>
+</h3>
+
+<p>
+  <span data-lang-en>A catch-all domain accepts mail for any name at it, real or invented. The server says yes to everything, so the probe proves nothing. Large enterprises are disproportionately configured this way, which means the accounts most worth reaching are the ones verification struggles with.</span>
+  <span data-lang-es>Un dominio que acepta todo recibe correo para cualquier nombre, real o inventado. El servidor dice que sí a todo, así que el sondeo no prueba nada. Las grandes empresas están configuradas así de forma desproporcionada, lo que significa que las cuentas más valiosas son justo con las que la verificación batalla.</span>
+</p>
+
+<p>
+  <span data-lang-en>Treating catch-all as valid reintroduces the bounce problem. Treating it as invalid discards your best accounts. The workable answer is a probabilistic score from other signals, with a threshold — above it, proceed; below it, route the lead to a different channel rather than gambling the domain on it.</span>
+  <span data-lang-es>Tratarlo como válido reintroduce el problema de rebotes. Tratarlo como inválido descarta sus mejores cuentas. La respuesta viable es una puntuación probabilística a partir de otras señales, con un umbral — por encima, continuar; por debajo, enrutar la cuenta a otro canal en lugar de apostar el dominio.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>Fail toward a different channel, not toward sending</span>
+    <span data-lang-es>Fallar hacia otro canal, no hacia el envío</span>
+  </h4>
+  <p>
+    <span data-lang-en>The design decision that matters is what happens when verification cannot produce a verdict. Sending anyway spends reputation on a guess. Discarding the lead wastes the research already done. Routing it to a channel that does not depend on a verified address preserves both — and it means an unverifiable address never has to be tried.</span>
+    <span data-lang-es>La decisión de diseño que importa es qué ocurre cuando la verificación no produce un veredicto. Enviar igual gasta reputación en una conjetura. Descartar la cuenta desperdicia la investigación ya hecha. Enrutarla a un canal que no depende de una dirección verificada preserva ambas — y significa que una dirección no verificable nunca tiene que probarse.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Escalate, do not run everything through everything</span>
+  <span data-lang-es>Escalar, no pasar todo por todo</span>
+</h2>
+
+<p>
+  <span data-lang-en>Each tier costs more than the last, so each should only see what the previous one could not resolve. Syntax validation is free and runs on everything. The mail-server probe runs on what survives. Catch-all scoring runs only on the ambiguous remainder.</span>
+  <span data-lang-es>Cada nivel cuesta más que el anterior, así que cada uno solo debe ver lo que el previo no pudo resolver. La validación de sintaxis es gratuita y corre sobre todo. El sondeo al servidor corre sobre lo que sobrevive. La puntuación de dominios abiertos corre solo sobre el resto ambiguo.</span>
+</p>
+
+<p>
+  <span data-lang-en>Run in that order, verification is a rounding error on the cost of the research that preceded it. Run in parallel, it is the largest line on the bill.</span>
+  <span data-lang-es>Ejecutado en ese orden, la verificación es un error de redondeo frente al costo de la investigación previa. Ejecutado en paralelo, es la mayor partida de la factura.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What to measure</span>
+  <span data-lang-es>Qué medir</span>
+</h2>
+
+<p>
+  <span data-lang-en>Not reply rate — that measures the message. Measure bounce rate, spam complaint rate, and the share of leads that failed verification and routed elsewhere. The last one is the useful diagnostic: if it climbs, your account discovery is finding organisations whose contacts you cannot actually reach, and the fix is upstream in targeting rather than anywhere in the mail stack.</span>
+  <span data-lang-es>No la tasa de respuesta — eso mide el mensaje. Mida la tasa de rebote, la tasa de quejas por spam y la proporción de cuentas que fallaron la verificación y se enrutaron a otro canal. Esta última es el diagnóstico útil: si sube, su descubrimiento de cuentas está encontrando organizaciones cuyos contactos no puede alcanzar, y la corrección está aguas arriba en la segmentación, no en ninguna parte del correo.</span>
+</p>

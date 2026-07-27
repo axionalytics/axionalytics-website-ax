@@ -1,0 +1,125 @@
+<!--FAQ Should we build or buy enterprise AI capability? | Usually neither in their pure form. Building from zero spends most of the budget rediscovering solved infrastructure, and buying a hosted platform surrenders the deployment topology that regulated data requires. The third option — assembling on a proven architecture deployed inside your own perimeter, with source transfer at the end — is what most enterprises actually need.-->
+<!--FAQ What decides build versus buy for enterprise AI? | Three constraints, none of which is engineering capacity: whether your data may leave your perimeter, whether the capability is a competitive differentiator or a commodity, and whether a named internal team will own the system after go-live. Capacity is the constraint teams debate and the one that matters least.-->
+<!--FAQ What should an enterprise AI vendor be required to hand over? | Full source, infrastructure-as-code, architecture decision records, and the automated test suite. If the engagement ends with a running system you cannot modify or redeploy without the vendor, you bought a dependency rather than a capability, and the exit cost will exceed the build cost.-->
+
+<p>
+  <span data-lang-en><strong>The build-versus-buy framing hides the option most enterprises actually need, and the three constraints that decide it have nothing to do with engineering capacity.</strong></span>
+  <span data-lang-es><strong>El marco construir-o-comprar oculta la opción que la mayoría de las empresas realmente necesita, y las tres restricciones que la deciden no tienen que ver con capacidad de ingeniería.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>The debate usually opens with capacity. Do we have the engineers? Could we hire them? How long would it take? Those questions feel central and are close to irrelevant, because capacity is the constraint most easily bought and the one least likely to determine the outcome.</span>
+  <span data-lang-es>El debate suele abrirse con la capacidad. ¿Tenemos los ingenieros? ¿Podríamos contratarlos? ¿Cuánto tardaría? Esas preguntas parecen centrales y son casi irrelevantes, porque la capacidad es la restricción más fácil de comprar y la que menos probablemente determine el resultado.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What each pure option actually costs</span>
+  <span data-lang-es>Cuánto cuesta realmente cada opción pura</span>
+</h2>
+
+<h3>
+  <span data-lang-en>Building from zero</span>
+  <span data-lang-es>Construir desde cero</span>
+</h3>
+
+<p>
+  <span data-lang-en>The visible cost is the team. The invisible one is that most of the budget goes into infrastructure that is entirely solved and confers no advantage: identity federation, a policy engine, tool orchestration, distributed tracing, an approval gate that survives replay, execution sandboxing, and an audit pipeline.</span>
+  <span data-lang-es>El costo visible es el equipo. El invisible es que la mayor parte del presupuesto se va en infraestructura totalmente resuelta que no confiere ventaja alguna: federación de identidad, motor de políticas, orquestación de herramientas, trazado distribuido, una puerta de aprobación que resista repeticiones, aislamiento de ejecución y una tubería de auditoría.</span>
+</p>
+
+<p>
+  <span data-lang-en>Teams routinely underestimate this by a factor of three, because the demo — the part that shows the model doing something impressive — genuinely is quick. The remaining 80 percent is the part that makes it deployable, and it is invisible until you attempt to deploy.</span>
+  <span data-lang-es>Los equipos suelen subestimarlo por un factor de tres, porque la demostración — la parte que muestra al modelo haciendo algo impresionante — sí es rápida. El 80 por ciento restante es lo que la hace desplegable, y es invisible hasta que se intenta desplegar.</span>
+</p>
+
+<h3>
+  <span data-lang-en>Buying a hosted platform</span>
+  <span data-lang-es>Comprar una plataforma alojada</span>
+</h3>
+
+<p>
+  <span data-lang-en>Fast, well-supported, and the correct answer for a large class of problems. It fails on two specific conditions: when the deployment topology it offers cannot satisfy a residency commitment you have already made, and when the integration you need sits on a roadmap you do not control.</span>
+  <span data-lang-es>Rápido, bien soportado y la respuesta correcta para una clase amplia de problemas. Falla en dos condiciones específicas: cuando la topología de despliegue que ofrece no puede satisfacer un compromiso de residencia que usted ya asumió, y cuando la integración que necesita está en una hoja de ruta que usted no controla.</span>
+</p>
+
+<p>
+  <span data-lang-en>The second is underweighted at signing. Every enterprise has a system that matters and that no vendor prioritises — the internal platform, the twenty-year-old system of record, the regional instance nobody outside the company has heard of. A platform that cannot be extended to reach it will be worked around, and the workaround becomes the shadow architecture.</span>
+  <span data-lang-es>La segunda se subestima al firmar. Toda empresa tiene un sistema que importa y que ningún proveedor prioriza — la plataforma interna, el sistema de registro de veinte años, la instancia regional de la que nadie fuera de la compañía ha oído. Una plataforma que no puede extenderse para alcanzarlo será rodeada, y el rodeo se convierte en la arquitectura paralela.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The third option</span>
+  <span data-lang-es>La tercera opción</span>
+</h2>
+
+<p>
+  <span data-lang-en>Assembly: start from a proven architecture, adapt it to your environment and constraints, deploy it inside your own perimeter, and take ownership of the source at the end.</span>
+  <span data-lang-es>Ensamblar: partir de una arquitectura probada, adaptarla a su entorno y restricciones, desplegarla dentro de su propio perímetro y quedarse con el código al final.</span>
+</p>
+
+<p>
+  <span data-lang-en>The solved infrastructure is not rebuilt, which is where the schedule compression comes from. The topology is yours, so residency is answerable with a network diagram. Integration is your decision rather than a vendor's prioritisation call. And the engagement terminates in a transfer rather than a subscription.</span>
+  <span data-lang-es>La infraestructura ya resuelta no se reconstruye, y de ahí viene la compresión del calendario. La topología es suya, así que la residencia se responde con un diagrama de red. La integración es su decisión y no una priorización del proveedor. Y el proyecto termina en una transferencia y no en una suscripción.</span>
+</p>
+
+<p>
+  <span data-lang-en>The trade is that you own it afterwards. That is a real obligation, and it is the reason the third constraint below decides more projects than the other two.</span>
+  <span data-lang-es>El intercambio es que después usted es el dueño. Esa es una obligación real, y es la razón por la que la tercera restricción de abajo decide más proyectos que las otras dos.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The three constraints that actually decide</span>
+    <span data-lang-es>Las tres restricciones que realmente deciden</span>
+  </h4>
+  <p>
+    <span data-lang-en><strong>1. May the data leave?</strong> If a contract or regulator says no, hosted platforms are eliminated regardless of their merits. <strong>2. Is this a differentiator or a commodity?</strong> Commodity capability should be bought; differentiated capability should be owned. <strong>3. Who owns it in eighteen months?</strong> If no named internal team will receive the system, it will decay whoever builds it.</span>
+    <span data-lang-es><strong>1. ¿Pueden salir los datos?</strong> Si un contrato o regulador dice que no, las plataformas alojadas quedan eliminadas sin importar sus méritos. <strong>2. ¿Es un diferenciador o una commodity?</strong> La capacidad commodity debe comprarse; la diferenciada debe poseerse. <strong>3. ¿Quién será su dueño en dieciocho meses?</strong> Si ningún equipo interno nombrado recibirá el sistema, se degradará sin importar quién lo construya.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Commodity and differentiator are not obvious</span>
+  <span data-lang-es>Commodity y diferenciador no son obvios</span>
+</h2>
+
+<p>
+  <span data-lang-en>Most organizations classify this wrongly in a predictable direction. General conversational assistance, meeting summarisation, and document search are commodity — they are the same problem everywhere and buying them is correct.</span>
+  <span data-lang-es>La mayoría de las organizaciones clasifica esto mal en una dirección predecible. La asistencia conversacional general, el resumen de reuniones y la búsqueda documental son commodity — son el mismo problema en todas partes y comprarlos es correcto.</span>
+</p>
+
+<p>
+  <span data-lang-en>What is differentiated is anything grounded in knowledge only you hold: your signal taxonomy, your requirement corpus, your pricing logic, your equipment configurations. Those are not features a vendor can ship, because the value is in the grounding rather than the model. Buying a generic tool and pointing it at that knowledge produces confident output that references things which do not exist.</span>
+  <span data-lang-es>Lo diferenciado es todo lo fundamentado en conocimiento que solo usted posee: su taxonomía de señales, su corpus de requisitos, su lógica de precios, sus configuraciones de equipo. Eso no son funciones que un proveedor pueda entregar, porque el valor está en la fundamentación y no en el modelo. Comprar una herramienta genérica y apuntarla a ese conocimiento produce salidas seguras que referencian cosas inexistentes.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What to require in the contract</span>
+  <span data-lang-es>Qué exigir en el contrato</span>
+</h2>
+
+<p>
+  <span data-lang-en>If you choose assembly, the deliverable list is what protects you, and it should be explicit rather than assumed.</span>
+  <span data-lang-es>Si elige ensamblar, la lista de entregables es lo que lo protege, y debería ser explícita en lugar de asumida.</span>
+</p>
+
+<p>
+  <span data-lang-en>Full source with history. Infrastructure-as-code, so the deployment is reproducible from a commit rather than from a document describing what someone clicked. Architecture decision records covering what was chosen and what was rejected, so your team can revisit a decision without re-deriving the context. The automated test suite, running in your CI. And hands-on enablement for the engineers who will carry it — working sessions against the real system, not a slide deck and a recording.</span>
+  <span data-lang-es>Código fuente completo con historial. Infraestructura como código, para que el despliegue sea reproducible desde un commit y no desde un documento que describe lo que alguien hizo clic. Registros de decisiones arquitectónicas que cubran qué se eligió y qué se descartó, para que su equipo pueda revisar una decisión sin re-deducir el contexto. La suite de pruebas automatizadas, corriendo en su CI. Y capacitación práctica para los ingenieros que lo mantendrán — sesiones de trabajo sobre el sistema real, no una presentación y una grabación.</span>
+</p>
+
+<p>
+  <span data-lang-en>The test is simple: if the supplier disappeared the following Monday, would the system keep running and could your team extend it? If the honest answer is no, you bought a dependency, and the eventual exit will cost more than the original build.</span>
+  <span data-lang-es>La prueba es simple: si el proveedor desapareciera el lunes siguiente, ¿seguiría funcionando el sistema y podría su equipo extenderlo? Si la respuesta honesta es no, usted compró una dependencia, y la salida eventual costará más que la construcción original.</span>
+</p>
+
+<div class="pro-tip">
+  <h4>
+    <span data-lang-en>Decide ownership before you decide approach</span>
+    <span data-lang-es>Decida la propiedad antes que el enfoque</span>
+  </h4>
+  <p>
+    <span data-lang-en>Constraint three quietly overrides the other two. A brilliantly built system with no internal owner is a liability with a maintenance schedule — it degrades, nobody is accountable, and within two years it is the thing everyone routes around. Identify the receiving team before the engagement starts, and involve them in the build rather than at handover.</span>
+    <span data-lang-es>La tercera restricción anula silenciosamente a las otras dos. Un sistema brillantemente construido sin dueño interno es un pasivo con calendario de mantenimiento — se degrada, nadie responde por él, y en dos años es lo que todos rodean. Identifique al equipo receptor antes de iniciar el proyecto e involúcrelo en la construcción, no en la entrega.</span>
+  </p>
+</div>

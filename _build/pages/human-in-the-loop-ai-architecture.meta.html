@@ -1,0 +1,63 @@
+
+  <title>Human-in-the-Loop That Actually Holds: Write Gates, Blast Radius, and Replay Protection | Axionalytics</title>
+  <meta name="description" content="Most human-in-the-loop is a confirmation dialog. Three properties separate a real approval gate from a checkbox that manufactures consent.">
+  <link rel="canonical" href="https://www.axionalytics.com/human-in-the-loop-ai-architecture.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Human-in-the-Loop That Actually Holds: Write Gates, Blast Radius, and Replay Protection">
+  <meta property="og:description" content="Most human-in-the-loop is a confirmation dialog. Three properties separate a real approval gate from a checkbox that manufactures consent.">
+  <meta property="og:url" content="https://www.axionalytics.com/human-in-the-loop-ai-architecture.html">
+  <meta property="article:published_time" content="2026-07-07">
+  <meta property="article:section" content="Architecture">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://www.axionalytics.com/human-in-the-loop-ai-architecture.html#article",
+    "headline": "Human-in-the-Loop That Actually Holds: Write Gates, Blast Radius, and Replay Protection",
+    "description": "Most human-in-the-loop is a confirmation dialog. Three properties separate a real approval gate from a checkbox that manufactures consent.",
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "articleSection": "Architecture",
+    "inLanguage": ["en", "es"],
+    "wordCount": 740,
+    "timeRequired": "PT3M",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/human-in-the-loop-ai-architecture.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Enterprise Agentic AI", "url": "https://www.axionalytics.com/enterprise-agentic-ai.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Human-in-the-Loop That Actually Holds: Write Gates, Blast Radius, and Replay Protection", "item": "https://www.axionalytics.com/human-in-the-loop-ai-architecture.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What makes human-in-the-loop approval meaningful rather than theatre?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Three properties. The reviewer must see the concrete change and how many records it reaches, the approval must be bound to the exact plan it was granted against so it cannot be replayed after a change, and escalation must be a real outcome so reviewers who lack context are not forced to guess." } },
+      { "@type": "Question", "name": "What is blast radius in an AI approval gate?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The count and identity of the records an action would modify, shown before the write commits. Approving \"update the opportunity records\" without seeing which twelve records is ceremony; approving a diff of twelve named records is review." } },
+      { "@type": "Question", "name": "How do you stop an approval being reused against a different action?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Bind it to an optimistic-concurrency version token and to the tool schema it was granted against. If the plan or the tool definition changes after approval, the token no longer matches and the write is refused rather than executed against something nobody reviewed." } }
+    ]
+  }
+  </script>

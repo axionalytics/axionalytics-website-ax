@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+AXIONALYTICS - TEAM TRAINING PAGE (training.html)
+Version: 1.0.0
+Last Updated: January 2026
+
+DEPLOYMENT: Ready for GitHub Pages
+FRAMEWORK: Tailwind CSS via CDN + Custom CSS
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+UPDATE INSTRUCTIONS:
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+1. BOOKING LINKS (Google Calendar):
+   - Search for: href="#BOOKING_LINK"
+   - Replace with your Google Calendar appointment scheduling link
+
+2. ENROLLMENT LINKS:
+   - Search for: href="#ENROLL_AI_L1", href="#ENROLL_AI_L2", etc.
+   - Replace with your actual course enrollment/payment links
+
+3. BUNDLE ENROLLMENT LINKS:
+   - Search for: href="#BUNDLE_AI", href="#BUNDLE_DATA", href="#BUNDLE_ULTIMATE"
+   - Replace with your bundle purchase links
+
+4. CORPORATE QUOTE LINK:
+   - Search for: href="#CORPORATE_QUOTE"
+   - Replace with your corporate inquiry form or scheduling link
+
+5. SOCIAL MEDIA LINKS:
+   - Search for: href="#LINKEDIN", href="#WHATSAPP", etc.
+   - Replace with your actual social media URLs
+
+6. SPANISH TRANSLATIONS:
+   - All Spanish text is marked with data-lang-es attributes
+   - Update translations as needed
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Axionalytics Team Training - Professional AI and Data Strategy certification programs.">
+    <title>Team Training | Axionalytics - Professional AI & Data Certification</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo_fixed.png">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'axio': {
+                            'primary': '#1E3A5F',
+                            'secondary': '#2563EB',
+                            'accent': '#F97316',
+                            'dark': '#0F172A',
+                            'charcoal': '#1E293B',
+                            'slate': '#334155',
+                            'light': '#F8FAFC',
+                            'green': '#10B981',
+                            'amber': '#F59E0B',
+                            'purple': '#8B5CF6',
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['Plus Jakarta Sans', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Bilingual System */
+        [data-lang-es] { display: none; }
+        html.lang-es [data-lang-en] { display: none !important; }
+        html.lang-es [data-lang-es] { display: inline !important; }
+        html.lang-es div[data-lang-es], html.lang-es p[data-lang-es], html.lang-es h1[data-lang-es],
+        html.lang-es h2[data-lang-es], html.lang-es h3[data-lang-es], html.lang-es span[data-lang-es] { display: block !important; }
+        html.lang-es span[data-lang-es] { display: inline !important; }
+        
+        /* Gradient Backgrounds */
+        .gradient-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #1E3A5F 100%);
+        }
+        .gradient-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(249, 115, 22, 0.15) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .gradient-section-ai { background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 100%); }
+        .gradient-section-data { background: linear-gradient(180deg, #EFF6FF 0%, #DBEAFE 100%); }
+        .gradient-bundles { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); }
+        .gradient-cta { background: linear-gradient(135deg, #064E3B 0%, #065F46 50%, #047857 100%); }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(249, 115, 22, 0.5); }
+        
+        .btn-green {
+            background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-green:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5); }
+        
+        .btn-amber {
+            background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s ease;
+            color: #1E293B;
+        }
+        .btn-amber:hover { transform: translateY(-3px); }
+        
+        .btn-blue {
+            background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-blue:hover { transform: translateY(-3px); }
+        
+        .btn-purple {
+            background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-purple:hover { transform: translateY(-3px); }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover { border-color: #F97316; background: rgba(249, 115, 22, 0.1); }
+        
+        /* Pricing Cards */
+        .pricing-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .pricing-card:hover { transform: translateY(-12px); }
+        
+        /* Bundle Cards */
+        .bundle-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+        }
+        .bundle-card:hover { transform: translateY(-10px); border-color: rgba(255,255,255,0.3); }
+        
+        /* Navigation */
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: #F97316;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link.active::after { width: 100%; background: #10B981; }
+        
+        /* FAQ Accordion */
+        .faq-item { border: 1px solid #E2E8F0; transition: all 0.3s ease; }
+        .faq-item:hover { border-color: #10B981; }
+        .faq-trigger { cursor: pointer; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-item.is-open .faq-answer { max-height: 500px; }
+        .faq-item.is-open .faq-icon { transform: rotate(180deg); }
+        .faq-icon { transition: transform 0.3s ease; }
+        
+        /* Animations */
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+        
+        /* Mobile Menu */
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+        .mobile-menu.is-open { transform: translateX(0); }
+        
+        /* Language Toggle Button */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: transparent;
+        }
+        
+        .lang-toggle:hover {
+            border-color: #F97316;
+            background: rgba(249, 115, 22, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-axio-light text-axio-dark overflow-x-hidden">
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         SECTION: NAVIGATION HEADER
+         - Sticky navigation with logo, menu items, CTA, and language toggle
+         - Mobile responsive with hamburger menu
+         ═══════════════════════════════════════════════════════════════════ -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background-color:#0F172A;">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center group">
+                    <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                    <span class="text-2xl font-heading font-bold text-white group-hover:text-orange-400 transition-colors -ml-6">
+                        axionalytics
+                    </span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <!-- Desktop Navigation (matches index.html - 5 links, no About) -->
+                                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformación de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integración de IA</span>
+                    </a>
+                    <a href="training.html" class="text-orange-400 font-medium">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitación</span>
+                    </a>
+                    <a href="contact.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </div>
+                
+                <!-- Right Side: CTA + Language Toggle -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <!-- CTA Button - Replace #BOOKING_LINK with your Google Calendar link -->
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-3 rounded-xl font-bold text-sm">
+                        <span data-lang-en>Book Now</span>
+                        <span data-lang-es>Reservar</span>
+                    </a>
+                    
+                    <!-- Language Toggle -->
+                    <button id="lang-toggle-desktop" class="lang-toggle text-white text-sm font-medium" aria-label="Toggle language">
+                        <span id="current-lang-flag">🇺🇸</span>
+                        <span id="current-lang-text">EN</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Slide-in) -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-80 max-w-full bg-axio-dark shadow-2xl lg:hidden z-50" style="background-color:#0F172A;">
+            <div class="flex flex-col h-full p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-xl font-heading font-bold text-white">Menu</span>
+                    <button id="mobile-menu-close" class="text-white p-2" aria-label="Close menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                                <nav class="flex flex-col gap-4">
+                    <a href="index.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformación de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integración de IA</span>
+                    </a>
+                    <a href="training.html" class="text-orange-400 font-medium py-2">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitación</span>
+                    </a>
+                    <a href="contact.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </nav>
+                
+                <div class="mt-auto pt-8 border-t border-white/10">
+                    <!-- Mobile Language Toggle -->
+                    <button id="lang-toggle-mobile" class="lang-toggle text-white text-sm font-medium mb-4 w-full justify-center">
+                        <span class="mobile-lang-flag">🇺🇸</span>
+                        <span class="mobile-lang-text">English</span>
+                    </button>
+                    
+                    <!-- Mobile CTA -->
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-4 rounded-xl font-bold text-center block">
+                        <span data-lang-en>Book Free Assessment</span>
+                        <span data-lang-es>Agendar Evaluación Gratuita</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 lg:hidden z-40 opacity-0 pointer-events-none transition-opacity"></div>
+    </header>
+
+
+<!-- HERO SECTION -->
+    <section class="gradient-hero relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/4 left-10 w-64 h-64 bg-axio-green/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-10 w-80 h-80 bg-axio-amber/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Hero Text Content -->
+                <div class="text-white">
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-axio-green/20 border border-axio-green/30 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-axio-green mr-2 animate-pulse"></span>
+                        <span class="text-sm font-medium text-axio-green">
+                            <span data-lang-en>Professional Certification Programs</span>
+                            <span data-lang-es>Programas de Certificación Profesional</span>
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight mb-6">
+                        <span data-lang-en>Turn Your Team Into</span>
+                        <span data-lang-es>Convierte a Tu Equipo en</span>
+                        <br>
+                        <span class="bg-gradient-to-r from-axio-amber via-axio-accent to-axio-green bg-clip-text text-transparent">
+                            <span data-lang-en>AI & Data Experts</span>
+                            <span data-lang-es>Expertos en IA y Datos</span>
+                        </span>
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-xl">
+                        <span data-lang-en>The best technology is worthless if your team can't use it. We don't just implement solutions"”we build capabilities that last.</span>
+                        <span data-lang-es>La mejor tecnología es inútil si tu equipo no puede usarla. No solo implementamos soluciones"”desarrollamos capacidades duraderas.</span>
+                    </p>
+                    
+                    <!-- Reality Check Alert -->
+                    <div class="bg-axio-accent/10 border-l-4 border-axio-accent p-4 rounded-r-lg mb-8">
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-axio-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                            </svg>
+                            <div>
+                                <h3 class="font-bold text-axio-accent mb-1">
+                                    <span data-lang-en>The Reality Check</span>
+                                    <span data-lang-es>La Realidad</span>
+                                </h3>
+                                <p class="text-gray-300 text-sm">
+                                    <span data-lang-en>Your competitors are training their teams right now. Every day you wait, the gap gets bigger.</span>
+                                    <span data-lang-es>Tus competidores están capacitando a sus equipos ahora mismo. Cada día que esperas, la brecha crece.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#training-tracks" class="btn-green px-8 py-4 rounded-full text-white font-semibold text-lg inline-flex items-center justify-center space-x-2">
+                            <span data-lang-en>View Training Programs</span>
+                            <span data-lang-es>Ver Programas</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                        </a>
+                        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-secondary px-8 py-4 rounded-full text-white font-semibold text-lg inline-flex items-center justify-center space-x-2 booking-link">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span data-lang-en>Book Free Assessment</span>
+                            <span data-lang-es>Evaluación Gratuita</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="relative hidden lg:block">
+                    <div class="relative">
+                        <!-- AI Track Preview Card -->
+                        <div class="absolute -left-4 top-10 bg-gradient-to-br from-amber-500/20 to-amber-600/10 backdrop-blur-lg rounded-2xl p-6 border border-amber-500/30 shadow-2xl transform -rotate-6 hover:rotate-0 hover:z-20 transition-all duration-500 w-72">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-amber-500 flex items-center justify-center text-2xl">🤖</div>
+                                <div>
+                                    <h3 class="font-bold text-white">
+                                        <span data-lang-en>AI Literacy</span><span data-lang-es>Alfabetización IA</span>
+                                    </h3>
+                                    <p class="text-amber-300 text-sm">3 Levels</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Level 1</span>
+                                    <span class="text-amber-400 font-semibold">$299</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Level 2</span>
+                                    <span class="text-amber-400 font-semibold">$799</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Level 3</span>
+                                    <span class="text-amber-400 font-semibold">$1,499</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Track Preview Card -->
+                        <div class="absolute right-0 bottom-0 bg-gradient-to-br from-blue-500/20 to-blue-600/10 backdrop-blur-lg rounded-2xl p-6 border border-blue-500/30 shadow-2xl transform rotate-6 hover:rotate-0 hover:z-20 transition-all duration-500 w-72">
+                            <div class="flex items-center space-x-3 mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center text-2xl">📊</div>
+                                <div>
+                                    <h3 class="font-bold text-white">
+                                        <span data-lang-en>Data Strategy</span><span data-lang-es>Estrategia de Datos</span>
+                                    </h3>
+                                    <p class="text-blue-300 text-sm">3 Levels</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Level 1</span>
+                                    <span class="text-blue-400 font-semibold">$299</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Level 2</span>
+                                    <span class="text-blue-400 font-semibold">$799</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-300">Level 3</span>
+                                    <span class="text-blue-400 font-semibold">$1,499</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Center Stats Circle -->
+                        <div class="relative z-10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-full w-72 h-72 mx-auto flex flex-col items-center justify-center border border-white/20">
+                            <span class="text-6xl mb-2">🎓</span>
+                            <h3 class="text-2xl font-bold text-white mb-1">6</h3>
+                            <p class="text-gray-300 text-center">
+                                <span data-lang-en>Certification<br>Programs</span>
+                                <span data-lang-es>Programas de<br>Certificación</span>
+                            </p>
+                            <div class="mt-3 flex items-center space-x-2 text-sm text-axio-green">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span data-lang-en>LinkedIn Verified</span><span data-lang-es>Verificado LinkedIn</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAINING TRACKS OVERVIEW -->
+    <section id="training-tracks" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-axio-dark mb-4">
+                    <span data-lang-en>Choose Your Training Track</span>
+                    <span data-lang-es>Elige Tu Programa de Capacitación</span>
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    <span data-lang-en>Two comprehensive certification pathways designed to transform your team into AI and data-powered professionals.</span>
+                    <span data-lang-es>Dos programas de certificación completos diseñados para transformar a tu equipo en profesionales impulsados por IA y datos.</span>
+                </p>
+            </div>
+            
+            <!-- Track Cards -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- AI Literacy Track Card -->
+                <a href="#ai-training" class="group animate-on-scroll">
+                    <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 border-2 border-amber-200 hover:border-amber-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-3xl shadow-lg">🤖</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-bold text-axio-dark">
+                                    <span data-lang-en>AI Literacy Track</span><span data-lang-es>Programa de Alfabetización IA</span>
+                                </h3>
+                                <p class="text-amber-600 font-medium">
+                                    <span data-lang-en>3-Level Certification</span><span data-lang-es>Certificación de 3 Niveles</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">
+                            <span data-lang-en>Transform your team into AI-powered professionals. Master ChatGPT, Claude, automation workflows, and strategic AI leadership.</span>
+                            <span data-lang-es>Transforma a tu equipo en profesionales impulsados por IA. Domina ChatGPT, Claude, flujos de automatización y liderazgo estratégico.</span>
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <span class="font-semibold text-amber-600">$299+</span>
+                                <span data-lang-en> per level</span><span data-lang-es> por nivel</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-amber-600 group-hover:text-amber-700 font-semibold">
+                                <span data-lang-en>View Details</span><span data-lang-es>Ver Detalles</span>
+                                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Data Strategy Track Card -->
+                <a href="#data-training" class="group animate-on-scroll" style="animation-delay: 0.1s">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border-2 border-blue-200 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-3xl shadow-lg">📊</div>
+                            <div>
+                                <h3 class="text-2xl font-heading font-bold text-axio-dark">
+                                    <span data-lang-en>Data Strategy Track</span><span data-lang-es>Programa de Estrategia de Datos</span>
+                                </h3>
+                                <p class="text-blue-600 font-medium">
+                                    <span data-lang-en>3-Level Certification</span><span data-lang-es>Certificación de 3 Niveles</span>
+                                </p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-6">
+                            <span data-lang-en>Build data literacy and analytics capabilities. Master KPIs, dashboards, Power BI, Tableau, SQL, and enterprise data strategy.</span>
+                            <span data-lang-es>Desarrolla alfabetización de datos y capacidades analíticas. Domina KPIs, dashboards, Power BI, Tableau, SQL y estrategia empresarial.</span>
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <span class="font-semibold text-blue-600">$299+</span>
+                                <span data-lang-en> per level</span><span data-lang-es> por nivel</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-blue-600 group-hover:text-blue-700 font-semibold">
+                                <span data-lang-en>View Details</span><span data-lang-es>Ver Detalles</span>
+                                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI LITERACY TRAINING SECTION -->
+    <section id="ai-training" class="py-20 gradient-section-ai">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-amber-100 border border-amber-300 mb-4">
+                    <span class="text-2xl mr-2">🤖</span>
+                    <span class="text-amber-700 font-semibold">
+                        <span data-lang-en>AI Literacy Training</span><span data-lang-es>Capacitación en Alfabetización de IA</span>
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-axio-dark mb-4">
+                    <span data-lang-en>Master AI Tools & Transform Your Workflow</span>
+                    <span data-lang-es>Domina las Herramientas de IA y Transforma tu Flujo de Trabajo</span>
+                </h2>
+            </div>
+            
+            <!-- Pricing Cards Grid -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- LEVEL 1: AI FOUNDATIONS -->
+                <div class="pricing-card bg-white rounded-3xl shadow-xl overflow-hidden animate-on-scroll">
+                    <div class="bg-gradient-to-r from-amber-100 to-orange-100 p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-semibold text-amber-700 uppercase tracking-wider">Level 1</span>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl bg-gradient-to-br from-amber-400 to-amber-600">🥉</div>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-axio-dark mb-2">
+                            <span data-lang-en>AI Foundations</span><span data-lang-es>Fundamentos de IA</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            <span data-lang-en>Demystify AI and start using it today. Perfect for beginners.</span>
+                            <span data-lang-es>Desmitifica la IA y comienza a usarla hoy. Perfecto para principiantes.</span>
+                        </p>
+                    </div>
+                    <div class="p-6 border-b border-gray-100">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-xl">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Individual</p>
+                                <p class="text-3xl font-bold text-axio-dark">$299</p>
+                                <p class="text-xs text-gray-500">Self-Paced</p>
+                            </div>
+                            <div class="text-center p-4 bg-amber-50 rounded-xl border border-amber-200">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Group (2-10)</p>
+                                <p class="text-3xl font-bold text-amber-600">$3,499</p>
+                                <p class="text-xs text-amber-600 font-medium">$349/person</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">4 hours of comprehensive training</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">50+ prompt templates library</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Digital workbook (40+ pages)</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Certificate + 30-day support</span></li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block w-full py-4 px-6 text-center rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 enrollment-link">
+                            <span data-lang-en>Enroll Now</span><span data-lang-es>Inscribirse</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- LEVEL 2: AI PRACTITIONER (POPULAR) -->
+                <div class="pricing-card bg-white rounded-3xl shadow-xl animate-on-scroll relative border-4 border-amber-400" style="animation-delay: 0.1s">
+                    <div class="absolute -top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg z-20">
+                        ⭐ Most Popular
+                    </div>
+                    <div class="bg-gradient-to-r from-amber-200 to-orange-200 p-6 pt-8 rounded-t-3xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-semibold text-amber-800 uppercase tracking-wider">Level 2</span>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl bg-gradient-to-br from-gray-300 to-gray-400">🥈</div>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-axio-dark mb-2">
+                            <span data-lang-en>AI Practitioner</span><span data-lang-es>Practicante de IA</span>
+                        </h3>
+                        <p class="text-gray-700 text-sm">
+                            <span data-lang-en>Master AI tools and automate your workflows. Advanced techniques.</span>
+                            <span data-lang-es>Domina herramientas de IA y automatiza flujos de trabajo. Técnicas avanzadas.</span>
+                        </p>
+                    </div>
+                    <div class="p-6 border-b border-gray-100">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-xl">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Individual</p>
+                                <p class="text-3xl font-bold text-axio-dark">$799</p>
+                                <p class="text-xs text-gray-500">Self-Paced</p>
+                            </div>
+                            <div class="text-center p-4 bg-amber-50 rounded-xl border border-amber-200">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Group (2-10)</p>
+                                <p class="text-3xl font-bold text-amber-600">$8,499</p>
+                                <p class="text-xs text-amber-600 font-medium">$849/person</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">8 hours of advanced training</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">200+ advanced prompt templates</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Custom GPT development</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Workflow automation training</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Certificate + 60-day support</span></li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block w-full py-4 px-6 text-center rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shadow-lg enrollment-link">
+                            <span data-lang-en>Enroll Now - Best Value</span><span data-lang-es>Inscribirse - Mejor Valor</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- LEVEL 3: AI EXPERT -->
+                <div class="pricing-card bg-white rounded-3xl shadow-xl overflow-hidden animate-on-scroll border-2 border-purple-300" style="animation-delay: 0.2s">
+                    <div class="bg-gradient-to-r from-purple-100 to-violet-100 p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-semibold text-purple-700 uppercase tracking-wider">Level 3 Expert</span>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl bg-gradient-to-br from-yellow-300 to-yellow-500">🥇</div>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-axio-dark mb-2">
+                            <span data-lang-en>AI Expert</span><span data-lang-es>Experto en IA</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            <span data-lang-en>Become your organization's AI strategic leader.</span>
+                            <span data-lang-es>Conviértete en el líder estratégico de IA de tu organización.</span>
+                        </p>
+                    </div>
+                    <div class="p-6 border-b border-gray-100">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-xl">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Individual</p>
+                                <p class="text-3xl font-bold text-axio-dark">$1,499</p>
+                                <p class="text-xs text-gray-500">Self-Paced</p>
+                            </div>
+                            <div class="text-center p-4 bg-purple-50 rounded-xl border border-purple-200">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Group (2-10)</p>
+                                <p class="text-3xl font-bold text-purple-600">$14,999</p>
+                                <p class="text-xs text-purple-600 font-medium">$1,499/person</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">12 hours of expert-level training</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Enterprise AI strategy framework</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">ML/AI integration for data leaders</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Capstone project with review</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Certificate + 90-day support</span></li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block w-full py-4 px-6 text-center rounded-full bg-gradient-to-r from-purple-500 to-violet-500 text-white font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 enrollment-link">
+                            <span data-lang-en>Enroll Now</span><span data-lang-es>Inscribirse</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATA STRATEGY TRAINING SECTION -->
+    <section id="data-training" class="py-20 gradient-section-data">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 border border-blue-300 mb-4">
+                    <span class="text-2xl mr-2">📊</span>
+                    <span class="text-blue-700 font-semibold">
+                        <span data-lang-en>Data Strategy Training</span><span data-lang-es>Capacitación en Estrategia de Datos</span>
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-axio-dark mb-4">
+                    <span data-lang-en>Build Data Literacy & Analytics Expertise</span>
+                    <span data-lang-es>Desarrolla Alfabetización de Datos y Experiencia en Análisis</span>
+                </h2>
+            </div>
+            
+            <!-- Data Pricing Cards -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- LEVEL 1: DATA FOUNDATIONS -->
+                <div class="pricing-card bg-white rounded-3xl shadow-xl overflow-hidden animate-on-scroll">
+                    <div class="bg-gradient-to-r from-blue-100 to-indigo-100 p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-semibold text-blue-700 uppercase tracking-wider">Level 1</span>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl bg-gradient-to-br from-amber-400 to-amber-600">🥉</div>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-axio-dark mb-2">
+                            <span data-lang-en>Data Foundations</span><span data-lang-es>Fundamentos de Datos</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            <span data-lang-en>Turn data chaos into business clarity. Essential data strategy skills.</span>
+                            <span data-lang-es>Convierte el caos de datos en claridad. Habilidades esenciales de estrategia.</span>
+                        </p>
+                    </div>
+                    <div class="p-6 border-b border-gray-100">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-xl">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Individual</p>
+                                <p class="text-3xl font-bold text-axio-dark">$299</p>
+                                <p class="text-xs text-gray-500">Self-Paced</p>
+                            </div>
+                            <div class="text-center p-4 bg-blue-50 rounded-xl border border-blue-200">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Group (2-10)</p>
+                                <p class="text-3xl font-bold text-blue-600">$3,499</p>
+                                <p class="text-xs text-blue-600 font-medium">$349/person</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">4 hours of data strategy training</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">KPI framework templates</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Dashboard design fundamentals</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">100+ metrics library</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Certificate + 30-day support</span></li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block w-full py-4 px-6 text-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 enrollment-link">
+                            <span data-lang-en>Enroll Now</span><span data-lang-es>Inscribirse</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- LEVEL 2: DATA PRACTITIONER (POPULAR) -->
+                <div class="pricing-card bg-white rounded-3xl shadow-xl animate-on-scroll relative border-4 border-blue-400" style="animation-delay: 0.1s">
+                    <div class="absolute -top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg z-20">
+                        ⭐ Most Popular
+                    </div>
+                    <div class="bg-gradient-to-r from-blue-200 to-indigo-200 p-6 pt-8 rounded-t-3xl">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-semibold text-blue-800 uppercase tracking-wider">Level 2</span>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl bg-gradient-to-br from-gray-300 to-gray-400">🥈</div>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-axio-dark mb-2">
+                            <span data-lang-en>Data Practitioner</span><span data-lang-es>Practicante de Datos</span>
+                        </h3>
+                        <p class="text-gray-700 text-sm">
+                            <span data-lang-en>Build complete analytics capabilities. Power BI, Tableau, SQL mastery.</span>
+                            <span data-lang-es>Desarrolla capacidades analíticas completas. Dominio de Power BI, Tableau, SQL.</span>
+                        </p>
+                    </div>
+                    <div class="p-6 border-b border-gray-100">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-xl">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Individual</p>
+                                <p class="text-3xl font-bold text-axio-dark">$799</p>
+                                <p class="text-xs text-gray-500">Self-Paced</p>
+                            </div>
+                            <div class="text-center p-4 bg-blue-50 rounded-xl border border-blue-200">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Group (2-10)</p>
+                                <p class="text-3xl font-bold text-blue-600">$8,499</p>
+                                <p class="text-xs text-blue-600 font-medium">$849/person</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">8 hours of advanced analytics</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Power BI & Tableau deep dives</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">SQL for business analysts</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Predictive analytics basics</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Certificate + 60-day support</span></li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block w-full py-4 px-6 text-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shadow-lg enrollment-link">
+                            <span data-lang-en>Enroll Now - Best Value</span><span data-lang-es>Inscribirse - Mejor Valor</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- LEVEL 3: DATA EXPERT -->
+                <div class="pricing-card bg-white rounded-3xl shadow-xl overflow-hidden animate-on-scroll border-2 border-purple-300" style="animation-delay: 0.2s">
+                    <div class="bg-gradient-to-r from-purple-100 to-violet-100 p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-semibold text-purple-700 uppercase tracking-wider">Level 3 Expert</span>
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center text-xl bg-gradient-to-br from-yellow-300 to-yellow-500">🥇</div>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-axio-dark mb-2">
+                            <span data-lang-en>Data Expert</span><span data-lang-es>Experto en Datos</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            <span data-lang-en>Lead enterprise data transformation. Strategic leadership for CDOs.</span>
+                            <span data-lang-es>Lidera la transformación de datos empresariales. Liderazgo estratégico.</span>
+                        </p>
+                    </div>
+                    <div class="p-6 border-b border-gray-100">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-gray-50 rounded-xl">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Individual</p>
+                                <p class="text-3xl font-bold text-axio-dark">$1,499</p>
+                                <p class="text-xs text-gray-500">Self-Paced</p>
+                            </div>
+                            <div class="text-center p-4 bg-purple-50 rounded-xl border border-purple-200">
+                                <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Group (2-10)</p>
+                                <p class="text-3xl font-bold text-purple-600">$14,999</p>
+                                <p class="text-xs text-purple-600 font-medium">$1,499/person</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">12 hours of expert-level training</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Enterprise AI strategy framework</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Capstone project with review</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Expert community access</span></li>
+                            <li class="flex items-start space-x-3"><svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span class="text-gray-600 text-sm">Certificate + 90-day support</span></li>
+                        </ul>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block w-full py-4 px-6 text-center rounded-full bg-gradient-to-r from-purple-500 to-violet-500 text-white font-semibold hover:shadow-lg hover:-translate-y-1 transition-all duration-300 enrollment-link">
+                            <span data-lang-en>Enroll Now</span><span data-lang-es>Inscribirse</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAINING BUNDLES SECTION -->
+    <section id="bundles" class="py-20 gradient-bundles relative">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/4 left-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-10 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/30 mb-4">
+                    <span class="text-2xl mr-2">💎</span>
+                    <span class="text-purple-300 font-semibold">
+                        <span data-lang-en>Training Bundles - Save Up to 33%</span>
+                        <span data-lang-es>Paquetes de Capacitación - Ahorra Hasta 33%</span>
+                    </span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+                    <span data-lang-en>Complete Your Certification Journey</span>
+                    <span data-lang-es>Completa Tu Trayectoria de Certificación</span>
+                </h2>
+            </div>
+            
+            <!-- Bundle Cards -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- AI MASTERY PATH -->
+                <div class="bundle-card rounded-3xl p-8 animate-on-scroll">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-3xl mx-auto mb-4 shadow-lg">🤖</div>
+                        <h3 class="text-2xl font-heading font-bold text-white mb-2">
+                            <span data-lang-en>AI Mastery Path</span><span data-lang-es>Ruta de Dominio de IA</span>
+                        </h3>
+                        <p class="text-gray-400 text-sm">All 3 AI Literacy levels</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <p class="text-gray-500 line-through text-lg">$2,597</p>
+                        <p class="text-5xl font-bold text-white mb-2">$1,999</p>
+                        <span class="inline-block px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm font-semibold">Save $598 (23%)</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>AI Foundations (Self-paced)</span></li>
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>AI Practitioner (Self-paced)</span></li>
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>AI Expert (Self-paced)</span></li>
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>All workbooks & certificates</span></li>
+                    </ul>
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block w-full py-4 px-6 text-center rounded-full btn-amber font-semibold bundle-link">
+                        <span data-lang-en>Enroll Now</span><span data-lang-es>Inscribirse</span>
+                    </a>
+                </div>
+                
+                <!-- DATA MASTERY PATH -->
+                <div class="bundle-card rounded-3xl p-8 animate-on-scroll" style="animation-delay: 0.1s">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-3xl mx-auto mb-4 shadow-lg">📊</div>
+                        <h3 class="text-2xl font-heading font-bold text-white mb-2">
+                            <span data-lang-en>Data Mastery Path</span><span data-lang-es>Ruta de Dominio de Datos</span>
+                        </h3>
+                        <p class="text-gray-400 text-sm">All 3 Data Strategy levels</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <p class="text-gray-500 line-through text-lg">$2,597</p>
+                        <p class="text-5xl font-bold text-white mb-2">$1,999</p>
+                        <span class="inline-block px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm font-semibold">Save $598 (23%)</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Data Foundations (Self-paced)</span></li>
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Data Practitioner (Self-paced)</span></li>
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Data Expert (Self-paced)</span></li>
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>All workbooks & certificates</span></li>
+                    </ul>
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block w-full py-4 px-6 text-center rounded-full btn-blue font-semibold text-white bundle-link">
+                        <span data-lang-en>Enroll Now</span><span data-lang-es>Inscribirse</span>
+                    </a>
+                </div>
+                
+                <!-- ULTIMATE PACKAGE -->
+                <div class="bundle-card rounded-3xl p-8 animate-on-scroll relative border-2 border-purple-500" style="animation-delay: 0.2s">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg z-20">
+                        ⭐ Most Popular
+                    </div>
+                    <div class="text-center mb-6 pt-4">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-400 via-pink-500 to-orange-400 flex items-center justify-center text-3xl mx-auto mb-4 shadow-lg">🚀</div>
+                        <h3 class="text-2xl font-heading font-bold text-white mb-2">
+                            <span data-lang-en>Ultimate Package</span><span data-lang-es>Paquete Ultimate</span>
+                        </h3>
+                        <p class="text-gray-400 text-sm">All 6 courses (AI + Data)</p>
+                    </div>
+                    <div class="text-center mb-6">
+                        <p class="text-gray-500 line-through text-lg">$5,194</p>
+                        <p class="text-5xl font-bold text-white mb-2">$3,499</p>
+                        <span class="inline-block px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm font-semibold">Save $1,695 (33%)</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Complete AI Literacy track</span></li>
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Complete Data Strategy track</span></li>
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Master certification</span></li>
+                        <li class="flex items-center space-x-3 text-gray-300 text-sm"><svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Lifetime access + Priority support</span></li>
+                    </ul>
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block w-full py-4 px-6 text-center rounded-full btn-purple font-semibold text-white bundle-link">
+                        <span data-lang-en>Enroll Now - Best Value</span><span data-lang-es>Inscribirse - Mejor Valor</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORPORATE & GROUP TRAINING -->
+    <section id="corporate" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-100 border border-green-300 mb-4">
+                    <span class="text-2xl mr-2">🏢</span>
+                    <span class="text-green-700 font-semibold">Corporate & Group Training</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-axio-dark mb-4">
+                    <span data-lang-en>Training for Teams of 11-40+ People</span>
+                    <span data-lang-es>Capacitación para Equipos de 11-40+ Personas</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+                <div class="bg-white rounded-2xl p-6 text-center border border-gray-200 hover:border-green-400 hover:shadow-xl transition-all animate-on-scroll">
+                    <p class="text-4xl font-bold text-axio-dark mb-2">11-25</p>
+                    <p class="text-gray-600 font-medium mb-4">Medium Groups</p>
+                    <span class="inline-block px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-semibold">Up to 32% savings</span>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center border border-gray-200 hover:border-green-400 hover:shadow-xl transition-all animate-on-scroll" style="animation-delay: 0.1s">
+                    <p class="text-4xl font-bold text-axio-dark mb-2">26-40</p>
+                    <p class="text-gray-600 font-medium mb-4">Large Groups</p>
+                    <span class="inline-block px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-semibold">Up to 38% savings</span>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center border border-gray-200 hover:border-purple-400 hover:shadow-xl transition-all animate-on-scroll" style="animation-delay: 0.2s">
+                    <p class="text-4xl font-bold text-axio-dark mb-2">Custom</p>
+                    <p class="text-gray-600 font-medium mb-4">Enterprise Programs</p>
+                    <span class="inline-block px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold">Tailored Solutions</span>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-br from-gray-50 to-green-50 rounded-3xl p-8 max-w-4xl mx-auto animate-on-scroll">
+                <h3 class="text-xl font-heading font-bold text-axio-dark mb-6 text-center">Corporate Training Includes:</h3>
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                    <div class="flex items-center space-x-2 text-gray-700"><svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Custom scheduling</span></div>
+                    <div class="flex items-center space-x-2 text-gray-700"><svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Branded materials</span></div>
+                    <div class="flex items-center space-x-2 text-gray-700"><svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Industry-specific examples</span></div>
+                    <div class="flex items-center space-x-2 text-gray-700"><svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Progress tracking</span></div>
+                    <div class="flex items-center space-x-2 text-gray-700"><svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Extended support</span></div>
+                    <div class="flex items-center space-x-2 text-gray-700"><svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span>Train-the-trainer options</span></div>
+                </div>
+                <div class="text-center">
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-green px-8 py-4 rounded-full text-white font-semibold inline-flex items-center space-x-2 corporate-quote-link">
+                        <span data-lang-en>Request Corporate Training Quote</span><span data-lang-es>Solicitar Cotización Corporativa</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <p class="text-sm text-gray-500 mt-3">Typical response within 24 hours "¢ No obligation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATION SECTION -->
+    <section id="certification" class="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-on-scroll">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-100 border border-green-300 mb-4">
+                    <span class="text-2xl mr-2">🏅</span>
+                    <span class="text-green-700 font-semibold">Professional Certification</span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-axio-dark mb-4">
+                    <span data-lang-en>Showcase Your Expertise</span><span data-lang-es>Demuestra Tu Experiencia</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl p-6 text-center border-2 border-green-200 shadow-lg hover:scale-105 transition-transform animate-on-scroll">
+                    <div class="text-4xl mb-3">📜</div>
+                    <h3 class="font-bold text-axio-dark mb-1">Digital Badge</h3>
+                    <p class="text-sm text-gray-600">LinkedIn-shareable credential</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center border-2 border-green-200 shadow-lg hover:scale-105 transition-transform animate-on-scroll" style="animation-delay: 0.1s">
+                    <div class="text-4xl mb-3">✓</div>
+                    <h3 class="font-bold text-axio-dark mb-1">Verified</h3>
+                    <p class="text-sm text-gray-600">Unique verification code</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center border-2 border-green-200 shadow-lg hover:scale-105 transition-transform animate-on-scroll" style="animation-delay: 0.2s">
+                    <div class="text-4xl mb-3">🌐</div>
+                    <h3 class="font-bold text-axio-dark mb-1">Public Directory</h3>
+                    <p class="text-sm text-gray-600">Optional listing (coming soon)</p>
+                </div>
+                <div class="bg-white rounded-2xl p-6 text-center border-2 border-green-200 shadow-lg hover:scale-105 transition-transform animate-on-scroll" style="animation-delay: 0.3s">
+                    <div class="text-4xl mb-3">📄</div>
+                    <h3 class="font-bold text-axio-dark mb-1">Valid 2 Years</h3>
+                    <p class="text-sm text-gray-600">Recertification available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-axio-dark mb-4">
+                    <span data-lang-en>Got Questions? We Got Answers</span>
+                    <span data-lang-es>¿Tienes Preguntas? Tenemos Respuestas</span>
+                </h2>
+            </div>
+            
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item bg-white rounded-2xl shadow-md overflow-hidden animate-on-scroll">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-semibold text-axio-dark pr-4"><span data-lang-en>What topics are covered in the training programs?</span><span data-lang-es>¿Qué temas se cubren en los programas?</span></span>
+                        <svg class="faq-icon w-5 h-5 text-axio-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Our training covers AI Tool Mastery (ChatGPT, Claude), Data Literacy (KPIs, dashboards), Workflow Automation, and Actionable Analytics for strategic business decisions.</span><span data-lang-es>Cubrimos Dominio de IA (ChatGPT, Claude), Alfabetización de Datos (KPIs, dashboards), Automatización de Flujos y Análisis Accionable para decisiones estratégicas.</span></p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item bg-white rounded-2xl shadow-md overflow-hidden animate-on-scroll">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-semibold text-axio-dark pr-4"><span data-lang-en>Is the training customized to our specific business?</span><span data-lang-es>¿La capacitación se personaliza para nuestro negocio?</span></span>
+                        <svg class="faq-icon w-5 h-5 text-axio-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Absolutely! We use your real-world data and specific business scenarios. Your team will be solving actual company problems by the end of training.</span><span data-lang-es>¡Absolutamente! Usamos tus datos reales y escenarios específicos. Tu equipo resolverá problemas reales de la empresa al final.</span></p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item bg-white rounded-2xl shadow-md overflow-hidden animate-on-scroll">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-semibold text-axio-dark pr-4"><span data-lang-en>Who is this training designed for?</span><span data-lang-es>¿Para quién está diseñada esta capacitación?</span></span>
+                        <svg class="faq-icon w-5 h-5 text-axio-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Programs for all skill levels"”from leadership teams making data-driven decisions to operations teams automating workflows. We specialize in Retail, SaaS, Healthcare, and Professional Services.</span><span data-lang-es>Programas para todos los niveles"”desde equipos de liderazgo hasta operaciones automatizando flujos. Especializados en Retail, SaaS, Salud y Servicios Profesionales.</span></p>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-item bg-white rounded-2xl shadow-md overflow-hidden animate-on-scroll">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-semibold text-axio-dark pr-4"><span data-lang-en>What format is the training delivered in?</span><span data-lang-es>¿En qué formato se entrega la capacitación?</span></span>
+                        <svg class="faq-icon w-5 h-5 text-axio-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Hybrid learning: Live Workshops (in-person or virtual), Custom Playbooks tailored to your workflows, and On-Demand Video Library for reference and onboarding.</span><span data-lang-es>Aprendizaje híbrido: Talleres en Vivo (presenciales o virtuales), Guías Personalizadas y Biblioteca de Videos bajo demanda.</span></p>
+                    </div>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="faq-item bg-white rounded-2xl shadow-md overflow-hidden animate-on-scroll">
+                    <button class="faq-trigger w-full flex items-center justify-between p-6 text-left">
+                        <span class="font-semibold text-axio-dark pr-4"><span data-lang-en>Do we receive support after the training ends?</span><span data-lang-es>¿Recibimos soporte después de la capacitación?</span></span>
+                        <svg class="faq-icon w-5 h-5 text-axio-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Yes! Packages include Quarterly Refresher Sessions, continuous Resource Library access, and optional follow-up audits to maximize tool utilization.</span><span data-lang-es>¡Sí! Los paquetes incluyen Sesiones de Actualización Trimestrales, acceso continuo a la Biblioteca y auditorías de seguimiento opcionales.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="py-20 gradient-cta relative overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
+                    <span data-lang-en>Ready to Transform Your Team?</span>
+                    <span data-lang-es>¿Listo para Transformar a Tu Equipo?</span>
+                </h2>
+                <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                    <span data-lang-en>Book a free consultation. No pressure, no sales pitch"”just an honest conversation about your challenges.</span>
+                    <span data-lang-es>Reserva una consulta gratuita. Sin presión"”solo una conversación honesta sobre tus desafíos.</span>
+                </p>
+                
+                <!-- CTA - UPDATE href="#BOOKING_LINK" with your Google Calendar link -->
+                <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary px-10 py-5 rounded-full text-white font-bold text-lg inline-flex items-center space-x-3 booking-link">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span data-lang-en>Book Free Consultation</span>
+                    <span data-lang-es>Reservar Consulta Gratuita</span>
+                </a>
+                
+                <div class="flex items-center justify-center space-x-6 mt-8 text-gray-300 text-sm">
+                    <span class="flex items-center space-x-2"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-lang-en>30-minute call</span><span data-lang-es>Llamada 30 min</span></span>
+                    <span class="flex items-center space-x-2"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-lang-en>No obligation</span><span data-lang-es>Sin compromiso</span></span>
+                    <span class="flex items-center space-x-2"><svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><span data-lang-en>Custom plan</span><span data-lang-es>Plan personalizado</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         FOOTER
+         - Contact info, social links, legal links
+         ═══════════════════════════════════════════════════════════════════ -->
+    <footer class="bg-axio-dark text-white py-16" style="background-color:#0F172A;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                        <span class="text-2xl font-heading font-bold -ml-6">axionalytics</span>
+                    </a>
+                    <p class="text-white/70 mb-6 max-w-md leading-relaxed">
+                        <span data-lang-en>Enterprise-grade analytics and AI integration without the enterprise price tag. Helping growing businesses make confident, data-driven decisions.</span>
+                        <span data-lang-es>Analítica e integración de IA de nivel empresarial sin el precio empresarial. Ayudando a negocios en crecimiento a tomar decisiones basadas en datos.</span>
+                    </p>
+                    
+                    <!-- Social Links - Replace # with actual URLs -->
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/company/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://wa.me/19562079368" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Services</span>
+                        <span data-lang-es>Servicios</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="datatransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Data Transformation</span>
+                            <span data-lang-es>Transformación de Datos</span>
+                        </a></li>
+                        <li><a href="aitransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>AI Integration</span>
+                            <span data-lang-es>Integración de IA</span>
+                        </a></li>
+                        <li><a href="training.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Team Training</span>
+                            <span data-lang-es>Capacitación de Equipos</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Company</span>
+                        <span data-lang-es>Compañía</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>About Us</span>
+                            <span data-lang-es>Nosotros</span>
+                        </a></li>
+                        <li><a href="successstories.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Success Stories</span>
+                            <span data-lang-es>Historias de Éxito</span>
+                        </a></li>
+                                                <li><a href="blog.html" class="text-white/70 hover:text-orange-400 transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Contact</span>
+                            <span data-lang-es>Contacto</span>
+                        </a></li>
+                        <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Book Consultation</span>
+                            <span data-lang-es>Agendar Consulta</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/50 text-sm">© 2025 Axionalytics. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Privacy Policy</span>
+                        <span data-lang-es>Política de Privacidad</span>
+                    </a>
+                    <a href="terms.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Terms & Conditions</span>
+                        <span data-lang-es>Términos y Condiciones</span>
+                    </a>
+                    <a href="accessibility.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Accessibility</span>
+                        <span data-lang-es>Accesibilidad</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Language Toggle
+        const langToggleDesktop = document.getElementById('lang-toggle-desktop');
+        const langToggleMobile = document.getElementById('lang-toggle-mobile');
+        const currentLangFlag = document.getElementById('current-lang-flag');
+        const currentLangText = document.getElementById('current-lang-text');
+        const mobileLangFlag = document.querySelector('.mobile-lang-flag');
+        const mobileLangText = document.querySelector('.mobile-lang-text');
+        let currentLang = localStorage.getItem('axio-lang') || 'en';
+        
+        function setLanguage(lang) {
+            if (lang === 'es') {
+                document.documentElement.classList.add('lang-es');
+                if(currentLangFlag) currentLangFlag.textContent = '🇪🇸';
+                if(currentLangText) currentLangText.textContent = 'ES';
+                if(mobileLangFlag) mobileLangFlag.textContent = '🇪🇸';
+                if(mobileLangText) mobileLangText.textContent = 'Español';
+            } else {
+                document.documentElement.classList.remove('lang-es');
+                if(currentLangFlag) currentLangFlag.textContent = '🇺🇸';
+                if(currentLangText) currentLangText.textContent = 'EN';
+                if(mobileLangFlag) mobileLangFlag.textContent = '🇺🇸';
+                if(mobileLangText) mobileLangText.textContent = 'English';
+            }
+            localStorage.setItem('axio-lang', lang);
+            currentLang = lang;
+        }
+        setLanguage(currentLang);
+        
+        function toggleLanguage() { setLanguage(currentLang === 'en' ? 'es' : 'en'); }
+        if(langToggleDesktop) langToggleDesktop.addEventListener('click', toggleLanguage);
+        if(langToggleMobile) langToggleMobile.addEventListener('click', toggleLanguage);
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const trigger = item.querySelector('.faq-trigger');
+            if (trigger) {
+                trigger.addEventListener('click', () => {
+                    document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('is-open'); });
+                    item.classList.toggle('is-open');
+                });
+            }
+        });
+        
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        
+        // ============================================
+        // HEADER SCROLL EFFECT
+        // ============================================
+        const header = document.getElementById('header');
+        
+        function updateHeader() {
+            if (!header) return;
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        }
+        
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
+        
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        
+        function openMobileMenu() {
+            if(mobileMenu) mobileMenu.classList.add('is-open');
+            if(mobileMenuOverlay) { mobileMenuOverlay.style.opacity = '1'; mobileMenuOverlay.style.pointerEvents = 'auto'; }
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            if(mobileMenu) mobileMenu.classList.remove('is-open');
+            if(mobileMenuOverlay) { mobileMenuOverlay.style.opacity = '0'; mobileMenuOverlay.style.pointerEvents = 'none'; }
+            document.body.style.overflow = '';
+        }
+        
+        if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+        if(mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if(mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        if(mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && !href.includes('BOOKING') && !href.includes('ENROLL') && !href.includes('BUNDLE') && !href.includes('CORPORATE') && !href.includes('LINKEDIN') && !href.includes('WHATSAPP') && !href.includes('INSTAGRAM') && !href.includes('FACEBOOK')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

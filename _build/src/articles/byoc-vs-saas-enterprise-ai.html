@@ -1,0 +1,120 @@
+<!--FAQ What is BYOC deployment for AI? | Bring-your-own-cloud splits the system in two. The vendor's control plane orchestrates sessions and holds no customer data at rest, while the execution plane — the only component that touches your systems — runs inside your own cloud account under your IAM, your network policy, and your egress rules.-->
+<!--FAQ Is on-premises AI deployment a reduced feature set? | It should not be. If the vendor ships the same codebase across topologies, on-premises is a deployment choice rather than a lagging branch. Ask directly whether the on-premises build trails the hosted one, because a vendor maintaining two codebases will always prioritise the hosted path.-->
+<!--FAQ Can enterprise AI run fully air-gapped? | Yes, if inference routes through a gateway you already operate and retrieval embeddings run locally rather than calling a hosted embedding service. Those two dependencies are what usually force outbound access; everything else in a well-designed agent stack can run without egress.-->
+
+<p>
+  <span data-lang-en><strong>Deployment topology is the first architectural decision and the hardest to reverse. It determines which data the system may legally touch, and every later choice inherits that constraint.</strong></span>
+  <span data-lang-es><strong>La topología de despliegue es la primera decisión arquitectónica y la más difícil de revertir. Determina qué datos puede tocar legalmente el sistema, y toda decisión posterior hereda esa restricción.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>It is routinely treated as an infrastructure detail to settle after the functional design — which is how teams discover in month four that the system they built cannot process the data it was built for.</span>
+  <span data-lang-es>Habitualmente se trata como un detalle de infraestructura a resolver después del diseño funcional — así es como los equipos descubren en el cuarto mes que el sistema que construyeron no puede procesar los datos para los que fue construido.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The three topologies</span>
+  <span data-lang-es>Las tres topologías</span>
+</h2>
+
+<h3>
+  <span data-lang-en>Vendor-hosted SaaS</span>
+  <span data-lang-es>SaaS alojado por el proveedor</span>
+</h3>
+
+<p>
+  <span data-lang-en>Your data is processed on the vendor's infrastructure. This is the fastest path to production and the right answer more often than security-conscious organizations like to admit — for public data, for internal content with no regulatory exposure, and for anything where the cost of a breach is embarrassment rather than a filing.</span>
+  <span data-lang-es>Sus datos se procesan en la infraestructura del proveedor. Es el camino más rápido a producción y la respuesta correcta más a menudo de lo que a las organizaciones cautelosas les gusta admitir — para datos públicos, contenido interno sin exposición regulatoria y cualquier caso donde el costo de una brecha sea vergüenza y no una notificación formal.</span>
+</p>
+
+<p>
+  <span data-lang-en>It fails on one specific condition: when a contract, a regulator, or a residency clause says the data does not leave. No data processing agreement changes where the packets go, and no certification substitutes for that.</span>
+  <span data-lang-es>Falla en una condición específica: cuando un contrato, un regulador o una cláusula de residencia dice que los datos no salen. Ningún acuerdo de tratamiento cambia a dónde van los paquetes, y ninguna certificación lo sustituye.</span>
+</p>
+
+<h3>
+  <span data-lang-en>Bring-your-own-cloud</span>
+  <span data-lang-es>Nube propia (BYOC)</span>
+</h3>
+
+<p>
+  <span data-lang-en>The system splits along a hard boundary. A control plane orchestrates sessions, evaluates policy, and collects traces — and holds no customer data at rest. An execution plane runs inside your own cloud account, under your identity and access management, your network policy, and your egress rules. It is the only component that ever connects to your systems.</span>
+  <span data-lang-es>El sistema se divide en una frontera dura. Un plano de control orquesta sesiones, evalúa políticas y recolecta trazas — y no retiene datos del cliente. Un plano de ejecución corre dentro de su propia cuenta de nube, bajo su gestión de identidad y accesos, su política de red y sus reglas de salida. Es el único componente que conecta con sus sistemas.</span>
+</p>
+
+<p>
+  <span data-lang-en>This is the topology that resolves most enterprise objections, because it makes the residency question answerable with a network diagram rather than a legal assurance. It costs more operationally: you run infrastructure, you patch it, and you own the failure modes inside your perimeter.</span>
+  <span data-lang-es>Esta es la topología que resuelve la mayoría de las objeciones empresariales, porque hace que la pregunta de residencia se responda con un diagrama de red y no con una garantía legal. Cuesta más operativamente: usted opera infraestructura, la parchea y es dueño de los modos de falla dentro de su perímetro.</span>
+</p>
+
+<h3>
+  <span data-lang-en>Fully on-premises</span>
+  <span data-lang-es>Totalmente on-premises</span>
+</h3>
+
+<p>
+  <span data-lang-en>Both planes run in your environment. Appropriate for air-gapped networks, classified work, and operational technology environments where outbound connectivity is prohibited outright rather than merely restricted.</span>
+  <span data-lang-es>Ambos planos corren en su entorno. Apropiado para redes aisladas, trabajo clasificado y entornos de tecnología operativa donde la conectividad saliente está directamente prohibida y no solo restringida.</span>
+</p>
+
+<p>
+  <span data-lang-en>Two dependencies usually force outbound access and have to be resolved explicitly: model inference, which should route through a gateway you already operate, and retrieval embeddings, which should run resident and locally rather than calling a hosted embedding service. Solve both and the remaining stack has no reason to reach the internet.</span>
+  <span data-lang-es>Dos dependencias suelen forzar el acceso saliente y deben resolverse explícitamente: la inferencia del modelo, que debe enrutarse por un gateway que usted ya opera, y los embeddings de recuperación, que deben correr residentes y localmente en lugar de llamar a un servicio alojado. Resuelva ambas y el resto de la pila no tiene razón para salir a internet.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The question that decides it</span>
+    <span data-lang-es>La pregunta que lo decide</span>
+  </h4>
+  <p>
+    <span data-lang-en>Not "how sensitive is this data" — everyone answers "very". Ask instead: <em>is there a written commitment, to a regulator or a customer, that constrains where this data may be processed?</em> If yes, the topology is already chosen and the discussion is over. If no, you are optimising for operational cost, and hosted is usually correct.</span>
+    <span data-lang-es>No "qué tan sensibles son estos datos" — todos responden "mucho". Pregunte en cambio: <em>¿existe un compromiso escrito, ante un regulador o un cliente, que restrinja dónde pueden procesarse estos datos?</em> Si la respuesta es sí, la topología ya está elegida y la discusión terminó. Si es no, está optimizando costo operativo, y lo alojado suele ser lo correcto.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>What isolation actually means inside the execution plane</span>
+  <span data-lang-es>Qué significa realmente el aislamiento dentro del plano de ejecución</span>
+</h2>
+
+<p>
+  <span data-lang-en>Choosing BYOC settles where the code runs. It does not settle how safely it runs there, and that distinction matters because an agent that writes and executes code is a remote code execution path you built deliberately.</span>
+  <span data-lang-es>Elegir BYOC define dónde corre el código. No define con qué seguridad corre allí, y esa distinción importa porque un agente que escribe y ejecuta código es una vía de ejecución remota que usted construyó a propósito.</span>
+</p>
+
+<p>
+  <span data-lang-en>Container-level isolation is insufficient for that workload. Containers share a kernel, and kernel escapes are a known category rather than a hypothetical. Agent-generated code belongs in a hardware-isolated sandbox — a MicroVM with its own kernel — so that a successful escape lands the attacker in an empty virtual machine.</span>
+  <span data-lang-es>El aislamiento a nivel de contenedor es insuficiente para esa carga. Los contenedores comparten kernel, y los escapes de kernel son una categoría conocida, no una hipótesis. El código generado por el agente pertenece a un sandbox aislado por hardware — una MicroVM con su propio kernel — para que un escape exitoso deje al atacante en una máquina virtual vacía.</span>
+</p>
+
+<p>
+  <span data-lang-en>Isolation alone still leaves an exfiltration path. Pair it with egress denied by default: a network filter and a DNS sinkhole restricting outbound traffic to an allowlist you define. A fully compromised agent then has nowhere to send anything, because exfiltration requires a destination and there is none.</span>
+  <span data-lang-es>El aislamiento por sí solo aún deja una vía de exfiltración. Combínelo con salida denegada por defecto: un filtro de red y un sumidero DNS que restrinjan el tráfico saliente a una lista que usted define. Un agente totalmente comprometido no tiene entonces a dónde enviar nada, porque la exfiltración requiere un destino y no lo hay.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The question to ask a vendor</span>
+  <span data-lang-es>La pregunta que hay que hacerle a un proveedor</span>
+</h2>
+
+<p>
+  <span data-lang-en>Ask whether the on-premises build is the same codebase as the hosted one. Many vendors maintain two, and the self-hosted branch inevitably trails — you receive last year's system at this year's price, and every support conversation begins with establishing which version you are running.</span>
+  <span data-lang-es>Pregunte si la versión on-premises es el mismo código que la alojada. Muchos proveedores mantienen dos, y la rama auto-alojada inevitablemente se rezaga — usted recibe el sistema del año pasado al precio de este año, y cada conversación de soporte empieza por establecer qué versión está ejecutando.</span>
+</p>
+
+<p>
+  <span data-lang-en>Then ask what changes between topologies. In a well-built system the answer is deployment configuration and nothing else: the same containers, the same policy engine, the same audit pipeline, with the control plane relocated. If the answer involves a different feature matrix, the restrictive option is a second-class product and should be priced as one.</span>
+  <span data-lang-es>Luego pregunte qué cambia entre topologías. En un sistema bien construido la respuesta es la configuración de despliegue y nada más: los mismos contenedores, el mismo motor de políticas, la misma tubería de auditoría, con el plano de control reubicado. Si la respuesta implica una matriz de funciones distinta, la opción restrictiva es un producto de segunda y debería cotizarse como tal.</span>
+</p>
+
+<div class="pro-tip">
+  <h4>
+    <span data-lang-en>Decide this in week one</span>
+    <span data-lang-es>Decida esto en la semana uno</span>
+  </h4>
+  <p>
+    <span data-lang-en>Topology cannot be changed late without rewriting the system, because everything downstream — where secrets live, how identity federates, what the audit pipeline can see — is derived from it. It belongs in the first architecture session alongside the identity provider and the egress policy, not in a hardening sprint at the end.</span>
+    <span data-lang-es>La topología no puede cambiarse tarde sin reescribir el sistema, porque todo lo posterior — dónde viven los secretos, cómo se federa la identidad, qué puede ver la tubería de auditoría — se deriva de ella. Corresponde a la primera sesión de arquitectura junto al proveedor de identidad y la política de salida, no a un sprint de endurecimiento al final.</span>
+  </p>
+</div>

@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+AXIONALYTICS - HOMEPAGE (index.html)
+Version: 1.0.0
+Last Updated: January 2026
+
+DEPLOYMENT: Ready for GitHub Pages
+FRAMEWORK: Tailwind CSS via CDN + Custom CSS
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+UPDATE INSTRUCTIONS:
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+1. BOOKING LINKS (Google Calendar):
+   - Search for: href="https://calendar.app.google/AYww7wSmkwANWDxR9"
+   - Replace with your Google Calendar appointment scheduling link
+   - Example: href="https://calendar.google.com/calendar/appointments/YOUR_LINK"
+
+2. SOCIAL MEDIA LINKS:
+   - Search for: href="#LINKEDIN", href="#WHATSAPP", href="#INSTAGRAM"
+   - Replace with your actual social media URLs
+
+3. CONTACT EMAIL:
+   - Search for: info@axionalytics.com
+   - Replace with your preferred contact email
+
+4. SPANISH TRANSLATIONS:
+   - All Spanish text is marked with data-lang-es attributes
+   - Text switches automatically based on language toggle
+
+5. IMAGES:
+   - Replace Unsplash placeholder URLs with your actual images
+   - Recommended image sizes noted in comments
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Axionalytics - Enterprise-grade analytics and AI integration without the enterprise price tag. Transform your data into actionable insights.">
+    <meta name="keywords" content="data analytics, AI integration, business intelligence, data transformation, team training, Power BI, dashboards">
+    <meta name="author" content="Axionalytics">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Axionalytics - Turn Data Into Decisions">
+    <meta property="og:description" content="Enterprise-grade analytics and AI integration without the enterprise price tag.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axionalytics.com">
+    
+    <title>Axionalytics | Turn Data Into Decisions. Turn AI Into Action.</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo_fixed.png">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'axio': {
+                            'primary': '#1E3A5F',      // Dark blue (brand primary)
+                            'secondary': '#2563EB',    // Bright blue
+                            'accent': '#F97316',       // Orange accent
+                            'dark': '#0F172A',         // Near black
+                            'charcoal': '#1E293B',     // Dark gray
+                            'slate': '#334155',        // Medium slate
+                            'light': '#F8FAFC',        // Light background
+                            'green': '#10B981',        // Success green
+                            'amber': '#F59E0B',        // Amber for AI
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['Plus Jakarta Sans', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
+                        'count-up': 'countUp 2s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        /* ============================================
+           GLOBAL STYLES & TYPOGRAPHY
+           ============================================ */
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        /* ============================================
+           BILINGUAL SYSTEM
+           - English shows by default
+           - Spanish hidden by default
+           - .lang-es on html swaps them
+           ============================================ */
+        [data-lang-es] {
+            display: none;
+        }
+        
+        html.lang-es [data-lang-en] {
+            display: none !important;
+        }
+        
+        html.lang-es [data-lang-es] {
+            display: inline !important;
+        }
+        
+        html.lang-es div[data-lang-es],
+        html.lang-es p[data-lang-es],
+        html.lang-es h1[data-lang-es],
+        html.lang-es h2[data-lang-es],
+        html.lang-es h3[data-lang-es],
+        html.lang-es h4[data-lang-es],
+        html.lang-es li[data-lang-es],
+        html.lang-es span[data-lang-es],
+        html.lang-es a[data-lang-es] {
+            display: block !important;
+        }
+        
+        html.lang-es span[data-lang-es] {
+            display: inline !important;
+        }
+        
+        /* ============================================
+           GRADIENT BACKGROUNDS
+           ============================================ */
+        .gradient-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+        }
+        
+        .gradient-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(249, 115, 22, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .gradient-cta {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        }
+        
+        .gradient-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* ============================================
+           BUTTON STYLES
+           ============================================ */
+        .btn-primary {
+            background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.5);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #F97316;
+            background: rgba(249, 115, 22, 0.1);
+        }
+        
+        /* ============================================
+           CARD STYLES
+           ============================================ */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Service Card Colors */
+        .service-card-data { border-left: 5px solid #2563EB; }
+        .service-card-ai { border-left: 5px solid #F59E0B; }
+        .service-card-training { border-left: 5px solid #10B981; }
+        
+        /* ============================================
+           ANIMATION UTILITIES
+           ============================================ */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stagger children animations */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        
+        .stagger-children.is-visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+        .stagger-children.is-visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+        .stagger-children.is-visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .stagger-children.is-visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+        .stagger-children.is-visible > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+        .stagger-children.is-visible > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+        .stagger-children.is-visible > *:nth-child(7) { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
+        .stagger-children.is-visible > *:nth-child(8) { transition-delay: 0.8s; opacity: 1; transform: translateY(0); }
+        .stagger-children.is-visible > *:nth-child(9) { transition-delay: 0.9s; opacity: 1; transform: translateY(0); }
+        
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #F97316;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.is-open {
+            transform: translateX(0);
+        }
+        
+        /* ============================================
+           FAQ ACCORDION
+           ============================================ */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.is-open .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.is-open .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* ============================================
+           TESTIMONIAL SLIDER
+           ============================================ */
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+        }
+        
+        /* ============================================
+           METRIC COUNTER ANIMATION
+           ============================================ */
+        .metric-counter {
+            display: inline-block;
+        }
+        
+        
+        /* ============================================
+           LANGUAGE TOGGLE BUTTON
+           ============================================ */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: transparent;
+        }
+        
+        .lang-toggle:hover {
+            border-color: #F97316;
+            background: rgba(249, 115, 22, 0.1);
+        }
+        
+        .lang-toggle-light {
+            border-color: #E2E8F0;
+        }
+        
+        .lang-toggle-light:hover {
+            border-color: #F97316;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-700 overflow-x-hidden">
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION: NAVIGATION HEADER
+         - Sticky navigation with logo, menu items, CTA, and language toggle
+         - Mobile responsive with hamburger menu
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background-color:#0F172A;">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center group">
+                    <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                    <span class="text-2xl font-heading font-bold text-white group-hover:text-orange-400 transition-colors -ml-6">
+                        axionalytics
+                    </span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <!-- Desktop Navigation (matches training.html - 5 links, no About) -->
+                                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="text-orange-400 font-medium">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformación de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integración de IA</span>
+                    </a>
+                    <a href="training.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitación</span>
+                    </a>
+                    <a href="contact.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </div>
+                
+                <!-- Right Side: CTA + Language Toggle -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <!-- CTA Button - Replace #BOOKING_LINK with your Google Calendar link -->
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-3 rounded-xl font-bold text-sm">
+                        <span data-lang-en>Book Now</span>
+                        <span data-lang-es>Reservar</span>
+                    </a>
+                    
+                    <!-- Language Toggle -->
+                    <button id="lang-toggle-desktop" class="lang-toggle text-white text-sm font-medium" aria-label="Toggle language">
+                        <span id="current-lang-flag">🇺🇸</span>
+                        <span id="current-lang-text">EN</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Slide-in) -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-80 max-w-full bg-axio-dark shadow-2xl lg:hidden z-50" style="background-color:#0F172A;">
+            <div class="flex flex-col h-full p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-xl font-heading font-bold text-white">Menu</span>
+                    <button id="mobile-menu-close" class="text-white p-2" aria-label="Close menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                                <nav class="flex flex-col gap-4">
+                    <a href="index.html" class="text-orange-400 font-medium py-2">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformación de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integración de IA</span>
+                    </a>
+                    <a href="training.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitación</span>
+                    </a>
+                    <a href="contact.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </nav>
+                
+                <div class="mt-auto pt-8 border-t border-white/10">
+                    <!-- Mobile Language Toggle -->
+                    <button id="lang-toggle-mobile" class="lang-toggle text-white text-sm font-medium mb-4 w-full justify-center">
+                        <span class="mobile-lang-flag">🇺🇸</span>
+                        <span class="mobile-lang-text">English</span>
+                    </button>
+                    
+                    <!-- Mobile CTA -->
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-4 rounded-xl font-bold text-center block">
+                        <span data-lang-en>Book Free Assessment</span>
+                        <span data-lang-es>Agendar Evaluación Gratuita</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 lg:hidden z-40 opacity-0 pointer-events-none transition-opacity"></div>
+    </header>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 1: HERO
+         - Main value proposition
+         - Key metrics (312% ROI, 4 Weeks, 15-30% Revenue)
+         - Primary CTA
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="hero" class="gradient-hero relative pt-20 pb-24 overflow-hidden">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Main Headline -->
+            <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight mb-6 animate-slide-up">
+                <span data-lang-en>Turn Data Into Decisions.</span>
+                <span data-lang-es>Transforma Datos en Decisiones.</span>
+                <br>
+                <span class="text-orange-500">
+                    <span data-lang-en>Turn AI Into Action.</span>
+                    <span data-lang-es>Transforma IA en Acción.</span>
+                </span>
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-10 leading-relaxed animate-slide-up" style="animation-delay: 0.2s;">
+                <span data-lang-en>Enterprise-grade analytics and AI integration without the enterprise price tag. We help growing businesses make confident, data-driven decisions in weeks, not months.</span>
+                <span data-lang-es>Analítica e integración de IA de nivel empresarial sin el precio empresarial. Ayudamos a negocios en crecimiento a tomar decisiones basadas en datos en semanas, no en meses.</span>
+            </p>
+            
+            <!-- Key Metrics -->
+            <div class="flex flex-wrap justify-center gap-8 lg:gap-16 mb-12 animate-slide-up" style="animation-delay: 0.4s;">
+                <div class="text-center">
+                    <div class="font-heading text-4xl lg:text-5xl font-extrabold text-orange-500 mb-1" data-counter="312">312%</div>
+                    <div class="text-xs lg:text-sm text-white/70 uppercase tracking-wider font-semibold">
+                        <span data-lang-en>Avg. First Year ROI</span>
+                        <span data-lang-es>ROI Prom. Primer Año</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="font-heading text-4xl lg:text-5xl font-extrabold text-orange-500 mb-1">
+                        <span data-lang-en>4 Weeks</span>
+                        <span data-lang-es>4 Sem.</span>
+                    </div>
+                    <div class="text-xs lg:text-sm text-white/70 uppercase tracking-wider font-semibold">
+                        <span data-lang-en>To First Insights</span>
+                        <span data-lang-es>A Primeros Insights</span>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="font-heading text-4xl lg:text-5xl font-extrabold text-orange-500 mb-1">15-30%</div>
+                    <div class="text-xs lg:text-sm text-white/70 uppercase tracking-wider font-semibold">
+                        <span data-lang-en>Revenue Increase</span>
+                        <span data-lang-es>Aumento de Ingresos</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up" style="animation-delay: 0.6s;">
+                <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg w-full sm:w-auto">
+                    <span data-lang-en>Book Your Free 30-Min Assessment</span>
+                    <span data-lang-es>Agenda Tu Evaluación Gratuita de 30 Min</span>
+                </a>
+                <a href="#solutions" class="btn-secondary text-white px-8 py-4 rounded-xl font-semibold text-lg w-full sm:w-auto">
+                    <span data-lang-en>Explore Solutions</span>
+                    <span data-lang-es>Explorar Soluciones</span>
+                </a>
+            </div>
+            
+            <!-- Trust Indicators -->
+            <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-white/70 animate-slide-up" style="animation-delay: 0.8s;">
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-lang-en>ROI projections in 48 hours</span>
+                    <span data-lang-es>Proyecciones de ROI en 48 horas</span>
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-lang-en>No credit card required</span>
+                    <span data-lang-es>No se requiere tarjeta de crédito</span>
+                </span>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 2: SERVICE PILLARS (Quick Overview Cards)
+         - Three clickable cards linking to service pages
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="pillars" class="relative -mt-16 z-20 pb-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Data Transformation Card -->
+                <a href="datatransformation.html" class="card-hover bg-white rounded-2xl p-8 shadow-xl border-2 border-transparent hover:border-blue-600 group">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+                        📊
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformación de Datos</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        <span data-lang-en>Custom dashboards, predictive analytics & real-time insights that reveal what's working.</span>
+                        <span data-lang-es>Dashboards personalizados, analítica predictiva e insights en tiempo real que revelan qué funciona.</span>
+                    </p>
+                    <div class="mt-4 text-blue-600 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span data-lang-en>Learn More</span>
+                        <span data-lang-es>Conocer Más</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </a>
+                
+                <!-- AI Integration Card -->
+                <a href="aitransformation.html" class="card-hover bg-white rounded-2xl p-8 shadow-xl border-2 border-transparent hover:border-amber-500 group">
+                    <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+                        🤖
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integración de IA</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        <span data-lang-en>Implement AI tools, automate workflows & save 10+ hours per employee weekly.</span>
+                        <span data-lang-es>Implementa herramientas de IA, automatiza flujos y ahorra más de 10 horas por empleado semanalmente.</span>
+                    </p>
+                    <div class="mt-4 text-amber-600 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span data-lang-en>Learn More</span>
+                        <span data-lang-es>Conocer Más</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </a>
+                
+                <!-- Team Training Card -->
+                <a href="training.html" class="card-hover bg-white rounded-2xl p-8 shadow-xl border-2 border-transparent hover:border-emerald-500 group">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+                        🎓
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitación de Equipos</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        <span data-lang-en>Build a data-literate team with hands-on programs they'll actually use.</span>
+                        <span data-lang-es>Construye un equipo alfabetizado en datos con programas prácticos que realmente usarán.</span>
+                    </p>
+                    <div class="mt-4 text-emerald-600 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                        <span data-lang-en>Learn More</span>
+                        <span data-lang-es>Conocer Más</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 3: CLIENT TESTIMONIALS (Social Proof)
+         - Carousel/slider of testimonials
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="testimonials-preview" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-12 animate-on-scroll">
+                <span class="inline-block bg-green-100 text-green-700 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    <span data-lang-en>✓ Trusted by Growing Businesses</span>
+                    <span data-lang-es>✓ Confianza de Negocios en Crecimiento</span>
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-gray-900 mb-4">
+                    <span data-lang-en>What Our Clients Say</span>
+                    <span data-lang-es>Lo Que Dicen Nuestros Clientes</span>
+                </h2>
+                <p class="text-gray-600 text-lg max-w-xl mx-auto">
+                    <span data-lang-en>Real results from real businesses like yours</span>
+                    <span data-lang-es>Resultados reales de negocios como el tuyo</span>
+                </p>
+            </div>
+            
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children" id="testimonials-grid">
+                
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="text-blue-600 text-4xl mb-4">"</div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">
+                        <span data-lang-en>For the first time, I can see exactly which jobs are making money and which ones are bleeding cash. Axionalytics gave us clarity on a business I've been running blind for 3 years.</span>
+                        <span data-lang-es>Por primera vez, puedo ver exactamente qué trabajos generan dinero y cuáles están sangrando efectivo. Axionalytics nos dio claridad en un negocio que he estado manejando a ciegas por 3 años.</span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">NJ</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Nati J.</div>
+                            <div class="text-sm text-gray-500">Owner, RemodelArT Corp.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="text-blue-600 text-4xl mb-4">"</div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">
+                        <span data-lang-en>We went from spreadsheet chaos to knowing exactly what to order and when. The ROI paid for the project in the first month.</span>
+                        <span data-lang-es>Pasamos del caos de hojas de cálculo a saber exactamente qué pedir y cuándo. El ROI pagó el proyecto en el primer mes.</span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">ML</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Maria L.</div>
+                            <div class="text-sm text-gray-500">Operations Director, Coastal Home Goods</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                    <div class="text-blue-600 text-4xl mb-4">"</div>
+                    <p class="text-gray-700 italic mb-6 leading-relaxed">
+                        <span data-lang-en>We discovered we were losing money on 20% of our clients. Now we price smarter, staff smarter, and our margins have never been better.</span>
+                        <span data-lang-es>Descubrimos que estábamos perdiendo dinero en el 20% de nuestros clientes. Ahora fijamos precios más inteligentes, contratamos mejor, y nuestros márgenes nunca han sido mejores.</span>
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">PM</div>
+                        <div>
+                            <div class="font-semibold text-gray-900">Patricia M.</div>
+                            <div class="text-sm text-gray-500">Managing Partner, Sterling Accounting</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- View All Link -->
+            <div class="text-center mt-10">
+                <a href="successstories.html" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                    <span data-lang-en>View All Success Stories</span>
+                    <span data-lang-es>Ver Todas las Historias de Éxito</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         SECTION: VIDEO SPOTLIGHT
+         - Embedded video showcase
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <section id="video-spotlight" class="py-20 bg-[#0F172A]">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Section Header -->
+            <div class="text-center mb-12 animate-on-scroll">
+                <span class="inline-block bg-orange-500/10 text-orange-400 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    <span data-lang-en>&#9654; See It in Action</span>
+                    <span data-lang-es>&#9654; Míralo en Acción</span>
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-white mb-4">
+                    <span data-lang-en>Data-Driven Results, Explained</span>
+                    <span data-lang-es>Resultados Basados en Datos, Explicados</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    <span data-lang-en>Watch how Axionalytics turns raw data into real business growth.</span>
+                    <span data-lang-es>Mira cómo Axionalytics transforma datos sin procesar en crecimiento real para tu negocio.</span>
+                </p>
+            </div>
+
+            <!-- Video Embed -->
+            <div class="animate-on-scroll">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-orange-500/10 border border-white/10" style="padding-top: 56.25%;">
+                    <iframe
+                        class="absolute top-0 left-0 w-full h-full"
+                        src="https://www.youtube.com/embed/JP_0mTRuUNE?si=e3CDF2jaUIiYGfnD"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 4: THE PROBLEM
+         - Pain points that resonate with target audience
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="problem" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-14 animate-on-scroll">
+                <span class="inline-block bg-red-100 text-red-700 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    <span data-lang-en>The Problem</span>
+                    <span data-lang-es>El Problema</span>
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-gray-900 mb-4">
+                    <span data-lang-en>You're Drowning in Data But Starving for Insights</span>
+                    <span data-lang-es>Te Ahogas en Datos Pero Mueres de Hambre por Insights</span>
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    <span data-lang-en>Your business generates thousands of data points daily, but without the right expertise and tools, it's just noise holding you back.</span>
+                    <span data-lang-es>Tu negocio genera miles de puntos de datos diariamente, pero sin la experiencia y herramientas adecuadas, es solo ruido que te frena.</span>
+                </p>
+            </div>
+            
+            <!-- Problem Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children" id="problem-cards">
+                
+                <!-- Problem 1 -->
+                <div class="bg-gray-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-orange-300 transition-colors">
+                    <div class="text-4xl mb-5">📊</div>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                        <span data-lang-en>Too Much Data, Too Little Time</span>
+                        <span data-lang-es>Muchos Datos, Poco Tiempo</span>
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-lang-en>Your business generates thousands of data points daily"”from sales, inventory, customer behavior, operations. But without the right tools and expertise, it's just noise. You can't spot trends, predict problems, or seize opportunities fast enough.</span>
+                        <span data-lang-es>Tu negocio genera miles de puntos de datos diariamente: ventas, inventario, comportamiento del cliente, operaciones. Pero sin las herramientas y experiencia correctas, es solo ruido. No puedes detectar tendencias, predecir problemas ni aprovechar oportunidades lo suficientemente rápido.</span>
+                    </p>
+                </div>
+                
+                <!-- Problem 2 -->
+                <div class="bg-gray-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-orange-300 transition-colors">
+                    <div class="text-4xl mb-5">🎓</div>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                        <span data-lang-en>Enterprise Tools Are Too Complex</span>
+                        <span data-lang-es>Las Herramientas Empresariales Son Muy Complejas</span>
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-lang-en>Big analytics platforms like Tableau and Power BI are powerful, but they're built for Fortune 500 companies with dedicated data teams. Your small team doesn't have time for a 6-month learning curve or a $100K+ implementation.</span>
+                        <span data-lang-es>Grandes plataformas de analítica como Tableau y Power BI son poderosas, pero están diseñadas para empresas Fortune 500 con equipos de datos dedicados. Tu pequeño equipo no tiene tiempo para una curva de aprendizaje de 6 meses ni una implementación de más de $100K.</span>
+                    </p>
+                </div>
+                
+                <!-- Problem 3 -->
+                <div class="bg-gray-50 rounded-2xl p-8 border-2 border-gray-100 hover:border-orange-300 transition-colors">
+                    <div class="text-4xl mb-5">💰</div>
+                    <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                        <span data-lang-en>Consultants Are Out of Reach</span>
+                        <span data-lang-es>Los Consultores Están Fuera de Alcance</span>
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-lang-en>Traditional analytics consulting firms charge $200-500/hour with minimum engagements of $50K+. That pricing model works for enterprises, but leaves small and mid-size businesses without access to the intelligence they need to compete.</span>
+                        <span data-lang-es>Las firmas tradicionales de consultoría en analítica cobran $200-500/hora con compromisos mínimos de más de $50K. Ese modelo de precios funciona para grandes empresas, pero deja a los pequeños y medianos negocios sin acceso a la inteligencia que necesitan para competir.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 5: SOLUTIONS (Detailed Service Cards)
+         - Three comprehensive service cards with features and results
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="solutions" class="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-14 animate-on-scroll">
+                <span class="inline-block bg-blue-100 text-blue-700 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    <span data-lang-en>Our Solutions</span>
+                    <span data-lang-es>Nuestras Soluciones</span>
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-gray-900 mb-4">
+                    <span data-lang-en>Three Paths to Data-Driven Growth</span>
+                    <span data-lang-es>Tres Caminos al Crecimiento Basado en Datos</span>
+                </h2>
+                <p class="text-gray-600 text-lg max-w-xl mx-auto">
+                    <span data-lang-en>Choose one service or combine all three. Each delivers measurable ROI in weeks, not months.</span>
+                    <span data-lang-es>Elige un servicio o combina los tres. Cada uno entrega un ROI medible en semanas, no en meses.</span>
+                </p>
+            </div>
+            
+            <!-- Solutions Cards -->
+            <div class="space-y-8">
+                
+                <!-- Solution 1: Data Transformation -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden animate-on-scroll">
+                    <div class="grid lg:grid-cols-2">
+                        <!-- Info Side -->
+                        <div class="p-8 lg:p-10 service-card-data">
+                            <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-3xl mb-6">📊</div>
+                            <h3 class="font-heading font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
+                                <span data-lang-en>Data Transformation</span>
+                                <span data-lang-es>Transformación de Datos</span>
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                <span data-lang-en>Stop flying blind. We transform your existing data into actionable intelligence that reveals what's working, what's not, and what to do next.</span>
+                                <span data-lang-es>Deja de operar a ciegas. Transformamos tus datos existentes en inteligencia accionable que revela qué funciona, qué no, y qué hacer a continuación.</span>
+                            </p>
+                            
+                            <!-- Features List -->
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Custom analytics dashboards tailored to your KPIs</span>
+                                        <span data-lang-es>Dashboards de analítica personalizados según tus KPIs</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Predictive models that forecast trends 30-90 days ahead</span>
+                                        <span data-lang-es>Modelos predictivos que pronostican tendencias de 30 a 90 días</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Automated reports delivered daily, weekly, or monthly</span>
+                                        <span data-lang-es>Reportes automatizados entregados diaria, semanal o mensualmente</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-blue-100 text-blue-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Real-time alerts when metrics hit critical thresholds</span>
+                                        <span data-lang-es>Alertas en tiempo real cuando las métricas alcanzan umbrales críticos</span>
+                                    </span>
+                                </li>
+                            </ul>
+                            
+                            <a href="datatransformation.html" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-colors">
+                                <span data-lang-en>Learn More</span>
+                                <span data-lang-es>Conocer Más</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                        
+                        <!-- Results Side -->
+                        <div class="bg-gradient-to-br from-blue-800 to-blue-600 p-8 lg:p-10 text-white">
+                            <div class="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                                <span data-lang-en>✓ Results You'll See</span>
+                                <span data-lang-es>✓ Resultados que Verás</span>
+                            </div>
+                            <ul class="space-y-5">
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Identify revenue opportunities you're currently missing</span>
+                                        <span data-lang-es>Identifica oportunidades de ingresos que estás perdiendo</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Spot problems before they become costly crises</span>
+                                        <span data-lang-es>Detecta problemas antes de que se conviertan en crisis costosas</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Eliminate guesswork from major business decisions</span>
+                                        <span data-lang-es>Elimina las conjeturas de las decisiones importantes</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Optimize pricing, inventory, and resource allocation</span>
+                                        <span data-lang-es>Optimiza precios, inventario y asignación de recursos</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution 2: AI Integration -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden animate-on-scroll">
+                    <div class="grid lg:grid-cols-2">
+                        <!-- Info Side -->
+                        <div class="p-8 lg:p-10 service-card-ai">
+                            <div class="w-16 h-16 bg-amber-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🤖</div>
+                            <h3 class="font-heading font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
+                                <span data-lang-en>AI Integration</span>
+                                <span data-lang-es>Integración de IA</span>
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                <span data-lang-en>Your team is wasting 10+ hours per week on manual tasks that AI can handle in seconds. We set up and train your team on the right AI tools.</span>
+                                <span data-lang-es>Tu equipo desperdicia más de 10 horas por semana en tareas manuales que la IA puede resolver en segundos. Configuramos y capacitamos a tu equipo en las herramientas de IA adecuadas.</span>
+                            </p>
+                            
+                            <!-- Features List -->
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-amber-100 text-amber-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>AI tool assessment and selection (ChatGPT, Claude, others)</span>
+                                        <span data-lang-es>Evaluación y selección de herramientas de IA (ChatGPT, Claude, otras)</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-amber-100 text-amber-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Custom AI workflows for your specific processes</span>
+                                        <span data-lang-es>Flujos de trabajo de IA personalizados para tus procesos</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-amber-100 text-amber-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Integration with your existing systems (CRM, ERP, etc.)</span>
+                                        <span data-lang-es>Integración con tus sistemas actuales (CRM, ERP, etc.)</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-amber-100 text-amber-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Hands-on training for your entire team</span>
+                                        <span data-lang-es>Capacitación práctica para todo tu equipo</span>
+                                    </span>
+                                </li>
+                            </ul>
+                            
+                            <a href="aitransformation.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-gray-900 px-6 py-3 rounded-xl font-bold transition-colors">
+                                <span data-lang-en>Get AI Ready</span>
+                                <span data-lang-es>Prepárate para IA</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                        
+                        <!-- Results Side -->
+                        <div class="bg-gradient-to-br from-amber-700 to-amber-500 p-8 lg:p-10 text-white">
+                            <div class="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                                <span data-lang-en>✓ Results You'll See</span>
+                                <span data-lang-es>✓ Resultados que Verás</span>
+                            </div>
+                            <ul class="space-y-5">
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Automate repetitive tasks (data entry, reporting, scheduling)</span>
+                                        <span data-lang-es>Automatiza tareas repetitivas (entrada de datos, reportes, programación)</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Generate content 5x faster (emails, proposals, reports)</span>
+                                        <span data-lang-es>Genera contenido 5 veces más rápido (correos, propuestas, informes)</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Accelerate decision-making with AI-assisted analysis</span>
+                                        <span data-lang-es>Acelera la toma de decisiones con análisis asistido por IA</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Free up 10-15 hours per employee per week</span>
+                                        <span data-lang-es>Libera de 10 a 15 horas por empleado cada semana</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Solution 3: Team Training -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden animate-on-scroll">
+                    <div class="grid lg:grid-cols-2">
+                        <!-- Info Side -->
+                        <div class="p-8 lg:p-10 service-card-training">
+                            <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🎓</div>
+                            <h3 class="font-heading font-bold text-2xl lg:text-3xl text-gray-900 mb-4">
+                                <span data-lang-en>Team Training</span>
+                                <span data-lang-es>Capacitación de Equipos</span>
+                            </h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                <span data-lang-en>Your competitive advantage isn't just better tools"”it's a team that knows how to use them. We provide hands-on training they'll actually use.</span>
+                                <span data-lang-es>Tu ventaja competitiva no es solo tener mejores herramientas, sino un equipo que sabe cómo usarlas. Ofrecemos capacitación práctica que realmente aplicarán.</span>
+                            </p>
+                            
+                            <!-- Features List -->
+                            <ul class="space-y-3 mb-8">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Customized training programs for all skill levels</span>
+                                        <span data-lang-es>Programas de capacitación personalizados para todos los niveles</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Live workshops and hands-on exercises</span>
+                                        <span data-lang-es>Talleres en vivo y ejercicios prácticos</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Real-world scenarios using YOUR actual data</span>
+                                        <span data-lang-es>Escenarios reales utilizando TUS propios datos</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-6 h-6 bg-emerald-100 text-emerald-600 rounded flex items-center justify-center text-xs mt-0.5">→</span>
+                                    <span class="text-gray-700">
+                                        <span data-lang-en>Certification upon completion</span>
+                                        <span data-lang-es>Certificación al completar el programa</span>
+                                    </span>
+                                </li>
+                            </ul>
+                            
+                            <a href="training.html" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold transition-colors">
+                                <span data-lang-en>Get Started</span>
+                                <span data-lang-es>Comenzar Ahora</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </a>
+                        </div>
+                        
+                        <!-- Results Side -->
+                        <div class="bg-gradient-to-br from-emerald-700 to-emerald-500 p-8 lg:p-10 text-white">
+                            <div class="inline-block bg-white/20 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                                <span data-lang-en>✓ Results You'll See</span>
+                                <span data-lang-es>✓ Resultados que Verás</span>
+                            </div>
+                            <ul class="space-y-5">
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Team confidence with data increases 300%</span>
+                                        <span data-lang-es>La confianza del equipo con datos aumenta un 300%</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Self-service analytics reduces IT bottlenecks</span>
+                                        <span data-lang-es>La analítica de autoservicio reduce los cuellos de botella de TI</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Data literacy becomes your competitive advantage</span>
+                                        <span data-lang-es>La alfabetización en datos se convierte en tu ventaja competitiva</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-4">
+                                    <span class="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center text-sm flex-shrink-0 mt-0.5">✓</span>
+                                    <span class="text-white/95">
+                                        <span data-lang-en>Continuous improvement culture emerges naturally</span>
+                                        <span data-lang-es>Surge de forma natural una cultura de mejora continua</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 6: PROCESS TIMELINE
+         - 4-week implementation process
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="process" class="gradient-cta relative py-20 text-white overflow-hidden">
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-14 animate-on-scroll">
+                <span class="inline-block bg-orange-500/20 text-orange-300 border border-orange-500/30 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    <span data-lang-en>Our Process</span>
+                    <span data-lang-es>Nuestro Proceso</span>
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-white mb-4">
+                    <span data-lang-en>From Data Chaos to Clear Strategy in 4 Weeks</span>
+                    <span data-lang-es>Del Caos de Datos a una Estrategia Clara en 4 Semanas</span>
+                </h2>
+                <p class="text-white/80 text-lg max-w-xl mx-auto">
+                    <span data-lang-en>Our proven process gets you results fast without disrupting your operations.</span>
+                    <span data-lang-es>Nuestro proceso probado te da resultados rápidos sin interrumpir tus operaciones.</span>
+                </p>
+            </div>
+            
+            <!-- Timeline Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 stagger-children" id="timeline-cards">
+                
+                <!-- Week 1 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-orange-500/50 transition-all relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-400 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">1</div>
+                    <h3 class="font-heading font-bold text-lg text-white mt-4 mb-2 text-center">
+                        <span data-lang-en>Week 1: Discovery</span>
+                        <span data-lang-es>Semana 1: Descubrimiento</span>
+                    </h3>
+                    <p class="text-white/60 text-sm text-center mb-4">
+                        <span data-lang-en>We assess your current state and identify opportunities.</span>
+                        <span data-lang-es>Evaluamos tu estado actual e identificamos oportunidades.</span>
+                    </p>
+                    <ul class="text-white/85 text-sm space-y-2 mb-4">
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>90-minute assessment call</span>
+                            <span data-lang-es>Llamada de evaluación de 90 min</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Data source audit</span>
+                            <span data-lang-es>Auditoría de fuentes de datos</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Identify quick wins</span>
+                            <span data-lang-es>Identificar victorias rápidas</span>
+                        </li>
+                    </ul>
+                    <div class="bg-orange-500/20 rounded-lg p-3 text-center">
+                        <span class="text-orange-300 font-semibold text-xs">
+                            <span data-lang-en>Deliverable: Custom strategy proposal with ROI projections</span>
+                            <span data-lang-es>Entregable: Propuesta de estrategia con proyecciones de ROI</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Week 2 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-orange-500/50 transition-all relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-400 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">2</div>
+                    <h3 class="font-heading font-bold text-lg text-white mt-4 mb-2 text-center">
+                        <span data-lang-en>Week 2: Setup</span>
+                        <span data-lang-es>Semana 2: Configuración</span>
+                    </h3>
+                    <p class="text-white/60 text-sm text-center mb-4">
+                        <span data-lang-en>We build and integrate your solution.</span>
+                        <span data-lang-es>Construimos e integramos tu solución.</span>
+                    </p>
+                    <ul class="text-white/85 text-sm space-y-2 mb-4">
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Connect data sources</span>
+                            <span data-lang-es>Conectar fuentes de datos</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Build dashboards</span>
+                            <span data-lang-es>Construir dashboards</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Configure AI tools</span>
+                            <span data-lang-es>Configurar herramientas de IA</span>
+                        </li>
+                    </ul>
+                    <div class="bg-orange-500/20 rounded-lg p-3 text-center">
+                        <span class="text-orange-300 font-semibold text-xs">
+                            <span data-lang-en>Deliverable: Live dashboard + automation framework</span>
+                            <span data-lang-es>Entregable: Dashboard en vivo + marco de automatización</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Week 3 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-orange-500/50 transition-all relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-400 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">3</div>
+                    <h3 class="font-heading font-bold text-lg text-white mt-4 mb-2 text-center">
+                        <span data-lang-en>Week 3: Training</span>
+                        <span data-lang-es>Semana 3: Capacitación</span>
+                    </h3>
+                    <p class="text-white/60 text-sm text-center mb-4">
+                        <span data-lang-en>We ensure your team knows how to use everything.</span>
+                        <span data-lang-es>Aseguramos que tu equipo sepa usar todo.</span>
+                    </p>
+                    <ul class="text-white/85 text-sm space-y-2 mb-4">
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Hands-on training</span>
+                            <span data-lang-es>Capacitación práctica</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Documentation</span>
+                            <span data-lang-es>Documentación</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Custom playbooks</span>
+                            <span data-lang-es>Guías personalizadas</span>
+                        </li>
+                    </ul>
+                    <div class="bg-orange-500/20 rounded-lg p-3 text-center">
+                        <span class="text-orange-300 font-semibold text-xs">
+                            <span data-lang-en>Deliverable: Trained team + resources library</span>
+                            <span data-lang-es>Entregable: Equipo capacitado + biblioteca de recursos</span>
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Week 4 -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-orange-500/50 transition-all relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-400 rounded-full flex items-center justify-center font-bold text-sm shadow-lg">4</div>
+                    <h3 class="font-heading font-bold text-lg text-white mt-4 mb-2 text-center">
+                        <span data-lang-en>Week 4: Launch</span>
+                        <span data-lang-es>Semana 4: Lanzamiento</span>
+                    </h3>
+                    <p class="text-white/60 text-sm text-center mb-4">
+                        <span data-lang-en>We optimize and hand off for your success.</span>
+                        <span data-lang-es>Optimizamos y entregamos para tu éxito.</span>
+                    </p>
+                    <ul class="text-white/85 text-sm space-y-2 mb-4">
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Refine based on feedback</span>
+                            <span data-lang-es>Refinar según feedback</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Optimize performance</span>
+                            <span data-lang-es>Optimizar rendimiento</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-emerald-400">✓</span>
+                            <span data-lang-en>Establish support plan</span>
+                            <span data-lang-es>Establecer plan de soporte</span>
+                        </li>
+                    </ul>
+                    <div class="bg-orange-500/20 rounded-lg p-3 text-center">
+                        <span class="text-orange-300 font-semibold text-xs">
+                            <span data-lang-en>Deliverable: Full handoff + ongoing support</span>
+                            <span data-lang-es>Entregable: Entrega completa + soporte continuo</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <div class="text-center">
+                <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg inline-block">
+                    <span data-lang-en>Book Your Free 30-Min Assessment</span>
+                    <span data-lang-es>Agenda Tu Evaluación Gratuita de 30 Min</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 7: INDUSTRIES WE SERVE
+         - Grid of industry cards
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="industries" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-14 animate-on-scroll">
+                <span class="inline-block bg-emerald-100 text-emerald-700 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    <span data-lang-en>Industries</span>
+                    <span data-lang-es>Industrias</span>
+                </span>
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-gray-900">
+                    <span data-lang-en>Trusted by Teams In</span>
+                    <span data-lang-es>Confianza de Equipos En</span>
+                </h2>
+            </div>
+            
+            <!-- Industries Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children" id="industries-grid">
+                
+                <!-- Retail & E-commerce -->
+                <div class="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🛍️</span>
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Retail & E-commerce</span>
+                            <span data-lang-es>Retail y E-commerce</span>
+                        </h4>
+                    </div>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Inventory optimization</span>
+                            <span data-lang-es>Optimización de inventario</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Customer behavior analysis</span>
+                            <span data-lang-es>Análisis de comportamiento del cliente</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Pricing strategy</span>
+                            <span data-lang-es>Estrategia de precios</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Professional Services -->
+                <div class="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">💼</span>
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Professional Services</span>
+                            <span data-lang-es>Servicios Profesionales</span>
+                        </h4>
+                    </div>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Billable hours tracking</span>
+                            <span data-lang-es>Seguimiento de horas facturables</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Client profitability</span>
+                            <span data-lang-es>Rentabilidad de clientes</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Resource utilization</span>
+                            <span data-lang-es>Utilización de recursos</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Manufacturing -->
+                <div class="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🏭</span>
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Manufacturing</span>
+                            <span data-lang-es>Manufactura</span>
+                        </h4>
+                    </div>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Predictive maintenance</span>
+                            <span data-lang-es>Mantenimiento predictivo</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Quality control analytics</span>
+                            <span data-lang-es>Analítica de control de calidad</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Supply chain optimization</span>
+                            <span data-lang-es>Optimización de cadena de suministro</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Healthcare -->
+                <div class="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🏥</span>
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Healthcare</span>
+                            <span data-lang-es>Salud</span>
+                        </h4>
+                    </div>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Patient outcome tracking</span>
+                            <span data-lang-es>Seguimiento de resultados de pacientes</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Operational efficiency</span>
+                            <span data-lang-es>Eficiencia operacional</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Resource scheduling</span>
+                            <span data-lang-es>Programación de recursos</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Technology & SaaS -->
+                <div class="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">💻</span>
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Technology & SaaS</span>
+                            <span data-lang-es>Tecnología y SaaS</span>
+                        </h4>
+                    </div>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>User behavior analytics</span>
+                            <span data-lang-es>Analítica de comportamiento de usuario</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Churn prediction</span>
+                            <span data-lang-es>Predicción de cancelaciones</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Feature adoption tracking</span>
+                            <span data-lang-es>Seguimiento de adopción de funciones</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Food & Beverage -->
+                <div class="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🍽️</span>
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Food & Beverage</span>
+                            <span data-lang-es>Comida y Bebida</span>
+                        </h4>
+                    </div>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Menu optimization</span>
+                            <span data-lang-es>Optimización de menú</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Waste reduction</span>
+                            <span data-lang-es>Reducción de desperdicios</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Customer preferences</span>
+                            <span data-lang-es>Preferencias de clientes</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Construction -->
+                <div class="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🏗️</span>
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Construction</span>
+                            <span data-lang-es>Construcción</span>
+                        </h4>
+                    </div>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Project profitability</span>
+                            <span data-lang-es>Rentabilidad de proyectos</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Resource allocation</span>
+                            <span data-lang-es>Asignación de recursos</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Bid analysis</span>
+                            <span data-lang-es>Análisis de ofertas</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Marketing & Media -->
+                <div class="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">📱</span>
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Marketing & Media</span>
+                            <span data-lang-es>Marketing y Medios</span>
+                        </h4>
+                    </div>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Overall Analytics</span>
+                            <span data-lang-es>Analítica General</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Campaign Insights</span>
+                            <span data-lang-es>Insights de Campañas</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Workflow & Automation</span>
+                            <span data-lang-es>Flujos de Trabajo y Automatización</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Education -->
+                <div class="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-blue-500 hover:shadow-lg transition-all">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🎓</span>
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Education</span>
+                            <span data-lang-es>Educación</span>
+                        </h4>
+                    </div>
+                    <ul class="text-gray-600 text-sm space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Workflow Automation</span>
+                            <span data-lang-es>Automatización de Flujos</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>AI Integration</span>
+                            <span data-lang-es>Integración de IA</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-blue-500">→</span>
+                            <span data-lang-en>Process Streamlining</span>
+                            <span data-lang-es>Optimización de Procesos</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 8: FEATURED TESTIMONIAL (Large Quote)
+         - Full-width quote slider
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="testimonial-featured" class="gradient-cta relative py-20 overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Quote Container -->
+            <div class="relative">
+                <!-- Decorative Quote Mark -->
+                <div class="absolute -top-6 left-1/2 -translate-x-1/2 text-8xl text-orange-500/20 font-serif leading-none">"</div>
+                
+                <!-- Testimonial Slides -->
+                <div id="testimonial-slider" class="overflow-hidden">
+                    <div class="testimonial-slider" id="testimonial-track">
+                        
+                        <!-- Slide 1 -->
+                        <div class="testimonial-slide px-8">
+                            <p class="text-white/90 text-xl lg:text-2xl italic leading-relaxed mb-8">
+                                <span data-lang-en>"What Axionalytics found were exactly the problems we have been facing"”no organization, no clear way of knowing the health and profitability of the business."</span>
+                                <span data-lang-es>"Lo que Axionalytics encontró fueron exactamente los problemas que hemos estado enfrentando: sin organización, sin una forma clara de conocer la salud y rentabilidad del negocio."</span>
+                            </p>
+                            <p class="text-orange-400 font-bold">Nati Joaquin @ RemodelArt, PR</p>
+                        </div>
+                        
+                        <!-- Slide 2 -->
+                        <div class="testimonial-slide px-8">
+                            <p class="text-white/90 text-xl lg:text-2xl italic leading-relaxed mb-8">
+                                <span data-lang-en>"The ROI paid for the project in the first month. We finally know what to order and when."</span>
+                                <span data-lang-es>"El ROI pagó el proyecto en el primer mes. Finalmente sabemos qué pedir y cuándo."</span>
+                            </p>
+                            <p class="text-orange-400 font-bold">Maria L. @ Coastal Home Goods</p>
+                        </div>
+                        
+                        <!-- Slide 3 -->
+                        <div class="testimonial-slide px-8">
+                            <p class="text-white/90 text-xl lg:text-2xl italic leading-relaxed mb-8">
+                                <span data-lang-en>"We discovered we were losing money on 20% of our clients. Now our margins have never been better."</span>
+                                <span data-lang-es>"Descubrimos que estábamos perdiendo dinero en el 20% de nuestros clientes. Ahora nuestros márgenes nunca han sido mejores."</span>
+                            </p>
+                            <p class="text-orange-400 font-bold">Patricia M. @ Sterling Accounting</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Dots -->
+                <div class="flex justify-center gap-3 mt-8" id="testimonial-dots">
+                    <button class="w-3 h-3 rounded-full bg-white/50 transition-colors testimonial-dot active" data-index="0" aria-label="Slide 1"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/30 transition-colors testimonial-dot" data-index="1" aria-label="Slide 2"></button>
+                    <button class="w-3 h-3 rounded-full bg-white/30 transition-colors testimonial-dot" data-index="2" aria-label="Slide 3"></button>
+                </div>
+                
+                <!-- Nav Arrows -->
+                <button id="testimonial-prev" class="absolute left-0 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-2" aria-label="Previous">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button id="testimonial-next" class="absolute right-0 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors p-2" aria-label="Next">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 9: FAQ
+         - Accordion-style frequently asked questions
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-14 animate-on-scroll">
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-gray-900 mb-4">
+                    <span data-lang-en>Got Questions? We Got Answers</span>
+                    <span data-lang-es>¿Tienes Preguntas? Tenemos Respuestas</span>
+                </h2>
+            </div>
+            
+            <!-- FAQ Items -->
+            <div class="space-y-4" id="faq-list">
+                
+                <!-- FAQ 1 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>How long does implementation take?</span>
+                            <span data-lang-es>¿Cuánto tiempo toma la implementación?</span>
+                        </h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            <span data-lang-en>Most clients are up and running with their core dashboards within 2-4 weeks. Complex integrations may take 6-8 weeks. We provide a detailed timeline during our discovery call.</span>
+                            <span data-lang-es>La mayoría de los clientes están funcionando con sus dashboards principales dentro de 2-4 semanas. Las integraciones complejas pueden tomar 6-8 semanas. Proporcionamos un cronograma detallado durante nuestra llamada de descubrimiento.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Do we need technical expertise on our team?</span>
+                            <span data-lang-es>¿Necesitamos experiencia técnica en nuestro equipo?</span>
+                        </h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            <span data-lang-en>Not at all. We design everything to be user-friendly for business users. If you can use Excel, you can use our dashboards. Plus, we provide comprehensive training.</span>
+                            <span data-lang-es>Para nada. Diseñamos todo para que sea fácil de usar para usuarios de negocios. Si puedes usar Excel, puedes usar nuestros dashboards. Además, proporcionamos capacitación completa.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>What if our data is messy or incomplete?</span>
+                            <span data-lang-es>¿Qué pasa si nuestros datos están desordenados o incompletos?</span>
+                        </h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            <span data-lang-en>That's completely normal! Part of our process includes data cleaning and organization. We'll help you establish good data practices going forward.</span>
+                            <span data-lang-es>¡Eso es completamente normal! Parte de nuestro proceso incluye limpieza y organización de datos. Te ayudaremos a establecer buenas prácticas de datos hacia adelante.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>Can we start small and scale up?</span>
+                            <span data-lang-es>¿Podemos empezar pequeño y escalar?</span>
+                        </h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            <span data-lang-en>Absolutely. Many clients start with our Starter package and upgrade as they see results. We design with scalability in mind from day one.</span>
+                            <span data-lang-es>Absolutamente. Muchos clientes comienzan con nuestro paquete Inicial y mejoran a medida que ven resultados. Diseñamos con escalabilidad en mente desde el día uno.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>What's the typical ROI timeline?</span>
+                            <span data-lang-es>¿Cuál es el tiempo típico para ver ROI?</span>
+                        </h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            <span data-lang-en>Most clients see measurable ROI within 3-6 months. Quick wins often appear in the first 30 days. Our average client sees 312% ROI in the first year.</span>
+                            <span data-lang-es>La mayoría de los clientes ven ROI medible dentro de 3-6 meses. Las victorias rápidas a menudo aparecen en los primeros 30 días. Nuestro cliente promedio ve 312% de ROI en el primer año.</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 6 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900">
+                            <span data-lang-en>How is this different from hiring a data analyst?</span>
+                            <span data-lang-es>¿Cómo es esto diferente de contratar un analista de datos?</span>
+                        </h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            <span data-lang-en>A full-time analyst costs $70K-120K/year plus benefits. We provide a full team of experts for a fraction of the cost, with faster results and no HR overhead.</span>
+                            <span data-lang-es>Un analista a tiempo completo cuesta $70K-120K/año más beneficios. Proporcionamos un equipo completo de expertos por una fracción del costo, con resultados más rápidos y sin gastos de recursos humanos.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 10: BLOG PREVIEW
+         - Two featured blog articles
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="blog-preview" class="py-20 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-gray-900 mb-4">
+                    <span data-lang-en>Stay in the Loop with Our Latest Insights</span>
+                    <span data-lang-es>Mantente al Día con Nuestros Últimos Insights</span>
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    <span data-lang-en>Check out our blog</span>
+                    <span data-lang-es>Visita nuestro blog</span>
+                </p>
+            </div>
+            
+            <!-- Blog Grid -->
+            <div class="grid md:grid-cols-2 gap-8 stagger-children" id="blog-grid">
+                
+                <!-- Blog Card 1 -->
+                <a href="blog.html#data-strategy-101" class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-transparent hover:border-orange-500 group">
+                    <div class="h-48 bg-gradient-to-br from-blue-600 to-blue-500 flex items-center justify-center">
+                        <span class="text-7xl opacity-30">📊</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">
+                            <span data-lang-en>Data Strategy 101</span>
+                            <span data-lang-es>Estrategia de Datos 101</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            <span data-lang-en>The getting started guide for growing businesses looking to leverage their data.</span>
+                            <span data-lang-es>La guía para comenzar para negocios en crecimiento que buscan aprovechar sus datos.</span>
+                        </p>
+                        <span class="text-orange-500 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <span data-lang-en>Read more</span>
+                            <span data-lang-es>Leer más</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+                
+                <!-- Blog Card 2 -->
+                <a href="blog.html#excel-vs-powerbi" class="card-hover bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-transparent hover:border-orange-500 group">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-400 flex items-center justify-center">
+                        <span class="text-7xl opacity-30">⚖️</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-3">Excel vs Power BI</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            <span data-lang-en>Which tool is right for your business? A comprehensive comparison guide.</span>
+                            <span data-lang-es>¿Qué herramienta es mejor para tu negocio? Una guía de comparación completa.</span>
+                        </p>
+                        <span class="text-orange-500 font-semibold text-sm flex items-center gap-2 group-hover:gap-3 transition-all">
+                            <span data-lang-en>Read more</span>
+                            <span data-lang-es>Leer más</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- View All Link -->
+            <div class="text-center mt-10">
+                <a href="blog.html" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                    <span data-lang-en>View All Articles</span>
+                    <span data-lang-es>Ver Todos los Artículos</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION 11: FINAL CTA
+         - Strong call-to-action with 3-step process
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <section id="final-cta" class="gradient-cta relative py-20 overflow-hidden">
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <!-- Headline -->
+            <h2 class="font-heading font-extrabold text-3xl lg:text-4xl xl:text-5xl text-white mb-6">
+                <span data-lang-en>Ready To Stop Guessing and Start Growing?</span>
+                <span data-lang-es>¿Listo Para Dejar de Adivinar y Empezar a Crecer?</span>
+            </h2>
+            <p class="text-white/85 text-lg lg:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                <span data-lang-en>Book a free 30-minute assessment. We'll audit your current state, identify quick wins, and show you exactly what's possible with ROI projections within 48 hours.</span>
+                <span data-lang-es>Agenda una evaluación gratuita de 30 minutos. Auditaremos tu estado actual, identificaremos victorias rápidas y te mostraremos exactamente qué es posible, con proyecciones de ROI dentro de 48 horas.</span>
+            </p>
+            
+            <!-- 3-Step Process -->
+            <div class="grid sm:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 shadow-lg">1</div>
+                    <h4 class="font-heading font-bold text-white mb-2">
+                        <span data-lang-en>Book Your Free Assessment</span>
+                        <span data-lang-es>Agenda Tu Evaluación Gratuita</span>
+                    </h4>
+                    <p class="text-white/70 text-sm">
+                        <span data-lang-en>30-minute call to understand your needs</span>
+                        <span data-lang-es>Llamada de 30 min para entender tus necesidades</span>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 shadow-lg">2</div>
+                    <h4 class="font-heading font-bold text-white mb-2">
+                        <span data-lang-en>Get Custom Strategy</span>
+                        <span data-lang-es>Obtén Estrategia Personalizada</span>
+                    </h4>
+                    <p class="text-white/70 text-sm">
+                        <span data-lang-en>ROI projection within 48 hours</span>
+                        <span data-lang-es>Proyección de ROI dentro de 48 horas</span>
+                    </p>
+                </div>
+                <div class="text-center">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4 shadow-lg">3</div>
+                    <h4 class="font-heading font-bold text-white mb-2">
+                        <span data-lang-en>Start Your Transformation</span>
+                        <span data-lang-es>Comienza Tu Transformación</span>
+                    </h4>
+                    <p class="text-white/70 text-sm">
+                        <span data-lang-en>Begin as soon as next week</span>
+                        <span data-lang-es>Empieza tan pronto como la próxima semana</span>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-10 py-5 rounded-xl font-bold text-lg inline-block mb-8">
+                <span data-lang-en>Get Your Free Data Assessment</span>
+                <span data-lang-es>Obtén Tu Evaluación de Datos Gratuita</span>
+            </a>
+            
+            <!-- Trust Badges -->
+            <div class="flex flex-wrap justify-center gap-6 text-white/80 text-sm">
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-lang-en>No credit card required</span>
+                    <span data-lang-es>No se requiere tarjeta de crédito</span>
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-lang-en>No pressure sales</span>
+                    <span data-lang-es>Sin presión de ventas</span>
+                </span>
+                <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                    <span data-lang-en>100% Confidential</span>
+                    <span data-lang-es>100% Confidencial</span>
+                </span>
+            </div>
+            
+            <!-- ROI Calculator Link -->
+            <p class="mt-8 text-white/70 text-sm">
+                <span data-lang-en>Not convinced yet? Download our free </span>
+                <span data-lang-es>¿Aún no convencido? Descarga nuestra </span>
+                <a href="./ROI_Calculator.xlsx" download="Axionalytics_ROI_Calculator.xlsx" class="text-orange-400 hover:text-orange-300 underline font-semibold">
+                    <span data-lang-en>ROI Calculator</span>
+                    <span data-lang-es>Calculadora de ROI</span>
+                </a>
+                <span data-lang-es> gratuita</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         FOOTER
+         - Contact info, social links, legal links
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+        <!-- ═══════════════════════════════════════════════════════════════════
+         FOOTER
+         - Contact info, social links, legal links
+         ═══════════════════════════════════════════════════════════════════ -->
+    <footer class="bg-axio-dark text-white py-16" style="background-color:#0F172A;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                        <span class="text-2xl font-heading font-bold -ml-6">axionalytics</span>
+                    </a>
+                    <p class="text-white/70 mb-6 max-w-md leading-relaxed">
+                        <span data-lang-en>Enterprise-grade analytics and AI integration without the enterprise price tag. Helping growing businesses make confident, data-driven decisions.</span>
+                        <span data-lang-es>Analítica e integración de IA de nivel empresarial sin el precio empresarial. Ayudando a negocios en crecimiento a tomar decisiones basadas en datos.</span>
+                    </p>
+                    
+                    <!-- Social Links - Replace # with actual URLs -->
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/company/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://wa.me/19562079368" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Services</span>
+                        <span data-lang-es>Servicios</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="datatransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Data Transformation</span>
+                            <span data-lang-es>Transformación de Datos</span>
+                        </a></li>
+                        <li><a href="aitransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>AI Integration</span>
+                            <span data-lang-es>Integración de IA</span>
+                        </a></li>
+                        <li><a href="training.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Team Training</span>
+                            <span data-lang-es>Capacitación de Equipos</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Company</span>
+                        <span data-lang-es>Compañía</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>About Us</span>
+                            <span data-lang-es>Nosotros</span>
+                        </a></li>
+                        <li><a href="successstories.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Success Stories</span>
+                            <span data-lang-es>Historias de Éxito</span>
+                        </a></li>
+                                                <li><a href="blog.html" class="text-white/70 hover:text-orange-400 transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Contact</span>
+                            <span data-lang-es>Contacto</span>
+                        </a></li>
+                        <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Book Consultation</span>
+                            <span data-lang-es>Agendar Consulta</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/50 text-sm">© 2025 Axionalytics. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Privacy Policy</span>
+                        <span data-lang-es>Política de Privacidad</span>
+                    </a>
+                    <a href="terms.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Terms & Conditions</span>
+                        <span data-lang-es>Términos y Condiciones</span>
+                    </a>
+                    <a href="accessibility.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Accessibility</span>
+                        <span data-lang-es>Accesibilidad</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         JAVASCRIPT
+         - Language toggle
+         - Mobile menu
+         - Scroll animations
+         - FAQ accordion
+         - Testimonial slider
+         - Header scroll effect
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <script>
+        // ============================================
+        // LANGUAGE TOGGLE SYSTEM
+        // ============================================
+        const langToggleDesktop = document.getElementById('lang-toggle-desktop');
+        const langToggleMobile = document.getElementById('lang-toggle-mobile');
+        const currentLangFlag = document.getElementById('current-lang-flag');
+        const currentLangText = document.getElementById('current-lang-text');
+        const mobileLangFlag = document.querySelector('.mobile-lang-flag');
+        const mobileLangText = document.querySelector('.mobile-lang-text');
+        
+        // Check localStorage for saved language preference
+        let currentLang = localStorage.getItem('axio-lang') || 'en';
+        
+        function setLanguage(lang) {
+            if (lang === 'es') {
+                document.documentElement.classList.add('lang-es');
+                if(currentLangFlag) currentLangFlag.textContent = '🇪🇸';
+                if(currentLangText) currentLangText.textContent = 'ES';
+                if(mobileLangFlag) mobileLangFlag.textContent = '🇪🇸';
+                if(mobileLangText) mobileLangText.textContent = 'Español';
+            } else {
+                document.documentElement.classList.remove('lang-es');
+                if(currentLangFlag) currentLangFlag.textContent = '🇺🇸';
+                if(currentLangText) currentLangText.textContent = 'EN';
+                if(mobileLangFlag) mobileLangFlag.textContent = '🇺🇸';
+                if(mobileLangText) mobileLangText.textContent = 'English';
+            }
+            localStorage.setItem('axio-lang', lang);
+            currentLang = lang;
+        }
+        setLanguage(currentLang);
+        
+        function toggleLanguage() { setLanguage(currentLang === 'en' ? 'es' : 'en'); }
+        if(langToggleDesktop) langToggleDesktop.addEventListener('click', toggleLanguage);
+        if(langToggleMobile) langToggleMobile.addEventListener('click', toggleLanguage);
+        
+        // ============================================
+        // MOBILE MENU
+        // ============================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        
+        function openMobileMenu() {
+            if(mobileMenu) mobileMenu.classList.add('is-open');
+            if(mobileMenuOverlay) { mobileMenuOverlay.style.opacity = '1'; mobileMenuOverlay.style.pointerEvents = 'auto'; }
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            if(mobileMenu) mobileMenu.classList.remove('is-open');
+            if(mobileMenuOverlay) { mobileMenuOverlay.style.opacity = '0'; mobileMenuOverlay.style.pointerEvents = 'none'; }
+            document.body.style.overflow = '';
+        }
+        
+        if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+        if(mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if(mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        if(mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+        
+        // ============================================
+        // HEADER SCROLL EFFECT
+        // ============================================
+        const header = document.getElementById('header');
+        
+        function updateHeader() {
+            if (!header) return;
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        }
+        
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
+        
+        // ============================================
+        // SCROLL ANIMATIONS (Intersection Observer)
+        // ============================================
+        const animateElements = document.querySelectorAll('.animate-on-scroll, .stagger-children');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        animateElements.forEach(el => observer.observe(el));
+        
+        // ============================================
+        // FAQ ACCORDION
+        // ============================================
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const trigger = item.querySelector('.faq-trigger');
+            trigger.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('is-open');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('is-open');
+            });
+        });
+        
+        // ============================================
+        // TESTIMONIAL SLIDER
+        // ============================================
+        const testimonialTrack = document.getElementById('testimonial-track');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const testimonialPrev = document.getElementById('testimonial-prev');
+        const testimonialNext = document.getElementById('testimonial-next');
+        let currentSlide = 0;
+        const totalSlides = 3;
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            if (testimonialTrack) {
+                testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+            }
+            testimonialDots.forEach((dot, i) => {
+                dot.classList.toggle('bg-white/50', i === index);
+                dot.classList.toggle('bg-white/30', i !== index);
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.index));
+            });
+        });
+        
+        if (testimonialPrev) {
+            testimonialPrev.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                goToSlide(currentSlide);
+            });
+        }
+        
+        if (testimonialNext) {
+            testimonialNext.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                goToSlide(currentSlide);
+            });
+        }
+        
+        // Auto-advance slider every 6 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }, 6000);
+        
+        // ============================================
+        // SMOOTH SCROLL FOR ANCHOR LINKS
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== 'https://calendar.app.google/AYww7wSmkwANWDxR9' && !href.startsWith('#LINKEDIN') && !href.startsWith('#WHATSAPP') && !href.startsWith('#INSTAGRAM')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        closeMobileMenu();
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

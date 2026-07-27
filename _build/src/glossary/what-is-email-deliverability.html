@@ -1,0 +1,76 @@
+<h2>
+  <span data-lang-en>Delivered is not the same as inboxed</span>
+  <span data-lang-es>Entregado no es lo mismo que en bandeja de entrada</span>
+</h2>
+
+<p>
+  <span data-lang-en>A message that reaches the receiving server has been <em>delivered</em>. Whether it lands in the inbox or the spam folder is a separate decision the provider makes afterwards, based largely on how the sending domain has behaved.</span>
+  <span data-lang-es>Un mensaje que llega al servidor receptor ha sido <em>entregado</em>. Si aterriza en la bandeja de entrada o en la de spam es una decisión aparte que el proveedor toma después, basada en gran medida en cómo se ha comportado el dominio remitente.</span>
+</p>
+
+<p>
+  <span data-lang-en>Most reporting shows the first number, which is why teams can watch a "98% delivered" dashboard while their reply rate collapses.</span>
+  <span data-lang-es>La mayoría de los reportes muestra la primera cifra, por eso los equipos pueden mirar un tablero de "98% entregado" mientras su tasa de respuesta se desploma.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What actually moves the judgement</span>
+  <span data-lang-es>Qué mueve realmente el juicio</span>
+</h2>
+
+<p>
+  <span data-lang-en><strong>Bounce rate</strong> is the strongest signal. Mail to addresses that do not exist implies a sender who does not know their recipients, which is the defining characteristic of spam.</span>
+  <span data-lang-es><strong>La tasa de rebote</strong> es la señal más fuerte. El correo a direcciones inexistentes implica un remitente que no conoce a sus destinatarios, que es la característica que define al spam.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Complaint rate</strong> — recipients marking messages as junk — is weighted heavily and recovers slowly.</span>
+  <span data-lang-es><strong>La tasa de quejas</strong> — destinatarios marcando mensajes como no deseados — pesa mucho y se recupera lentamente.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Volume shape</strong> matters independently of content. A domain that sends forty messages a day for a year and then sends four thousand looks compromised, because that is what a compromised domain looks like.</span>
+  <span data-lang-es><strong>La forma del volumen</strong> importa independientemente del contenido. Un dominio que envía cuarenta mensajes diarios durante un año y de pronto envía cuatro mil parece comprometido, porque así es como se ve un dominio comprometido.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The cost nobody attributes correctly</span>
+    <span data-lang-es>El costo que nadie atribuye correctamente</span>
+  </h4>
+  <p>
+    <span data-lang-en>Reputation attaches to the domain, not the campaign. Damage done by prospecting affects invoices, contracts, support replies, and password resets from the same domain — and it surfaces weeks later, when nobody connects the customer who never received their invoice to the sequence that ran last month.</span>
+    <span data-lang-es>La reputación se adhiere al dominio, no a la campaña. El daño hecho por la prospección afecta facturas, contratos, respuestas de soporte y restablecimientos de contraseña del mismo dominio — y aparece semanas después, cuando nadie conecta al cliente que nunca recibió su factura con la secuencia del mes pasado.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Verification, and the case it cannot resolve</span>
+  <span data-lang-es>La verificación y el caso que no puede resolver</span>
+</h2>
+
+<p>
+  <span data-lang-en>Verification protects reputation by confirming an address exists before anything is sent. It works in escalating tiers: structural validation, then a probe asking the receiving server whether the mailbox exists.</span>
+  <span data-lang-es>La verificación protege la reputación confirmando que una dirección existe antes de enviar. Funciona en niveles escalonados: validación estructural y luego un sondeo que pregunta al servidor receptor si el buzón existe.</span>
+</p>
+
+<p>
+  <span data-lang-en>The case neither tier resolves is the <strong>catch-all domain</strong> — one configured to accept mail for any name at it, whether or not that mailbox exists. The server says yes to everything, so the probe proves nothing. Large enterprises are disproportionately configured this way, which means the accounts most worth reaching are exactly the ones verification struggles with.</span>
+  <span data-lang-es>El caso que ningún nivel resuelve es el <strong>dominio que acepta todo</strong> — configurado para recibir correo de cualquier nombre, exista o no ese buzón. El servidor dice que sí a todo, así que el sondeo no prueba nada. Las grandes empresas están configuradas así de forma desproporcionada, lo que significa que las cuentas más valiosas son justo con las que la verificación batalla.</span>
+</p>
+
+<p>
+  <span data-lang-en>Treating catch-all as valid reintroduces bounces. Treating it as invalid discards your best accounts. The workable answer is a probabilistic score with a threshold, and a route to a different channel for anything below it.</span>
+  <span data-lang-es>Tratarlo como válido reintroduce rebotes. Tratarlo como inválido descarta sus mejores cuentas. La respuesta viable es una puntuación probabilística con un umbral, y una ruta a otro canal para lo que quede por debajo.</span>
+</p>
+
+<div class="pro-tip">
+  <h4>
+    <span data-lang-en>Never guess an address pattern</span>
+    <span data-lang-es>Nunca adivine un patrón de dirección</span>
+  </h4>
+  <p>
+    <span data-lang-en>Inferring <code>first.last@company.com</code> from a name is the single most common cause of avoidable bounces. It is free to do and the cost is deferred, which is exactly why the habit survives. An address should come from a source that verified it, or the lead should be reached another way.</span>
+    <span data-lang-es>Inferir <code>nombre.apellido@empresa.com</code> a partir de un nombre es la causa más común de rebotes evitables. Hacerlo es gratis y el costo es diferido, que es precisamente por qué el hábito sobrevive. Una dirección debe venir de una fuente que la verificó, o la cuenta debe alcanzarse por otra vía.</span>
+  </p>
+</div>

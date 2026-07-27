@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ==========================================================================
+  AXIONALYTICS
+  GENERATED FILE — do not edit directly.
+
+  Source:  _build/pages/<slug>.meta.html  (title, meta, JSON-LD)
+           _build/pages/<slug>.body.html  (page content)
+  Chrome:  _build/partials/*.html         (head, header, footer)
+  Rebuild: bash _build/build.sh
+
+  Static HTML + Tailwind CDN. No server required — GitHub Pages compatible.
+  ==========================================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Axionalytics">
+  <!-- Search Console: paste the content value from the HTML-tag verification
+       method, or delete this line if verifying by DNS. Without verification you
+       get no query data, no index coverage report, and no manual-action alerts. -->
+  <!-- <meta name="google-site-verification" content="PASTE_TOKEN_HERE"> -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Axionalytics">
+  <meta property="og:image" content="https://www.axionalytics.com/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <title>Zero-Trust AI Governance | Security Architecture for Enterprise Agents | Axionalytics</title>
+  <meta name="description" content="The deployment topology, isolation model, identity integration, privacy controls, and audit architecture that get agentic AI through Fortune 500 security review — BYOC execution, hardware isolation, HITL write gates, and immutable traces.">
+  <link rel="canonical" href="https://www.axionalytics.com/enterprise-ai-security.html">
+  <meta property="og:title" content="Zero-Trust AI Governance | Axionalytics">
+  <meta property="og:description" content="Answers for the security questionnaire: where code runs, what leaves your network, who approved the write, and what an auditor can reconstruct afterward.">
+  <meta property="og:url" content="https://www.axionalytics.com/enterprise-ai-security.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.axionalytics.com/enterprise-ai-security.html#service",
+    "name": "Zero-Trust AI Governance",
+    "serviceType": "AI Security Architecture and Governance Engineering",
+    "provider": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Chief Information Security Officers, Enterprise Security Architects, Compliance and Risk Officers, Data Governance leads"
+    },
+    "description": "Security, governance, and audit architecture for agentic AI systems: bring-your-own-cloud deployment so data never leaves the customer perimeter, hardware-level execution isolation, enterprise identity integration, declarative privacy tokenization, role-based authorization, human-in-the-loop write gates, and end-to-end distributed tracing for audit."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the deployment boundary between vendor and customer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The control plane orchestrates sessions and holds no customer data at rest. The execution plane runs entirely inside your VPC and is the only component that touches your systems. The two communicate over mutual TLS with distributed trace context propagated across the boundary."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What prevents a compromised agent from exfiltrating data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Egress is denied by default. Each execution sandbox carries an eBPF network filter and a DNS sinkhole restricting outbound traffic to an allowlist you define, and a sidecar scans all output for personal data before it leaves. An agent that is fully compromised still has nowhere to send anything."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is a human approval protected from replay?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Approvals are pinned to an optimistic-concurrency version token and to the schema they were granted against. If the underlying plan or tool definition changes after approval, the token no longer matches and the write is refused rather than executed against a plan no one reviewed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can we run this without any outbound internet access?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, in an air-gapped or fully egress-restricted topology. Inference routes through whatever gateway your organization has already approved, deployment supports Kubernetes and Helm on premises, and retrieval models run resident and locally rather than calling a hosted embedding service."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.axionalytics.com/solutions.html" },
+      { "@type": "ListItem", "position": 3, "name": "Zero-Trust AI Governance", "item": "https://www.axionalytics.com/enterprise-ai-security.html" }
+    ]
+  }
+  </script>
+
+  <!-- Apply saved language before first paint to avoid a flash of English -->
+  <script>try{if(localStorage.getItem('axio-lang')==='es'){document.documentElement.classList.add('lang-es');document.documentElement.lang='es';}}catch(e){}</script>
+
+  <link rel="stylesheet" href="assets/tailwind.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Loaded off the critical path; noscript keeps it working without JS. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+
+  <link rel="alternate" type="application/rss+xml" title="Axionalytics" href="/rss.xml">
+  <link rel="stylesheet" href="assets/axio.css">
+  <link rel="alternate" hreflang="en" href="https://www.axionalytics.com/enterprise-ai-security.html">
+  <link rel="alternate" hreflang="es" href="https://www.axionalytics.com/es/enterprise-ai-security.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.axionalytics.com/enterprise-ai-security.html">
+</head>
+<body class="bg-white text-ax-ink">
+
+<a href="#main" class="ax-skip">
+  Skip to content
+  
+</a>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header id="ax-header" class="fixed top-0 inset-x-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
+    <div class="flex items-center justify-between h-20">
+
+      <a href="index.html" class="ax-logo group shrink-0" aria-label="Axionalytics — home">
+        <img src="assets/logo-mark-dark.png" alt="" width="88" height="100" fetchpriority="high" decoding="async">
+        <span class="text-[1.35rem] font-heading font-bold text-white tracking-tight group-hover:text-ax-cyan transition-colors">axionalytics</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden xl:flex items-center gap-9">
+
+        <!-- Solutions mega-dropdown -->
+        <div class="ax-dropdown-host relative">
+          <button class="ax-navlink flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors" aria-haspopup="true">
+            Solutions
+            
+            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <div class="ax-dropdown absolute left-1/2 top-full pt-5 w-[41rem]">
+            <div class="rounded-2xl border border-white/10 bg-ax-ink/95 backdrop-blur-xl shadow-ax-lift p-3 grid grid-cols-2 gap-1">
+
+              <a href="agentic-test-engineering.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-cyan"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Agentic Test Engineering
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  Requirements, source code, and merged PRs become verification test cases. Legacy suites modernized in place.
+                  
+                </span>
+              </a>
+
+              <a href="enterprise-agentic-ai.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-violet"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Enterprise Agentic AI
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  Autonomous multi-step agents in your VPC. Zero-trust isolation, HITL write gates, cited provenance.
+                  
+                </span>
+              </a>
+
+              <a href="agentic-business-intelligence.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-blue"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Agentic Business Intelligence
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  Plain English plus a governed source becomes a production dashboard with a real semantic model.
+                  
+                </span>
+              </a>
+
+              <a href="agentic-revenue-development.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-magenta"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Agentic Revenue Development
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  Account discovery, research, and drafted outreach — with the send decision left to a person.
+                  
+                </span>
+              </a>
+
+              <a href="enterprise-ai-security.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors sm:col-span-2">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-teal"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Zero-Trust AI Governance
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  The architecture that gets agentic systems through security review instead of stuck in it.
+                  
+                </span>
+              </a>
+
+              <div class="col-span-2 mt-1 rounded-xl bg-white/[0.03] border border-white/10 p-4 flex items-center justify-between gap-4">
+                <div>
+                  <p class="font-heading font-bold text-white text-sm mb-0.5">
+                    Not sure which applies?
+                    
+                  </p>
+                  <p class="text-xs text-white/55">
+                    Model the financial case in your browser. Nothing is sent until you ask for it.
+                    
+                  </p>
+                </div>
+                <a href="roi-calculator.html" class="ax-btn ax-btn-primary text-xs px-4 py-2.5 shrink-0">
+                  ROI Calculator
+                  
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="enterprise-ai-security.html" data-nav-for="enterprise-ai-security.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          Security
+          
+        </a>
+        <a href="case-studies.html" data-nav-for="case-studies.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          Case Studies
+          
+        </a>
+        <a href="pricing.html" data-nav-for="pricing.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          Pricing
+          
+        </a>
+        <a href="about.html" data-nav-for="about.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          About
+          
+        </a>
+        <a href="contact.html" data-nav-for="contact.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          Contact
+          
+        </a>
+      </div>
+
+      <!-- Right cluster -->
+      <div class="hidden xl:flex items-center gap-3">
+        <a href="es/enterprise-ai-security.html" hreflang="es" aria-label="Ver esta página en español" class="flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-white transition-colors px-2.5 py-2 rounded-lg hover:bg-white/5"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>ES</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary text-sm px-5 py-2.5">
+          Book a Technical Briefing
+          
+        </a>
+      </div>
+
+      <button id="ax-drawer-open" class="xl:hidden text-white p-2 -mr-2" aria-expanded="false" aria-controls="ax-drawer" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div id="ax-drawer" class="ax-drawer fixed inset-y-0 right-0 w-[21rem] max-w-full bg-ax-ink border-l border-white/10 z-50 xl:hidden overflow-y-auto ax-scroll-dark" aria-hidden="true">
+    <div class="flex flex-col min-h-full p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="font-heading font-bold text-white">
+          Menu
+        </span>
+        <button id="ax-drawer-close" class="text-white/70 hover:text-white p-2 -mr-2" aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Solutions
+      </p>
+      <nav class="flex flex-col gap-1 mb-7">
+        <a href="agentic-test-engineering.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Agentic Test Engineering
+        </a>
+        <a href="enterprise-agentic-ai.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Enterprise Agentic AI
+        </a>
+        <a href="agentic-business-intelligence.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Agentic Business Intelligence
+        </a>
+        <a href="agentic-revenue-development.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Agentic Revenue Development
+        </a>
+        <a href="enterprise-ai-security.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Zero-Trust AI Governance
+        </a>
+      </nav>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Company
+      </p>
+      <nav class="flex flex-col gap-1">
+        <a href="case-studies.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Case Studies
+        </a>
+        <a href="roi-calculator.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          ROI Calculator
+        </a>
+        <a href="glossary.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Glossary
+        </a>
+        <a href="pricing.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Pricing
+        </a>
+        <a href="about.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          About
+        </a>
+        <a href="contact.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Contact
+        </a>
+      </nav>
+
+      <div class="mt-auto pt-8">
+        <a href="es/enterprise-ai-security.html" hreflang="es" aria-label="Ver esta página en español" class="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white/80 border border-white/15 rounded-xl py-3 mb-3 hover:bg-white/5 transition-colors"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>Español</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary w-full py-3.5 text-sm">
+          Book a Technical Briefing
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="ax-scrim" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 xl:hidden opacity-0 pointer-events-none transition-opacity"></div>
+</header>
+
+<main id="main">
+
+<!-- ==========================================================================
+     PAGE HERO
+     ========================================================================== -->
+<section class="ax-hero ax-noise relative pt-36 pb-20 lg:pt-44 lg:pb-24 overflow-hidden">
+  <div class="ax-grid-bg"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <nav class="flex items-center gap-2 text-xs font-semibold text-white/35 mb-8 ax-reveal" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-ax-cyan transition-colors">
+        Home
+      </a>
+      <span>/</span>
+      <a href="solutions.html" class="hover:text-ax-cyan transition-colors">
+        Solutions
+      </a>
+      <span>/</span>
+      <span class="text-white/60">
+        Zero-Trust AI Governance
+      </span>
+    </nav>
+
+    <div class="max-w-4xl">
+      <div class="ax-pill ax-pill-dark mb-6 ax-reveal">
+        <span class="w-2 h-2 rounded-full bg-ax-teal"></span>
+        The layer underneath all three solutions
+        
+      </div>
+
+      <h1 class="font-heading font-extrabold text-white text-[2.4rem] sm:text-5xl xl:text-[3.6rem] leading-[1.06] mb-7 ax-reveal">
+        Written for the person who <span class="ax-spectrum-text">says no</span>.
+        
+      </h1>
+
+      <p class="text-lg lg:text-xl text-white/65 leading-relaxed max-w-3xl mb-9 ax-reveal">
+        Every enterprise AI project eventually meets a security architect whose job is to find the reason this cannot ship. That review is where most pilots die — not because the objections are unreasonable, but because nobody designed for them. This page is the set of answers, stated plainly enough to paste into a questionnaire.
+        
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3.5 ax-reveal">
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-7 py-4">
+          Bring us your questionnaire
+        </a>
+        <a href="#boundary" class="ax-btn ax-btn-ghost px-7 py-4">
+          Start with the trust boundary
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     THE SEVEN QUESTIONS
+     ========================================================================== -->
+<section class="py-20 lg:py-24 bg-white border-b border-ax-ink/[0.07]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="ax-eyebrow text-ax-blue mb-8 ax-reveal">
+      The seven questions, answered in one line each
+      
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 ax-stagger">
+      <a href="#boundary" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">01</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          Where does our data go?
+        </p>
+        <p class="text-sm text-ax-ink/55">Nowhere. It stays in your VPC.</p>
+      </a>
+      <a href="#isolation" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">02</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          Where does generated code run?
+        </p>
+        <p class="text-sm text-ax-ink/55">Hardware-isolated MicroVMs.</p>
+      </a>
+      <a href="#egress" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">03</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          What if it is compromised?
+        </p>
+        <p class="text-sm text-ax-ink/55">Egress denied by default.</p>
+      </a>
+      <a href="#identity" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">04</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          Who is allowed to do what?
+        </p>
+        <p class="text-sm text-ax-ink/55">Your IdP, intersected per turn.</p>
+      </a>
+      <a href="#privacy" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">05</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          What about personal data?
+        </p>
+        <p class="text-sm text-ax-ink/55">Tokenized before transmission.</p>
+      </a>
+      <a href="#hitl" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">06</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          Can it act on its own?
+        </p>
+        <p class="text-sm text-ax-ink/55">Not on a write. Ever.</p>
+      </a>
+      <a href="#audit" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">07</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          What can an auditor see?
+        </p>
+        <p class="text-sm text-ax-ink/55">The whole causal chain.</p>
+      </a>
+      <a href="#airgap" class="ax-card p-5 block bg-ax-mist border-ax-blue/20">
+        <p class="ax-mono text-2xs text-ax-blue/50 mb-2">08</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          Can we run air-gapped?
+        </p>
+        <p class="text-sm text-ax-ink/55">Yes. Same codebase.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     01 · TRUST BOUNDARY
+     ========================================================================== -->
+<section id="boundary" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14 items-start">
+
+      <div class="lg:col-span-5 lg:sticky lg:top-28 ax-reveal">
+        <p class="ax-eyebrow text-ax-teal mb-5">01 · Trust boundary</p>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] mb-6">
+          The vendor never holds your data.
+          
+        </h2>
+        <p class="text-lg text-ax-ink/60 leading-relaxed mb-6">
+          Most AI vendors ask you to accept that your proprietary data will be processed on infrastructure you do not control, under a data processing agreement and a promise. For a Fortune 500 with a data residency clause, that is not a negotiation — it is a decline.
+          
+        </p>
+        <p class="text-lg text-ax-ink/60 leading-relaxed">
+          So the architecture splits at a hard line. Orchestration decides what should happen next and holds no customer data at rest. Execution lives entirely in your cloud account and is the only thing that ever touches a system of yours.
+          
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 ax-reveal">
+        <div class="rounded-2xl border border-ax-ink/10 overflow-hidden">
+          <div class="bg-ax-mist p-6 border-b border-ax-ink/10">
+            <div class="flex items-center gap-2.5 mb-4">
+              <span class="w-2.5 h-2.5 rounded-full bg-ax-cyan"></span>
+              <p class="font-heading font-bold">
+                Control plane · ours
+              </p>
+            </div>
+            <ul class="space-y-2 text-[0.93rem] text-ax-ink/65">
+              <li class="flex gap-2.5"><span class="text-ax-cyan">·</span>Session lifecycle, routing, and agent compilation</li>
+              <li class="flex gap-2.5"><span class="text-ax-cyan">·</span>Policy evaluation and the pre-execution gate</li>
+              <li class="flex gap-2.5"><span class="text-ax-cyan">·</span>Trace collection and metering</li>
+              <li class="flex gap-2.5 font-semibold text-ax-ink"><span class="text-ax-stop">✕</span>No customer data at rest</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-4 text-center border-b border-ax-ink/10">
+            <p class="ax-mono text-xs text-ax-ink/45">
+              ↕ mTLS + W3C TraceContext
+            </p>
+          </div>
+
+          <div class="bg-ax-ink p-6">
+            <div class="flex items-center gap-2.5 mb-4">
+              <span class="w-2.5 h-2.5 rounded-full bg-ax-go"></span>
+              <p class="font-heading font-bold text-white">
+                Execution plane · yours
+              </p>
+            </div>
+            <ul class="space-y-2 text-[0.93rem] text-white/60">
+              <li class="flex gap-2.5"><span class="text-ax-go">·</span>Runs inside your VPC, on your account, under your IAM</li>
+              <li class="flex gap-2.5"><span class="text-ax-go">·</span>The only component that connects to your systems</li>
+              <li class="flex gap-2.5"><span class="text-ax-go">·</span>Sandboxed code execution with enforced egress policy</li>
+              <li class="flex gap-2.5 font-semibold text-white"><span class="text-ax-go">✓</span>Your data never crosses the boundary</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     02 + 03 · ISOLATION AND EGRESS
+     ========================================================================== -->
+<section id="isolation" class="ax-band py-24 lg:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-cyan mb-5">02 · Execution isolation</p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        Assume the agent is hostile. Design accordingly.
+        
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        An agent that writes and executes code is, architecturally, a remote code execution path you built on purpose. Container-level isolation is not sufficient for that — a container shares a kernel, and kernel escapes are a known category, not a hypothetical.
+        
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-5 ax-stagger">
+      <div class="ax-card-dark p-7">
+        <div class="w-11 h-11 rounded-xl bg-ax-cyan/10 border border-ax-cyan/25 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12a7 7 0 1114 0 7 7 0 01-14 0zM12 3v2m0 14v2m9-9h-2M5 12H3"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Hypervisor-level sandboxing
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          Agent-generated code runs in a MicroVM — a hardware-level hypervisor — with its own kernel. The isolation boundary is the hypervisor, not a namespace. A successful escape from the sandbox lands the attacker in an empty virtual machine.
+          
+        </p>
+      </div>
+
+      <div class="ax-card-dark p-7" id="egress">
+        <div class="w-11 h-11 rounded-xl bg-ax-violet/10 border border-ax-violet/25 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-violet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728A9 9 0 015.636 5.636"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Egress denied by default
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          Each sandbox carries an eBPF network filter and a DNS sinkhole. Outbound traffic is restricted to an allowlist you define, so a fully compromised agent still has nowhere to send anything. Exfiltration requires a destination, and there is none.
+          
+        </p>
+      </div>
+
+      <div class="ax-card-dark p-7">
+        <div class="w-11 h-11 rounded-xl bg-ax-teal/10 border border-ax-teal/25 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.46 12C3.73 7.94 7.52 5 12 5s8.27 2.94 9.54 7c-1.27 4.06-5.06 7-9.54 7s-8.27-2.94-9.54-7z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Output scanned on the way out
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          A sidecar inspects everything the sandbox emits before it leaves, catching personal data that a query returned incidentally. Defense in depth: the tokenizer runs on the way in, the scanner runs on the way out.
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     04 + 05 · IDENTITY AND PRIVACY
+     ========================================================================== -->
+<section id="identity" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-2 gap-8">
+
+      <div class="ax-reveal">
+        <p class="ax-eyebrow text-ax-blue mb-5">04 · Identity &amp; authorization</p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-[2.1rem] leading-[1.14] mb-5">
+          Permissions are intersected, not inherited.
+          
+        </h2>
+        <p class="text-ax-ink/60 leading-relaxed mb-6">
+          The failure mode in most agent platforms is a single service account with broad access, which means every user effectively has the union of everyone's permissions. Here the tool roster available on a given turn is the three-way intersection of what the platform supports, what your tenant has entitled, and what that specific user's role permits.
+          
+        </p>
+
+        <div class="rounded-xl border border-ax-ink/10 bg-ax-mist p-6 mb-5">
+          <p class="ax-mono text-xs text-ax-ink/55 leading-relaxed">
+            available_tools = platform ∩ tenant ∩ rbac<br>
+            <span class="text-ax-ink/35">→ compiled into a signed session manifest, per turn</span>
+          </p>
+        </div>
+
+        <ul class="space-y-3 text-[0.95rem] text-ax-ink/65">
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span>SAML 2.0 and OIDC ingress against Azure AD, Okta, Google, ADFS, or a custom provider</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span>Tokens held in key-management-backed storage, never in application configuration</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span>Session history re-validates authorization on access, so a revoked role loses past sessions too</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span>Cached agent specifications carry a permissions hash and expire when entitlements change</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ax-reveal" id="privacy">
+        <p class="ax-eyebrow text-ax-violet mb-5">05 · Privacy</p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-[2.1rem] leading-[1.14] mb-5">
+          Sensitive spans never reach the model.
+          
+        </h2>
+        <p class="text-ax-ink/60 leading-relaxed mb-6">
+          Context-aware tokenization replaces sensitive spans before transmission and re-injects the real values after the response returns, so the user sees a complete answer while the model only ever saw placeholders. Crucially, this is governed by a declarative policy rather than hardcoded rules — your compliance team can read and amend it.
+          
+        </p>
+
+        <div class="space-y-3">
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">Category allowlist</p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">Which classes of data are tokenized at all — names, national identifiers, financial instruments, health data.</p>
+          </div>
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">Custom enterprise patterns</p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">Your own identifier formats — internal account numbers, part codes, case references — treated as sensitive even though no generic scanner would recognize them.</p>
+          </div>
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">Known-safe denylist</p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">Literal and pattern exclusions for values that look sensitive but are not, so over-tokenization does not degrade answer quality.</p>
+          </div>
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">Skip-context rules</p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">Tag-scoped and preceded-by exclusions, plus per-domain overrides, so policy can differ between a support transcript and a financial ledger.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     06 · HITL
+     ========================================================================== -->
+<section id="hitl" class="ax-dark py-24 lg:py-32 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-40"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-warn mb-5">06 · Human control</p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        Reads are free. Writes stop. Every time.
+        
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        "Human in the loop" is usually a slide, not a mechanism. Here it is a state machine with three properties that make it hold up under adversarial conditions.
+        
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-5 ax-stagger mb-8">
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="ax-mono text-2xs text-ax-warn mb-3">PROPERTY 01</p>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Blast radius is shown, not described
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          The gate renders a diff of exactly what would change and how many records it reaches. A reviewer approving "update the opportunity records" without seeing which twelve is not review, it is ceremony.
+          
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="ax-mono text-2xs text-ax-warn mb-3">PROPERTY 02</p>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Approvals cannot be replayed
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          Every approval is pinned to an optimistic-concurrency version token and to the schema it was granted against. If the plan or the tool definition changes after approval, the token no longer matches and the write is refused rather than executed against something nobody reviewed.
+          
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="ax-mono text-2xs text-ax-warn mb-3">PROPERTY 03</p>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Escalate is a first-class outcome
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          Approve and reject are not enough. A reviewer who is not the right person to decide can escalate, which routes the decision without either rubber-stamping it or silently dropping the work.
+          
+        </p>
+      </div>
+    </div>
+
+    <div class="rounded-2xl border border-ax-warn/25 bg-ax-warn/[0.06] p-7 lg:p-8 ax-reveal">
+      <p class="text-white/70 leading-relaxed">
+        <strong class="text-white">The same gate applies in every solution.</strong> In test engineering it is the review queue before a case is written to your ALM tool. In agentic workflows it is the write gate before a record is updated. In business intelligence it is the diff before a dashboard version is overwritten. One mechanism, three surfaces — which is why a security review of one carries over to the others.
+        
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     07 · AUDIT
+     ========================================================================== -->
+<section id="audit" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14 items-center">
+
+      <div class="lg:col-span-6 ax-reveal">
+        <p class="ax-eyebrow text-ax-teal mb-5">07 · Auditability</p>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] mb-6">
+          Reconstruct the decision, not a summary of it.
+          
+        </h2>
+        <p class="text-lg text-ax-ink/60 leading-relaxed mb-6">
+          Six months later someone will ask why the system changed a record, and "the AI decided" is not an answer that survives an audit. Every agent action is traced end to end with distributed trace context propagated across the control and execution boundary, so the causal chain is reconstructible rather than inferred.
+          
+        </p>
+        <ul class="space-y-3 text-[0.95rem] text-ax-ink/65">
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span>Which turn triggered which tool call, with the arguments it was given</span></li>
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span>What that call returned, and which citation in the narrative points at it</span></li>
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span>Who approved the resulting write, when, and against which version token</span></li>
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span>What the gate refused, and why the policy evaluated the way it did</span></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-6 ax-reveal">
+        <div class="ax-terminal shadow-ax-lift">
+          <div class="ax-terminal-bar">
+            <span class="ax-terminal-dot bg-ax-stop/70"></span>
+            <span class="ax-terminal-dot bg-ax-warn/70"></span>
+            <span class="ax-terminal-dot bg-ax-go/70"></span>
+            <span class="ax-mono text-2xs text-white/40 ml-2">audit trace · reconstructed</span>
+          </div>
+          <div class="p-5 ax-mono text-xs space-y-1.5 text-white/60">
+            <p class="text-white/30">trace_id 4bf92f3577b34da6a3ce929d0e0e4736</p>
+            <div class="h-px bg-white/10 my-3"></div>
+            <p><span class="text-ax-cyan">├─</span> ingress <span class="text-white/30">user=j.rivera@ · role=analyst</span></p>
+            <p><span class="text-ax-cyan">│  ├─</span> tokenize <span class="text-white/30">14 spans held</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> injection scan <span class="text-ax-go">clean</span></p>
+            <p><span class="text-ax-cyan">├─</span> route <span class="text-white/30">NEW_TASK · 84ms</span></p>
+            <p><span class="text-ax-cyan">├─</span> factory <span class="text-white/30">manifest signed · 9 tools</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> intersection <span class="text-white/30">platform∩tenant∩rbac</span></p>
+            <p><span class="text-ax-cyan">├─</span> tool <span class="text-white/70">warehouse.aggregate</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> returned <span class="text-white/30">84,112 rows → pointer</span> <span class="text-ax-cyan">[1]</span></p>
+            <p><span class="text-ax-cyan">├─</span> gate <span class="text-white/70">crm.update</span> <span class="text-ax-warn">HELD</span></p>
+            <p><span class="text-ax-cyan">│  ├─</span> blast_radius <span class="text-white/30">12 records</span></p>
+            <p><span class="text-ax-cyan">│  ├─</span> version_token <span class="text-white/30">v7 · pinned</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> approved <span class="text-white/30">m.okafor@ · 14:22:07Z</span></p>
+            <p><span class="text-ax-cyan">├─</span> tool <span class="text-white/70">crm.update</span> <span class="text-ax-go">COMMITTED</span></p>
+            <p><span class="text-ax-cyan">└─</span> egress <span class="text-white/30">detokenize · render</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     08 · DEPLOYMENT TOPOLOGIES
+     ========================================================================== -->
+<section id="airgap" class="py-24 lg:py-28 bg-ax-mist">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-12 ax-reveal">
+      <p class="ax-eyebrow text-ax-blue mb-5">08 · Deployment</p>
+      <h2 class="font-heading font-extrabold text-3xl lg:text-4xl leading-[1.12] mb-5">
+        Four topologies. One codebase.
+        
+      </h2>
+      <p class="text-lg text-ax-ink/60 leading-relaxed">
+        Choosing the restrictive option should not put you on a lagging feature branch. It is the same code in every topology, which is why the on-premises deployment is not a downgrade.
+        
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 ax-stagger">
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Kubernetes / Helm
+        </h3>
+        <p class="ax-pill ax-pill-cyan mb-3.5">Most common</p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          On-premises or BYOC inside your existing cluster, under your network policy and your service mesh.
+          
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">Docker</h3>
+        <p class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15 mb-3.5">Fastest start</p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          Compose-based deployment with a managed database, appropriate for a scoped pilot on isolated infrastructure.
+          
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Signed single binary
+        </h3>
+        <p class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15 mb-3.5">Air-gapped</p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          A cryptographically signed desktop executable for environments where running a service is not permitted at all.
+          
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Managed cloud
+        </h3>
+        <p class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15 mb-3.5">Lowest ops</p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          We operate the control plane; the execution plane still runs in your account. Suitable when data residency is not the binding constraint.
+          
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-6 rounded-2xl border border-ax-ink/10 bg-white p-7 ax-reveal">
+      <h3 class="font-heading font-bold text-lg mb-2.5">
+        On inference and model access
+      </h3>
+      <p class="text-ax-ink/65 leading-relaxed">
+        We do not require a specific model vendor or introduce a new outbound path. Inference routes through whatever gateway your organization has already approved — an internal AI gateway, a cloud-native endpoint in your own subscription, or a self-hosted model. Retrieval embeddings run resident and locally rather than calling a hosted embedding service, which is what makes a fully egress-restricted deployment viable rather than theoretical.
+        
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     RED TEAM
+     ========================================================================== -->
+<section class="ax-band py-24 lg:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-cyan mb-5">
+        Adversarial testing
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        Attacks we design against, by name.
+        
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        A vendor who cannot name the attacks against their own class of system has not looked for them. Each of these has a specific mitigation in the codebase, and each gets exercised during the hardening phase of an engagement.
+        
+      </p>
+    </div>
+
+    <div class="ax-table-wrap rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden ax-reveal">
+      <table class="ax-table ax-table-dark">
+        <thead class="bg-white/[0.04]">
+          <tr>
+            <th>Attack</th>
+            <th>Mitigation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Tool shadowing</td>
+            <td>A malicious server registers a tool impersonating a trusted one. Name collisions resolve fail-closed — the request is denied rather than resolved by guess.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Description injection</td>
+            <td>Instructions smuggled into a tool's own description text. Descriptions are treated as untrusted input and cannot redirect agent behavior.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Subquery evasion</td>
+            <td>A restricted operation nested inside a subquery to slip past a string-matching rule. Queries are parsed into a syntax tree and validated structurally.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">URL egress / SSRF</td>
+            <td>A citation or pointer rendered as a link to an attacker-controlled destination. URLs are validated against an allowlist before rendering.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Approval replay</td>
+            <td>Reusing a granted approval against a modified plan. Approvals are pinned to a concurrency token and the approved schema; a mismatch refuses the write.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Citation forgery</td>
+            <td>The model emitting authoritative-looking markers it invented. Citations are generated by the backend from the tool-call record; unmatched markers are stripped.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Duplicate-write retry</td>
+            <td>A transient failure on a non-idempotent write becoming a duplicate transaction on retry. Retry guards are idempotency-aware per operation.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FAQ
+     ========================================================================== -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14">
+
+      <div class="lg:col-span-4 ax-reveal">
+        <p class="ax-eyebrow text-ax-teal mb-5">FAQ</p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-4xl leading-[1.12]">
+          Straight from the questionnaire.
+          
+        </h2>
+      </div>
+
+      <div class="lg:col-span-8 space-y-3 ax-stagger">
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              What is the exact boundary between your systems and ours?
+              
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <strong class="text-ax-ink">The control plane orchestrates and holds no customer data at rest; the execution plane runs in your VPC and is the only thing that touches your systems.</strong> They communicate over mutual TLS with distributed trace context propagated across the seam so the audit trail survives the boundary. In an on-premises deployment both planes run in your environment and the boundary becomes internal.
+            
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              Assume the agent is fully compromised. What happens?
+              
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <strong class="text-ax-ink">It has nowhere to send anything and nothing it can write unilaterally.</strong> Code executes in a MicroVM with its own kernel, so the isolation boundary is the hypervisor rather than a namespace. Egress is denied by default via eBPF filtering and a DNS sinkhole. Every write still requires a human approval pinned to a version token. The realistic worst case is unauthorized reads within the tool roster that user's role already permitted — which is why the three-way permission intersection matters.
+            
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              Can we run with no outbound internet access at all?
+              
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <strong class="text-ax-ink">Yes.</strong> Inference routes through whatever gateway you have already approved — including a self-hosted model — and retrieval embeddings run resident and locally rather than calling a hosted service. Deployment supports Kubernetes and Helm on your own infrastructure, or a cryptographically signed single binary where running a service is not permitted. It is the same codebase, so the restrictive topology is not a reduced feature set.
+            
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              Do you hold any of our credentials?
+              
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <strong class="text-ax-ink">Connection credentials and API keys are encrypted at rest with authenticated symmetric encryption before they reach any database, and are never written to plaintext configuration.</strong> Identity tokens are held in key-management-backed storage under your own key material. In a BYOC or on-premises deployment the credential store is inside your perimeter, so we hold nothing at all — we do not have access to the environment those secrets live in.
+            
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              What do you need from our security team, and when?
+              
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <strong class="text-ax-ink">Two weeks of their attention at the start, not a sign-off at the end.</strong> Weeks one and two of an engagement settle deployment topology, data residency, identity provider, egress policy, and audit requirements, and produce a threat model and deployment diagram your reviewers have already seen. Deferring that conversation to the end is the single most common reason enterprise AI projects miss their date.
+            
+          </p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CTA
+     ========================================================================== -->
+<section class="ax-dark py-24 lg:py-28 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-50"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative ax-reveal">
+    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+      Send the questionnaire before the demo.
+      
+    </h2>
+    <p class="text-lg text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto">
+      We would rather answer forty security questions in writing and then show you something, than show you something and spend two months answering them. Send us the assessment your vendor risk team uses.
+      
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3.5 justify-center">
+      <a href="contact.html" class="ax-btn ax-btn-primary px-8 py-4">
+        Send us the assessment
+      </a>
+      <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-ghost px-8 py-4">
+        Book a Technical Briefing
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="bg-ax-void text-white pt-16 pb-10">
+  <hr class="ax-rule-spectrum mb-16 max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
+
+      <div class="lg:col-span-5">
+        <a href="index.html" class="ax-logo mb-5">
+          <img src="assets/logo-mark-dark.png" alt="Axionalytics" width="88" height="100" loading="lazy" decoding="async">
+          <span class="text-[1.35rem] font-heading font-bold">axionalytics</span>
+        </a>
+        <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
+          Production agentic AI for Fortune 500 engineering, data, and revenue organizations. Built in Davenport, Iowa. Deployed inside your perimeter.
+          
+        </p>
+        <div class="flex gap-2.5">
+          <a href="https://www.linkedin.com/company/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="LinkedIn">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://wa.me/19562079368" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="WhatsApp">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Solutions
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="agentic-test-engineering.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agentic Test Engineering</a></li>
+          <li><a href="enterprise-agentic-ai.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Enterprise Agentic AI</a></li>
+          <li><a href="agentic-business-intelligence.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agentic Business Intelligence</a></li>
+          <li><a href="agentic-revenue-development.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agentic Revenue Development</a></li>
+          <li><a href="enterprise-ai-security.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Zero-Trust AI Governance</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Company
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="about.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            About</a></li>
+          <li><a href="case-studies.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Case Studies</a></li>
+          <li><a href="blog.html" class="text-white/65 hover:text-ax-cyan transition-colors">Blog</a></li>
+          <li><a href="contact.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Resources
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="roi-calculator.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            ROI Calculator</a></li>
+          <li><a href="glossary.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Glossary</a></li>
+          <li><a href="pricing.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Pricing</a></li>
+          <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Book a Briefing</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/[0.08] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/35 text-sm">
+        © <span data-year>2026</span> Axionalytics.
+        All rights reserved.
+      </p>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+        <a href="privacy.html" class="text-white/35 hover:text-white transition-colors">
+          Privacy</a>
+        <a href="terms.html" class="text-white/35 hover:text-white transition-colors">
+          Terms</a>
+        <a href="accessibility.html" class="text-white/35 hover:text-white transition-colors">
+          Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/axio.js"></script>
+<script src="assets/axio-analytics.js"></script>
+</body>
+</html>

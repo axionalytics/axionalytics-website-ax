@@ -1,0 +1,63 @@
+
+  <title>How an Agent Queries a 50,000-Table Warehouse Without Reading the Schema | Axionalytics</title>
+  <meta name="description" content="Every demo works against twelve tables. Real catalogs have tens of thousands, and the standard approach collapses on cost, latency, and accuracy at the same time.">
+  <link rel="canonical" href="https://www.axionalytics.com/agentic-data-exploration-at-scale.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How an Agent Queries a 50,000-Table Warehouse Without Reading the Schema">
+  <meta property="og:description" content="Every demo works against twelve tables. Real catalogs have tens of thousands, and the standard approach collapses on cost, latency, and accuracy at the same time.">
+  <meta property="og:url" content="https://www.axionalytics.com/agentic-data-exploration-at-scale.html">
+  <meta property="article:published_time" content="2026-06-30">
+  <meta property="article:section" content="Engineering">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://www.axionalytics.com/agentic-data-exploration-at-scale.html#article",
+    "headline": "How an Agent Queries a 50,000-Table Warehouse Without Reading the Schema",
+    "description": "Every demo works against twelve tables. Real catalogs have tens of thousands, and the standard approach collapses on cost, latency, and accuracy at the same time.",
+    "datePublished": "2026-06-30",
+    "dateModified": "2026-06-30",
+    "articleSection": "Engineering",
+    "inLanguage": ["en", "es"],
+    "wordCount": 737,
+    "timeRequired": "PT3M",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/agentic-data-exploration-at-scale.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Enterprise Agentic AI", "url": "https://www.axionalytics.com/enterprise-agentic-ai.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "How an Agent Queries a 50,000-Table Warehouse Without Reading the Schema", "item": "https://www.axionalytics.com/agentic-data-exploration-at-scale.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How does an AI agent query a database with tens of thousands of tables?",
+        "acceptedAnswer": { "@type": "Answer", "text": "By exploring rather than ingesting. Retrieval surfaces a handful of candidate tables from the catalog, then a probing tool suite previews, counts, aggregates, and text-searches them the way an analyst would before committing to an expensive query. The full schema is never injected into the context window." } },
+      { "@type": "Question", "name": "Why does injecting a full database schema into the prompt fail at enterprise scale?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It fails on three axes at once. A fifty-thousand-table catalog exceeds any context window, the token cost is incurred on every turn regardless of relevance, and accuracy falls as the model selects from thousands of similarly named candidates instead of a ranked shortlist." } },
+      { "@type": "Question", "name": "How do you stop an agent pulling millions of rows into a context window?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Materialise large result sets to object storage and return a pre-signed pointer plus a summary. The model receives a reference and aggregate statistics rather than raw rows, so cost stays bounded regardless of result size and the sensitive payload never enters the context." } }
+    ]
+  }
+  </script>

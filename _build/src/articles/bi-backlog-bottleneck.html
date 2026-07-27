@@ -1,0 +1,120 @@
+<!--FAQ Why does hiring more analysts not clear a BI backlog? | Because the queue is long from repetition rather than volume. Most requests are variations on dashboards the team has built many times, and each is rebuilt by hand at full cost. Adding capacity raises throughput on a fundamentally inefficient process; it does not change the cost per dashboard.-->
+<!--FAQ What happens when a BI backlog gets long enough? | Business units stop waiting and build their own spreadsheets. The organisation then loses the single source of truth it spent years establishing, and the reconciliation cost of competing numbers exceeds whatever the original backlog cost.-->
+<!--FAQ Can dashboard generation be automated without losing governance? | Yes, if the output is a real artifact in your own BI platform rather than a hosted view. When generation produces a project file containing the semantic model, measures, and layouts, it enters your normal review, version control, and deployment process like any other change.-->
+
+<p>
+  <span data-lang-en><strong>A forty-item BI backlog is rarely a capacity problem. It is long because the same dashboard is being hand-built for the eleventh time, and each rebuild costs what the first one did.</strong></span>
+  <span data-lang-es><strong>Un backlog de BI de cuarenta ítems rara vez es un problema de capacidad. Es largo porque el mismo tablero se construye a mano por undécima vez, y cada reconstrucción cuesta lo que la primera.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>The instinct is to hire. Two more analysts, a contractor for the quarter, an offshore team for the routine work. That buys a quarter of relief and leaves the underlying economics untouched, because it raises throughput on a process whose unit cost is the actual problem.</span>
+  <span data-lang-es>El instinto es contratar. Dos analistas más, un contratista por el trimestre, un equipo externo para el trabajo rutinario. Eso compra un trimestre de alivio y deja intacta la economía subyacente, porque aumenta el rendimiento de un proceso cuyo costo unitario es el problema real.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Look at what is actually in the queue</span>
+  <span data-lang-es>Mire qué hay realmente en la cola</span>
+</h2>
+
+<p>
+  <span data-lang-en>Take the last forty requests your team delivered and sort them by how much genuinely new modelling each required. The distribution is consistent across organizations: a small number needed real semantic work — a new grain, an unfamiliar source, a metric nobody had defined. The rest were recombinations of tables the team knows intimately, laid out in a pattern they have produced repeatedly.</span>
+  <span data-lang-es>Tome las últimas cuarenta solicitudes que entregó su equipo y ordénelas por cuánto modelado genuinamente nuevo requirió cada una. La distribución es consistente entre organizaciones: unas pocas necesitaron trabajo semántico real — una nueva granularidad, una fuente desconocida, una métrica que nadie había definido. El resto fueron recombinaciones de tablas que el equipo conoce a fondo, dispuestas en un patrón que ha producido repetidamente.</span>
+</p>
+
+<p>
+  <span data-lang-en>The second category is where the queue lives, and it is the category where a skilled analyst is doing work that is mechanical rather than difficult: wiring relationships that already exist elsewhere, writing measures that follow an established pattern, and placing visuals in a layout the organization has effectively standardised.</span>
+  <span data-lang-es>La segunda categoría es donde vive la cola, y es la categoría donde un analista experto hace trabajo mecánico y no difícil: conectar relaciones que ya existen en otro lado, escribir medidas que siguen un patrón establecido y colocar visuales en un diseño que la organización estandarizó de hecho.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The cost nobody puts in the business case</span>
+  <span data-lang-es>El costo que nadie pone en el caso de negocio</span>
+</h2>
+
+<p>
+  <span data-lang-en>A long queue does not simply delay work. Past a threshold, business units stop waiting.</span>
+  <span data-lang-es>Una cola larga no solo retrasa el trabajo. Pasado cierto umbral, las unidades de negocio dejan de esperar.</span>
+</p>
+
+<p>
+  <span data-lang-en>They export to a spreadsheet, build the view themselves, and circulate it. The result is a shadow reporting estate: four departments each maintaining their own definition of revenue, none reconciled, all presented in meetings as fact. The organization quietly loses the single source of truth it spent years establishing, and the reconciliation cost — the meetings spent arguing about whose number is right — comfortably exceeds whatever the backlog itself cost.</span>
+  <span data-lang-es>Exportan a una hoja de cálculo, construyen la vista ellos mismos y la hacen circular. El resultado es un patrimonio de reportes paralelo: cuatro departamentos manteniendo cada uno su propia definición de ingresos, ninguna conciliada, todas presentadas en reuniones como hechos. La organización pierde silenciosamente la fuente única de verdad que le costó años establecer, y el costo de conciliación — las reuniones discutiendo qué cifra es correcta — supera cómodamente lo que costó el backlog en sí.</span>
+</p>
+
+<p>
+  <span data-lang-en>This is the real argument for clearing the queue, and it is rarely the one made, because it is a governance cost rather than a headcount cost.</span>
+  <span data-lang-es>Este es el argumento real para vaciar la cola, y rara vez es el que se hace, porque es un costo de gobernanza y no de personal.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The diagnostic</span>
+    <span data-lang-es>El diagnóstico</span>
+  </h4>
+  <p>
+    <span data-lang-en>Count the spreadsheets circulating in your organization that contain a metric your BI platform already publishes. That number is the true size of the backlog, and it is usually an order of magnitude larger than the ticket queue.</span>
+    <span data-lang-es>Cuente las hojas de cálculo que circulan en su organización con una métrica que su plataforma de BI ya publica. Ese número es el tamaño real del backlog, y suele ser un orden de magnitud mayor que la cola de tickets.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Generation only helps if it produces a real artifact</span>
+  <span data-lang-es>La generación solo ayuda si produce un artefacto real</span>
+</h2>
+
+<p>
+  <span data-lang-en>Automating the first draft is the obvious move, and most tools that claim to do it fail on the same point: they produce an image, or a view hosted inside their own product. That is a demo, not an asset. Your team cannot version it, extend it, fold it into an existing workspace, or apply the row-level security your governance model requires — and you are now renting access to your own analysis.</span>
+  <span data-lang-es>Automatizar el primer borrador es el paso obvio, y la mayoría de las herramientas que dicen hacerlo fallan en el mismo punto: producen una imagen o una vista alojada dentro de su propio producto. Eso es una demostración, no un activo. Su equipo no puede versionarla, extenderla, integrarla en un espacio existente ni aplicarle la seguridad a nivel de fila que exige su modelo de gobierno — y ahora usted alquila el acceso a su propio análisis.</span>
+</p>
+
+<p>
+  <span data-lang-en>The output has to be a native project file in the platform you already run: the semantic model with tables, typed columns and relationships, the measures, the report pages, the theme. Something that opens in the desktop tool, lives in source control, and goes through your normal review and deployment path like any other change.</span>
+  <span data-lang-es>La salida debe ser un archivo de proyecto nativo en la plataforma que ya opera: el modelo semántico con tablas, columnas tipadas y relaciones, las medidas, las páginas del informe, el tema. Algo que abra en la herramienta de escritorio, viva en control de versiones y pase por su ruta normal de revisión y despliegue como cualquier otro cambio.</span>
+</p>
+
+<p>
+  <span data-lang-en>When that holds, generation is not a parallel system that governance has to accommodate. It is a faster way of producing the same artifact your team already reviews.</span>
+  <span data-lang-es>Cuando eso se cumple, la generación no es un sistema paralelo que la gobernanza deba acomodar. Es una forma más rápida de producir el mismo artefacto que su equipo ya revisa.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Correctness is the whole problem</span>
+  <span data-lang-es>La corrección es todo el problema</span>
+</h2>
+
+<p>
+  <span data-lang-en>A generated dashboard that opens with broken measures is worse than no dashboard, because someone now has to debug machine-written expressions to find out why a total is wrong.</span>
+  <span data-lang-es>Un tablero generado que abre con medidas rotas es peor que ningún tablero, porque ahora alguien debe depurar expresiones escritas por máquina para averiguar por qué un total está mal.</span>
+</p>
+
+<p>
+  <span data-lang-en>Syntactic validity is not sufficient. An expression can parse perfectly and still be wrong in ways only the data reveals — a sum over a column that is text in production, a division against a column that is zero for one region, an aggregate at the wrong grain. Catching those requires executing the measures against real data samples before packaging, not merely checking that they compile.</span>
+  <span data-lang-es>La validez sintáctica no basta. Una expresión puede analizarse perfectamente y aun así estar mal de formas que solo los datos revelan — una suma sobre una columna que en producción es texto, una división contra una columna que vale cero para una región, un agregado con la granularidad equivocada. Detectarlas requiere ejecutar las medidas contra muestras reales antes de empaquetar, no solo verificar que compilen.</span>
+</p>
+
+<p>
+  <span data-lang-en>And when validation cannot be satisfied, the system should not return a broken file or an error. It should fall back to a guaranteed-valid minimal output — cards and tables, no charts — so the requester always has something to work from and the failure is logged for a human rather than silently swallowed.</span>
+  <span data-lang-es>Y cuando la validación no puede satisfacerse, el sistema no debería devolver un archivo roto ni un error. Debería recurrir a una salida mínima garantizada — tarjetas y tablas, sin gráficos — para que quien pidió siempre tenga algo con qué trabajar y la falla quede registrada para un humano en lugar de tragarse en silencio.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What the team does with the time</span>
+  <span data-lang-es>Qué hace el equipo con el tiempo</span>
+</h2>
+
+<p>
+  <span data-lang-en>The point is not to remove analysts. It is to stop spending them on the eleventh revenue-by-region page so they can work on the things that actually need judgment: the semantic layer, metric definitions that survive contact with four departments, data quality, and the genuinely hard modelling questions that were being deferred because the queue never cleared.</span>
+  <span data-lang-es>El objetivo no es eliminar analistas. Es dejar de gastarlos en la undécima página de ingresos por región para que trabajen en lo que realmente requiere criterio: la capa semántica, definiciones de métricas que sobrevivan al contacto con cuatro departamentos, calidad de datos y las preguntas de modelado genuinamente difíciles que se postergaban porque la cola nunca se vaciaba.</span>
+</p>
+
+<div class="pro-tip">
+  <h4>
+    <span data-lang-en>The steady-state cost matters more than the first build</span>
+    <span data-lang-es>El costo en régimen importa más que la primera construcción</span>
+  </h4>
+  <p>
+    <span data-lang-en>Most dashboards are rebuilt on a schedule against a schema that has not changed. If the system checks a schema hash first and reuses the previous configuration when nothing structural moved, the recurring cost of keeping the estate current falls close to zero. That is what turns a generation pilot into standing infrastructure rather than a line item someone reviews next budget cycle.</span>
+    <span data-lang-es>La mayoría de los tableros se reconstruyen periódicamente contra un esquema que no cambió. Si el sistema verifica primero un hash de esquema y reutiliza la configuración anterior cuando nada estructural se movió, el costo recurrente de mantener el patrimonio al día cae casi a cero. Eso convierte un piloto de generación en infraestructura permanente y no en una partida que alguien revisa el próximo ciclo presupuestario.</span>
+  </p>
+</div>

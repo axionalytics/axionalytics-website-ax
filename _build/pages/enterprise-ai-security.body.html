@@ -1,0 +1,698 @@
+
+<!-- ==========================================================================
+     PAGE HERO
+     ========================================================================== -->
+<section class="ax-hero ax-noise relative pt-36 pb-20 lg:pt-44 lg:pb-24 overflow-hidden">
+  <div class="ax-grid-bg"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <nav class="flex items-center gap-2 text-xs font-semibold text-white/35 mb-8 ax-reveal" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-ax-cyan transition-colors">
+        <span data-lang-en>Home</span><span data-lang-es>Inicio</span>
+      </a>
+      <span>/</span>
+      <a href="solutions.html" class="hover:text-ax-cyan transition-colors">
+        <span data-lang-en>Solutions</span><span data-lang-es>Soluciones</span>
+      </a>
+      <span>/</span>
+      <span class="text-white/60">
+        <span data-lang-en>Zero-Trust AI Governance</span><span data-lang-es>Gobernanza de IA de Confianza Cero</span>
+      </span>
+    </nav>
+
+    <div class="max-w-4xl">
+      <div class="ax-pill ax-pill-dark mb-6 ax-reveal">
+        <span class="w-2 h-2 rounded-full bg-ax-teal"></span>
+        <span data-lang-en>The layer underneath all three solutions</span>
+        <span data-lang-es>La capa bajo las tres soluciones</span>
+      </div>
+
+      <h1 class="font-heading font-extrabold text-white text-[2.4rem] sm:text-5xl xl:text-[3.6rem] leading-[1.06] mb-7 ax-reveal">
+        <span data-lang-en>Written for the person who <span class="ax-spectrum-text">says no</span>.</span>
+        <span data-lang-es>Escrito para quien <span class="ax-spectrum-text">dice que no</span>.</span>
+      </h1>
+
+      <p class="text-lg lg:text-xl text-white/65 leading-relaxed max-w-3xl mb-9 ax-reveal">
+        <span data-lang-en>Every enterprise AI project eventually meets a security architect whose job is to find the reason this cannot ship. That review is where most pilots die — not because the objections are unreasonable, but because nobody designed for them. This page is the set of answers, stated plainly enough to paste into a questionnaire.</span>
+        <span data-lang-es>Todo proyecto de IA empresarial termina frente a un arquitecto de seguridad cuyo trabajo es encontrar la razón por la que esto no puede salir. Esa revisión es donde mueren la mayoría de los pilotos — no porque las objeciones sean irrazonables, sino porque nadie diseñó para ellas. Esta página es el conjunto de respuestas, expresadas con claridad suficiente para pegarlas en un cuestionario.</span>
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3.5 ax-reveal">
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-7 py-4">
+          <span data-lang-en>Bring us your questionnaire</span><span data-lang-es>Tráiganos su cuestionario</span>
+        </a>
+        <a href="#boundary" class="ax-btn ax-btn-ghost px-7 py-4">
+          <span data-lang-en>Start with the trust boundary</span><span data-lang-es>Empezar por la frontera de confianza</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     THE SEVEN QUESTIONS
+     ========================================================================== -->
+<section class="py-20 lg:py-24 bg-white border-b border-ax-ink/[0.07]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="ax-eyebrow text-ax-blue mb-8 ax-reveal">
+      <span data-lang-en>The seven questions, answered in one line each</span>
+      <span data-lang-es>Las siete preguntas, respondidas en una línea</span>
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 ax-stagger">
+      <a href="#boundary" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">01</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          <span data-lang-en>Where does our data go?</span><span data-lang-es>¿A dónde van nuestros datos?</span>
+        </p>
+        <p class="text-sm text-ax-ink/55"><span data-lang-en>Nowhere. It stays in your VPC.</span><span data-lang-es>A ningún lado. Se queda en su VPC.</span></p>
+      </a>
+      <a href="#isolation" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">02</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          <span data-lang-en>Where does generated code run?</span><span data-lang-es>¿Dónde corre el código generado?</span>
+        </p>
+        <p class="text-sm text-ax-ink/55"><span data-lang-en>Hardware-isolated MicroVMs.</span><span data-lang-es>MicroVMs aisladas por hardware.</span></p>
+      </a>
+      <a href="#egress" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">03</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          <span data-lang-en>What if it is compromised?</span><span data-lang-es>¿Y si es comprometido?</span>
+        </p>
+        <p class="text-sm text-ax-ink/55"><span data-lang-en>Egress denied by default.</span><span data-lang-es>Salida denegada por defecto.</span></p>
+      </a>
+      <a href="#identity" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">04</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          <span data-lang-en>Who is allowed to do what?</span><span data-lang-es>¿Quién puede hacer qué?</span>
+        </p>
+        <p class="text-sm text-ax-ink/55"><span data-lang-en>Your IdP, intersected per turn.</span><span data-lang-es>Su IdP, intersectado por turno.</span></p>
+      </a>
+      <a href="#privacy" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">05</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          <span data-lang-en>What about personal data?</span><span data-lang-es>¿Y los datos personales?</span>
+        </p>
+        <p class="text-sm text-ax-ink/55"><span data-lang-en>Tokenized before transmission.</span><span data-lang-es>Tokenizados antes de transmitir.</span></p>
+      </a>
+      <a href="#hitl" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">06</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          <span data-lang-en>Can it act on its own?</span><span data-lang-es>¿Puede actuar por su cuenta?</span>
+        </p>
+        <p class="text-sm text-ax-ink/55"><span data-lang-en>Not on a write. Ever.</span><span data-lang-es>En una escritura, nunca.</span></p>
+      </a>
+      <a href="#audit" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">07</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          <span data-lang-en>What can an auditor see?</span><span data-lang-es>¿Qué ve un auditor?</span>
+        </p>
+        <p class="text-sm text-ax-ink/55"><span data-lang-en>The whole causal chain.</span><span data-lang-es>La cadena causal completa.</span></p>
+      </a>
+      <a href="#airgap" class="ax-card p-5 block bg-ax-mist border-ax-blue/20">
+        <p class="ax-mono text-2xs text-ax-blue/50 mb-2">08</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          <span data-lang-en>Can we run air-gapped?</span><span data-lang-es>¿Podemos correr sin internet?</span>
+        </p>
+        <p class="text-sm text-ax-ink/55"><span data-lang-en>Yes. Same codebase.</span><span data-lang-es>Sí. El mismo código.</span></p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     01 · TRUST BOUNDARY
+     ========================================================================== -->
+<section id="boundary" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14 items-start">
+
+      <div class="lg:col-span-5 lg:sticky lg:top-28 ax-reveal">
+        <p class="ax-eyebrow text-ax-teal mb-5">01 · <span data-lang-en>Trust boundary</span><span data-lang-es>Frontera de confianza</span></p>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] mb-6">
+          <span data-lang-en>The vendor never holds your data.</span>
+          <span data-lang-es>El proveedor nunca retiene sus datos.</span>
+        </h2>
+        <p class="text-lg text-ax-ink/60 leading-relaxed mb-6">
+          <span data-lang-en>Most AI vendors ask you to accept that your proprietary data will be processed on infrastructure you do not control, under a data processing agreement and a promise. For a Fortune 500 with a data residency clause, that is not a negotiation — it is a decline.</span>
+          <span data-lang-es>La mayoría de los proveedores de IA le pide aceptar que sus datos propietarios se procesen en infraestructura que usted no controla, bajo un acuerdo de tratamiento y una promesa. Para una Fortune 500 con cláusula de residencia de datos, eso no es una negociación — es un rechazo.</span>
+        </p>
+        <p class="text-lg text-ax-ink/60 leading-relaxed">
+          <span data-lang-en>So the architecture splits at a hard line. Orchestration decides what should happen next and holds no customer data at rest. Execution lives entirely in your cloud account and is the only thing that ever touches a system of yours.</span>
+          <span data-lang-es>Por eso la arquitectura se parte en una línea dura. La orquestación decide qué sigue y no retiene datos del cliente. La ejecución vive por completo en su cuenta de nube y es lo único que toca alguno de sus sistemas.</span>
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 ax-reveal">
+        <div class="rounded-2xl border border-ax-ink/10 overflow-hidden">
+          <div class="bg-ax-mist p-6 border-b border-ax-ink/10">
+            <div class="flex items-center gap-2.5 mb-4">
+              <span class="w-2.5 h-2.5 rounded-full bg-ax-cyan"></span>
+              <p class="font-heading font-bold">
+                <span data-lang-en>Control plane · ours</span><span data-lang-es>Plano de control · nuestro</span>
+              </p>
+            </div>
+            <ul class="space-y-2 text-[0.93rem] text-ax-ink/65">
+              <li class="flex gap-2.5"><span class="text-ax-cyan">·</span><span data-lang-en>Session lifecycle, routing, and agent compilation</span><span data-lang-es>Ciclo de sesión, enrutamiento y compilación del agente</span></li>
+              <li class="flex gap-2.5"><span class="text-ax-cyan">·</span><span data-lang-en>Policy evaluation and the pre-execution gate</span><span data-lang-es>Evaluación de políticas y puerta de pre-ejecución</span></li>
+              <li class="flex gap-2.5"><span class="text-ax-cyan">·</span><span data-lang-en>Trace collection and metering</span><span data-lang-es>Recolección de trazas y medición</span></li>
+              <li class="flex gap-2.5 font-semibold text-ax-ink"><span class="text-ax-stop">✕</span><span data-lang-en>No customer data at rest</span><span data-lang-es>Ningún dato del cliente en reposo</span></li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-4 text-center border-b border-ax-ink/10">
+            <p class="ax-mono text-xs text-ax-ink/45">
+              ↕ mTLS + W3C TraceContext
+            </p>
+          </div>
+
+          <div class="bg-ax-ink p-6">
+            <div class="flex items-center gap-2.5 mb-4">
+              <span class="w-2.5 h-2.5 rounded-full bg-ax-go"></span>
+              <p class="font-heading font-bold text-white">
+                <span data-lang-en>Execution plane · yours</span><span data-lang-es>Plano de ejecución · suyo</span>
+              </p>
+            </div>
+            <ul class="space-y-2 text-[0.93rem] text-white/60">
+              <li class="flex gap-2.5"><span class="text-ax-go">·</span><span data-lang-en>Runs inside your VPC, on your account, under your IAM</span><span data-lang-es>Corre en su VPC, en su cuenta, bajo su IAM</span></li>
+              <li class="flex gap-2.5"><span class="text-ax-go">·</span><span data-lang-en>The only component that connects to your systems</span><span data-lang-es>El único componente que conecta a sus sistemas</span></li>
+              <li class="flex gap-2.5"><span class="text-ax-go">·</span><span data-lang-en>Sandboxed code execution with enforced egress policy</span><span data-lang-es>Ejecución de código en sandbox con política de salida forzada</span></li>
+              <li class="flex gap-2.5 font-semibold text-white"><span class="text-ax-go">✓</span><span data-lang-en>Your data never crosses the boundary</span><span data-lang-es>Sus datos nunca cruzan la frontera</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     02 + 03 · ISOLATION AND EGRESS
+     ========================================================================== -->
+<section id="isolation" class="ax-band py-24 lg:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-cyan mb-5">02 · <span data-lang-en>Execution isolation</span><span data-lang-es>Aislamiento de ejecución</span></p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        <span data-lang-en>Assume the agent is hostile. Design accordingly.</span>
+        <span data-lang-es>Asuma que el agente es hostil. Diseñe en consecuencia.</span>
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        <span data-lang-en>An agent that writes and executes code is, architecturally, a remote code execution path you built on purpose. Container-level isolation is not sufficient for that — a container shares a kernel, and kernel escapes are a known category, not a hypothetical.</span>
+        <span data-lang-es>Un agente que escribe y ejecuta código es, arquitectónicamente, una vía de ejecución remota que usted construyó a propósito. El aislamiento a nivel de contenedor no basta — un contenedor comparte kernel, y los escapes de kernel son una categoría conocida, no una hipótesis.</span>
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-5 ax-stagger">
+      <div class="ax-card-dark p-7">
+        <div class="w-11 h-11 rounded-xl bg-ax-cyan/10 border border-ax-cyan/25 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12a7 7 0 1114 0 7 7 0 01-14 0zM12 3v2m0 14v2m9-9h-2M5 12H3"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          <span data-lang-en>Hypervisor-level sandboxing</span><span data-lang-es>Sandbox a nivel de hipervisor</span>
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          <span data-lang-en>Agent-generated code runs in a MicroVM — a hardware-level hypervisor — with its own kernel. The isolation boundary is the hypervisor, not a namespace. A successful escape from the sandbox lands the attacker in an empty virtual machine.</span>
+          <span data-lang-es>El código generado corre en una MicroVM — un hipervisor a nivel de hardware — con su propio kernel. La frontera de aislamiento es el hipervisor, no un namespace. Un escape exitoso deja al atacante en una máquina virtual vacía.</span>
+        </p>
+      </div>
+
+      <div class="ax-card-dark p-7" id="egress">
+        <div class="w-11 h-11 rounded-xl bg-ax-violet/10 border border-ax-violet/25 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-violet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728A9 9 0 015.636 5.636"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          <span data-lang-en>Egress denied by default</span><span data-lang-es>Salida denegada por defecto</span>
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          <span data-lang-en>Each sandbox carries an eBPF network filter and a DNS sinkhole. Outbound traffic is restricted to an allowlist you define, so a fully compromised agent still has nowhere to send anything. Exfiltration requires a destination, and there is none.</span>
+          <span data-lang-es>Cada sandbox lleva un filtro de red eBPF y un sumidero DNS. El tráfico saliente se restringe a una lista que usted define, así un agente totalmente comprometido no tiene a dónde enviar nada. La exfiltración requiere un destino, y no hay ninguno.</span>
+        </p>
+      </div>
+
+      <div class="ax-card-dark p-7">
+        <div class="w-11 h-11 rounded-xl bg-ax-teal/10 border border-ax-teal/25 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.46 12C3.73 7.94 7.52 5 12 5s8.27 2.94 9.54 7c-1.27 4.06-5.06 7-9.54 7s-8.27-2.94-9.54-7z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          <span data-lang-en>Output scanned on the way out</span><span data-lang-es>Salida escaneada al salir</span>
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          <span data-lang-en>A sidecar inspects everything the sandbox emits before it leaves, catching personal data that a query returned incidentally. Defense in depth: the tokenizer runs on the way in, the scanner runs on the way out.</span>
+          <span data-lang-es>Un sidecar inspecciona todo lo que emite el sandbox antes de salir, detectando datos personales que una consulta devolvió de forma incidental. Defensa en profundidad: el tokenizador actúa a la entrada, el escáner a la salida.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     04 + 05 · IDENTITY AND PRIVACY
+     ========================================================================== -->
+<section id="identity" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-2 gap-8">
+
+      <div class="ax-reveal">
+        <p class="ax-eyebrow text-ax-blue mb-5">04 · <span data-lang-en>Identity &amp; authorization</span><span data-lang-es>Identidad y autorización</span></p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-[2.1rem] leading-[1.14] mb-5">
+          <span data-lang-en>Permissions are intersected, not inherited.</span>
+          <span data-lang-es>Los permisos se intersectan, no se heredan.</span>
+        </h2>
+        <p class="text-ax-ink/60 leading-relaxed mb-6">
+          <span data-lang-en>The failure mode in most agent platforms is a single service account with broad access, which means every user effectively has the union of everyone's permissions. Here the tool roster available on a given turn is the three-way intersection of what the platform supports, what your tenant has entitled, and what that specific user's role permits.</span>
+          <span data-lang-es>El modo de falla en la mayoría de las plataformas agénticas es una sola cuenta de servicio con acceso amplio, lo que significa que cada usuario tiene efectivamente la unión de los permisos de todos. Aquí el catálogo de herramientas disponible en un turno es la intersección triple de lo que la plataforma soporta, lo que su inquilino tiene habilitado y lo que permite el rol de ese usuario.</span>
+        </p>
+
+        <div class="rounded-xl border border-ax-ink/10 bg-ax-mist p-6 mb-5">
+          <p class="ax-mono text-xs text-ax-ink/55 leading-relaxed">
+            available_tools = platform ∩ tenant ∩ rbac<br>
+            <span class="text-ax-ink/35">→ compiled into a signed session manifest, per turn</span>
+          </p>
+        </div>
+
+        <ul class="space-y-3 text-[0.95rem] text-ax-ink/65">
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span><span data-lang-en>SAML 2.0 and OIDC ingress against Azure AD, Okta, Google, ADFS, or a custom provider</span><span data-lang-es>Ingreso SAML 2.0 y OIDC contra Azure AD, Okta, Google, ADFS o un proveedor propio</span></span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span><span data-lang-en>Tokens held in key-management-backed storage, never in application configuration</span><span data-lang-es>Tokens en almacenamiento respaldado por gestión de claves, nunca en configuración</span></span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span><span data-lang-en>Session history re-validates authorization on access, so a revoked role loses past sessions too</span><span data-lang-es>El historial de sesión revalida la autorización al acceder, así un rol revocado pierde también sesiones pasadas</span></span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span><span data-lang-en>Cached agent specifications carry a permissions hash and expire when entitlements change</span><span data-lang-es>Las especificaciones en caché llevan un hash de permisos y expiran al cambiar los derechos</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ax-reveal" id="privacy">
+        <p class="ax-eyebrow text-ax-violet mb-5">05 · <span data-lang-en>Privacy</span><span data-lang-es>Privacidad</span></p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-[2.1rem] leading-[1.14] mb-5">
+          <span data-lang-en>Sensitive spans never reach the model.</span>
+          <span data-lang-es>Los datos sensibles nunca llegan al modelo.</span>
+        </h2>
+        <p class="text-ax-ink/60 leading-relaxed mb-6">
+          <span data-lang-en>Context-aware tokenization replaces sensitive spans before transmission and re-injects the real values after the response returns, so the user sees a complete answer while the model only ever saw placeholders. Crucially, this is governed by a declarative policy rather than hardcoded rules — your compliance team can read and amend it.</span>
+          <span data-lang-es>La tokenización contextual reemplaza los fragmentos sensibles antes de transmitir y reinyecta los valores reales tras la respuesta, de modo que el usuario ve una respuesta completa mientras el modelo solo vio marcadores. Es clave que esto lo gobierne una política declarativa y no reglas codificadas — su equipo de cumplimiento puede leerla y modificarla.</span>
+        </p>
+
+        <div class="space-y-3">
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1"><span data-lang-en>Category allowlist</span><span data-lang-es>Lista de categorías</span></p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed"><span data-lang-en>Which classes of data are tokenized at all — names, national identifiers, financial instruments, health data.</span><span data-lang-es>Qué clases de datos se tokenizan — nombres, identificadores nacionales, instrumentos financieros, datos de salud.</span></p>
+          </div>
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1"><span data-lang-en>Custom enterprise patterns</span><span data-lang-es>Patrones empresariales propios</span></p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed"><span data-lang-en>Your own identifier formats — internal account numbers, part codes, case references — treated as sensitive even though no generic scanner would recognize them.</span><span data-lang-es>Sus propios formatos de identificador — números de cuenta internos, códigos de parte, referencias de caso — tratados como sensibles aunque ningún escáner genérico los reconocería.</span></p>
+          </div>
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1"><span data-lang-en>Known-safe denylist</span><span data-lang-es>Lista de exclusión segura</span></p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed"><span data-lang-en>Literal and pattern exclusions for values that look sensitive but are not, so over-tokenization does not degrade answer quality.</span><span data-lang-es>Exclusiones literales y por patrón para valores que parecen sensibles pero no lo son, para que la sobre-tokenización no degrade la calidad.</span></p>
+          </div>
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1"><span data-lang-en>Skip-context rules</span><span data-lang-es>Reglas de contexto omitido</span></p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed"><span data-lang-en>Tag-scoped and preceded-by exclusions, plus per-domain overrides, so policy can differ between a support transcript and a financial ledger.</span><span data-lang-es>Exclusiones por etiqueta y por precedencia, más anulaciones por dominio, para que la política difiera entre una transcripción de soporte y un libro contable.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     06 · HITL
+     ========================================================================== -->
+<section id="hitl" class="ax-dark py-24 lg:py-32 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-40"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-warn mb-5">06 · <span data-lang-en>Human control</span><span data-lang-es>Control humano</span></p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        <span data-lang-en>Reads are free. Writes stop. Every time.</span>
+        <span data-lang-es>Las lecturas son libres. Las escrituras se detienen. Siempre.</span>
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        <span data-lang-en>"Human in the loop" is usually a slide, not a mechanism. Here it is a state machine with three properties that make it hold up under adversarial conditions.</span>
+        <span data-lang-es>"Humano en el ciclo" suele ser una diapositiva, no un mecanismo. Aquí es una máquina de estados con tres propiedades que resisten condiciones adversas.</span>
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-5 ax-stagger mb-8">
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="ax-mono text-2xs text-ax-warn mb-3">PROPERTY 01</p>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          <span data-lang-en>Blast radius is shown, not described</span><span data-lang-es>El impacto se muestra, no se describe</span>
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          <span data-lang-en>The gate renders a diff of exactly what would change and how many records it reaches. A reviewer approving "update the opportunity records" without seeing which twelve is not review, it is ceremony.</span>
+          <span data-lang-es>La puerta muestra un diff de exactamente qué cambiaría y cuántos registros alcanza. Un revisor que aprueba "actualizar las oportunidades" sin ver cuáles doce no está revisando, está haciendo ceremonia.</span>
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="ax-mono text-2xs text-ax-warn mb-3">PROPERTY 02</p>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          <span data-lang-en>Approvals cannot be replayed</span><span data-lang-es>Las aprobaciones no se pueden repetir</span>
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          <span data-lang-en>Every approval is pinned to an optimistic-concurrency version token and to the schema it was granted against. If the plan or the tool definition changes after approval, the token no longer matches and the write is refused rather than executed against something nobody reviewed.</span>
+          <span data-lang-es>Cada aprobación se ancla a un token de concurrencia optimista y al esquema con el que se otorgó. Si el plan o la definición de la herramienta cambian tras la aprobación, el token ya no coincide y la escritura se rechaza en lugar de ejecutarse contra algo que nadie revisó.</span>
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="ax-mono text-2xs text-ax-warn mb-3">PROPERTY 03</p>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          <span data-lang-en>Escalate is a first-class outcome</span><span data-lang-es>Escalar es un resultado de primera clase</span>
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          <span data-lang-en>Approve and reject are not enough. A reviewer who is not the right person to decide can escalate, which routes the decision without either rubber-stamping it or silently dropping the work.</span>
+          <span data-lang-es>Aprobar y rechazar no bastan. Un revisor que no es la persona indicada puede escalar, lo que enruta la decisión sin aprobarla por inercia ni descartar el trabajo en silencio.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="rounded-2xl border border-ax-warn/25 bg-ax-warn/[0.06] p-7 lg:p-8 ax-reveal">
+      <p class="text-white/70 leading-relaxed">
+        <span data-lang-en><strong class="text-white">The same gate applies in every solution.</strong> In test engineering it is the review queue before a case is written to your ALM tool. In agentic workflows it is the write gate before a record is updated. In business intelligence it is the diff before a dashboard version is overwritten. One mechanism, three surfaces — which is why a security review of one carries over to the others.</span>
+        <span data-lang-es><strong class="text-white">La misma puerta aplica en cada solución.</strong> En ingeniería de pruebas es la cola de revisión antes de escribir un caso en su herramienta ALM. En flujos agénticos es la puerta antes de actualizar un registro. En inteligencia de negocios es el diff antes de sobrescribir una versión del tablero. Un mecanismo, tres superficies — por eso una revisión de seguridad de uno se traslada a los demás.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     07 · AUDIT
+     ========================================================================== -->
+<section id="audit" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14 items-center">
+
+      <div class="lg:col-span-6 ax-reveal">
+        <p class="ax-eyebrow text-ax-teal mb-5">07 · <span data-lang-en>Auditability</span><span data-lang-es>Auditabilidad</span></p>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] mb-6">
+          <span data-lang-en>Reconstruct the decision, not a summary of it.</span>
+          <span data-lang-es>Reconstruir la decisión, no un resumen de ella.</span>
+        </h2>
+        <p class="text-lg text-ax-ink/60 leading-relaxed mb-6">
+          <span data-lang-en>Six months later someone will ask why the system changed a record, and "the AI decided" is not an answer that survives an audit. Every agent action is traced end to end with distributed trace context propagated across the control and execution boundary, so the causal chain is reconstructible rather than inferred.</span>
+          <span data-lang-es>Seis meses después alguien preguntará por qué el sistema cambió un registro, y "lo decidió la IA" no es una respuesta que sobreviva a una auditoría. Cada acción del agente se traza de extremo a extremo con contexto distribuido propagado entre los planos de control y ejecución, así la cadena causal es reconstruible y no inferida.</span>
+        </p>
+        <ul class="space-y-3 text-[0.95rem] text-ax-ink/65">
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span><span data-lang-en>Which turn triggered which tool call, with the arguments it was given</span><span data-lang-es>Qué turno disparó qué llamada, con los argumentos recibidos</span></span></li>
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span><span data-lang-en>What that call returned, and which citation in the narrative points at it</span><span data-lang-es>Qué devolvió esa llamada y qué cita de la narrativa apunta a ella</span></span></li>
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span><span data-lang-en>Who approved the resulting write, when, and against which version token</span><span data-lang-es>Quién aprobó la escritura resultante, cuándo y contra qué token de versión</span></span></li>
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span><span data-lang-en>What the gate refused, and why the policy evaluated the way it did</span><span data-lang-es>Qué rechazó la puerta y por qué la política se evaluó así</span></span></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-6 ax-reveal">
+        <div class="ax-terminal shadow-ax-lift">
+          <div class="ax-terminal-bar">
+            <span class="ax-terminal-dot bg-ax-stop/70"></span>
+            <span class="ax-terminal-dot bg-ax-warn/70"></span>
+            <span class="ax-terminal-dot bg-ax-go/70"></span>
+            <span class="ax-mono text-2xs text-white/40 ml-2">audit trace · reconstructed</span>
+          </div>
+          <div class="p-5 ax-mono text-xs space-y-1.5 text-white/60">
+            <p class="text-white/30">trace_id 4bf92f3577b34da6a3ce929d0e0e4736</p>
+            <div class="h-px bg-white/10 my-3"></div>
+            <p><span class="text-ax-cyan">├─</span> ingress <span class="text-white/30">user=j.rivera@ · role=analyst</span></p>
+            <p><span class="text-ax-cyan">│  ├─</span> tokenize <span class="text-white/30">14 spans held</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> injection scan <span class="text-ax-go">clean</span></p>
+            <p><span class="text-ax-cyan">├─</span> route <span class="text-white/30">NEW_TASK · 84ms</span></p>
+            <p><span class="text-ax-cyan">├─</span> factory <span class="text-white/30">manifest signed · 9 tools</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> intersection <span class="text-white/30">platform∩tenant∩rbac</span></p>
+            <p><span class="text-ax-cyan">├─</span> tool <span class="text-white/70">warehouse.aggregate</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> returned <span class="text-white/30">84,112 rows → pointer</span> <span class="text-ax-cyan">[1]</span></p>
+            <p><span class="text-ax-cyan">├─</span> gate <span class="text-white/70">crm.update</span> <span class="text-ax-warn">HELD</span></p>
+            <p><span class="text-ax-cyan">│  ├─</span> blast_radius <span class="text-white/30">12 records</span></p>
+            <p><span class="text-ax-cyan">│  ├─</span> version_token <span class="text-white/30">v7 · pinned</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> approved <span class="text-white/30">m.okafor@ · 14:22:07Z</span></p>
+            <p><span class="text-ax-cyan">├─</span> tool <span class="text-white/70">crm.update</span> <span class="text-ax-go">COMMITTED</span></p>
+            <p><span class="text-ax-cyan">└─</span> egress <span class="text-white/30">detokenize · render</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     08 · DEPLOYMENT TOPOLOGIES
+     ========================================================================== -->
+<section id="airgap" class="py-24 lg:py-28 bg-ax-mist">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-12 ax-reveal">
+      <p class="ax-eyebrow text-ax-blue mb-5">08 · <span data-lang-en>Deployment</span><span data-lang-es>Despliegue</span></p>
+      <h2 class="font-heading font-extrabold text-3xl lg:text-4xl leading-[1.12] mb-5">
+        <span data-lang-en>Four topologies. One codebase.</span>
+        <span data-lang-es>Cuatro topologías. Un solo código.</span>
+      </h2>
+      <p class="text-lg text-ax-ink/60 leading-relaxed">
+        <span data-lang-en>Choosing the restrictive option should not put you on a lagging feature branch. It is the same code in every topology, which is why the on-premises deployment is not a downgrade.</span>
+        <span data-lang-es>Elegir la opción restrictiva no debería dejarlo en una rama rezagada. Es el mismo código en cada topología, por eso el despliegue on-premises no es una degradación.</span>
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 ax-stagger">
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          <span data-lang-en>Kubernetes / Helm</span><span data-lang-es>Kubernetes / Helm</span>
+        </h3>
+        <p class="ax-pill ax-pill-cyan mb-3.5"><span data-lang-en>Most common</span><span data-lang-es>Más común</span></p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          <span data-lang-en>On-premises or BYOC inside your existing cluster, under your network policy and your service mesh.</span>
+          <span data-lang-es>On-premises o BYOC dentro de su clúster existente, bajo su política de red y su malla de servicios.</span>
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">Docker</h3>
+        <p class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15 mb-3.5"><span data-lang-en>Fastest start</span><span data-lang-es>Inicio rápido</span></p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          <span data-lang-en>Compose-based deployment with a managed database, appropriate for a scoped pilot on isolated infrastructure.</span>
+          <span data-lang-es>Despliegue con Compose y base de datos gestionada, apropiado para un piloto acotado en infraestructura aislada.</span>
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          <span data-lang-en>Signed single binary</span><span data-lang-es>Binario firmado</span>
+        </h3>
+        <p class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15 mb-3.5"><span data-lang-en>Air-gapped</span><span data-lang-es>Sin red</span></p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          <span data-lang-en>A cryptographically signed desktop executable for environments where running a service is not permitted at all.</span>
+          <span data-lang-es>Un ejecutable de escritorio firmado criptográficamente para entornos donde no se permite ejecutar un servicio.</span>
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          <span data-lang-en>Managed cloud</span><span data-lang-es>Nube gestionada</span>
+        </h3>
+        <p class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15 mb-3.5"><span data-lang-en>Lowest ops</span><span data-lang-es>Menor operación</span></p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          <span data-lang-en>We operate the control plane; the execution plane still runs in your account. Suitable when data residency is not the binding constraint.</span>
+          <span data-lang-es>Operamos el plano de control; el de ejecución sigue en su cuenta. Adecuado cuando la residencia de datos no es la restricción vinculante.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-6 rounded-2xl border border-ax-ink/10 bg-white p-7 ax-reveal">
+      <h3 class="font-heading font-bold text-lg mb-2.5">
+        <span data-lang-en>On inference and model access</span><span data-lang-es>Sobre la inferencia y el acceso al modelo</span>
+      </h3>
+      <p class="text-ax-ink/65 leading-relaxed">
+        <span data-lang-en>We do not require a specific model vendor or introduce a new outbound path. Inference routes through whatever gateway your organization has already approved — an internal AI gateway, a cloud-native endpoint in your own subscription, or a self-hosted model. Retrieval embeddings run resident and locally rather than calling a hosted embedding service, which is what makes a fully egress-restricted deployment viable rather than theoretical.</span>
+        <span data-lang-es>No exigimos un proveedor de modelo específico ni introducimos una nueva ruta saliente. La inferencia se enruta por el gateway que su organización ya aprobó — un gateway de IA interno, un endpoint nativo de nube en su propia suscripción, o un modelo auto-alojado. Los embeddings de recuperación corren residentes y localmente en lugar de llamar a un servicio alojado, y eso es lo que hace viable, y no teórico, un despliegue con salida totalmente restringida.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     RED TEAM
+     ========================================================================== -->
+<section class="ax-band py-24 lg:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-cyan mb-5">
+        <span data-lang-en>Adversarial testing</span><span data-lang-es>Pruebas adversarias</span>
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        <span data-lang-en>Attacks we design against, by name.</span>
+        <span data-lang-es>Ataques contra los que diseñamos, por nombre.</span>
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        <span data-lang-en>A vendor who cannot name the attacks against their own class of system has not looked for them. Each of these has a specific mitigation in the codebase, and each gets exercised during the hardening phase of an engagement.</span>
+        <span data-lang-es>Un proveedor que no puede nombrar los ataques contra su propia clase de sistema no los ha buscado. Cada uno de estos tiene una mitigación específica en el código, y cada uno se ejercita en la fase de endurecimiento del proyecto.</span>
+      </p>
+    </div>
+
+    <div class="ax-table-wrap rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden ax-reveal">
+      <table class="ax-table ax-table-dark">
+        <thead class="bg-white/[0.04]">
+          <tr>
+            <th><span data-lang-en>Attack</span><span data-lang-es>Ataque</span></th>
+            <th><span data-lang-en>Mitigation</span><span data-lang-es>Mitigación</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap"><span data-lang-en>Tool shadowing</span><span data-lang-es>Suplantación de herramienta</span></td>
+            <td><span data-lang-en>A malicious server registers a tool impersonating a trusted one. Name collisions resolve fail-closed — the request is denied rather than resolved by guess.</span><span data-lang-es>Un servidor malicioso registra una herramienta que suplanta a una confiable. Las colisiones de nombre fallan cerradas — la solicitud se deniega en lugar de resolverse por conjetura.</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap"><span data-lang-en>Description injection</span><span data-lang-es>Inyección en descripción</span></td>
+            <td><span data-lang-en>Instructions smuggled into a tool's own description text. Descriptions are treated as untrusted input and cannot redirect agent behavior.</span><span data-lang-es>Instrucciones ocultas en el texto de descripción de una herramienta. Las descripciones se tratan como entrada no confiable y no pueden redirigir al agente.</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap"><span data-lang-en>Subquery evasion</span><span data-lang-es>Evasión por subconsulta</span></td>
+            <td><span data-lang-en>A restricted operation nested inside a subquery to slip past a string-matching rule. Queries are parsed into a syntax tree and validated structurally.</span><span data-lang-es>Una operación restringida anidada en una subconsulta para burlar una regla de coincidencia textual. Las consultas se analizan en árbol sintáctico y se validan estructuralmente.</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap"><span data-lang-en>URL egress / SSRF</span><span data-lang-es>Salida por URL / SSRF</span></td>
+            <td><span data-lang-en>A citation or pointer rendered as a link to an attacker-controlled destination. URLs are validated against an allowlist before rendering.</span><span data-lang-es>Una cita o puntero renderizado como enlace a un destino controlado por el atacante. Las URLs se validan contra una lista permitida antes de renderizar.</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap"><span data-lang-en>Approval replay</span><span data-lang-es>Repetición de aprobación</span></td>
+            <td><span data-lang-en>Reusing a granted approval against a modified plan. Approvals are pinned to a concurrency token and the approved schema; a mismatch refuses the write.</span><span data-lang-es>Reutilizar una aprobación otorgada contra un plan modificado. Las aprobaciones se anclan a un token de concurrencia y al esquema aprobado; una discrepancia rechaza la escritura.</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap"><span data-lang-en>Citation forgery</span><span data-lang-es>Falsificación de citas</span></td>
+            <td><span data-lang-en>The model emitting authoritative-looking markers it invented. Citations are generated by the backend from the tool-call record; unmatched markers are stripped.</span><span data-lang-es>El modelo emite marcadores de apariencia autorizada que inventó. Las citas las genera el backend desde el registro de llamadas; los marcadores sin correspondencia se eliminan.</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap"><span data-lang-en>Duplicate-write retry</span><span data-lang-es>Reintento con duplicado</span></td>
+            <td><span data-lang-en>A transient failure on a non-idempotent write becoming a duplicate transaction on retry. Retry guards are idempotency-aware per operation.</span><span data-lang-es>Una falla transitoria en una escritura no idempotente que se vuelve transacción duplicada al reintentar. Las guardas de reintento son conscientes de idempotencia por operación.</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FAQ
+     ========================================================================== -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14">
+
+      <div class="lg:col-span-4 ax-reveal">
+        <p class="ax-eyebrow text-ax-teal mb-5">FAQ</p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-4xl leading-[1.12]">
+          <span data-lang-en>Straight from the questionnaire.</span>
+          <span data-lang-es>Directo del cuestionario.</span>
+        </h2>
+      </div>
+
+      <div class="lg:col-span-8 space-y-3 ax-stagger">
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>What is the exact boundary between your systems and ours?</span>
+              <span data-lang-es>¿Cuál es la frontera exacta entre sus sistemas y los nuestros?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">The control plane orchestrates and holds no customer data at rest; the execution plane runs in your VPC and is the only thing that touches your systems.</strong> They communicate over mutual TLS with distributed trace context propagated across the seam so the audit trail survives the boundary. In an on-premises deployment both planes run in your environment and the boundary becomes internal.</span>
+            <span data-lang-es><strong class="text-ax-ink">El plano de control orquesta y no retiene datos del cliente; el plano de ejecución corre en su VPC y es lo único que toca sus sistemas.</strong> Se comunican por TLS mutuo con contexto de traza distribuida propagado en la unión, de modo que el rastro de auditoría sobrevive a la frontera. En un despliegue on-premises ambos planos corren en su entorno y la frontera se vuelve interna.</span>
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>Assume the agent is fully compromised. What happens?</span>
+              <span data-lang-es>Asuma que el agente está comprometido. ¿Qué pasa?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">It has nowhere to send anything and nothing it can write unilaterally.</strong> Code executes in a MicroVM with its own kernel, so the isolation boundary is the hypervisor rather than a namespace. Egress is denied by default via eBPF filtering and a DNS sinkhole. Every write still requires a human approval pinned to a version token. The realistic worst case is unauthorized reads within the tool roster that user's role already permitted — which is why the three-way permission intersection matters.</span>
+            <span data-lang-es><strong class="text-ax-ink">No tiene a dónde enviar nada ni nada que pueda escribir unilateralmente.</strong> El código se ejecuta en una MicroVM con su propio kernel, así que la frontera es el hipervisor y no un namespace. La salida está denegada por defecto vía filtrado eBPF y sumidero DNS. Toda escritura sigue requiriendo aprobación humana anclada a un token de versión. El peor caso realista son lecturas no autorizadas dentro del catálogo que el rol de ese usuario ya permitía — por eso importa la intersección triple de permisos.</span>
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>Can we run with no outbound internet access at all?</span>
+              <span data-lang-es>¿Podemos correr sin ningún acceso saliente a internet?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">Yes.</strong> Inference routes through whatever gateway you have already approved — including a self-hosted model — and retrieval embeddings run resident and locally rather than calling a hosted service. Deployment supports Kubernetes and Helm on your own infrastructure, or a cryptographically signed single binary where running a service is not permitted. It is the same codebase, so the restrictive topology is not a reduced feature set.</span>
+            <span data-lang-es><strong class="text-ax-ink">Sí.</strong> La inferencia se enruta por el gateway que ya aprobó — incluido un modelo auto-alojado — y los embeddings corren residentes y localmente en lugar de llamar a un servicio alojado. El despliegue soporta Kubernetes y Helm en su propia infraestructura, o un binario único firmado donde no se permite ejecutar un servicio. Es el mismo código, así que la topología restrictiva no es un conjunto reducido de funciones.</span>
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>Do you hold any of our credentials?</span>
+              <span data-lang-es>¿Retienen alguna de nuestras credenciales?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">Connection credentials and API keys are encrypted at rest with authenticated symmetric encryption before they reach any database, and are never written to plaintext configuration.</strong> Identity tokens are held in key-management-backed storage under your own key material. In a BYOC or on-premises deployment the credential store is inside your perimeter, so we hold nothing at all — we do not have access to the environment those secrets live in.</span>
+            <span data-lang-es><strong class="text-ax-ink">Las credenciales de conexión y claves de API se cifran en reposo con cifrado simétrico autenticado antes de llegar a cualquier base de datos, y nunca se escriben en configuración en texto plano.</strong> Los tokens de identidad se guardan en almacenamiento respaldado por gestión de claves bajo su propio material criptográfico. En un despliegue BYOC u on-premises el almacén está dentro de su perímetro, así que no retenemos nada — no tenemos acceso al entorno donde viven esos secretos.</span>
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>What do you need from our security team, and when?</span>
+              <span data-lang-es>¿Qué necesitan de nuestro equipo de seguridad, y cuándo?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">Two weeks of their attention at the start, not a sign-off at the end.</strong> Weeks one and two of an engagement settle deployment topology, data residency, identity provider, egress policy, and audit requirements, and produce a threat model and deployment diagram your reviewers have already seen. Deferring that conversation to the end is the single most common reason enterprise AI projects miss their date.</span>
+            <span data-lang-es><strong class="text-ax-ink">Dos semanas de su atención al inicio, no una firma al final.</strong> Las semanas uno y dos definen topología de despliegue, residencia de datos, proveedor de identidad, política de salida y requisitos de auditoría, y producen un modelo de amenazas y un diagrama que sus revisores ya vieron. Posponer esa conversación al final es la razón más común por la que los proyectos de IA empresarial incumplen su fecha.</span>
+          </p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CTA
+     ========================================================================== -->
+<section class="ax-dark py-24 lg:py-28 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-50"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative ax-reveal">
+    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+      <span data-lang-en>Send the questionnaire before the demo.</span>
+      <span data-lang-es>Envíe el cuestionario antes de la demostración.</span>
+    </h2>
+    <p class="text-lg text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto">
+      <span data-lang-en>We would rather answer forty security questions in writing and then show you something, than show you something and spend two months answering them. Send us the assessment your vendor risk team uses.</span>
+      <span data-lang-es>Preferimos responder cuarenta preguntas de seguridad por escrito y luego mostrarle algo, que mostrarle algo y pasar dos meses respondiéndolas. Envíenos la evaluación que usa su equipo de riesgo de proveedores.</span>
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3.5 justify-center">
+      <a href="contact.html" class="ax-btn ax-btn-primary px-8 py-4">
+        <span data-lang-en>Send us the assessment</span><span data-lang-es>Enviarnos la evaluación</span>
+      </a>
+      <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-ghost px-8 py-4">
+        <span data-lang-en>Book a Technical Briefing</span><span data-lang-es>Agendar Sesión Técnica</span>
+      </a>
+    </div>
+  </div>
+</section>

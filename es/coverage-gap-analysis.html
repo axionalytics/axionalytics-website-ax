@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  ==========================================================================
+  AXIONALYTICS
+  GENERATED FILE — do not edit directly.
+
+  Source:  _build/pages/<slug>.meta.html  (title, meta, JSON-LD)
+           _build/pages/<slug>.body.html  (page content)
+  Chrome:  _build/partials/*.html         (head, header, footer)
+  Rebuild: bash _build/build.sh
+
+  Static HTML + Tailwind CDN. No server required — GitHub Pages compatible.
+  ==========================================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Axionalytics">
+  <!-- Search Console: paste the content value from the HTML-tag verification
+       method, or delete this line if verifying by DNS. Without verification you
+       get no query data, no index coverage report, and no manual-action alerts. -->
+  <!-- <meta name="google-site-verification" content="PASTE_TOKEN_HERE"> -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Axionalytics">
+  <meta property="og:image" content="https://www.axionalytics.com/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+  <title>Line Coverage Is Not Verification Coverage | Axionalytics</title>
+  <meta name="description" content="Most organisations can report line coverage to two decimals and cannot say which implemented behaviour nobody has written a test for. Those are different numbers.">
+  <link rel="canonical" href="https://www.axionalytics.com/es/coverage-gap-analysis.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Line Coverage Is Not Verification Coverage">
+  <meta property="og:description" content="Most organisations can report line coverage to two decimals and cannot say which implemented behaviour nobody has written a test for. Those are different numbers.">
+  <meta property="og:url" content="https://www.axionalytics.com/es/coverage-gap-analysis.html">
+  <meta property="article:published_time" content="2026-06-26">
+  <meta property="article:section" content="Verification">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://www.axionalytics.com/coverage-gap-analysis.html#article",
+    "headline": "Line Coverage Is Not Verification Coverage",
+    "description": "Most organisations can report line coverage to two decimals and cannot say which implemented behaviour nobody has written a test for. Those are different numbers.",
+    "datePublished": "2026-06-26",
+    "dateModified": "2026-06-26",
+    "articleSection": "Verification",
+    "inLanguage": ["en", "es"],
+    "wordCount": 777,
+    "timeRequired": "PT3M",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/coverage-gap-analysis.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Agentic Test Engineering", "url": "https://www.axionalytics.com/agentic-test-engineering.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Line Coverage Is Not Verification Coverage", "item": "https://www.axionalytics.com/coverage-gap-analysis.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is a verification coverage gap?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An element of implemented behaviour — a signal, a function, a configuration path — that no test case exercises. It differs from code coverage, which measures whether lines executed during a run. A behaviour can be fully line-covered and still have no test asserting that it behaves correctly." } },
+      { "@type": "Question", "name": "Why is code coverage insufficient for safety-critical verification?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Because it measures execution, not intent. A line executes whenever any test touches it, including tests that assert nothing about the behaviour that line implements. High line coverage with low requirement coverage is common and is exactly the state that produces audit findings." } },
+      { "@type": "Question", "name": "How do you find untested behaviour across configuration variants?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Enumerate the product of interfaces and configurations, then subtract everything an existing test exercises. The remainder is the gap. Doing that requires an index of what exists, built by parsing the source rather than maintained by hand, because the variant count grows faster than anyone can track." } }
+    ]
+  }
+  </script>
+
+  <!-- Apply saved language before first paint to avoid a flash of English -->
+  <script>try{if(localStorage.getItem('axio-lang')==='es'){document.documentElement.classList.add('lang-es');document.documentElement.lang='es';}}catch(e){}</script>
+
+  <link rel="stylesheet" href="../assets/tailwind.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Loaded off the critical path; noscript keeps it working without JS. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+
+  <link rel="alternate" type="application/rss+xml" title="Axionalytics" href="/rss.xml">
+  <link rel="stylesheet" href="../assets/axio.css">
+  <link rel="alternate" hreflang="en" href="https://www.axionalytics.com/coverage-gap-analysis.html">
+  <link rel="alternate" hreflang="es" href="https://www.axionalytics.com/es/coverage-gap-analysis.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.axionalytics.com/coverage-gap-analysis.html">
+</head>
+<body class="bg-white text-ax-ink">
+
+<a href="#main" class="ax-skip">
+  
+  Saltar al contenido
+</a>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header id="ax-header" class="fixed top-0 inset-x-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
+    <div class="flex items-center justify-between h-20">
+
+      <a href="index.html" class="ax-logo group shrink-0" aria-label="Axionalytics — home">
+        <img src="../assets/logo-mark-dark.png" alt="" width="88" height="100" fetchpriority="high" decoding="async">
+        <span class="text-[1.35rem] font-heading font-bold text-white tracking-tight group-hover:text-ax-cyan transition-colors">axionalytics</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden xl:flex items-center gap-9">
+
+        <!-- Solutions mega-dropdown -->
+        <div class="ax-dropdown-host relative">
+          <button class="ax-navlink flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors" aria-haspopup="true">
+            
+            Soluciones
+            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <div class="ax-dropdown absolute left-1/2 top-full pt-5 w-[41rem]">
+            <div class="rounded-2xl border border-white/10 bg-ax-ink/95 backdrop-blur-xl shadow-ax-lift p-3 grid grid-cols-2 gap-1">
+
+              <a href="agentic-test-engineering.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-cyan"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Ingeniería de Pruebas Agéntica
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Requisitos, código fuente y PRs fusionados se convierten en casos de prueba. Suites heredadas modernizadas en sitio.
+                </span>
+              </a>
+
+              <a href="enterprise-agentic-ai.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-violet"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    IA Agéntica Empresarial
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Agentes autónomos multi-paso en su VPC. Aislamiento de confianza cero, aprobación humana, procedencia citada.
+                </span>
+              </a>
+
+              <a href="agentic-business-intelligence.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-blue"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Inteligencia de Negocios Agéntica
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Lenguaje natural más una fuente gobernada se convierte en un tablero con modelo semántico real.
+                </span>
+              </a>
+
+              <a href="agentic-revenue-development.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-magenta"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Desarrollo de Ingresos Agéntico
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Descubrimiento de cuentas, investigación y borradores — con la decisión de envío en manos de una persona.
+                </span>
+              </a>
+
+              <a href="enterprise-ai-security.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors sm:col-span-2">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-teal"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Gobernanza de IA de Confianza Cero
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  La arquitectura que hace pasar los sistemas agénticos por la revisión de seguridad.
+                </span>
+              </a>
+
+              <div class="col-span-2 mt-1 rounded-xl bg-white/[0.03] border border-white/10 p-4 flex items-center justify-between gap-4">
+                <div>
+                  <p class="font-heading font-bold text-white text-sm mb-0.5">
+                    
+                    ¿No sabe cuál aplica?
+                  </p>
+                  <p class="text-xs text-white/55">
+                    
+                    Modele el caso financiero en su navegador. No se envía nada hasta que usted lo pida.
+                  </p>
+                </div>
+                <a href="roi-calculator.html" class="ax-btn ax-btn-primary text-xs px-4 py-2.5 shrink-0">
+                  
+                  Calculadora ROI
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="enterprise-ai-security.html" data-nav-for="enterprise-ai-security.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Seguridad
+        </a>
+        <a href="case-studies.html" data-nav-for="case-studies.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Casos de Éxito
+        </a>
+        <a href="pricing.html" data-nav-for="pricing.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Precios
+        </a>
+        <a href="about.html" data-nav-for="about.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Nosotros
+        </a>
+        <a href="contact.html" data-nav-for="contact.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Contacto
+        </a>
+      </div>
+
+      <!-- Right cluster -->
+      <div class="hidden xl:flex items-center gap-3">
+        <a href="../coverage-gap-analysis.html" hreflang="en" aria-label="View this page in English" class="flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-white transition-colors px-2.5 py-2 rounded-lg hover:bg-white/5"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>EN</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary text-sm px-5 py-2.5">
+          
+          Agendar Sesión Técnica
+        </a>
+      </div>
+
+      <button id="ax-drawer-open" class="xl:hidden text-white p-2 -mr-2" aria-expanded="false" aria-controls="ax-drawer" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div id="ax-drawer" class="ax-drawer fixed inset-y-0 right-0 w-[21rem] max-w-full bg-ax-ink border-l border-white/10 z-50 xl:hidden overflow-y-auto ax-scroll-dark" aria-hidden="true">
+    <div class="flex flex-col min-h-full p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="font-heading font-bold text-white">
+          Menú
+        </span>
+        <button id="ax-drawer-close" class="text-white/70 hover:text-white p-2 -mr-2" aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Soluciones
+      </p>
+      <nav class="flex flex-col gap-1 mb-7">
+        <a href="agentic-test-engineering.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Ingeniería de Pruebas Agéntica
+        </a>
+        <a href="enterprise-agentic-ai.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          IA Agéntica Empresarial
+        </a>
+        <a href="agentic-business-intelligence.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Inteligencia de Negocios Agéntica
+        </a>
+        <a href="agentic-revenue-development.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Desarrollo de Ingresos Agéntico
+        </a>
+        <a href="enterprise-ai-security.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Gobernanza de IA de Confianza Cero
+        </a>
+      </nav>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Compañía
+      </p>
+      <nav class="flex flex-col gap-1">
+        <a href="case-studies.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Casos de Éxito
+        </a>
+        <a href="roi-calculator.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Calculadora ROI
+        </a>
+        <a href="glossary.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Glosario
+        </a>
+        <a href="pricing.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Precios
+        </a>
+        <a href="about.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Nosotros
+        </a>
+        <a href="contact.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Contacto
+        </a>
+      </nav>
+
+      <div class="mt-auto pt-8">
+        <a href="../coverage-gap-analysis.html" hreflang="en" aria-label="View this page in English" class="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white/80 border border-white/15 rounded-xl py-3 mb-3 hover:bg-white/5 transition-colors"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>English</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary w-full py-3.5 text-sm">
+          Agendar Sesión Técnica
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="ax-scrim" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 xl:hidden opacity-0 pointer-events-none transition-opacity"></div>
+</header>
+
+<main id="main">
+
+<!-- ==========================================================================
+     ARTICLE HEADER
+     Generated by _build/scripts/make-articles.py from _build/src/articles/coverage-gap-analysis.html
+     ========================================================================== -->
+<section class="ax-hero ax-noise relative pt-36 pb-16 lg:pt-44 lg:pb-20 overflow-hidden">
+  <div class="ax-grid-bg"></div>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <nav class="flex items-center gap-2 text-xs font-semibold text-white/35 mb-8 ax-reveal" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-ax-cyan transition-colors">
+        Inicio
+      </a>
+      <span>/</span>
+      <a href="blog.html" class="hover:text-ax-cyan transition-colors">Blog</a>
+      <span>/</span>
+      <span class="text-white/60">
+        Verificación
+      </span>
+    </nav>
+
+    <span class="ax-pill ax-pill-dark mb-6 ax-reveal">
+      <span class="w-1.5 h-1.5 rounded-full" style="background:#22D3EE"></span>
+      Verificación
+    </span>
+
+    <h1 class="font-heading font-extrabold text-white text-[1.95rem] sm:text-4xl lg:text-[2.75rem] leading-[1.1] mb-6 ax-reveal">
+      
+      La Cobertura de Líneas No Es Cobertura de Verificación
+    </h1>
+
+    <p class="text-lg text-white/60 leading-relaxed mb-7 ax-reveal">
+      
+      La mayoría de las organizaciones reporta cobertura de líneas con dos decimales y no puede decir para qué comportamiento implementado nadie escribió una prueba. Son cifras distintas.
+    </p>
+
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/40 ax-reveal">
+      <time datetime="2026-06-26">
+        Junio 2026
+      </time>
+      <span class="w-1 h-1 rounded-full bg-white/20"></span>
+      <span>
+        3 min de lectura
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ARTICLE BODY
+     ========================================================================== -->
+<article class="py-16 lg:py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="ax-prose">
+      <p>
+        
+        <strong>La cobertura de líneas mide si el código se ejecutó. No mide si alguien verificó que fuera correcto. Son cifras distintas, y solo una sobrevive a una auditoría.</strong>
+      </p>
+
+      <p>
+        
+        La mayoría de las organizaciones de verificación puede reportar cobertura de líneas con dos decimales y no puede responder una pregunta más simple: ¿de qué partes del comportamiento implementado nadie ha escrito una prueba? Las herramientas miden la ejecución porque es fácil de instrumentar. La intención no lo es.
+      </p>
+
+      <h2>
+        
+        Por qué divergen ambas cifras
+      </h2>
+
+      <p>
+        
+        Una línea se ejecuta cuando cualquier prueba la toca. Una prueba que recorre una ruta de inicialización de forma incidental marca decenas de líneas como cubiertas sin verificar nada sobre lo que hacen.
+      </p>
+
+      <p>
+        
+        El resultado es un estado familiar y peligroso: alta cobertura de líneas, baja cobertura de comportamiento, y un equipo que cree que la primera cifra describe a la segunda. Suele aparecer cuando un defecto escapa a una entrega a través de código que el reporte mostraba como plenamente ejercitado.
+      </p>
+
+      <div class="highlight-box">
+        <h4>
+          
+          Tres preguntas de cobertura, y normalmente solo una tiene respuesta
+        </h4>
+        <p>
+          
+          <strong>¿Se ejecutó el código?</strong> La cobertura de líneas lo responde. <strong>¿Está verificado cada requisito?</strong> Una <a href="what-is-requirements-traceability.html">matriz de trazabilidad</a> lo responde, si está al día. <strong>¿Está verificado cada comportamiento implementado?</strong> Casi nada lo responde — y es la que detecta comportamiento construido pero nunca especificado.
+        </p>
+      </div>
+
+      <h2>
+        
+        La tercera pregunta es donde vive el riesgo
+      </h2>
+
+      <p>
+        
+        La cobertura de requisitos asume que los requisitos están completos. En la práctica, los sistemas acumulan comportamiento que ningún requisito describe: un enclavamiento agregado durante la integración, un tiempo de espera ajustado para resolver un problema en campo, una ruta alternativa introducida para sortear un componente de un proveedor.
+      </p>
+
+      <p>
+        
+        Cada uno es real, cada uno se entrega, y ninguno aparece en un reporte de cobertura basado en requisitos — porque el reporte solo puede medir contra lo que se escribió. El comportamiento que entró al sistema por una solicitud de cambio y no por una especificación le resulta invisible.
+      </p>
+
+      <h2>
+        
+        Calcular la brecha
+      </h2>
+
+      <p>
+        
+        Responder la tercera pregunta es aritmética una vez que se tienen las dos entradas. Enumere lo que existe — cada elemento de interfaz y función en la implementación, en cada variante de configuración que el producto entrega. Luego reste todo lo que ejercita algún caso de prueba existente. El resto es la brecha.
+      </p>
+
+      <p>
+        
+        La dificultad está enteramente en la primera entrada. Un inventario de elementos de interfaz mantenido a mano se desactualiza en un sprint, por la misma razón que una matriz de trazabilidad mantenida a mano. El inventario debe derivarse analizando la implementación misma, de modo que se regenere en lugar de actualizarse.
+      </p>
+
+      <p>
+        
+        La segunda entrada está disponible si los casos de prueba registran qué elementos ejercitan al momento de crearse, en lugar de en un documento aparte. Donde esa procedencia existe, la resta es una consulta.
+      </p>
+
+      <h2>
+        
+        El multiplicador de configuraciones
+      </h2>
+
+      <p>
+        
+        En un producto de una sola configuración la brecha es una lista. En un producto que se entrega en variantes — distintas regiones, subsistemas opcionales, revisiones de hardware — la cobertura no es una cifra sino una matriz, y un comportamiento verificado en una variante puede estar sin probar en otras cuatro.
+      </p>
+
+      <p>
+        
+        Aquí el seguimiento manual se vuelve genuinamente imposible y no solo tedioso. El número de variantes crece multiplicativamente mientras el equipo crece linealmente, y la respuesta habitual — verificar a fondo la configuración más común y hacer muestreos en el resto — es un compromiso de ingeniería defendible que es muy difícil de defender ante un auditor, porque nadie puede enunciar qué comportamientos quedaron sin cubrir.
+      </p>
+
+      <h2>
+        
+        Triaje, porque la lista cruda es inservible
+      </h2>
+
+      <p>
+        
+        El primer escaneo de un sistema maduro devuelve miles de brechas. Entregada a un equipo sin priorizar, esa salida se ignora — con razón, porque la lista contiene contadores de diagnóstico y estado interno junto al enclavamiento que nadie probó.
+      </p>
+
+      <p>
+        
+        La priorización es lo que la convierte en una cola de trabajo. Las señales que participan en funciones de seguridad, los elementos referenciados por requisitos con mayor nivel de integridad y el comportamiento que cambió recientemente van por encima de un contador estable desde hace tres años. El triaje asistido puede proponer esa priorización; un ingeniero debería confirmarla, porque el costo de priorizar mal una brecha de seguridad es asimétrico.
+      </p>
+
+      <div class="pro-tip">
+        <h4>
+          
+          Ejecútelo antes de la auditoría, no por causa de una
+        </h4>
+        <p>
+          
+          Una brecha descubierta por su propio escaneo es un ítem de backlog que usted programa. La misma brecha descubierta por un evaluador es un hallazgo, con plan de acción correctiva, fecha límite de respuesta y una conversación sobre madurez de proceso. El trabajo de ingeniería es el mismo en ambos casos; todo lo demás no.
+        </p>
+      </div>
+
+      <h2>
+        
+        Para qué sirve la cifra
+      </h2>
+
+      <p>
+        
+        No para ser una meta. Un porcentaje de cobertura adoptado como objetivo se convierte en una métrica que la gente optimiza, y la forma más barata de subirlo es escribir pruebas superficiales sobre elementos que nunca fueron riesgosos.
+      </p>
+
+      <p>
+        
+        Su uso es direccional: saber dónde se concentra el comportamiento sin probar, para que el esfuerzo de verificación vaya donde está el riesgo y no donde ocurrió el último defecto. Eso es una entrada de planificación para un líder de ingeniería, no un indicador para un tablero.
+      </p>
+    </div>
+
+    <!-- Cluster -> pillar link -->
+    <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">
+      <p class="ax-label text-ax-ink/40 mb-3">
+        El sistema detrás de esto
+      </p>
+      <h2 class="font-heading font-bold text-xl mb-2.5">
+        <a href="agentic-test-engineering.html" class="hover:text-ax-blue transition-colors">
+          Ingeniería de Pruebas Agéntica
+        </a>
+      </h2>
+      <p class="text-ax-ink/65 leading-relaxed mb-5">
+        Requisitos, código fuente y PRs fusionados se convierten en casos de prueba revisados y trazables.
+      </p>
+      <a href="agentic-test-engineering.html" class="ax-btn ax-btn-outline px-5 py-2.5 text-sm">
+        Cómo funciona
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+      </a>
+    </aside>
+
+    <div class="mt-10 pt-8 border-t border-ax-ink/10 flex flex-wrap items-center gap-4">
+      <img src="../assets/logo-mark.png" alt="" class="w-12 h-12 object-contain" width="141" height="160" loading="lazy" decoding="async">
+      <div>
+        <p class="font-heading font-bold">Axionalytics</p>
+        <p class="text-sm text-ax-ink/55">
+          
+          IA agéntica en producción para equipos empresariales de ingeniería, datos e ingresos.
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==========================================================================
+     RELATED + CTA
+     ========================================================================== -->
+<section class="ax-band py-20 lg:py-24 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-50"></div>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <p class="ax-eyebrow text-ax-cyan mb-7 ax-reveal">
+      Seguir leyendo
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-4 mb-14 ax-stagger">
+      <a href="requirements-traceability-automation.html" class="rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+        <p class="text-2xs font-bold uppercase tracking-wider text-ax-cyan mb-2">
+          Verificación
+        </p>
+        <p class="font-heading font-bold text-white leading-snug">
+          Trazabilidad de Requisitos Sin la Hoja de Cálculo
+        </p>
+      </a>
+      <a href="legacy-test-suite-modernization.html" class="rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+        <p class="text-2xs font-bold uppercase tracking-wider text-ax-cyan mb-2">
+          Verificación
+        </p>
+        <p class="font-heading font-bold text-white leading-snug">
+          Cómo Saldar la Deuda de Pruebas Heredadas Sin un Año-Ingeniero
+        </p>
+      </a>
+      <a href="why-ai-pilots-fail-security-review.html" class="rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+        <p class="text-2xs font-bold uppercase tracking-wider text-ax-cyan mb-2">
+          Seguridad
+        </p>
+        <p class="font-heading font-bold text-white leading-snug">
+          Por Qué los Pilotos de IA Empresarial Mueren en la Revisión de Seguridad
+        </p>
+      </a>
+    </div>
+
+    <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 lg:p-10 text-center ax-reveal">
+      <h2 class="font-heading font-extrabold text-2xl lg:text-3xl text-white leading-tight mb-4">
+        
+        ¿Enfrenta esto en su propio entorno?
+      </h2>
+      <p class="text-white/60 leading-relaxed mb-8 max-w-2xl mx-auto">
+        
+        Cuarenta y cinco minutos con los ingenieros que construyen estos sistemas. Traiga la restricción que lo ha estado bloqueando — saldrá con una opinión arquitectónica trabaje con nosotros o no.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3.5 justify-center">
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-7 py-3.5">
+          Agendar Sesión Técnica
+        </a>
+        <a href="roi-calculator.html" class="ax-btn ax-btn-ghost px-7 py-3.5">
+          Modelar el ROI
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="bg-ax-void text-white pt-16 pb-10">
+  <hr class="ax-rule-spectrum mb-16 max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
+
+      <div class="lg:col-span-5">
+        <a href="index.html" class="ax-logo mb-5">
+          <img src="../assets/logo-mark-dark.png" alt="Axionalytics" width="88" height="100" loading="lazy" decoding="async">
+          <span class="text-[1.35rem] font-heading font-bold">axionalytics</span>
+        </a>
+        <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
+          
+          IA agéntica en producción para organizaciones Fortune 500 de ingeniería, datos e ingresos. Construida en Davenport, Iowa. Desplegada dentro de su perímetro.
+        </p>
+        <div class="flex gap-2.5">
+          <a href="https://www.linkedin.com/company/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="LinkedIn">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://wa.me/19562079368" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="WhatsApp">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Soluciones
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="agentic-test-engineering.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Ingeniería de Pruebas Agéntica</a></li>
+          <li><a href="enterprise-agentic-ai.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            IA Agéntica Empresarial</a></li>
+          <li><a href="agentic-business-intelligence.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Inteligencia de Negocios Agéntica</a></li>
+          <li><a href="agentic-revenue-development.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Desarrollo de Ingresos Agéntico</a></li>
+          <li><a href="enterprise-ai-security.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Gobernanza de IA de Confianza Cero</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Compañía
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="about.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Nosotros</a></li>
+          <li><a href="case-studies.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Casos de Éxito</a></li>
+          <li><a href="blog.html" class="text-white/65 hover:text-ax-cyan transition-colors">Blog</a></li>
+          <li><a href="contact.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Recursos
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="roi-calculator.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Calculadora ROI</a></li>
+          <li><a href="glossary.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Glosario</a></li>
+          <li><a href="pricing.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Precios</a></li>
+          <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agendar Sesión</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/[0.08] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/35 text-sm">
+        © <span data-year>2026</span> Axionalytics.
+        Todos los derechos reservados.
+      </p>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+        <a href="privacy.html" class="text-white/35 hover:text-white transition-colors">
+          Privacidad</a>
+        <a href="terms.html" class="text-white/35 hover:text-white transition-colors">
+          Términos</a>
+        <a href="accessibility.html" class="text-white/35 hover:text-white transition-colors">
+          Accesibilidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/axio.js"></script>
+<script src="../assets/axio-analytics.js"></script>
+</body>
+</html>

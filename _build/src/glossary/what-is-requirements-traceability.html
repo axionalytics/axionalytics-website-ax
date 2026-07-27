@@ -1,0 +1,55 @@
+<h2>
+  <span data-lang-en>Both directions, and why the second one matters</span>
+  <span data-lang-es>Ambas direcciones, y por qué importa la segunda</span>
+</h2>
+
+<p>
+  <span data-lang-en><strong>Forward traceability</strong> answers which test cases verify a given requirement. This is what auditors ask for, and what most traceability matrices are built to provide.</span>
+  <span data-lang-es><strong>La trazabilidad directa</strong> responde qué casos de prueba verifican un requisito dado. Es lo que piden los auditores y para lo que se construyen la mayoría de las matrices.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Backward traceability</strong> answers which requirement justifies a given test. It is supported far less often, and it is the direction that finds orphans — cases that outlived the requirement motivating them and now consume review effort verifying behaviour nobody asked for.</span>
+  <span data-lang-es><strong>La trazabilidad inversa</strong> responde qué requisito justifica una prueba dada. Se soporta mucho menos, y es la dirección que encuentra huérfanos — casos que sobrevivieron al requisito que los motivó y ahora consumen esfuerzo verificando comportamiento que nadie pidió.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Why the matrix goes stale</span>
+  <span data-lang-es>Por qué se desactualiza la matriz</span>
+</h2>
+
+<p>
+  <span data-lang-en>Because it is a second source of truth about a relationship recorded nowhere else. Nothing enforces it and nothing detects drift. A requirement is revised and its identifier changes; a suite is reorganised and cases are renumbered; an engineer writes three cases and records one.</span>
+  <span data-lang-es>Porque es una segunda fuente de verdad sobre una relación que no está registrada en ningún otro lado. Nada la hace cumplir y nada detecta la desviación. Un requisito se revisa y cambia su identificador; una suite se reorganiza y los casos se renumeran; un ingeniero escribe tres casos y registra uno.</span>
+</p>
+
+<p>
+  <span data-lang-en>None of these produces an error at the time. Each surfaces months later as an audit finding, which is why the pre-audit reconstruction ritual exists and why teams budget weeks for it.</span>
+  <span data-lang-es>Ninguno produce un error en el momento. Cada uno aparece meses después como hallazgo de auditoría, por eso existe el ritual de reconstrucción previa y por eso los equipos presupuestan semanas para él.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The structural fix</span>
+    <span data-lang-es>La solución estructural</span>
+  </h4>
+  <p>
+    <span data-lang-en>Stop treating traceability as documentation and treat it as provenance. When a test case is generated from a requirement, write the requirement identifier onto the case as it is created. The matrix then stops being a document to maintain and becomes a query to run — nothing can drift, because there is no second copy to drift from.</span>
+    <span data-lang-es>Deje de tratar la trazabilidad como documentación y trátela como procedencia. Cuando un caso se genera desde un requisito, escriba el identificador en el caso al crearlo. La matriz deja de ser un documento que mantener y se vuelve una consulta que ejecutar — nada puede desviarse, porque no hay una segunda copia.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Traceability is not coverage</span>
+  <span data-lang-es>La trazabilidad no es cobertura</span>
+</h2>
+
+<p>
+  <span data-lang-en>A complete traceability matrix proves every written requirement is verified. It says nothing about behaviour that entered the system without a requirement — an interlock added during integration, a timeout adjusted after a field issue, a fallback introduced to work around a supplier component.</span>
+  <span data-lang-es>Una matriz completa demuestra que todo requisito escrito está verificado. No dice nada sobre comportamiento que entró al sistema sin requisito — un enclavamiento agregado en integración, un tiempo de espera ajustado tras un problema en campo, una ruta alternativa para sortear un componente de proveedor.</span>
+</p>
+
+<p>
+  <span data-lang-en>That behaviour is real, it ships, and it is invisible to a requirements-driven report. Answering "is every implemented behaviour verified?" requires an index of what exists, derived by parsing the implementation rather than maintained by hand.</span>
+  <span data-lang-es>Ese comportamiento es real, se entrega y es invisible para un reporte basado en requisitos. Responder "¿está verificado todo el comportamiento implementado?" requiere un índice de lo que existe, derivado analizando la implementación y no mantenido a mano.</span>
+</p>

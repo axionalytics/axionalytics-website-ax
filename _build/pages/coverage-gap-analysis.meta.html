@@ -1,0 +1,63 @@
+
+  <title>Line Coverage Is Not Verification Coverage | Axionalytics</title>
+  <meta name="description" content="Most organisations can report line coverage to two decimals and cannot say which implemented behaviour nobody has written a test for. Those are different numbers.">
+  <link rel="canonical" href="https://www.axionalytics.com/coverage-gap-analysis.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Line Coverage Is Not Verification Coverage">
+  <meta property="og:description" content="Most organisations can report line coverage to two decimals and cannot say which implemented behaviour nobody has written a test for. Those are different numbers.">
+  <meta property="og:url" content="https://www.axionalytics.com/coverage-gap-analysis.html">
+  <meta property="article:published_time" content="2026-06-26">
+  <meta property="article:section" content="Verification">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://www.axionalytics.com/coverage-gap-analysis.html#article",
+    "headline": "Line Coverage Is Not Verification Coverage",
+    "description": "Most organisations can report line coverage to two decimals and cannot say which implemented behaviour nobody has written a test for. Those are different numbers.",
+    "datePublished": "2026-06-26",
+    "dateModified": "2026-06-26",
+    "articleSection": "Verification",
+    "inLanguage": ["en", "es"],
+    "wordCount": 777,
+    "timeRequired": "PT3M",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/coverage-gap-analysis.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Agentic Test Engineering", "url": "https://www.axionalytics.com/agentic-test-engineering.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Line Coverage Is Not Verification Coverage", "item": "https://www.axionalytics.com/coverage-gap-analysis.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is a verification coverage gap?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An element of implemented behaviour — a signal, a function, a configuration path — that no test case exercises. It differs from code coverage, which measures whether lines executed during a run. A behaviour can be fully line-covered and still have no test asserting that it behaves correctly." } },
+      { "@type": "Question", "name": "Why is code coverage insufficient for safety-critical verification?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Because it measures execution, not intent. A line executes whenever any test touches it, including tests that assert nothing about the behaviour that line implements. High line coverage with low requirement coverage is common and is exactly the state that produces audit findings." } },
+      { "@type": "Question", "name": "How do you find untested behaviour across configuration variants?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Enumerate the product of interfaces and configurations, then subtract everything an existing test exercises. The remainder is the gap. Doing that requires an index of what exists, built by parsing the source rather than maintained by hand, because the variant count grows faster than anyone can track." } }
+    ]
+  }
+  </script>

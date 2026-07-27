@@ -1,0 +1,60 @@
+<h2>
+  <span data-lang-en>The problem it solves</span>
+  <span data-lang-es>El problema que resuelve</span>
+</h2>
+
+<p>
+  <span data-lang-en>Without one, a metric is redefined wherever it is used. Finance computes revenue one way in a spreadsheet, the sales dashboard computes it another way in a report, and a third definition lives inside a scheduled export nobody has opened in two years. All three are defensible. None agrees with the others.</span>
+  <span data-lang-es>Sin ella, una métrica se redefine allí donde se usa. Finanzas calcula los ingresos de una forma en una hoja de cálculo, el tablero de ventas de otra en un informe, y una tercera definición vive en una exportación programada que nadie abre desde hace dos años. Las tres son defendibles. Ninguna coincide con las otras.</span>
+</p>
+
+<p>
+  <span data-lang-en>The cost shows up as meetings. A leadership review becomes a reconciliation exercise, and the organization quietly loses the single source of truth it spent years building.</span>
+  <span data-lang-es>El costo aparece como reuniones. Una revisión directiva se convierte en un ejercicio de conciliación, y la organización pierde en silencio la fuente única de verdad que le costó años construir.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What a semantic layer contains</span>
+  <span data-lang-es>Qué contiene una capa semántica</span>
+</h2>
+
+<p>
+  <span data-lang-en><strong>Entities and relationships.</strong> Which tables exist, how they join, and at what grain — so a query cannot silently double-count by joining at the wrong level.</span>
+  <span data-lang-es><strong>Entidades y relaciones.</strong> Qué tablas existen, cómo se unen y con qué granularidad — para que una consulta no cuente doble en silencio al unir al nivel equivocado.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Measures.</strong> The calculations themselves, expressed once. Revenue, margin, active accounts — each with one definition every consumer inherits.</span>
+  <span data-lang-es><strong>Medidas.</strong> Los cálculos en sí, expresados una vez. Ingresos, margen, cuentas activas — cada uno con una definición que todo consumidor hereda.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Access rules.</strong> Row-level security as a property of the model rather than of who happened to receive which file, so a regional manager sees their region because the model says so.</span>
+  <span data-lang-es><strong>Reglas de acceso.</strong> Seguridad a nivel de fila como propiedad del modelo y no de quién recibió qué archivo, para que un gerente regional vea su región porque el modelo lo dice.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The property that matters most</span>
+    <span data-lang-es>La propiedad que más importa</span>
+  </h4>
+  <p>
+    <span data-lang-en>A definition that lives in source control is a reviewable diff with an author and a date. That is what lets a disputed number be reconciled in a meeting instead of argued about — you can point at when it changed and who changed it.</span>
+    <span data-lang-es>Una definición que vive en control de versiones es un diff revisable con autor y fecha. Eso es lo que permite conciliar una cifra en disputa en una reunión en lugar de discutirla — se puede señalar cuándo cambió y quién la cambió.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Why it matters more once AI is generating queries</span>
+  <span data-lang-es>Por qué importa más cuando la IA genera consultas</span>
+</h2>
+
+<p>
+  <span data-lang-en>A model asked for "revenue by region" against raw tables will produce something plausible. Whether it matches the definition finance uses is a coin flip, and the answer arrives with the confident phrasing that makes it hard to question.</span>
+  <span data-lang-es>Un modelo al que se le pide "ingresos por región" sobre tablas crudas producirá algo plausible. Si coincide con la definición que usa finanzas es azar, y la respuesta llega con la seguridad que la hace difícil de cuestionar.</span>
+</p>
+
+<p>
+  <span data-lang-en>Pointed at a semantic layer instead, the model selects an existing measure rather than inventing a calculation. The governance you already built becomes the constraint on what the AI is able to assert — which is the cheapest way to make generated analytics trustworthy.</span>
+  <span data-lang-es>Apuntado en cambio a una capa semántica, el modelo elige una medida existente en lugar de inventar un cálculo. La gobernanza que ya construyó se vuelve la restricción sobre lo que la IA puede afirmar — la forma más barata de hacer confiable la analítica generada.</span>
+</p>

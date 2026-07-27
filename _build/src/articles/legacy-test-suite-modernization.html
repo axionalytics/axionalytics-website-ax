@@ -1,0 +1,120 @@
+<!--FAQ Why is legacy test debt so hard to pay down? | Because the work is arithmetically impossible by hand. Modernising a suite of several thousand cases at even thirty minutes each consumes multiple engineer-years, which never survives prioritisation against feature delivery. The debt is not tolerated by choice; it is tolerated because no realistic schedule retires it.-->
+<!--FAQ What does modernising a legacy test case actually involve? | Restructuring it to a consistent format, adding the pre-conditions the original omitted, enriching it with the interface elements it exercises, and attaching the requirement that justifies it. The assertion logic usually survives unchanged — what is missing is the surrounding structure that makes the case reviewable and traceable.-->
+<!--FAQ Is it safe to let a tool rewrite existing test cases in place? | Only behind a field-level diff and human approval. A modernisation pass that overwrites cases unattended can silently weaken an assertion, and nobody would notice until the defect it used to catch escapes. Every change should be shown against the existing case before it is written.-->
+
+<p>
+  <span data-lang-en><strong>Legacy test debt is not tolerated because teams are undisciplined. It is tolerated because paying it down by hand consumes engineer-years that no roadmap will ever approve.</strong></span>
+  <span data-lang-es><strong>La deuda de pruebas heredadas no se tolera por indisciplina. Se tolera porque pagarla a mano consume años-ingeniero que ninguna hoja de ruta aprobará jamás.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>Every mature verification organization has the same asset: a test suite built over a decade by people who have mostly moved on, in formats that changed three times, with conventions that were never written down. It works, mostly. Nobody wants to touch it.</span>
+  <span data-lang-es>Toda organización de verificación madura tiene el mismo activo: una suite construida durante una década por gente que en su mayoría ya se fue, en formatos que cambiaron tres veces, con convenciones que nunca se escribieron. Funciona, casi siempre. Nadie quiere tocarla.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What the debt actually consists of</span>
+  <span data-lang-es>En qué consiste realmente la deuda</span>
+</h2>
+
+<p>
+  <span data-lang-en>The assertions are usually fine. Someone understood the behaviour and checked it, and that judgment is still valid. What is missing is everything around the assertion.</span>
+  <span data-lang-es>Las verificaciones suelen estar bien. Alguien entendió el comportamiento y lo comprobó, y ese criterio sigue siendo válido. Lo que falta es todo lo que rodea a la verificación.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Structure varies.</strong> Cases written in different eras use different field conventions, so tooling cannot parse them uniformly and reviewers cannot scan them quickly.</span>
+  <span data-lang-es><strong>La estructura varía.</strong> Los casos escritos en distintas épocas usan convenciones de campo diferentes, así que las herramientas no pueden analizarlos de forma uniforme ni los revisores escanearlos rápido.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Pre-conditions are implicit.</strong> The original author knew what state the system had to be in. They did not record it, because it was obvious to them. It is not obvious to anyone now, and it is the most common cause of a case failing for reasons unrelated to the behaviour it tests.</span>
+  <span data-lang-es><strong>Las precondiciones son implícitas.</strong> El autor original sabía en qué estado debía estar el sistema. No lo registró, porque le resultaba obvio. Hoy no lo es para nadie, y es la causa más común de que un caso falle por razones ajenas al comportamiento que prueba.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Interface elements are named in prose.</strong> A step says "set the pressure input high" rather than naming the element, so no tool can determine what the case exercises and it cannot participate in coverage analysis.</span>
+  <span data-lang-es><strong>Los elementos de interfaz se nombran en prosa.</strong> Un paso dice "poner la entrada de presión en alto" en lugar de nombrar el elemento, así que ninguna herramienta puede determinar qué ejercita el caso y no puede participar en el análisis de cobertura.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Traceability is absent.</strong> No requirement is attached, so nobody can say whether the case is still justified or whether the behaviour it guards was withdrawn two releases ago.</span>
+  <span data-lang-es><strong>No hay trazabilidad.</strong> No hay requisito adjunto, así que nadie puede decir si el caso sigue justificado o si el comportamiento que protege se retiró hace dos entregas.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>Why it never gets scheduled</span>
+    <span data-lang-es>Por qué nunca se agenda</span>
+  </h4>
+  <p>
+    <span data-lang-en>Four thousand cases at thirty minutes each is roughly one engineer-year. The benefit is entirely preventative and shows up as things that do not happen, so it competes against feature work with a quantified revenue case and loses every planning cycle. That is a rational outcome given the inputs — which is why the fix has to change the inputs.</span>
+    <span data-lang-es>Cuatro mil casos a treinta minutos cada uno son aproximadamente un año-ingeniero. El beneficio es enteramente preventivo y se manifiesta como cosas que no ocurren, así que compite contra trabajo de producto con un caso de ingresos cuantificado y pierde en cada ciclo de planificación. Ese resultado es racional dadas las entradas — por eso la solución debe cambiar las entradas.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Retrofit rather than rewrite</span>
+  <span data-lang-es>Adaptar en lugar de reescribir</span>
+</h2>
+
+<p>
+  <span data-lang-en>The instinct is to regenerate the suite from requirements and discard the old cases. This is usually wrong, and expensively so.</span>
+  <span data-lang-es>El instinto es regenerar la suite desde los requisitos y descartar los casos antiguos. Esto suele ser un error, y caro.</span>
+</p>
+
+<p>
+  <span data-lang-en>Those cases encode a decade of accumulated knowledge about how the system actually misbehaves — edge conditions discovered in the field, sequences that only fail on a specific hardware revision, timing sensitivities nobody ever wrote a requirement for. Regenerating from requirements produces a clean suite that has forgotten every lesson the organization paid to learn.</span>
+  <span data-lang-es>Esos casos codifican una década de conocimiento acumulado sobre cómo falla realmente el sistema — condiciones límite descubiertas en campo, secuencias que solo fallan en una revisión de hardware específica, sensibilidades temporales para las que nadie escribió un requisito. Regenerar desde los requisitos produce una suite limpia que ha olvidado cada lección que la organización pagó por aprender.</span>
+</p>
+
+<p>
+  <span data-lang-en>Retrofit keeps the assertion and rebuilds the structure around it: normalise the format, make the pre-conditions explicit, resolve the prose references to actual interface elements, and attach the requirement that justifies the case. The engineering judgment survives; the scaffolding is replaced.</span>
+  <span data-lang-es>Adaptar conserva la verificación y reconstruye la estructura a su alrededor: normalizar el formato, explicitar las precondiciones, resolver las referencias en prosa a elementos de interfaz reales y adjuntar el requisito que justifica el caso. El criterio de ingeniería sobrevive; el andamiaje se reemplaza.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The diff is the entire safety mechanism</span>
+  <span data-lang-es>El diff es todo el mecanismo de seguridad</span>
+</h2>
+
+<p>
+  <span data-lang-en>Automated modernisation touches thousands of cases that currently work. The failure mode is not dramatic — it is a subtly weakened assertion that nobody notices until the defect it used to catch reaches a customer.</span>
+  <span data-lang-es>La modernización automatizada toca miles de casos que hoy funcionan. El modo de falla no es dramático — es una verificación sutilmente debilitada que nadie nota hasta que el defecto que solía detectar llega a un cliente.</span>
+</p>
+
+<p>
+  <span data-lang-en>Which is why the write path must show a field-level diff against the existing case, with steps editable before approval. A reviewer needs to see precisely what changes in each field — not a summary, and never a wholesale replacement presented as an update.</span>
+  <span data-lang-es>Por eso la ruta de escritura debe mostrar un diff por campo contra el caso existente, con pasos editables antes de aprobar. Un revisor necesita ver exactamente qué cambia en cada campo — no un resumen, y nunca un reemplazo total presentado como actualización.</span>
+</p>
+
+<p>
+  <span data-lang-en>Reviewing a diff is fast in a way that authoring is not. That asymmetry is what makes the economics work: the expensive part was never the judgment, it was the transcription.</span>
+  <span data-lang-es>Revisar un diff es rápido de una forma en que crear no lo es. Esa asimetría es lo que hace funcionar la economía: la parte cara nunca fue el criterio, fue la transcripción.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Sequence the work by risk</span>
+  <span data-lang-es>Secuencie el trabajo por riesgo</span>
+</h2>
+
+<p>
+  <span data-lang-en>Do not start at case one. Start with the suites covering behaviour that changed recently, then those tied to requirements carrying a higher integrity level, then those flagged by a coverage scan as the only thing verifying a given element.</span>
+  <span data-lang-es>No empiece por el caso uno. Empiece por las suites que cubren comportamiento que cambió recientemente, luego las ligadas a requisitos con mayor nivel de integridad, y después las que un escaneo de cobertura señale como lo único que verifica un elemento dado.</span>
+</p>
+
+<p>
+  <span data-lang-en>That ordering front-loads the value, and it means the effort can stop at any point having already retired the riskiest debt. A modernisation programme that must run to completion before it delivers anything is a programme that will be cancelled at 40 percent.</span>
+  <span data-lang-es>Ese orden adelanta el valor, y significa que el esfuerzo puede detenerse en cualquier punto habiendo ya retirado la deuda más riesgosa. Un programa de modernización que debe completarse para entregar algo es un programa que se cancelará al 40 por ciento.</span>
+</p>
+
+<div class="pro-tip">
+  <h4>
+    <span data-lang-en>Retire cases as well as repair them</span>
+    <span data-lang-es>Retire casos además de repararlos</span>
+  </h4>
+  <p>
+    <span data-lang-en>Attaching requirements to legacy cases surfaces the orphans — cases verifying behaviour that no longer has a justification because the requirement was withdrawn. Those should be retired, not modernised. Teams consistently find this category larger than expected, and deleting it is the cheapest coverage improvement available.</span>
+    <span data-lang-es>Adjuntar requisitos a los casos heredados revela los huérfanos — casos que verifican comportamiento sin justificación porque el requisito se retiró. Esos deben eliminarse, no modernizarse. Los equipos encuentran consistentemente que esta categoría es mayor de lo esperado, y borrarla es la mejora de cobertura más barata disponible.</span>
+  </p>
+</div>

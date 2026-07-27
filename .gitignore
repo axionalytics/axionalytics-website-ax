@@ -1,0 +1,50 @@
+# =============================================================================
+# THIS REPOSITORY IS PUBLIC.
+# -----------------------------------------------------------------------------
+# The line that matters is the _private/ rule below. Everything else here is
+# ordinary clutter; that one rule is the only thing standing between a public
+# repository and a customer's internal engineering documents.
+#
+# _build/ and _legacy/ ARE committed, on purpose. _build/ is how anyone rebuilds
+# the site, and it is clean — the sanitiser lives there but the terms it removes
+# do not. _legacy/ is the pre-2026 site, which was public all along.
+#
+# Three independent guards, because one is not enough for an irreversible
+# mistake:
+#   1. this file                      — keeps _private/ out of `git add`
+#   2. .git/hooks/pre-commit          — refuses the commit even if forced
+#   3. _build/scripts/check-leaks.py  — fails the build if git can see it
+#
+# Guard 2 is not cloned with the repository. If you ever set this project up on
+# another machine, reinstall it: bash _build/scripts/install-hooks.sh
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# CONFIDENTIAL — never commit. Client source documents, the sanitiser term list,
+# original artwork, strategy notes, and the setup runbook.
+#
+# Not in version control means NOT BACKED UP. Copy this folder somewhere safe.
+# -----------------------------------------------------------------------------
+_private/
+
+# OS clutter
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor and tool state — machine-specific, not part of the project
+.vscode/
+.idea/
+.claude/
+*.swp
+*~
+
+# Python bytecode from the build scripts
+__pycache__/
+*.py[cod]
+
+# Local scratch — anything here is disposable by definition
+scratch/
+tmp/
+*.tmp

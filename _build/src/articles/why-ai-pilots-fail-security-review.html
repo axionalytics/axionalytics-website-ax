@@ -1,0 +1,150 @@
+<!--FAQ Why do enterprise AI pilots fail security review? | Because the questions security asks are architectural, not configurable. Where inference runs, what the agent may write, whose identity it acts under, what an auditor can reconstruct, and where the data physically sits are all decided by the system's shape. A pilot built without those constraints cannot be adjusted into compliance; it has to be rebuilt.-->
+<!--FAQ When should security be involved in an AI project? | Before the first line of code. Deployment topology, data residency, identity provider, egress policy, and audit requirements should be settled in the first two weeks, while they are still cheap to change. Deferring the security conversation to the end is the single most common reason enterprise AI projects miss their date.-->
+<!--FAQ Can a vendor SOC 2 report satisfy an enterprise AI security review? | No. A SOC 2 report describes the vendor's own control environment. It does not answer where your data is processed, what the agent is permitted to write, or what your auditors can reconstruct six months later. Those are properties of the deployed architecture, not of the vendor's certification.-->
+
+<p>
+  <span data-lang-en><strong>Enterprise AI pilots do not fail because the model underperformed. They fail because the architecture could not answer five questions, and those answers are decided long before anyone opens a security questionnaire.</strong></span>
+  <span data-lang-es><strong>Los pilotos de IA empresarial no fracasan porque el modelo rindiera mal. Fracasan porque la arquitectura no pudo responder cinco preguntas, y esas respuestas se deciden mucho antes de que alguien abra un cuestionario de seguridad.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>The pattern is consistent enough to be predictable. A team builds a convincing prototype in six weeks. Leadership is impressed. Then the project meets the security architect, the data governance lead, and the compliance officer — and stops. Eighteen months later there is a working demo, a stack of documentation, and nothing in production.</span>
+  <span data-lang-es>El patrón es lo bastante consistente como para ser predecible. Un equipo construye un prototipo convincente en seis semanas. La dirección queda impresionada. Luego el proyecto se encuentra con el arquitecto de seguridad, el responsable de gobierno de datos y el oficial de cumplimiento — y se detiene. Dieciocho meses después hay una demostración funcional, una pila de documentación y nada en producción.</span>
+</p>
+
+<p>
+  <span data-lang-en>The reflex is to blame the review process. That is the wrong diagnosis. The objections are almost always correct, and the reason they cannot be resolved is that each one is a property of the system's shape rather than a setting inside it.</span>
+  <span data-lang-es>El reflejo es culpar al proceso de revisión. Ese es el diagnóstico equivocado. Las objeciones casi siempre son correctas, y la razón por la que no pueden resolverse es que cada una es una propiedad de la forma del sistema y no un ajuste dentro de él.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The five questions</span>
+  <span data-lang-es>Las cinco preguntas</span>
+</h2>
+
+<h3>
+  <span data-lang-en>1. Where is our data processed?</span>
+  <span data-lang-es>1. ¿Dónde se procesan nuestros datos?</span>
+</h3>
+
+<p>
+  <span data-lang-en>A prototype calls a vendor API from a developer laptop. Production means regulated data, a data residency clause in a customer contract, and an architecture where proprietary information crosses your perimeter to be inferenced on infrastructure you do not control.</span>
+  <span data-lang-es>Un prototipo llama a una API de proveedor desde la laptop de un desarrollador. Producción significa datos regulados, una cláusula de residencia de datos en un contrato con clientes y una arquitectura donde información propietaria cruza su perímetro para inferirse en infraestructura que usted no controla.</span>
+</p>
+
+<p>
+  <span data-lang-en>This is rarely negotiable, and it is not solved by a data processing agreement. If your contracts commit you to keeping certain data in a jurisdiction, no vendor assurance changes where the packets go. The decision belongs at the start: either the execution plane runs inside your own cloud account, or the project is limited to data that may leave.</span>
+  <span data-lang-es>Esto rara vez es negociable, y no se resuelve con un acuerdo de tratamiento de datos. Si sus contratos lo comprometen a mantener ciertos datos en una jurisdicción, ninguna garantía del proveedor cambia a dónde van los paquetes. La decisión corresponde al inicio: o el plano de ejecución corre dentro de su propia cuenta de nube, o el proyecto se limita a datos que pueden salir.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The reversibility test</span>
+    <span data-lang-es>La prueba de reversibilidad</span>
+  </h4>
+  <p>
+    <span data-lang-en>Ask which of the five decisions below you could change in week ten without rewriting the system. Deployment topology and identity model usually cannot be changed at all. Those are the ones to settle first.</span>
+    <span data-lang-es>Pregunte cuál de las cinco decisiones siguientes podría cambiar en la semana diez sin reescribir el sistema. La topología de despliegue y el modelo de identidad normalmente no pueden cambiarse en absoluto. Esas son las que hay que definir primero.</span>
+  </p>
+</div>
+
+<h3>
+  <span data-lang-en>2. What is the agent permitted to write?</span>
+  <span data-lang-es>2. ¿Qué puede escribir el agente?</span>
+</h3>
+
+<p>
+  <span data-lang-en>Read-only assistants clear review easily and deliver correspondingly little. The value arrives when the system can file the test case, update the opportunity, or publish the dashboard — and that is exactly the capability that turns a routine review into a hard one.</span>
+  <span data-lang-es>Los asistentes de solo lectura pasan la revisión con facilidad y entregan proporcionalmente poco. El valor llega cuando el sistema puede registrar el caso de prueba, actualizar la oportunidad o publicar el tablero — y esa es justamente la capacidad que convierte una revisión rutinaria en una difícil.</span>
+</p>
+
+<p>
+  <span data-lang-en>A confirmation dialog is not an answer. Reviewers want to know what changes, how many records it reaches, and what prevents an approval granted against one plan from being executed against a different one. If the pilot has no gate, adding a real one late means rebuilding the execution path, because approval state has to be threaded through every tool call.</span>
+  <span data-lang-es>Un diálogo de confirmación no es una respuesta. Los revisores quieren saber qué cambia, cuántos registros alcanza y qué impide que una aprobación otorgada a un plan se ejecute contra otro distinto. Si el piloto no tiene puerta, agregar una real tarde significa reconstruir la ruta de ejecución, porque el estado de aprobación debe atravesar cada llamada a herramienta.</span>
+</p>
+
+<h3>
+  <span data-lang-en>3. Whose identity does it act under?</span>
+  <span data-lang-es>3. ¿Bajo qué identidad actúa?</span>
+</h3>
+
+<p>
+  <span data-lang-en>Most prototypes run on a single service account with broad access, because that is the fastest way to get a demo working. The consequence is that every user effectively inherits the union of everyone's permissions, and the system cannot answer who was allowed to see what.</span>
+  <span data-lang-es>La mayoría de los prototipos corre con una sola cuenta de servicio con acceso amplio, porque es la forma más rápida de hacer funcionar una demostración. La consecuencia es que cada usuario hereda efectivamente la unión de los permisos de todos, y el sistema no puede responder quién estaba autorizado a ver qué.</span>
+</p>
+
+<p>
+  <span data-lang-en>Retrofitting real authorization is not a matter of adding a check. The tools available on a given turn have to be the intersection of what the platform supports, what the tenant is entitled to, and what that specific user's role permits — evaluated per turn, and re-validated when someone opens an old session. A system designed around one service account has no place to put that logic.</span>
+  <span data-lang-es>Incorporar autorización real después no es cuestión de agregar una verificación. Las herramientas disponibles en un turno dado deben ser la intersección de lo que la plataforma soporta, lo que el inquilino tiene habilitado y lo que permite el rol de ese usuario — evaluada por turno y revalidada cuando alguien abre una sesión antigua. Un sistema diseñado alrededor de una cuenta de servicio no tiene dónde poner esa lógica.</span>
+</p>
+
+<h3>
+  <span data-lang-en>4. What can an auditor reconstruct?</span>
+  <span data-lang-es>4. ¿Qué puede reconstruir un auditor?</span>
+</h3>
+
+<p>
+  <span data-lang-en>Six months after go-live, someone will ask why the system changed a particular record. "The model decided" does not survive that conversation, and neither does a log that captures the prompt and the final answer but nothing in between.</span>
+  <span data-lang-es>Seis meses después de la puesta en marcha, alguien preguntará por qué el sistema cambió un registro determinado. "Lo decidió el modelo" no sobrevive a esa conversación, y tampoco un registro que capture el prompt y la respuesta final pero nada intermedio.</span>
+</p>
+
+<p>
+  <span data-lang-en>What is needed is the causal chain: which turn triggered which tool call, with what arguments, what came back, who approved the resulting write, and against which version of the plan. That requires distributed tracing threaded through the system from the beginning. It cannot be reconstructed afterward from application logs.</span>
+  <span data-lang-es>Lo que se necesita es la cadena causal: qué turno disparó qué llamada, con qué argumentos, qué devolvió, quién aprobó la escritura resultante y contra qué versión del plan. Eso requiere trazado distribuido integrado desde el principio. No puede reconstruirse después a partir de registros de aplicación.</span>
+</p>
+
+<h3>
+  <span data-lang-en>5. How do we know the answer is real?</span>
+  <span data-lang-es>5. ¿Cómo sabemos que la respuesta es real?</span>
+</h3>
+
+<p>
+  <span data-lang-en>A model produces a confident number. Nobody can say which query produced it, whether the join was correct, or whether the model invented it. In a regulated forecast or a safety argument, an unverifiable answer is worth less than no answer, because it carries the authority of a system without the accountability of one.</span>
+  <span data-lang-es>Un modelo produce un número con confianza. Nadie puede decir qué consulta lo produjo, si la unión fue correcta o si el modelo lo inventó. En un pronóstico regulado o un argumento de seguridad, una respuesta no verificable vale menos que ninguna, porque lleva la autoridad de un sistema sin su responsabilidad.</span>
+</p>
+
+<p>
+  <span data-lang-en>Asking the model to cite its own sources does not solve this. It is asking the component that hallucinates to certify that it did not. Citations have to be generated by the backend from the actual record of tool calls, and markers the model invents on its own have to be stripped before anything renders.</span>
+  <span data-lang-es>Pedirle al modelo que cite sus propias fuentes no resuelve esto. Es pedirle al componente que alucina que certifique que no lo hizo. Las citas deben generarse en el backend desde el registro real de llamadas, y los marcadores que el modelo inventa deben eliminarse antes de renderizar.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Why late review is structurally too late</span>
+  <span data-lang-es>Por qué la revisión tardía es estructuralmente tardía</span>
+</h2>
+
+<p>
+  <span data-lang-en>Every one of those five is load-bearing. Deployment topology determines what data the system may touch. The identity model determines what authorization can even be expressed. Tracing has to be present at every call site or the chain has gaps. The approval gate has to sit in the execution path, not beside it.</span>
+  <span data-lang-es>Cada una de esas cinco es estructural. La topología de despliegue determina qué datos puede tocar el sistema. El modelo de identidad determina qué autorización puede siquiera expresarse. El trazado debe estar presente en cada punto de llamada o la cadena tiene huecos. La puerta de aprobación debe estar en la ruta de ejecución, no al lado.</span>
+</p>
+
+<p>
+  <span data-lang-en>None of them is a feature that can be added in a hardening sprint. That is the whole problem with treating security review as a gate at the end: by the time the review happens, the answers are already fixed by decisions nobody realized they were making.</span>
+  <span data-lang-es>Ninguna es una función que pueda agregarse en un sprint de endurecimiento. Ese es todo el problema de tratar la revisión de seguridad como una compuerta al final: para cuando ocurre la revisión, las respuestas ya están fijadas por decisiones que nadie se dio cuenta de estar tomando.</span>
+</p>
+
+<div class="pro-tip">
+  <h4>
+    <span data-lang-en>A cheaper sequence</span>
+    <span data-lang-es>Una secuencia más barata</span>
+  </h4>
+  <p>
+    <span data-lang-en>Put the security architect in the first working session, before there is code to defend. Two weeks of their attention at the start costs less than a quarter of remediation at the end, and the output — a threat model and a deployment diagram your reviewers have already seen — is what makes the eventual review a formality instead of a negotiation.</span>
+    <span data-lang-es>Ponga al arquitecto de seguridad en la primera sesión de trabajo, antes de que haya código que defender. Dos semanas de su atención al inicio cuestan menos que un trimestre de remediación al final, y el resultado — un modelo de amenazas y un diagrama de despliegue que sus revisores ya vieron — es lo que convierte la revisión eventual en un trámite en lugar de una negociación.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>What a passing architecture looks like</span>
+  <span data-lang-es>Cómo se ve una arquitectura que aprueba</span>
+</h2>
+
+<p>
+  <span data-lang-en>The five answers that clear review are unglamorous and specific. Execution runs inside the customer's own cloud account, with agent-generated code isolated at the hypervisor level and outbound traffic denied by default. Every write halts at a gate showing a blast-radius diff, with the approval pinned to a concurrency token so it cannot be replayed against a modified plan. Authorization is the three-way intersection of platform, tenant, and role, compiled per turn. Every action is traced end to end. Every factual claim resolves to the tool call that produced it.</span>
+  <span data-lang-es>Las cinco respuestas que superan la revisión son poco glamorosas y muy concretas. La ejecución corre dentro de la propia cuenta de nube del cliente, con el código generado aislado a nivel de hipervisor y el tráfico saliente denegado por defecto. Cada escritura se detiene en una puerta que muestra un diff de impacto, con la aprobación anclada a un token de concurrencia para que no pueda repetirse contra un plan modificado. La autorización es la intersección triple de plataforma, inquilino y rol, compilada por turno. Cada acción se traza de extremo a extremo. Cada afirmación factual resuelve a la llamada que la produjo.</span>
+</p>
+
+<p>
+  <span data-lang-en>None of that is exotic. It is simply expensive to add later and nearly free to design in. The pilots that reach production are not the ones with the better model — they are the ones where somebody asked the five questions in week one.</span>
+  <span data-lang-es>Nada de eso es exótico. Simplemente es caro de agregar después y casi gratis de diseñar desde el inicio. Los pilotos que llegan a producción no son los del mejor modelo — son aquellos donde alguien hizo las cinco preguntas en la semana uno.</span>
+</p>

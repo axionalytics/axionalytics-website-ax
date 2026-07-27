@@ -1,0 +1,43 @@
+# =============================================================================
+# GitHub Pages / Jekyll configuration
+# -----------------------------------------------------------------------------
+# This file exists for ONE reason: to guarantee that private folders are never
+# published to the public web.
+#
+# GitHub Pages runs Jekyll by default. Jekyll already ignores files and folders
+# whose names begin with an underscore, which is why the private folders are
+# named that way. This file states the same thing explicitly, so the protection
+# does not depend on a convention someone might not know about.
+#
+# WHY THIS MATTERS
+# Before this file existed, example.md sat at the site root and was downloadable
+# at https://www.axionalytics.com/example.md — 548 KB of internal platform
+# documentation naming a client. Anything placed at the root of this repository
+# is served to the public. Assume that by default.
+#
+# THE RULE
+# If a file should not be downloadable by a stranger, it belongs in a folder
+# starting with an underscore, and that folder belongs in the exclude list below.
+#
+# DO NOT add .nojekyll to this repository. That switch turns Jekyll off, and
+# with it the underscore-folder protection, which would republish everything
+# listed here.
+# =============================================================================
+
+# Never published.
+exclude:
+  - _build/          # build scripts, page sources, partials
+  - _legacy/         # snapshot of the pre-2026 site, kept for rollback
+  - _private/        # client source documents, strategy notes, original artwork
+  - README.md        # repository documentation, not a web page
+
+# Jekyll would otherwise try to interpret Liquid syntax (double curly braces)
+# inside the page templates. Nothing here needs Jekyll processing — the site is
+# fully assembled by _build/scripts/all.sh before it is committed — so this keeps
+# Jekyll's hands off the output.
+plugins: []
+markdown: kramdown
+
+# Keep files Jekyll would normally skip.
+include:
+  - llms.txt

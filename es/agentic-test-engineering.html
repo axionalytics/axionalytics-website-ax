@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  ==========================================================================
+  AXIONALYTICS
+  GENERATED FILE — do not edit directly.
+
+  Source:  _build/pages/<slug>.meta.html  (title, meta, JSON-LD)
+           _build/pages/<slug>.body.html  (page content)
+  Chrome:  _build/partials/*.html         (head, header, footer)
+  Rebuild: bash _build/build.sh
+
+  Static HTML + Tailwind CDN. No server required — GitHub Pages compatible.
+  ==========================================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Axionalytics">
+  <!-- Search Console: paste the content value from the HTML-tag verification
+       method, or delete this line if verifying by DNS. Without verification you
+       get no query data, no index coverage report, and no manual-action alerts. -->
+  <!-- <meta name="google-site-verification" content="PASTE_TOKEN_HERE"> -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Axionalytics">
+  <meta property="og:image" content="https://www.axionalytics.com/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+  <title>Ingeniería de Pruebas Agéntica | De Requisitos y Código a Casos Verificados | Axionalytics</title>
+  <meta name="description" content="Convierta especificaciones, repositorios y PRs fusionados en casos de prueba revisados y trazables — y adapte miles de pruebas heredadas a una estructura consistente.">
+  <link rel="canonical" href="https://www.axionalytics.com/es/agentic-test-engineering.html">
+  <meta property="og:title" content="Ingeniería de Pruebas Agéntica | De Requisitos y Código a Casos Verificados | Axionalytics">
+  <meta property="og:description" content="Convierta especificaciones, repositorios y PRs fusionados en casos de prueba revisados y trazables — y adapte miles de pruebas heredadas a una estructura consistente.">
+  <meta property="og:url" content="https://www.axionalytics.com/es/agentic-test-engineering.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.axionalytics.com/agentic-test-engineering.html#service",
+    "name": "Agentic Test Engineering",
+    "serviceType": "Automated Verification and Test Case Generation",
+    "provider": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Test engineers, controls and systems engineers, QA leads, validation engineers, systems engineers"
+    },
+    "description": "A test engineering platform that generates verification test cases along three axes — requirement documents, source repositories, and merged pull requests — and retrofits legacy test suites to a consistent structure, with human review before anything is written to Azure DevOps.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Test Engineering Subsystems",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Requirements to Tests", "description": "Parses PDF, Word, Excel, and PowerPoint specifications, extracts testable requirements, matches them to signal entities, and generates natural-language and executable test cases." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Code to Tests", "description": "Ingests model-based design repositories, normalizes artifacts into code chunks, and generates test cases per component with coverage-driven iteration." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pull Requests to Tests", "description": "Monitors merged pull requests, triages them for behavioral relevance, and reconstructs testable intent from the diff." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Legacy Test Modernization", "description": "Reads existing test cases from suites, retrofits them to a golden structure with full signal enrichment, and writes approved updates back in place." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coverage Gap Analysis", "description": "Proactive scanning for uncovered signals and functions per configuration, with optional model-assisted triage." } }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can generated test cases be pushed to Azure DevOps automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Only after a human approves them. Every generated case lands in a review queue where an engineer can approve, edit, or reject it. Nothing is written to Azure DevOps without that step, and legacy updates show a field-level diff against the existing case before the write."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What document formats can the requirements pipeline read?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PDF, Microsoft Word, Microsoft Excel, and PowerPoint. It handles both structured specifications with formal requirement identifiers and narrative prose written in shall, must, and should language, so you do not have to normalize your corpus first."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this replace our test engineers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. It removes the transcription work and leaves the judgment. Engineers stop retyping a specification into a test management tool and spend their time reviewing coverage decisions, editing edge cases, and resolving the gaps the coverage scan surfaces."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the platform avoid generating tests for signals that do not exist?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Generation is grounded in a knowledge base built by parsing your actual source, not by the model's recollection. Requirements are matched against real signal entities with a re-ranking pass, and a grounding validator rejects output that references anything absent from the index."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.axionalytics.com/solutions.html" },
+      { "@type": "ListItem", "position": 3, "name": "Agentic Test Engineering", "item": "https://www.axionalytics.com/agentic-test-engineering.html" }
+    ]
+  }
+  </script>
+
+  <!-- Apply saved language before first paint to avoid a flash of English -->
+  <script>try{if(localStorage.getItem('axio-lang')==='es'){document.documentElement.classList.add('lang-es');document.documentElement.lang='es';}}catch(e){}</script>
+
+  <link rel="stylesheet" href="../assets/tailwind.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Loaded off the critical path; noscript keeps it working without JS. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+
+  <link rel="alternate" type="application/rss+xml" title="Axionalytics" href="/rss.xml">
+  <link rel="stylesheet" href="../assets/axio.css">
+  <link rel="alternate" hreflang="en" href="https://www.axionalytics.com/agentic-test-engineering.html">
+  <link rel="alternate" hreflang="es" href="https://www.axionalytics.com/es/agentic-test-engineering.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.axionalytics.com/agentic-test-engineering.html">
+</head>
+<body class="bg-white text-ax-ink">
+
+<a href="#main" class="ax-skip">
+  
+  Saltar al contenido
+</a>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header id="ax-header" class="fixed top-0 inset-x-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
+    <div class="flex items-center justify-between h-20">
+
+      <a href="index.html" class="ax-logo group shrink-0" aria-label="Axionalytics — home">
+        <img src="../assets/logo-mark-dark.png" alt="" width="88" height="100" fetchpriority="high" decoding="async">
+        <span class="text-[1.35rem] font-heading font-bold text-white tracking-tight group-hover:text-ax-cyan transition-colors">axionalytics</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden xl:flex items-center gap-9">
+
+        <!-- Solutions mega-dropdown -->
+        <div class="ax-dropdown-host relative">
+          <button class="ax-navlink flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors" aria-haspopup="true">
+            
+            Soluciones
+            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <div class="ax-dropdown absolute left-1/2 top-full pt-5 w-[41rem]">
+            <div class="rounded-2xl border border-white/10 bg-ax-ink/95 backdrop-blur-xl shadow-ax-lift p-3 grid grid-cols-2 gap-1">
+
+              <a href="agentic-test-engineering.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-cyan"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Ingeniería de Pruebas Agéntica
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Requisitos, código fuente y PRs fusionados se convierten en casos de prueba. Suites heredadas modernizadas en sitio.
+                </span>
+              </a>
+
+              <a href="enterprise-agentic-ai.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-violet"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    IA Agéntica Empresarial
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Agentes autónomos multi-paso en su VPC. Aislamiento de confianza cero, aprobación humana, procedencia citada.
+                </span>
+              </a>
+
+              <a href="agentic-business-intelligence.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-blue"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Inteligencia de Negocios Agéntica
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Lenguaje natural más una fuente gobernada se convierte en un tablero con modelo semántico real.
+                </span>
+              </a>
+
+              <a href="agentic-revenue-development.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-magenta"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Desarrollo de Ingresos Agéntico
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Descubrimiento de cuentas, investigación y borradores — con la decisión de envío en manos de una persona.
+                </span>
+              </a>
+
+              <a href="enterprise-ai-security.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors sm:col-span-2">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-teal"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Gobernanza de IA de Confianza Cero
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  La arquitectura que hace pasar los sistemas agénticos por la revisión de seguridad.
+                </span>
+              </a>
+
+              <div class="col-span-2 mt-1 rounded-xl bg-white/[0.03] border border-white/10 p-4 flex items-center justify-between gap-4">
+                <div>
+                  <p class="font-heading font-bold text-white text-sm mb-0.5">
+                    
+                    ¿No sabe cuál aplica?
+                  </p>
+                  <p class="text-xs text-white/55">
+                    
+                    Modele el caso financiero en su navegador. No se envía nada hasta que usted lo pida.
+                  </p>
+                </div>
+                <a href="roi-calculator.html" class="ax-btn ax-btn-primary text-xs px-4 py-2.5 shrink-0">
+                  
+                  Calculadora ROI
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="enterprise-ai-security.html" data-nav-for="enterprise-ai-security.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Seguridad
+        </a>
+        <a href="case-studies.html" data-nav-for="case-studies.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Casos de Éxito
+        </a>
+        <a href="pricing.html" data-nav-for="pricing.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Precios
+        </a>
+        <a href="about.html" data-nav-for="about.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Nosotros
+        </a>
+        <a href="contact.html" data-nav-for="contact.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Contacto
+        </a>
+      </div>
+
+      <!-- Right cluster -->
+      <div class="hidden xl:flex items-center gap-3">
+        <a href="../agentic-test-engineering.html" hreflang="en" aria-label="View this page in English" class="flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-white transition-colors px-2.5 py-2 rounded-lg hover:bg-white/5"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>EN</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary text-sm px-5 py-2.5">
+          
+          Agendar Sesión Técnica
+        </a>
+      </div>
+
+      <button id="ax-drawer-open" class="xl:hidden text-white p-2 -mr-2" aria-expanded="false" aria-controls="ax-drawer" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div id="ax-drawer" class="ax-drawer fixed inset-y-0 right-0 w-[21rem] max-w-full bg-ax-ink border-l border-white/10 z-50 xl:hidden overflow-y-auto ax-scroll-dark" aria-hidden="true">
+    <div class="flex flex-col min-h-full p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="font-heading font-bold text-white">
+          Menú
+        </span>
+        <button id="ax-drawer-close" class="text-white/70 hover:text-white p-2 -mr-2" aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Soluciones
+      </p>
+      <nav class="flex flex-col gap-1 mb-7">
+        <a href="agentic-test-engineering.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Ingeniería de Pruebas Agéntica
+        </a>
+        <a href="enterprise-agentic-ai.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          IA Agéntica Empresarial
+        </a>
+        <a href="agentic-business-intelligence.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Inteligencia de Negocios Agéntica
+        </a>
+        <a href="agentic-revenue-development.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Desarrollo de Ingresos Agéntico
+        </a>
+        <a href="enterprise-ai-security.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Gobernanza de IA de Confianza Cero
+        </a>
+      </nav>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Compañía
+      </p>
+      <nav class="flex flex-col gap-1">
+        <a href="case-studies.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Casos de Éxito
+        </a>
+        <a href="roi-calculator.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Calculadora ROI
+        </a>
+        <a href="glossary.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Glosario
+        </a>
+        <a href="pricing.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Precios
+        </a>
+        <a href="about.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Nosotros
+        </a>
+        <a href="contact.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Contacto
+        </a>
+      </nav>
+
+      <div class="mt-auto pt-8">
+        <a href="../agentic-test-engineering.html" hreflang="en" aria-label="View this page in English" class="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white/80 border border-white/15 rounded-xl py-3 mb-3 hover:bg-white/5 transition-colors"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>English</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary w-full py-3.5 text-sm">
+          Agendar Sesión Técnica
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="ax-scrim" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 xl:hidden opacity-0 pointer-events-none transition-opacity"></div>
+</header>
+
+<main id="main">
+
+<!-- ==========================================================================
+     PAGE HERO
+     ========================================================================== -->
+<section class="ax-hero ax-noise relative pt-36 pb-20 lg:pt-44 lg:pb-24 overflow-hidden">
+  <div class="ax-grid-bg"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <nav class="flex items-center gap-2 text-xs font-semibold text-white/35 mb-8 ax-reveal" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-ax-cyan transition-colors">
+        Inicio
+      </a>
+      <span>/</span>
+      <a href="solutions.html" class="hover:text-ax-cyan transition-colors">
+        Soluciones
+      </a>
+      <span>/</span>
+      <span class="text-white/60">
+        Ingeniería de Pruebas Agéntica
+      </span>
+    </nav>
+
+    <div class="grid lg:grid-cols-12 gap-14 items-start">
+      <div class="lg:col-span-7">
+        <div class="ax-pill ax-pill-dark mb-6 ax-reveal">
+          <span class="w-2 h-2 rounded-full bg-ax-cyan"></span>
+          
+          Solución 01 · Verificación y Validación
+        </div>
+
+        <h1 class="font-heading font-extrabold text-white text-[2.4rem] sm:text-5xl xl:text-[3.6rem] leading-[1.06] mb-7 ax-reveal">
+          
+          Su especificación no es cobertura de pruebas. <span class="ax-spectrum-text">Conviértala en cobertura.</span>
+        </h1>
+
+        <p class="text-lg text-white/65 leading-relaxed max-w-2xl mb-9 ax-reveal">
+          
+          Un documento de requisitos de 200 páginas contiene cientos de obligaciones verificables. Convertirlas en casos de prueba estructurados y trazables es mecánico, tedioso y le toma semanas a un ingeniero senior. Construimos una plataforma que hace la transcripción y deja el criterio a sus ingenieros — con revisión humana antes de tocar su herramienta ALM.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3.5 ax-reveal">
+          <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-7 py-4">
+            Agendar Sesión Técnica
+          </a>
+          <a href="#subsystems" class="ax-btn ax-btn-ghost px-7 py-4">
+            Ver los subsistemas
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 ax-reveal">
+        <div class="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur p-7">
+          <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-6">
+            Escala desplegada
+          </p>
+          <div class="space-y-5">
+            <div class="flex items-baseline justify-between gap-4 pb-5 border-b border-white/10">
+              <span class="text-sm text-white/55">
+                Entidades de señal indexadas
+              </span>
+              <span class="ax-mono font-bold text-2xl text-ax-cyan whitespace-nowrap">~<span data-count-to="14000" data-count-suffix="+">0</span></span>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 pb-5 border-b border-white/10">
+              <span class="text-sm text-white/55">
+                Fragmentos de código embebidos
+              </span>
+              <span class="ax-mono font-bold text-2xl text-white whitespace-nowrap"><span data-count-to="18000" data-count-suffix="+">0</span></span>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 pb-5 border-b border-white/10">
+              <span class="text-sm text-white/55">
+                Subsistemas aislados
+              </span>
+              <span class="ax-mono font-bold text-2xl text-white whitespace-nowrap"><span data-count-to="8">0</span></span>
+            </div>
+            <div class="flex items-baseline justify-between gap-4">
+              <span class="text-sm text-white/55">
+                Escrituras sin aprobación humana
+              </span>
+              <span class="ax-mono font-bold text-2xl text-ax-go whitespace-nowrap">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     THE THREE GAPS
+     ========================================================================== -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-16 ax-reveal">
+      <p class="ax-eyebrow text-ax-blue mb-5">
+        El problema
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-[1.1] mb-6">
+        
+        Tres brechas estructurales, no una.
+      </h2>
+      <p class="text-lg text-ax-ink/60 leading-relaxed">
+        
+        Toda organización de verificación con la que hemos trabajado tiene las mismas tres. La mayoría de las herramientas atiende una y finge que las otras dos no existen.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 ax-stagger">
+
+      <article class="ax-card ax-card-top p-7" style="--ax-accent:linear-gradient(90deg,#22D3EE,#3B82F6)">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-4">GAP 01</p>
+        <h3 class="font-heading font-bold text-xl mb-3">
+          De requisitos a pruebas
+        </h3>
+        <p class="text-ax-ink/60 leading-relaxed text-[0.95rem]">
+          
+          Los requisitos viven en PDFs, archivos Word y hojas de cálculo. Los casos de prueba deben vivir en una herramienta estructurada. El puente entre ambos es un humano transcribiendo una especificación, obligación por obligación, durante semanas — y equivocándose bajo presión de plazos.
+        </p>
+      </article>
+
+      <article class="ax-card ax-card-top p-7" style="--ax-accent:linear-gradient(90deg,#3B82F6,#4F46E5)">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-4">GAP 02</p>
+        <h3 class="font-heading font-bold text-xl mb-3">
+          De código a pruebas
+        </h3>
+        <p class="text-ax-ink/60 leading-relaxed text-[0.95rem]">
+          
+          Los repositorios de diseño basado en modelos definen el comportamiento real del sistema — modelos, diccionarios de datos, arneses — sin cobertura correspondiente. Los ingenieros deben rastrear la estructura del código a mano, y nadie puede decir qué porcentaje del comportamiento implementado está verificado.
+        </p>
+      </article>
+
+      <article class="ax-card ax-card-top p-7" style="--ax-accent:linear-gradient(90deg,#4F46E5,#A855F7)">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-4">GAP 03</p>
+        <h3 class="font-heading font-bold text-xl mb-3">
+          Deuda de pruebas heredadas
+        </h3>
+        <p class="text-ax-ink/60 leading-relaxed text-[0.95rem]">
+          
+          Miles de casos existentes usan estructura inconsistente, carecen de enriquecimiento de señales, omiten precondiciones y no tienen trazabilidad a requisitos. Modernizarlos a mano es aritméticamente imposible, así que la deuda se acumula y cada auditoría la vuelve a sacar a la luz.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ARCHITECTURE DIAGRAM
+     ========================================================================== -->
+<section class="ax-band py-24 lg:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-cyan mb-5">
+        Arquitectura
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        
+        Tres ejes de entrada. Una base de conocimiento compartida.
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        
+        La base de conocimiento se construye analizando su código real en entidades de señal y fragmentos de código. Cada ruta de generación se fundamenta en ella, por eso la salida referencia cosas que existen y no cosas que un modelo recuerda.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-white/10 bg-ax-void/60 p-5 lg:p-8 ax-diagram ax-scroll-dark ax-reveal">
+      <pre class="text-white/70"><span class="text-white/35">  Requirement Documents        Code Repositories          Legacy Test Cases         Merged PRs
+  (PDF · DOCX · XLSX · PPTX)   (model-based design)       (existing suites)         (watched repos)</span>
+           │                            │                          │                       │
+           ▼                            ▼                          ▼                       ▼
+  ┌────────────────┐         ┌────────────────────┐    ┌────────────────────┐   ┌──────────────────┐
+  │ <span class="text-ax-cyan">Requirements</span>   │         │ <span class="text-ax-cyan">Code to Tests</span>      │    │ <span class="text-ax-cyan">Test Case Update</span>   │   │ <span class="text-ax-cyan">PR Watch</span>         │
+  │ Pipeline       │         │                    │    │                    │   │                  │
+  │ 1 Parse        │         │ 1 Ingest repos     │    │ 1 Fetch suite      │   │ 1 Detect merge   │
+  │ 2 Extract      │         │ 2 Normalize        │    │ 2 Resolve reqs     │   │ 2 Triage impact  │
+  │ 3 Filter       │         │ 3 Embed chunks     │    │ 3 Match signals    │   │ 3 Rebuild intent │
+  │ 4 Classify     │         │ 4 Match signals    │    │ 4 Regenerate       │   │ 4 Scope panel    │
+  │ 5 Match        │         │ 5 Generate cases   │    │ 5 Diff &amp; save      │   │ 5 Generate       │
+  │ 6 Generate     │         │ 6 Review           │    │ 6 Write back       │   │                  │
+  │ 7 <span class="text-ax-warn">Review</span>       │         │   <span class="text-ax-warn">↑ human</span>          │    │   <span class="text-ax-warn">↑ human</span>          │   │   <span class="text-ax-warn">↑ human</span>        │
+  │ 8 Push to ALM  │         │                    │    │                    │   │                  │
+  └───────┬────────┘         └─────────┬──────────┘    └─────────┬──────────┘   └────────┬─────────┘
+          │                            │                          │                      │
+          └────────────────────────────┼──────────────────────────┴──────────────────────┘
+                                       ▼
+                     ┌──────────────────────────────────────┐
+                     │      <span class="text-ax-violet">SHARED KNOWLEDGE BASE</span>           │
+                     │  14,000+ signal entities (AST-built) │
+                     │  18,000+ embedded code chunks         │
+                     │  Requirement document memory         │
+                     │  Resident embedding model            │
+                     │  Your internal AI gateway transport  │
+                     └──────────────────┬───────────────────┘
+                                        │
+          ┌─────────────────────────────┼─────────────────────────────┐
+          ▼                             ▼                             ▼
+  ┌────────────────┐          ┌──────────────────┐          ┌──────────────────┐
+  │ <span class="text-ax-teal">Conversational</span> │          │ <span class="text-ax-teal">Gap Finder</span>       │          │ <span class="text-ax-teal">Knowledge</span>        │
+  │ Q&amp;A            │          │ Coverage scan    │          │ Browser          │
+  │ [E#] signals   │          │ per config ×     │          │ Deterministic    │
+  │ [D#] documents │          │ header, with     │          │ cards, zero LLM  │
+  │ [C#] code      │          │ model triage     │          │ read-only        │
+  └────────────────┘          └──────────────────┘          └──────────────────┘</pre>
+    </div>
+
+    <p class="text-xs text-white/35 mt-4 ax-reveal">
+      
+      Cada caja arriba es un subsistema empaquetado por separado con su propio almacén, telemetría e interruptor. Desactivar cualquiera deja la tubería central sin cambio alguno.
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SUBSYSTEMS
+     ========================================================================== -->
+<section id="subsystems" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-violet mb-5">
+        Subsistemas
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-[1.1] mb-6">
+        
+        Ocho capacidades. Adóptelas una por una.
+      </h2>
+      <p class="text-lg text-ax-ink/60 leading-relaxed">
+        
+        Cada subsistema está aislado y es tolerante a fallos: una falla devuelve vacío en lugar de derribar a otro. Eso hace realista un despliegue por etapas en vez de una migración de todo o nada.
+      </p>
+    </div>
+
+    <div class="ax-table-wrap rounded-2xl border border-ax-ink/10 overflow-hidden ax-reveal">
+      <table class="ax-table">
+        <thead class="bg-ax-mist">
+          <tr>
+            <th class="text-ax-ink/50">Subsistema</th>
+            <th class="text-ax-ink/50">Qué hace</th>
+            <th class="text-ax-ink/50">Por defecto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-bold whitespace-nowrap">Tubería de Requisitos</td>
+            <td class="text-ax-ink/65">Lee documentos de especificación, extrae requisitos verificables, empareja señales, genera casos en lenguaje natural y ejecutables, y envía los aprobados a su herramienta ALM.</td>
+            <td><span class="ax-pill ax-pill-cyan">Central</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold whitespace-nowrap">Código a Pruebas</td>
+            <td class="text-ax-ink/65">Ingiere repositorios de diseño basado en modelos desde control de versiones o sistema de archivos, normaliza artefactos en fragmentos y genera casos ejecutables por componente con iteración guiada por cobertura.</td>
+            <td><span class="ax-pill bg-ax-go/10 text-ax-go border border-ax-go/25">Activo</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold whitespace-nowrap">Vigilancia de PRs</td>
+            <td class="text-ax-ink/65">Monitorea PRs fusionados en repositorios vigilados, evalúa la relevancia conductual de cada uno, reconstruye la intención verificable desde el diff y pasa por un panel de alcance antes de despachar.</td>
+            <td><span class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15">Opcional</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold whitespace-nowrap">Actualización de Casos</td>
+            <td class="text-ax-ink/65">Lee casos heredados de suites existentes, los adapta a una estructura estándar con enriquecimiento de señales, muestra un diff por campo con pasos editables y escribe las actualizaciones aprobadas en sitio.</td>
+            <td><span class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15">Opcional</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold whitespace-nowrap">Consulta Conversacional</td>
+            <td class="text-ax-ink/65">Preguntas en lenguaje natural sobre señales, requisitos y código con tres planos de citación, filtrado por repositorio, contexto multi-turno y un crítico de fundamentación que rechaza respuestas sin respaldo.</td>
+            <td><span class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15">Opcional</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold whitespace-nowrap">Memoria Documental</td>
+            <td class="text-ax-ink/65">Memoria semántica persistente sobre prosa de requisitos y artefactos de código. Alimenta a los demás subsistemas con contexto citado y consultable para que compartan una sola vista del corpus.</td>
+            <td><span class="ax-pill bg-ax-go/10 text-ax-go border border-ax-go/25">Activo</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold whitespace-nowrap">Detector de Brechas</td>
+            <td class="text-ax-ink/65">Escaneo proactivo de señales y funciones sin cobertura en cada combinación de configuración, con triaje asistido opcional para priorizar lo que realmente importa.</td>
+            <td><span class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15">Opcional</span></td>
+          </tr>
+          <tr>
+            <td class="font-bold whitespace-nowrap">Redacción de Requisitos</td>
+            <td class="text-ax-ink/65">Redacta requisitos formales tipo "shall" a partir de prosa de ingeniería, con validación de fundamentación contra la base de conocimiento.</td>
+            <td><span class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15">Aislado</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     THE REVIEW GATE
+     ========================================================================== -->
+<section class="ax-dark py-24 lg:py-32 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-40"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-12 gap-14 items-center">
+
+      <div class="lg:col-span-6 ax-reveal">
+        <p class="ax-eyebrow text-ax-warn mb-5">
+          Lo innegociable
+        </p>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.85rem] text-white leading-[1.1] mb-6">
+          
+          Nada llega a su herramienta ALM sin revisión.
+        </h2>
+        <p class="text-lg text-white/60 leading-relaxed mb-7">
+          
+          Esta es la restricción que hace adoptable el sistema en una organización de verificación regulada. Generar es rápido y barato; un caso de prueba incorrecto escrito en silencio en un plan de pruebas no lo es. Por eso cada artefacto generado se detiene en una cola de revisión.
+        </p>
+        <ul class="space-y-4">
+          <li class="flex gap-3.5">
+            <svg class="w-5 h-5 text-ax-go shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <p class="text-white/60 leading-relaxed">
+              
+              <strong class="text-white">Aprobar, editar o rechazar</strong> — cada caso, individualmente o en lote, con el requisito fuente al lado.
+            </p>
+          </li>
+          <li class="flex gap-3.5">
+            <svg class="w-5 h-5 text-ax-go shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <p class="text-white/60 leading-relaxed">
+              
+              <strong class="text-white">Diffs por campo en actualizaciones heredadas</strong> — ve exactamente qué cambia en un caso existente antes de escribir, nunca un reemplazo total.
+            </p>
+          </li>
+          <li class="flex gap-3.5">
+            <svg class="w-5 h-5 text-ax-go shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <p class="text-white/60 leading-relaxed">
+              
+              <strong class="text-white">Trazabilidad escrita al generar</strong> — cada caso lleva el identificador del requisito y las señales que lo produjeron, así una auditoría se responde sola.
+            </p>
+          </li>
+          <li class="flex gap-3.5">
+            <svg class="w-5 h-5 text-ax-go shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <p class="text-white/60 leading-relaxed">
+              
+              <strong class="text-white">Un crítico de fundamentación actúa primero</strong> — la salida que referencia una señal ausente del índice se rechaza antes de llegar al revisor.
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-6 ax-reveal">
+        <div class="ax-terminal shadow-ax-lift">
+          <div class="ax-terminal-bar">
+            <span class="ax-terminal-dot bg-ax-stop/70"></span>
+            <span class="ax-terminal-dot bg-ax-warn/70"></span>
+            <span class="ax-terminal-dot bg-ax-go/70"></span>
+            <span class="ax-mono text-2xs text-white/40 ml-2">review queue · 1 of 148</span>
+          </div>
+          <div class="p-5 ax-mono text-xs space-y-4">
+
+            <div>
+              <p class="text-white/30 mb-1.5">SOURCE REQUIREMENT</p>
+              <div class="rounded-lg bg-white/[0.04] border border-white/10 p-3">
+                <p class="text-ax-cyan mb-1.5">REQ-4417 <span class="text-white/30">· §4.2.1</span></p>
+                <p class="text-white/60 leading-relaxed">
+                  
+                  "El controlador deberá inhibir el accionamiento cuando la señal de enclavamiento permanezca inactiva por más de 300 ms."
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <p class="text-white/30 mb-1.5">MATCHED SIGNALS <span class="text-white/20">· re-ranked</span></p>
+              <div class="space-y-1.5">
+                <div class="flex items-center justify-between gap-3 rounded-md bg-white/[0.03] px-3 py-2">
+                  <span class="text-white/70">Interlock_PresenceState</span>
+                  <span class="text-ax-go text-2xs">0.94</span>
+                </div>
+                <div class="flex items-center justify-between gap-3 rounded-md bg-white/[0.03] px-3 py-2">
+                  <span class="text-white/70">Actuator_InhibitCmd</span>
+                  <span class="text-ax-go text-2xs">0.91</span>
+                </div>
+                <div class="flex items-center justify-between gap-3 rounded-md bg-white/[0.03] px-3 py-2">
+                  <span class="text-white/70">Debounce_Threshold_ms</span>
+                  <span class="text-ax-warn text-2xs">0.72</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p class="text-white/30 mb-1.5">GENERATED CASE</p>
+              <div class="rounded-lg bg-white/[0.04] border border-white/10 p-3 space-y-1 text-white/60">
+                <p><span class="text-white/30">pre  </span>system in operational mode, engagement permitted</p>
+                <p><span class="text-white/30">step </span>drive Interlock_PresenceState inactive</p>
+                <p><span class="text-white/30">step </span>hold for 350 ms</p>
+                <p><span class="text-white/30">exp  </span>Actuator_InhibitCmd asserted within 300 ms</p>
+              </div>
+            </div>
+
+            <div class="flex gap-2 pt-1">
+              <span class="px-3 py-1.5 rounded-md bg-ax-go/15 text-ax-go text-2xs font-bold">
+                Aprobar
+              </span>
+              <span class="px-3 py-1.5 rounded-md bg-white/5 text-white/45 text-2xs font-bold">
+                Editar
+              </span>
+              <span class="px-3 py-1.5 rounded-md bg-white/5 text-white/45 text-2xs font-bold">
+                Rechazar
+              </span>
+              <span class="ml-auto px-3 py-1.5 rounded-md bg-ax-cyan/10 text-ax-cyan text-2xs font-bold">
+                Aprobar las 148
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     WHO IT IS FOR
+     ========================================================================== -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-blue mb-5">
+        Quién lo usa
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-[1.1]">
+        
+        Seis roles, una base de conocimiento.
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 ax-stagger">
+
+      <div class="ax-card p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Ingenieros de pruebas
+        </h3>
+        <p class="text-ax-ink/60 text-[0.93rem] leading-relaxed">
+          
+          Dejan de transcribir especificaciones. Revisan casos generados junto al requisito fuente y dedican el tiempo recuperado a los casos límite que el documento nunca enunció.
+        </p>
+      </div>
+
+      <div class="ax-card p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Ingenieros de control y sistemas
+        </h3>
+        <p class="text-ax-ink/60 text-[0.93rem] leading-relaxed">
+          
+          Generan cobertura directamente desde modelos de comportamiento, definiciones de interfaz y bancos de prueba, con trazabilidad opcional a requisitos en cada caso generado.
+        </p>
+      </div>
+
+      <div class="ax-card p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Líderes de QA
+        </h3>
+        <p class="text-ax-ink/60 text-[0.93rem] leading-relaxed">
+          
+          Llenan un plan de pruebas en una tarde en lugar de un trimestre, o ejecutan una modernización sobre una suite heredada intocable durante años.
+        </p>
+      </div>
+
+      <div class="ax-card p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Ingenieros de validación
+        </h3>
+        <p class="text-ax-ink/60 text-[0.93rem] leading-relaxed">
+          
+          Preguntan qué hace una señal, en qué configuraciones aparece o cómo interactúan dos componentes — y reciben una respuesta con citas a señales, documentos y código.
+        </p>
+      </div>
+
+      <div class="ax-card p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Ingenieros de sistemas
+        </h3>
+        <p class="text-ax-ink/60 text-[0.93rem] leading-relaxed">
+          
+          Redactan requisitos formales desde prosa de ingeniería con validación de fundamentación, y luego ejecutan un escaneo de cobertura para ver qué queda sin probar.
+        </p>
+      </div>
+
+      <div class="ax-card p-6 bg-ax-mist border-ax-blue/20">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Dirección de ingeniería
+        </h3>
+        <p class="text-ax-ink/60 text-[0.93rem] leading-relaxed">
+          
+          Responden la pregunta que antes nadie podía: ¿qué fracción del comportamiento implementado está verificada y dónde está exactamente la brecha?
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     INPUTS SUPPORTED
+     ========================================================================== -->
+<section class="py-20 lg:py-24 bg-ax-mist">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10">
+
+      <div class="ax-reveal">
+        <h2 class="font-heading font-bold text-2xl mb-6">
+          Formatos de documento admitidos
+        </h2>
+        <div class="flex flex-wrap gap-2.5">
+          <span class="ax-pill bg-white border border-ax-ink/10 text-ax-ink/70 ax-mono">.pdf</span>
+          <span class="ax-pill bg-white border border-ax-ink/10 text-ax-ink/70 ax-mono">.docx</span>
+          <span class="ax-pill bg-white border border-ax-ink/10 text-ax-ink/70 ax-mono">.doc</span>
+          <span class="ax-pill bg-white border border-ax-ink/10 text-ax-ink/70 ax-mono">.xlsx</span>
+          <span class="ax-pill bg-white border border-ax-ink/10 text-ax-ink/70 ax-mono">.xls</span>
+          <span class="ax-pill bg-white border border-ax-ink/10 text-ax-ink/70 ax-mono">.pptx</span>
+          <span class="ax-pill bg-white border border-ax-ink/10 text-ax-ink/70 ax-mono">.ppt</span>
+        </div>
+        <p class="text-ax-ink/55 text-sm leading-relaxed mt-5">
+          
+          No se requiere normalización previa. Apunta la tubería al corpus que ya tiene.
+        </p>
+      </div>
+
+      <div class="ax-reveal">
+        <h2 class="font-heading font-bold text-2xl mb-6">
+          Estilos de requisito manejados
+        </h2>
+        <div class="space-y-3">
+          <div class="bg-white rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">
+              Especificaciones estructuradas
+            </p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">
+              
+              Identificadores formales de requisito y encabezados de sección, como los producen las herramientas de gestión de requisitos.
+            </p>
+          </div>
+          <div class="bg-white rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">
+              Especificaciones narrativas
+            </p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">
+              
+              Prosa con lenguaje "shall", "must" y "should", sin identificadores formales — extraída, clasificada y con identificadores trazables asignados automáticamente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FAQ
+     ========================================================================== -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14">
+
+      <div class="lg:col-span-4 ax-reveal">
+        <p class="ax-eyebrow text-ax-blue mb-5">FAQ</p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-4xl leading-[1.12]">
+          
+          Lo que preguntan los líderes de verificación.
+        </h2>
+      </div>
+
+      <div class="lg:col-span-8 space-y-3 ax-stagger">
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="ate-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              ¿Puede enviar directo a Azure DevOps automáticamente?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">Solo después de aprobación humana.</strong> Cada caso generado entra en una cola de revisión donde un ingeniero aprueba, edita o rechaza. Las actualizaciones heredadas muestran además un diff por campo contra el caso existente antes de escribir. Consideramos que una escritura desatendida en un plan de pruebas es un defecto, no una función.
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="ate-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              ¿Cómo evitan que invente señales inexistentes?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">La generación se fundamenta en un índice construido desde su código, no en la memoria del modelo.</strong> Los requisitos se emparejan con entidades de señal reales con una pasada de re-clasificación, y un crítico de fundamentación rechaza cualquier salida que referencie algo ausente del índice antes de llegar al revisor. El modelo elige entre cosas que existen; no aporta el vocabulario.
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="ate-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              ¿Esto reemplaza a nuestros ingenieros de pruebas?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">No — elimina la transcripción y deja el criterio.</strong> La habilidad escasa en verificación es saber qué caso límite omitió la especificación, no teclear precondiciones en un formulario. Los equipos que lo adoptan reasignan ingenieros senior de la captura de datos al análisis de cobertura y la resolución de brechas.
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="ate-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              ¿Debemos adoptar los ocho subsistemas?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">No. La mayoría de los proyectos empieza con uno.</strong> Cada subsistema es un paquete separado con su propio almacén, telemetría e interruptor, y todos son tolerantes a fallos — una falla devuelve vacío en lugar de derribar a otro. Desactivar uno deja la tubería central sin cambios, que es justo la propiedad que hace defendible un despliegue por etapas ante un comité de cambios.
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="ate-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              ¿Dónde se ejecuta la inferencia?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">A través de su propio gateway de IA interno.</strong> Todos los subsistemas comparten un transporte único que apunta al endpoint de inferencia que su organización ya aprobó, de modo que el acceso al modelo sigue su política existente en lugar de introducir una nueva ruta de proveedor. El modelo de embeddings corre residente y localmente, por eso agregar un subsistema no cuesta un despliegue de modelo nuevo.
+          </p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CROSS-LINKS + CTA
+     ========================================================================== -->
+<section class="ax-band py-24 lg:py-28 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-50"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 ax-reveal">
+        <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-white leading-[1.12] mb-5">
+          
+          Tráiganos una especificación y una suite heredada.
+        </h2>
+        <p class="text-lg text-white/60 leading-relaxed mb-8">
+          
+          En una sesión técnica llevaremos su documento real por la ruta de extracción y le mostraremos cómo se ven las señales emparejadas y los casos generados con sus propias convenciones — no con un corpus de demostración enlatado.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3.5">
+          <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-7 py-4">
+            Agendar Sesión Técnica
+          </a>
+          <a href="roi-calculator.html" class="ax-btn ax-btn-ghost px-7 py-4">
+            Modelar el ROI
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 ax-reveal">
+        <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-4">
+          Relacionado
+        </p>
+        <div class="space-y-3">
+          <a href="enterprise-ai-security.html" class="block rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+            <p class="font-heading font-bold text-white mb-1">
+              Gobernanza de IA de Confianza Cero
+            </p>
+            <p class="text-sm text-white/50 leading-relaxed">
+              
+              Cómo la puerta de revisión, el rastro de auditoría y la topología superan una revisión de seguridad.
+            </p>
+          </a>
+          <a href="enterprise-agentic-ai.html" class="block rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-violet/40 hover:bg-white/[0.06] transition-colors">
+            <p class="font-heading font-bold text-white mb-1">
+              IA Agéntica Empresarial
+            </p>
+            <p class="text-sm text-white/50 leading-relaxed">
+              
+              La misma columna gobernada aplicada a flujos de negocio autónomos multi-paso.
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="bg-ax-void text-white pt-16 pb-10">
+  <hr class="ax-rule-spectrum mb-16 max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
+
+      <div class="lg:col-span-5">
+        <a href="index.html" class="ax-logo mb-5">
+          <img src="../assets/logo-mark-dark.png" alt="Axionalytics" width="88" height="100" loading="lazy" decoding="async">
+          <span class="text-[1.35rem] font-heading font-bold">axionalytics</span>
+        </a>
+        <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
+          
+          IA agéntica en producción para organizaciones Fortune 500 de ingeniería, datos e ingresos. Construida en Davenport, Iowa. Desplegada dentro de su perímetro.
+        </p>
+        <div class="flex gap-2.5">
+          <a href="https://www.linkedin.com/company/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="LinkedIn">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://wa.me/19562079368" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="WhatsApp">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Soluciones
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="agentic-test-engineering.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Ingeniería de Pruebas Agéntica</a></li>
+          <li><a href="enterprise-agentic-ai.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            IA Agéntica Empresarial</a></li>
+          <li><a href="agentic-business-intelligence.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Inteligencia de Negocios Agéntica</a></li>
+          <li><a href="agentic-revenue-development.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Desarrollo de Ingresos Agéntico</a></li>
+          <li><a href="enterprise-ai-security.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Gobernanza de IA de Confianza Cero</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Compañía
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="about.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Nosotros</a></li>
+          <li><a href="case-studies.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Casos de Éxito</a></li>
+          <li><a href="blog.html" class="text-white/65 hover:text-ax-cyan transition-colors">Blog</a></li>
+          <li><a href="contact.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Recursos
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="roi-calculator.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Calculadora ROI</a></li>
+          <li><a href="glossary.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Glosario</a></li>
+          <li><a href="pricing.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Precios</a></li>
+          <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agendar Sesión</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/[0.08] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/35 text-sm">
+        © <span data-year>2026</span> Axionalytics.
+        Todos los derechos reservados.
+      </p>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+        <a href="privacy.html" class="text-white/35 hover:text-white transition-colors">
+          Privacidad</a>
+        <a href="terms.html" class="text-white/35 hover:text-white transition-colors">
+          Términos</a>
+        <a href="accessibility.html" class="text-white/35 hover:text-white transition-colors">
+          Accesibilidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/axio.js"></script>
+<script src="../assets/axio-analytics.js"></script>
+</body>
+</html>

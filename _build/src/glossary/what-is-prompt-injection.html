@@ -1,0 +1,60 @@
+<h2>
+  <span data-lang-en>Why it cannot be prompted away</span>
+  <span data-lang-es>Por qué no se resuelve con más prompt</span>
+</h2>
+
+<p>
+  <span data-lang-en>The defence and the attack occupy the same channel. Instructing a model to ignore embedded instructions is itself an instruction, sitting in the same context window as the attacker's — so any mitigation written in the prompt is one the attacker can also address.</span>
+  <span data-lang-es>La defensa y el ataque ocupan el mismo canal. Instruir a un modelo a ignorar instrucciones incrustadas es en sí una instrucción, en la misma ventana de contexto que la del atacante — así que toda mitigación escrita en el prompt es una que el atacante también puede abordar.</span>
+</p>
+
+<p>
+  <span data-lang-en>Better prompting raises the cost of an attack. It does not close the class, and treating it as the control produces a single point of failure that an organization mistakes for a defence.</span>
+  <span data-lang-es>Un mejor prompt eleva el costo del ataque. No cierra la clase, y tratarlo como el control produce un punto único de falla que la organización confunde con una defensa.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The channels teams forget</span>
+  <span data-lang-es>Los canales que los equipos olvidan</span>
+</h2>
+
+<p>
+  <span data-lang-en>The typed user message is the obvious surface and rarely the one exploited. Three others are usually left open: <strong>retrieved documents</strong>, which carry whatever their author wrote and in an upload-enabled system that author need not be an employee; <strong>data returned by a tool</strong>, where any free-text field reaches the model as content; and <strong>tool descriptions</strong>, which enter the context as authoritative guidance and are usually treated as trusted configuration rather than third-party input.</span>
+  <span data-lang-es>El mensaje escrito por el usuario es la superficie obvia y rara vez la explotada. Otras tres suelen quedar abiertas: <strong>documentos recuperados</strong>, que llevan lo que escribió su autor y en un sistema con cargas ese autor no tiene por qué ser un empleado; <strong>datos devueltos por una herramienta</strong>, donde cualquier campo de texto libre llega al modelo como contenido; y <strong>descripciones de herramientas</strong>, que entran al contexto como guía autorizada y suelen tratarse como configuración confiable.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Containment is the actual control</span>
+  <span data-lang-es>La contención es el control real</span>
+</h2>
+
+<p>
+  <span data-lang-en>Assume injection succeeds, then ask what the agent can do with it. If the honest answer is "write to a system of record" or "reach an arbitrary external host", the problem is not the injection — it is that the capability existed unconditionally.</span>
+  <span data-lang-es>Asuma que la inyección tiene éxito y pregunte qué puede hacer el agente con ella. Si la respuesta honesta es "escribir en un sistema de registro" o "alcanzar un host externo arbitrario", el problema no es la inyección — es que la capacidad existía sin condiciones.</span>
+</p>
+
+<p>
+  <span data-lang-en>The layers that contain it are structural: validate every proposed tool call against a policy the model cannot see; constrain the tool roster to the intersection of platform capability, tenant entitlement, and the acting user's role; stop every write at a human gate; and deny egress by default from the execution sandbox.</span>
+  <span data-lang-es>Las capas que la contienen son estructurales: validar cada llamada propuesta contra una política que el modelo no puede ver; restringir el catálogo de herramientas a la intersección de capacidad de plataforma, derechos del inquilino y rol del usuario; detener cada escritura en una puerta humana; y denegar la salida por defecto desde el sandbox.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>With containment in place</span>
+    <span data-lang-es>Con la contención en su lugar</span>
+  </h4>
+  <p>
+    <span data-lang-en>A successful injection produces an unauthorised read within permissions that user already held, plus an audit trace showing exactly what was attempted. That is a manageable incident rather than a breach.</span>
+    <span data-lang-es>Una inyección exitosa produce una lectura no autorizada dentro de permisos que ese usuario ya tenía, más una traza que muestra exactamente qué se intentó. Eso es un incidente manejable, no una brecha.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>It is testable</span>
+  <span data-lang-es>Es comprobable</span>
+</h2>
+
+<p>
+  <span data-lang-en>Seed a document with instructions and confirm the agent does not follow them. Register a tool that impersonates a trusted one and confirm the call is denied. Point a generated URL outside the allowlist and confirm it does not render. Those belong in the automated suite rather than an annual assessment — injection resistance regresses quietly whenever a connector is added.</span>
+  <span data-lang-es>Siembre un documento con instrucciones y confirme que el agente no las sigue. Registre una herramienta que suplante a una confiable y confirme que la llamada se deniega. Apunte una URL generada fuera de la lista permitida y confirme que no se renderiza. Eso va en la suite automatizada, no en una evaluación anual — la resistencia se degrada en silencio cada vez que se agrega un conector.</span>
+</p>

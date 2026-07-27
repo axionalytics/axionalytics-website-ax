@@ -1,0 +1,65 @@
+<h2>
+  <span data-lang-en>What separates it from a chatbot</span>
+  <span data-lang-es>Qué lo separa de un chatbot</span>
+</h2>
+
+<p>
+  <span data-lang-en>A chatbot produces text and stops. An agent produces an <em>action</em>, observes what came back, and decides what to do next — a loop usually described as reason, act, observe. The model is not answering a question; it is working a task until a stopping condition is met.</span>
+  <span data-lang-es>Un chatbot produce texto y se detiene. Un agente produce una <em>acción</em>, observa qué devolvió y decide qué hacer después — un ciclo que suele describirse como razonar, actuar, observar. El modelo no responde una pregunta; trabaja una tarea hasta cumplir una condición de parada.</span>
+</p>
+
+<p>
+  <span data-lang-en>That difference is what makes the category commercially interesting and what makes it a security concern. A system that can only produce text has a worst case of unhelpful text. A system holding tools has a worst case bounded by whatever those tools can reach.</span>
+  <span data-lang-es>Esa diferencia es lo que hace comercialmente interesante a la categoría y lo que la convierte en una preocupación de seguridad. Un sistema que solo produce texto tiene como peor caso un texto inútil. Un sistema con herramientas tiene un peor caso acotado por lo que esas herramientas alcancen.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The four components</span>
+  <span data-lang-es>Los cuatro componentes</span>
+</h2>
+
+<p>
+  <span data-lang-en><strong>A model that plans.</strong> It decomposes a request into steps and selects the next action, rather than emitting a single response.</span>
+  <span data-lang-es><strong>Un modelo que planifica.</strong> Descompone una solicitud en pasos y elige la siguiente acción, en lugar de emitir una sola respuesta.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Tools.</strong> Functions the model may invoke — query a warehouse, read a document, update a record. The tool roster defines the system's capability and, precisely, its blast radius.</span>
+  <span data-lang-es><strong>Herramientas.</strong> Funciones que el modelo puede invocar — consultar un almacén, leer un documento, actualizar un registro. El catálogo de herramientas define la capacidad del sistema y, exactamente, su radio de impacto.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Memory.</strong> State carried across steps and across turns, so a follow-up question does not restart from nothing.</span>
+  <span data-lang-es><strong>Memoria.</strong> Estado que se mantiene entre pasos y entre turnos, para que una pregunta de seguimiento no empiece de cero.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Controls.</strong> The part most descriptions omit. Something has to decide which tools this user may reach, validate each proposed call before it runs, and stop the loop when it should stop. Without controls the other three components are a demo.</span>
+  <span data-lang-es><strong>Controles.</strong> La parte que la mayoría de las descripciones omite. Algo debe decidir qué herramientas puede alcanzar este usuario, validar cada llamada propuesta antes de ejecutarla y detener el ciclo cuando corresponda. Sin controles, los otros tres componentes son una demostración.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The question that separates production from prototype</span>
+    <span data-lang-es>La pregunta que separa producción de prototipo</span>
+  </h4>
+  <p>
+    <span data-lang-en>Ask what happens when the agent decides to do something wrong. If the answer depends on the model choosing correctly, it is a prototype. If a gate refuses the action regardless of what the model decided, it is a system.</span>
+    <span data-lang-es>Pregunte qué ocurre cuando el agente decide hacer algo incorrecto. Si la respuesta depende de que el modelo elija bien, es un prototipo. Si una puerta rechaza la acción sin importar lo que el modelo decidió, es un sistema.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Where enterprises actually use it</span>
+  <span data-lang-es>Dónde lo usan realmente las empresas</span>
+</h2>
+
+<p>
+  <span data-lang-en>The deployments that reach production share a shape: a bounded task, a defined set of systems, and a human approving anything that writes. Generating verification test cases from a specification. Answering an analytical question by exploring a warehouse. Producing a first-draft dashboard from a request. Qualifying an account and proposing a CRM update.</span>
+  <span data-lang-es>Los despliegues que llegan a producción comparten una forma: una tarea acotada, un conjunto definido de sistemas y un humano aprobando todo lo que escribe. Generar casos de prueba desde una especificación. Responder una pregunta analítica explorando un almacén. Producir un primer borrador de tablero. Calificar una cuenta y proponer una actualización de CRM.</span>
+</p>
+
+<p>
+  <span data-lang-en>What they have in common is that the mechanical portion of the work is large and the judgment portion is retained by a person. Deployments that attempt to automate the judgment are the ones still described as pilots eighteen months later.</span>
+  <span data-lang-es>Lo que tienen en común es que la porción mecánica del trabajo es grande y la porción de criterio la conserva una persona. Los despliegues que intentan automatizar el criterio son los que dieciocho meses después siguen llamándose pilotos.</span>
+</p>

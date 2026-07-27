@@ -1,0 +1,15 @@
+# Every text file in this project is written by a Python or bash script, and
+# those scripts emit LF. Letting Windows check the files out as CRLF would make
+# git report all 82 generated pages as modified after every build, which buries
+# the real changes in noise.
+#
+# Store LF, check out LF, everywhere.
+* text=auto eol=lf
+
+# Binary — never touch these.
+*.png binary
+*.jpg binary
+*.ico binary
+*.xlsx binary
+*.woff binary
+*.woff2 binary

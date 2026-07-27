@@ -1,0 +1,796 @@
+
+<!-- ==========================================================================
+     HERO
+     ========================================================================== -->
+<section class="ax-hero ax-noise relative pt-36 pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
+  <div class="ax-grid-bg"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-12 gap-14 items-center">
+
+      <div class="lg:col-span-7">
+        <div class="ax-pill ax-pill-dark mb-7 ax-reveal">
+          <span class="ax-dot"></span>
+          <span data-lang-en>Production systems, not proofs of concept</span>
+          <span data-lang-es>Sistemas en producción, no pruebas de concepto</span>
+        </div>
+
+        <h1 class="font-heading font-extrabold text-white text-[2.6rem] sm:text-6xl xl:text-[4.15rem] leading-[1.04] mb-7 ax-reveal">
+          <span data-lang-en>Agentic AI that survives <span class="ax-spectrum-text">enterprise security review</span>.</span>
+          <span data-lang-es>IA agéntica que sobrevive a la <span class="ax-spectrum-text">revisión de seguridad empresarial</span>.</span>
+        </h1>
+
+        <p class="text-lg lg:text-xl text-white/65 leading-relaxed max-w-2xl mb-9 ax-reveal">
+          <span data-lang-en>Most enterprise AI dies in the security questionnaire, not the demo. We build autonomous systems for Fortune 500 engineering, data, and revenue organizations that execute inside your own VPC, stop at a human approval before writing anything, and trace every claim back to the tool call that produced it.</span>
+          <span data-lang-es>La mayoría de la IA empresarial muere en el cuestionario de seguridad, no en la demostración. Construimos sistemas autónomos para organizaciones Fortune 500 de ingeniería, datos e ingresos que se ejecutan dentro de su propia VPC, se detienen ante una aprobación humana antes de escribir, y rastrean cada afirmación hasta la llamada que la produjo.</span>
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3.5 mb-12 ax-reveal">
+          <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-7 py-4">
+            <span data-lang-en>Book a Technical Briefing</span>
+            <span data-lang-es>Agendar Sesión Técnica</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+          </a>
+          <a href="enterprise-ai-security.html" class="ax-btn ax-btn-ghost px-7 py-4">
+            <span data-lang-en>Read the security architecture</span>
+            <span data-lang-es>Ver la arquitectura de seguridad</span>
+          </a>
+        </div>
+
+        <!-- Trust strip -->
+        <div class="flex flex-wrap items-center gap-x-7 gap-y-3 text-xs font-semibold text-white/45 ax-reveal">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-ax-cyan shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
+            <span data-lang-en>Zero data egress · BYOC</span><span data-lang-es>Cero salida de datos · BYOC</span>
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-ax-cyan shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
+            <span data-lang-en>SAML 2.0 · OIDC · RBAC</span><span data-lang-es>SAML 2.0 · OIDC · RBAC</span>
+          </span>
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-ax-cyan shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span data-lang-en>Human approval on every write</span><span data-lang-es>Aprobación humana en cada escritura</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Hero visual: a governed agent run, rendered the way the product behaves -->
+      <div class="lg:col-span-5 ax-reveal">
+        <div class="ax-terminal shadow-ax-lift">
+          <div class="ax-terminal-bar">
+            <span class="ax-terminal-dot bg-ax-stop/70"></span>
+            <span class="ax-terminal-dot bg-ax-warn/70"></span>
+            <span class="ax-terminal-dot bg-ax-go/70"></span>
+            <span class="ax-mono text-2xs text-white/40 ml-2">session · governed run</span>
+          </div>
+
+          <div class="p-5 space-y-3 ax-mono text-xs leading-relaxed">
+            <div class="text-white/40">
+              <span class="text-ax-cyan">▸</span>
+              <span data-lang-en>"Which accounts slipped last quarter, and why?"</span>
+              <span data-lang-es>"¿Qué cuentas se retrasaron el trimestre pasado y por qué?"</span>
+            </div>
+
+            <div class="pl-3 border-l border-white/10 space-y-2 pt-1">
+              <div class="flex items-start gap-2">
+                <span class="text-ax-go shrink-0">✓</span>
+                <span class="text-white/55">router · <span class="text-white/80">NEW_TASK</span> <span class="text-white/30">(84 ms)</span></span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-ax-go shrink-0">✓</span>
+                <span class="text-white/55">tokenize · <span class="text-white/80">14 PII spans held</span></span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-ax-go shrink-0">✓</span>
+                <span class="text-white/55">discover · <span class="text-white/80">7 tables of 50,000+</span></span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-ax-go shrink-0">✓</span>
+                <span class="text-white/55">aggregate · <span class="text-white/80">warehouse read</span> <span class="text-ax-cyan">[1]</span></span>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="text-ax-warn shrink-0 animate-pulse">◆</span>
+                <span class="text-white/55">crm.update · <span class="text-ax-warn">
+                  <span data-lang-en>awaiting approval</span><span data-lang-es>esperando aprobación</span>
+                </span></span>
+              </div>
+            </div>
+
+            <!-- HITL gate card -->
+            <div class="rounded-lg border border-ax-warn/30 bg-ax-warn/[0.07] p-3.5 mt-1">
+              <div class="flex items-center justify-between mb-2.5">
+                <span class="text-2xs font-bold uppercase tracking-wider text-ax-warn">
+                  <span data-lang-en>Write gate</span><span data-lang-es>Puerta de escritura</span>
+                </span>
+                <span class="text-2xs text-white/30">blast radius · 12</span>
+              </div>
+              <p class="text-white/60 text-2xs leading-relaxed mb-3">
+                <span data-lang-en>Agent proposes updating 12 opportunity records. Diff preview attached.</span>
+                <span data-lang-es>El agente propone actualizar 12 oportunidades. Vista previa adjunta.</span>
+              </p>
+              <div class="flex gap-2">
+                <span class="px-2.5 py-1 rounded-md bg-ax-go/15 text-ax-go text-2xs font-bold">
+                  <span data-lang-en>Approve</span><span data-lang-es>Aprobar</span>
+                </span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-white/45 text-2xs font-bold">
+                  <span data-lang-en>Reject</span><span data-lang-es>Rechazar</span>
+                </span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 text-white/45 text-2xs font-bold">
+                  <span data-lang-en>Escalate</span><span data-lang-es>Escalar</span>
+                </span>
+              </div>
+            </div>
+
+            <p class="text-2xs text-white/25 pt-1">
+              <span class="text-ax-cyan">[1]</span>
+              <span data-lang-en>citation resolves to the exact tool call and result set</span>
+              <span data-lang-es>la cita resuelve a la llamada y el conjunto de resultados exactos</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     PROOF BAR
+     ========================================================================== -->
+<section class="ax-dark border-y border-white/[0.07] py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 ax-stagger">
+
+      <div class="text-center lg:border-r border-white/10 lg:pr-4">
+        <p class="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-1.5">
+          <span data-count-to="2600" data-count-suffix="+">0</span>
+        </p>
+        <p class="text-xs font-semibold text-white/45 leading-snug">
+          <span data-lang-en>Automated tests across shipped platforms</span>
+          <span data-lang-es>Pruebas automatizadas en plataformas entregadas</span>
+        </p>
+      </div>
+
+      <div class="text-center lg:border-r border-white/10 lg:pr-4">
+        <p class="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-1.5">0</p>
+        <p class="text-xs font-semibold text-white/45 leading-snug">
+          <span data-lang-en>Bytes of customer data leaving the customer VPC</span>
+          <span data-lang-es>Bytes de datos del cliente que salen de su VPC</span>
+        </p>
+      </div>
+
+      <div class="text-center lg:border-r border-white/10 lg:pr-4">
+        <p class="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-1.5">
+          <span data-count-to="50000" data-count-suffix="+">0</span>
+        </p>
+        <p class="text-xs font-semibold text-white/45 leading-snug">
+          <span data-lang-en>Tables an agent navigates without bulk schema injection</span>
+          <span data-lang-es>Tablas que un agente navega sin inyección masiva de esquema</span>
+        </p>
+      </div>
+
+      <div class="text-center">
+        <p class="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-1.5">
+          <span data-count-to="90">0</span><span class="text-2xl align-top">s</span>
+        </p>
+        <p class="text-xs font-semibold text-white/45 leading-snug">
+          <span data-lang-en>Upper bound on a governed dashboard build</span>
+          <span data-lang-es>Límite superior para construir un tablero gobernado</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     THE PROBLEM
+     ========================================================================== -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-16 ax-reveal">
+      <p class="ax-eyebrow text-ax-blue mb-5">
+        <span data-lang-en>The pattern</span><span data-lang-es>El patrón</span>
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-[1.1] mb-6">
+        <span data-lang-en>Your pilot worked. It still is not in production.</span>
+        <span data-lang-es>Su piloto funcionó. Aún no está en producción.</span>
+      </h2>
+      <p class="text-lg text-ax-ink/60 leading-relaxed">
+        <span data-lang-en>The demo is never the hard part. The hard part is the eighteen months between a convincing prototype and a system your security, compliance, and platform teams will actually sign. Three failure modes account for nearly all of it.</span>
+        <span data-lang-es>La demostración nunca es la parte difícil. Lo difícil son los dieciocho meses entre un prototipo convincente y un sistema que sus equipos de seguridad, cumplimiento y plataforma realmente aprueben. Tres modos de falla explican casi todo.</span>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 ax-stagger">
+
+      <article class="ax-card ax-card-top p-7" style="--ax-accent:linear-gradient(90deg,#F43F5E,#A855F7)">
+        <div class="w-11 h-11 rounded-xl bg-ax-stop/10 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-stop" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-xl mb-3">
+          <span data-lang-en>The data cannot leave</span>
+          <span data-lang-es>Los datos no pueden salir</span>
+        </h3>
+        <p class="text-ax-ink/60 leading-relaxed text-[0.95rem]">
+          <span data-lang-en>Your prototype called a vendor API from a laptop. Production means regulated data, a data residency clause, and a security team that will not approve an architecture where proprietary information crosses your perimeter to be inferenced on someone else's hardware.</span>
+          <span data-lang-es>Su prototipo llamó a una API externa desde una laptop. Producción significa datos regulados, una cláusula de residencia de datos y un equipo de seguridad que no aprobará una arquitectura donde la información propietaria cruce su perímetro.</span>
+        </p>
+      </article>
+
+      <article class="ax-card ax-card-top p-7" style="--ax-accent:linear-gradient(90deg,#F59E0B,#F43F5E)">
+        <div class="w-11 h-11 rounded-xl bg-ax-warn/10 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-warn" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.46 12C3.73 7.94 7.52 5 12 5s8.27 2.94 9.54 7c-1.27 4.06-5.06 7-9.54 7s-8.27-2.94-9.54-7z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-xl mb-3">
+          <span data-lang-en>Nobody can audit the answer</span>
+          <span data-lang-es>Nadie puede auditar la respuesta</span>
+        </h3>
+        <p class="text-ax-ink/60 leading-relaxed text-[0.95rem]">
+          <span data-lang-en>A model produces a confident number. No one can say which query produced it, whether the join was correct, or whether the model invented it outright. In a regulated forecast or a safety case, an unverifiable answer is worth less than no answer at all.</span>
+          <span data-lang-es>Un modelo produce un número con confianza. Nadie puede decir qué consulta lo produjo, si la unión fue correcta, o si el modelo lo inventó. En un pronóstico regulado o un caso de seguridad, una respuesta no verificable vale menos que ninguna.</span>
+        </p>
+      </article>
+
+      <article class="ax-card ax-card-top p-7" style="--ax-accent:linear-gradient(90deg,#3B82F6,#22D3EE)">
+        <div class="w-11 h-11 rounded-xl bg-ax-blue/10 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-xl mb-3">
+          <span data-lang-en>It cannot touch anything real</span>
+          <span data-lang-es>No puede tocar nada real</span>
+        </h3>
+        <p class="text-ax-ink/60 leading-relaxed text-[0.95rem]">
+          <span data-lang-en>Read-only assistants are safe and largely worthless. The value is in the write: filing the test case, updating the record, publishing the dashboard. That requires an approval gate, a blast-radius preview, and replay protection — engineering most pilots never budget for.</span>
+          <span data-lang-es>Los asistentes de solo lectura son seguros y en gran medida inútiles. El valor está en la escritura: registrar el caso de prueba, actualizar el registro, publicar el tablero. Eso requiere una puerta de aprobación, vista previa de impacto y protección contra repetición.</span>
+        </p>
+      </article>
+    </div>
+
+    <div class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-8 lg:p-10 ax-reveal">
+      <p class="font-heading font-bold text-xl lg:text-2xl leading-snug max-w-4xl">
+        <span data-lang-en>We treat all three as architecture problems, not prompt problems. That is the entire difference between a system that ships and a system that demos.</span>
+        <span data-lang-es>Tratamos los tres como problemas de arquitectura, no de prompts. Esa es toda la diferencia entre un sistema que se entrega y uno que solo se demuestra.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SOLUTION PILLARS
+     ========================================================================== -->
+<section id="solutions" class="ax-band py-24 lg:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-16 ax-reveal">
+      <p class="ax-eyebrow text-ax-cyan mb-5">
+        <span data-lang-en>Solutions</span><span data-lang-es>Soluciones</span>
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        <span data-lang-en>Four systems we have already built and shipped.</span>
+        <span data-lang-es>Cuatro sistemas que ya hemos construido y entregado.</span>
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        <span data-lang-en>Each one started as a Fortune 500 problem with a real budget and a real deadline. Each is running in production today. We deploy them as the starting architecture for your engagement rather than beginning from an empty repository.</span>
+        <span data-lang-es>Cada uno comenzó como un problema Fortune 500 con presupuesto y fecha límite reales. Cada uno está en producción hoy. Los desplegamos como arquitectura inicial de su proyecto en lugar de empezar desde un repositorio vacío.</span>
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 ax-stagger">
+
+      <!-- Pillar 1 -->
+      <article class="ax-card-dark p-8 flex flex-col">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="ax-mono text-2xs text-white/30">01</span>
+          <span class="h-px flex-1 bg-gradient-to-r from-ax-cyan/60 to-transparent"></span>
+        </div>
+        <h3 class="font-heading font-bold text-2xl text-white mb-4 leading-tight">
+          <span data-lang-en>Agentic Test Engineering</span>
+          <span data-lang-es>Ingeniería de Pruebas Agéntica</span>
+        </h3>
+        <p class="text-white/55 leading-relaxed mb-6 text-[0.95rem]">
+          <span data-lang-en>A 200-page specification becomes reviewed, traceable test cases in your ALM tool. Source repositories generate coverage directly. Thousands of inconsistent legacy tests get retrofitted to a golden structure in place.</span>
+          <span data-lang-es>Una especificación de 200 páginas se convierte en casos de prueba revisados y trazables en su herramienta ALM. Los repositorios generan cobertura directamente. Miles de pruebas heredadas inconsistentes se adaptan a una estructura estándar.</span>
+        </p>
+        <ul class="space-y-2.5 mb-8 text-sm">
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-cyan mt-0.5 shrink-0">→</span>
+            <span><span data-lang-en>Requirements, code, and merged PRs as three generation axes</span><span data-lang-es>Requisitos, código y PRs fusionados como tres ejes de generación</span></span>
+          </li>
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-cyan mt-0.5 shrink-0">→</span>
+            <span><span data-lang-en>Eight isolated subsystems, each independently kill-switched</span><span data-lang-es>Ocho subsistemas aislados, cada uno con interruptor independiente</span></span>
+          </li>
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-cyan mt-0.5 shrink-0">→</span>
+            <span><span data-lang-en>Nothing reaches your ALM tool without human review</span><span data-lang-es>Nada llega a su herramienta ALM sin revisión humana</span></span>
+          </li>
+        </ul>
+        <a href="agentic-test-engineering.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-ax-cyan hover:gap-3 transition-all">
+          <span data-lang-en>How it works</span><span data-lang-es>Cómo funciona</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+        </a>
+      </article>
+
+      <!-- Pillar 2 -->
+      <article class="ax-card-dark p-8 flex flex-col">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="ax-mono text-2xs text-white/30">02</span>
+          <span class="h-px flex-1 bg-gradient-to-r from-ax-violet/60 to-transparent"></span>
+        </div>
+        <h3 class="font-heading font-bold text-2xl text-white mb-4 leading-tight">
+          <span data-lang-en>Enterprise Agentic AI</span>
+          <span data-lang-es>IA Agéntica Empresarial</span>
+        </h3>
+        <p class="text-white/55 leading-relaxed mb-6 text-[0.95rem]">
+          <span data-lang-en>Autonomous multi-step agents that qualify accounts, run competitive analysis, price deals, and update the CRM — inside a zero-trust execution environment your security team can actually inspect.</span>
+          <span data-lang-es>Agentes autónomos multi-paso que califican cuentas, analizan competencia, fijan precios y actualizan el CRM — dentro de un entorno de ejecución de confianza cero que su equipo de seguridad puede inspeccionar.</span>
+        </p>
+        <ul class="space-y-2.5 mb-8 text-sm">
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-violet mt-0.5 shrink-0">→</span>
+            <span><span data-lang-en>Agent code runs in hardware-isolated MicroVMs, never shared hosts</span><span data-lang-es>El código del agente corre en MicroVMs aisladas por hardware</span></span>
+          </li>
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-violet mt-0.5 shrink-0">→</span>
+            <span><span data-lang-en>New systems connect via a YAML manifest, not a code change</span><span data-lang-es>Los sistemas nuevos se conectan con un manifiesto YAML, no con código</span></span>
+          </li>
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-violet mt-0.5 shrink-0">→</span>
+            <span><span data-lang-en>Citations generated by the backend, never by the model</span><span data-lang-es>Citas generadas por el backend, nunca por el modelo</span></span>
+          </li>
+        </ul>
+        <a href="enterprise-agentic-ai.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-ax-violet hover:gap-3 transition-all">
+          <span data-lang-en>How it works</span><span data-lang-es>Cómo funciona</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+        </a>
+      </article>
+
+      <!-- Pillar 3 -->
+      <article class="ax-card-dark p-8 flex flex-col">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="ax-mono text-2xs text-white/30">03</span>
+          <span class="h-px flex-1 bg-gradient-to-r from-ax-blue/60 to-transparent"></span>
+        </div>
+        <h3 class="font-heading font-bold text-2xl text-white mb-4 leading-tight">
+          <span data-lang-en>Agentic Business Intelligence</span>
+          <span data-lang-es>Inteligencia de Negocios Agéntica</span>
+        </h3>
+        <p class="text-white/55 leading-relaxed mb-6 text-[0.95rem]">
+          <span data-lang-en>One sentence and a governed data source produce a real Power BI artifact — tables, relationships, DAX measures, visuals, page layouts — that opens directly in Desktop. Not a screenshot. A file your BI team owns.</span>
+          <span data-lang-es>Una frase y una fuente de datos gobernada producen un artefacto real de Power BI — tablas, relaciones, medidas DAX, visuales y diseños — que abre directamente en Desktop. No una captura. Un archivo que su equipo posee.</span>
+        </p>
+        <ul class="space-y-2.5 mb-8 text-sm">
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-blue mt-0.5 shrink-0">→</span>
+            <span><span data-lang-en>Five cloud warehouses plus fourteen file adapters</span><span data-lang-es>Cinco almacenes en la nube más catorce adaptadores de archivos</span></span>
+          </li>
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-blue mt-0.5 shrink-0">→</span>
+            <span><span data-lang-en>PII detected and redacted before the model sees anything</span><span data-lang-es>PII detectada y redactada antes de que el modelo vea algo</span></span>
+          </li>
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-blue mt-0.5 shrink-0">→</span>
+            <span><span data-lang-en>Three self-correction loops; safe mode guarantees an output</span><span data-lang-es>Tres ciclos de autocorrección; el modo seguro garantiza una salida</span></span>
+          </li>
+        </ul>
+        <a href="agentic-business-intelligence.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-ax-blue hover:gap-3 transition-all">
+          <span data-lang-en>How it works</span><span data-lang-es>Cómo funciona</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+        </a>
+      </article>
+
+      <!-- Pillar 4 -->
+      <article class="ax-card-dark p-8 flex flex-col">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="ax-mono text-2xs text-white/30">04</span>
+          <span class="h-px flex-1 bg-gradient-to-r from-ax-magenta/60 to-transparent"></span>
+        </div>
+        <h3 class="font-heading font-bold text-2xl text-white mb-4 leading-tight">
+          <span data-lang-en>Agentic Revenue Development</span>
+          <span data-lang-es>Desarrollo de Ingresos Agéntico</span>
+        </h3>
+        <p class="text-white/55 leading-relaxed mb-6 text-[0.95rem]">
+          <span data-lang-en>Qualifying accounts discovered from public records, researched against real data, contacts resolved and verified, outreach drafted — then it stops. The draft lands in an outbox and a person decides whether it goes.</span>
+          <span data-lang-es>Cuentas calificadas descubiertas desde registros públicos, investigadas con datos reales, contactos resueltos y verificados, mensajes redactados — y ahí se detiene. El borrador llega a una bandeja de salida y una persona decide si sale.</span>
+        </p>
+        <ul class="space-y-2.5 mb-8 text-sm">
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-magenta mt-0.5 shrink-0">&rarr;</span>
+            <span><span data-lang-en>Addresses never guessed from a name pattern</span><span data-lang-es>Direcciones nunca adivinadas por patrón de nombre</span></span>
+          </li>
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-magenta mt-0.5 shrink-0">&rarr;</span>
+            <span><span data-lang-en>Three-tier deliverability firewall before any draft</span><span data-lang-es>Cortafuegos de entregabilidad de tres niveles antes de redactar</span></span>
+          </li>
+          <li class="flex gap-2.5 text-white/60">
+            <span class="text-ax-magenta mt-0.5 shrink-0">&rarr;</span>
+            <span><span data-lang-en>Every lead scored 0&ndash;100 on evidence, not optimism</span><span data-lang-es>Cada cuenta puntuada de 0 a 100 por evidencia, no por optimismo</span></span>
+          </li>
+        </ul>
+        <a href="agentic-revenue-development.html" class="mt-auto inline-flex items-center gap-2 text-sm font-bold text-ax-magenta hover:gap-3 transition-all">
+          <span data-lang-en>How it works</span><span data-lang-es>C&oacute;mo funciona</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     THE COMMON SUBSTRATE
+     ========================================================================== -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-12 gap-14 items-start">
+
+      <div class="lg:col-span-5 lg:sticky lg:top-28 ax-reveal">
+        <p class="ax-eyebrow text-ax-violet mb-5">
+          <span data-lang-en>Shared architecture</span><span data-lang-es>Arquitectura compartida</span>
+        </p>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.85rem] leading-[1.1] mb-6">
+          <span data-lang-en>Different problems. The same governed spine.</span>
+          <span data-lang-es>Problemas distintos. La misma columna gobernada.</span>
+        </h2>
+        <p class="text-lg text-ax-ink/60 leading-relaxed mb-8">
+          <span data-lang-en>Test engineering, revenue operations, and business intelligence look nothing alike from the outside. Underneath, they are the same control problem: let a model reason freely, then constrain what it is permitted to do with the conclusion.</span>
+          <span data-lang-es>La ingeniería de pruebas, las operaciones de ingresos y la inteligencia de negocios no se parecen en nada por fuera. Por debajo, son el mismo problema de control: dejar que un modelo razone libremente y luego restringir lo que puede hacer con la conclusión.</span>
+        </p>
+        <a href="enterprise-ai-security.html" class="ax-btn ax-btn-solid px-6 py-3.5 text-sm">
+          <span data-lang-en>Full security architecture</span><span data-lang-es>Arquitectura de seguridad completa</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+        </a>
+      </div>
+
+      <div class="lg:col-span-7 ax-stagger space-y-4">
+
+        <div class="ax-card p-6 flex gap-5">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ax-cyan/15 to-ax-blue/15 flex items-center justify-center shrink-0">
+            <span class="ax-mono text-xs font-bold text-ax-blue">01</span>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-lg mb-2">
+              <span data-lang-en>Retrieval before reasoning</span>
+              <span data-lang-es>Recuperación antes del razonamiento</span>
+            </h3>
+            <p class="text-ax-ink/60 text-[0.95rem] leading-relaxed">
+              <span data-lang-en>You cannot paste a 50,000-table catalog into a context window. The agent discovers what is relevant, previews it, counts it, and samples it — the way an analyst would — before it commits to a query. Large result sets are materialized to object storage and passed as a pointer, so the model never sees the raw rows.</span>
+              <span data-lang-es>No se puede pegar un catálogo de 50.000 tablas en una ventana de contexto. El agente descubre lo relevante, lo previsualiza, lo cuenta y lo muestrea — como lo haría un analista — antes de comprometerse a una consulta. Los conjuntos grandes se materializan en almacenamiento de objetos y se pasan como puntero.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="ax-card p-6 flex gap-5">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ax-blue/15 to-ax-indigo/15 flex items-center justify-center shrink-0">
+            <span class="ax-mono text-xs font-bold text-ax-indigo">02</span>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-lg mb-2">
+              <span data-lang-en>Deterministic output, probabilistic design</span>
+              <span data-lang-es>Salida determinista, diseño probabilístico</span>
+            </h3>
+            <p class="text-ax-ink/60 text-[0.95rem] leading-relaxed">
+              <span data-lang-en>The model decides what the dashboard should contain or which signals a requirement implicates. Deterministic code turns that decision into the actual artifact — TMDL, PBIR, a structured test case. A validation loop catches malformed output and repairs it before anyone sees it.</span>
+              <span data-lang-es>El modelo decide qué debe contener el tablero o qué señales implica un requisito. Código determinista convierte esa decisión en el artefacto real — TMDL, PBIR, un caso de prueba estructurado. Un ciclo de validación detecta y repara salidas mal formadas.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="ax-card p-6 flex gap-5">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ax-indigo/15 to-ax-violet/15 flex items-center justify-center shrink-0">
+            <span class="ax-mono text-xs font-bold text-ax-violet">03</span>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-lg mb-2">
+              <span data-lang-en>Fail-open subsystems, independently switched</span>
+              <span data-lang-es>Subsistemas tolerantes, con interruptores independientes</span>
+            </h3>
+            <p class="text-ax-ink/60 text-[0.95rem] leading-relaxed">
+              <span data-lang-en>Every capability is a separate package with its own store and telemetry, behind its own kill switch. A failing subsystem degrades to empty rather than taking a sibling down, and disabling one leaves the core pipeline byte-for-byte unchanged. That property is what makes staged rollout possible.</span>
+              <span data-lang-es>Cada capacidad es un paquete separado con su propio almacén y telemetría, tras su propio interruptor. Un subsistema que falla se degrada a vacío en lugar de derribar a otro, y desactivar uno deja la tubería central sin cambios. Esa propiedad hace posible el despliegue por etapas.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="ax-card p-6 flex gap-5">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ax-violet/15 to-ax-magenta/15 flex items-center justify-center shrink-0">
+            <span class="ax-mono text-xs font-bold text-ax-magenta">04</span>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-lg mb-2">
+              <span data-lang-en>The human is in the loop, not on the label</span>
+              <span data-lang-es>El humano está en el ciclo, no en la etiqueta</span>
+            </h3>
+            <p class="text-ax-ink/60 text-[0.95rem] leading-relaxed">
+              <span data-lang-en>Reads run freely. Writes stop, every time, with a diff of exactly what would change and how far it reaches. Approval is pinned to a version token, so an approval granted against one plan cannot be replayed against a different one. Approve, reject, or escalate — and the decision is recorded.</span>
+              <span data-lang-es>Las lecturas fluyen libremente. Las escrituras se detienen, siempre, con un diff de exactamente qué cambiaría y hasta dónde llega. La aprobación se fija a un token de versión, así que no puede reutilizarse contra un plan distinto. Aprobar, rechazar o escalar — y la decisión queda registrada.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ENGAGEMENT MODEL
+     ========================================================================== -->
+<section class="ax-dark py-24 lg:py-32 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-40"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-16 ax-reveal">
+      <p class="ax-eyebrow text-ax-cyan mb-5">
+        <span data-lang-en>Engagement model</span><span data-lang-es>Modelo de trabajo</span>
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        <span data-lang-en>Six to twelve weeks. Then it is yours.</span>
+        <span data-lang-es>De seis a doce semanas. Después es suyo.</span>
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        <span data-lang-en>We are not staffing a seat. We deliver a running system, the source, the infrastructure code, the decision records, and the test suite — then train your team to own it.</span>
+        <span data-lang-es>No estamos ocupando un puesto. Entregamos un sistema funcionando, el código fuente, la infraestructura como código, los registros de decisiones y las pruebas — y capacitamos a su equipo para operarlo.</span>
+      </p>
+    </div>
+
+    <div class="space-y-10 max-w-4xl">
+
+      <div class="ax-step ax-reveal">
+        <div class="ax-step-num bg-ax-cyan/10 text-ax-cyan border border-ax-cyan/25">01</div>
+        <div class="flex flex-wrap items-baseline gap-3 mb-2.5">
+          <h3 class="font-heading font-bold text-xl text-white">
+            <span data-lang-en>Architecture and security review</span>
+            <span data-lang-es>Revisión de arquitectura y seguridad</span>
+          </h3>
+          <span class="ax-pill ax-pill-dark">
+            <span data-lang-en>Weeks 1–2</span><span data-lang-es>Semanas 1–2</span>
+          </span>
+        </div>
+        <p class="text-white/55 leading-relaxed">
+          <span data-lang-en>We meet your security team before we write code, not after. Deployment topology, data residency, identity provider, egress policy, and audit requirements are settled up front and written into the design. The output is a threat model and a deployment diagram your reviewers have already seen.</span>
+          <span data-lang-es>Nos reunimos con su equipo de seguridad antes de escribir código, no después. Topología de despliegue, residencia de datos, proveedor de identidad, política de salida y requisitos de auditoría se definen al inicio y se escriben en el diseño. El resultado es un modelo de amenazas y un diagrama que sus revisores ya han visto.</span>
+        </p>
+      </div>
+
+      <div class="ax-step ax-reveal">
+        <div class="ax-step-num bg-ax-blue/10 text-ax-blue border border-ax-blue/25">02</div>
+        <div class="flex flex-wrap items-baseline gap-3 mb-2.5">
+          <h3 class="font-heading font-bold text-xl text-white">
+            <span data-lang-en>Build against production data, behind your firewall</span>
+            <span data-lang-es>Construcción con datos reales, tras su firewall</span>
+          </h3>
+          <span class="ax-pill ax-pill-dark">
+            <span data-lang-en>Weeks 3–8</span><span data-lang-es>Semanas 3–8</span>
+          </span>
+        </div>
+        <p class="text-white/55 leading-relaxed">
+          <span data-lang-en>Synthetic data hides every problem that matters. We work against your real schemas, your real document corpus, and your real naming conventions from the first sprint, inside your environment. You see a working increment every two weeks, and every increment is deployable.</span>
+          <span data-lang-es>Los datos sintéticos ocultan todos los problemas importantes. Trabajamos con sus esquemas, su corpus documental y sus convenciones reales desde el primer sprint, dentro de su entorno. Verá un incremento funcional cada dos semanas, y cada incremento es desplegable.</span>
+        </p>
+      </div>
+
+      <div class="ax-step ax-reveal">
+        <div class="ax-step-num bg-ax-indigo/10 text-ax-indigo border border-ax-indigo/25">03</div>
+        <div class="flex flex-wrap items-baseline gap-3 mb-2.5">
+          <h3 class="font-heading font-bold text-xl text-white">
+            <span data-lang-en>Harden, instrument, and prove it</span>
+            <span data-lang-es>Endurecer, instrumentar y demostrar</span>
+          </h3>
+          <span class="ax-pill ax-pill-dark">
+            <span data-lang-en>Weeks 9–11</span><span data-lang-es>Semanas 9–11</span>
+          </span>
+        </div>
+        <p class="text-white/55 leading-relaxed">
+          <span data-lang-en>Red-team the agent against prompt injection, tool-shadowing, and egress evasion. Wire metrics, audit events, and alerting. Load the automated test suite into your CI. The exit criterion is not a demo that impressed someone — it is a green pipeline and a runbook.</span>
+          <span data-lang-es>Sometemos al agente a pruebas de inyección de prompts, suplantación de herramientas y evasión de salida. Conectamos métricas, eventos de auditoría y alertas. Cargamos las pruebas automatizadas en su CI. El criterio de salida no es una demostración impresionante — es una tubería en verde y un manual de operación.</span>
+        </p>
+      </div>
+
+      <div class="ax-step ax-reveal">
+        <div class="ax-step-num bg-ax-violet/10 text-ax-violet border border-ax-violet/25">04</div>
+        <div class="flex flex-wrap items-baseline gap-3 mb-2.5">
+          <h3 class="font-heading font-bold text-xl text-white">
+            <span data-lang-en>Transfer, then get out of the way</span>
+            <span data-lang-es>Transferir y dar un paso al costado</span>
+          </h3>
+          <span class="ax-pill ax-pill-dark">
+            <span data-lang-en>Week 12</span><span data-lang-es>Semana 12</span>
+          </span>
+        </div>
+        <p class="text-white/55 leading-relaxed">
+          <span data-lang-en>Full source transfer, infrastructure-as-code, architecture decision records, and hands-on enablement for the engineers who will carry it. If we vanished the following Monday, the system would keep running and your team would be able to extend it. That is the standard we hold ourselves to.</span>
+          <span data-lang-es>Transferencia completa del código, infraestructura como código, registros de decisiones arquitectónicas y capacitación práctica para los ingenieros que lo mantendrán. Si desapareciéramos el lunes siguiente, el sistema seguiría funcionando y su equipo podría extenderlo. Ese es nuestro estándar.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ROI CALCULATOR PROMO
+     ========================================================================== -->
+<section class="py-24 lg:py-28 bg-ax-mist">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="rounded-3xl bg-gradient-to-br from-ax-ink via-ax-navy to-ax-slate p-9 lg:p-14 relative overflow-hidden ax-reveal">
+      <div class="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-ax-cyan/10 blur-3xl"></div>
+      <div class="absolute -left-24 -bottom-24 w-80 h-80 rounded-full bg-ax-violet/10 blur-3xl"></div>
+
+      <div class="relative grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <p class="ax-eyebrow text-ax-cyan mb-5">
+            <span data-lang-en>Build the business case</span><span data-lang-es>Construya el caso de negocio</span>
+          </p>
+          <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-white leading-tight mb-5">
+            <span data-lang-en>Model the number before you take it to your CFO.</span>
+            <span data-lang-es>Modele el número antes de llevarlo a su CFO.</span>
+          </h2>
+          <p class="text-white/60 leading-relaxed text-lg mb-7 max-w-xl">
+            <span data-lang-en>Enter your headcount, loaded cost, and current cycle times. The calculator runs entirely in your browser and shows reclaimed engineering capacity, annualized cost recovery, and payback period against a realistic deployment. Nothing is transmitted while you model.</span>
+            <span data-lang-es>Ingrese su personal, costo cargado y tiempos de ciclo actuales. La calculadora funciona completamente en su navegador y muestra capacidad de ingeniería recuperada, recuperación de costos anualizada y periodo de retorno. Nada se transmite mientras modela.</span>
+          </p>
+          <a href="roi-calculator.html" class="ax-btn ax-btn-primary px-7 py-4">
+            <span data-lang-en>Open the ROI Calculator</span><span data-lang-es>Abrir la Calculadora ROI</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+          </a>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur p-6 space-y-4">
+            <div class="flex justify-between items-baseline gap-4">
+              <span class="text-xs font-semibold text-white/45">
+                <span data-lang-en>Reclaimed capacity</span><span data-lang-es>Capacidad recuperada</span>
+              </span>
+              <span class="ax-mono font-bold text-2xl text-ax-cyan whitespace-nowrap">
+                <span data-count-to="11904" data-count-suffix=" hrs">0</span>
+              </span>
+            </div>
+            <div class="h-px bg-white/10"></div>
+            <div class="flex justify-between items-baseline gap-4">
+              <span class="text-xs font-semibold text-white/45">
+                <span data-lang-en>Annualized recovery</span><span data-lang-es>Recuperación anualizada</span>
+              </span>
+              <span class="ax-mono font-bold text-2xl text-white whitespace-nowrap">
+                <span data-count-to="961185" data-count-prefix="$">0</span>
+              </span>
+            </div>
+            <div class="h-px bg-white/10"></div>
+            <div class="flex justify-between items-baseline gap-4">
+              <span class="text-xs font-semibold text-white/45">
+                <span data-lang-en>Payback</span><span data-lang-es>Retorno</span>
+              </span>
+              <span class="ax-mono font-bold text-2xl text-white whitespace-nowrap">
+                <span data-count-to="3.6" data-count-decimals="1" data-count-suffix=" mo">0</span>
+              </span>
+            </div>
+            <p class="text-2xs text-white/30 pt-1 leading-relaxed">
+              <span data-lang-en>Illustrative figures for a 40-engineer verification group. Your inputs will differ.</span>
+              <span data-lang-es>Cifras ilustrativas para un grupo de verificación de 40 ingenieros. Sus datos variarán.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FAQ
+     ========================================================================== -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14">
+
+      <div class="lg:col-span-4 ax-reveal">
+        <p class="ax-eyebrow text-ax-blue mb-5">
+          <span data-lang-en>Questions we get first</span><span data-lang-es>Preguntas frecuentes</span>
+        </p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-4xl leading-[1.12] mb-5">
+          <span data-lang-en>The five your security team will ask.</span>
+          <span data-lang-es>Las cinco que hará su equipo de seguridad.</span>
+        </h2>
+        <p class="text-ax-ink/55 leading-relaxed">
+          <span data-lang-en>Direct answers. If yours is not here, ask it in the briefing.</span>
+          <span data-lang-es>Respuestas directas. Si la suya no está aquí, hágala en la sesión técnica.</span>
+        </p>
+      </div>
+
+      <div class="lg:col-span-8 space-y-3 ax-stagger">
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="home-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>Does our data leave our network?</span>
+              <span data-lang-es>¿Nuestros datos salen de nuestra red?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">No.</strong> The execution plane runs inside your own VPC under a bring-your-own-cloud model. Agent-generated code executes in hardware-isolated MicroVMs on your infrastructure, and an eBPF egress filter plus DNS sinkhole restricts outbound traffic to an allowlist you control. The control plane orchestrates; it never holds your data.</span>
+            <span data-lang-es><strong class="text-ax-ink">No.</strong> El plano de ejecución corre dentro de su propia VPC bajo un modelo BYOC. El código generado por el agente se ejecuta en MicroVMs aisladas por hardware en su infraestructura, y un filtro de salida eBPF más un sumidero DNS restringen el tráfico saliente a una lista que usted controla. El plano de control orquesta; nunca retiene sus datos.</span>
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="home-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>Can an agent write to production without a human approving it?</span>
+              <span data-lang-es>¿Puede un agente escribir en producción sin aprobación humana?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">No.</strong> Every WRITE action halts at a human-in-the-loop gate that renders a blast-radius diff before anything commits. Approvals are pinned to an optimistic-concurrency version token, so an approval granted against one plan cannot be replayed against a modified one. Reviewers approve, reject, or escalate, and every decision is written to the audit log.</span>
+            <span data-lang-es><strong class="text-ax-ink">No.</strong> Cada acción de escritura se detiene en una puerta de aprobación humana que muestra un diff de impacto antes de confirmar. Las aprobaciones se fijan a un token de concurrencia optimista, así que una aprobación otorgada a un plan no puede reutilizarse en otro modificado. Los revisores aprueban, rechazan o escalan, y cada decisión se registra.</span>
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="home-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>How do we verify an answer is not hallucinated?</span>
+              <span data-lang-es>¿Cómo verificamos que una respuesta no es alucinada?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">Every claim carries a citation the backend generated, not the model.</strong> Each marker resolves to the exact tool call and result set behind it, so a reviewer can open the underlying query. Markers the model invents on its own are stripped before rendering, and citations survive across conversation turns rather than resetting each message.</span>
+            <span data-lang-es><strong class="text-ax-ink">Cada afirmación lleva una cita generada por el backend, no por el modelo.</strong> Cada marcador resuelve a la llamada y el conjunto de resultados exactos, de modo que un revisor puede abrir la consulta subyacente. Los marcadores que el modelo inventa se eliminan antes de renderizar, y las citas persisten entre turnos de conversación.</span>
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="home-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>How long until we are in production?</span>
+              <span data-lang-es>¿Cuánto tarda llegar a producción?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">Six to twelve weeks for a scoped pilot.</strong> Weeks one and two cover architecture and security review, weeks three to eight build against your real data inside your environment, and the remainder covers hardening, red-teaming, runbooks, and handover. We start from three shipped platforms rather than an empty repository, which is where the compression comes from.</span>
+            <span data-lang-es><strong class="text-ax-ink">De seis a doce semanas para un piloto acotado.</strong> Las semanas uno y dos cubren arquitectura y seguridad, las semanas tres a ocho construyen con sus datos reales dentro de su entorno, y el resto cubre endurecimiento, pruebas de intrusión, manuales y transferencia. Partimos de tres plataformas ya entregadas, no de un repositorio vacío.</span>
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="home-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              <span data-lang-en>Do we get the source code?</span>
+              <span data-lang-es>¿Recibimos el código fuente?</span>
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-blue" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            <span data-lang-en><strong class="text-ax-ink">Yes — that is the deliverable.</strong> Engagements terminate in full source transfer, infrastructure-as-code, architecture decision records, and the automated test suite, plus hands-on enablement for your engineers. You are not renting a black box, and there is no extraction cost if you decide to take it entirely in-house.</span>
+            <span data-lang-es><strong class="text-ax-ink">Sí — ese es el entregable.</strong> Los proyectos terminan con transferencia completa del código, infraestructura como código, registros de decisiones arquitectónicas y las pruebas automatizadas, más capacitación práctica para sus ingenieros. No está alquilando una caja negra, y no hay costo de extracción si decide internalizarlo.</span>
+          </p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FINAL CTA
+     ========================================================================== -->
+<section class="ax-band py-24 lg:py-28 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-50"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative ax-reveal">
+    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+      <span data-lang-en>Bring your hardest constraint.</span>
+      <span data-lang-es>Traiga su restricción más difícil.</span>
+    </h2>
+    <p class="text-lg text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto">
+      <span data-lang-en>Forty-five minutes with the engineers who built these systems — not a sales team. Bring the data residency clause, the audit requirement, or the legacy system everyone says cannot be integrated. You will leave with an architecture opinion whether or not you work with us.</span>
+      <span data-lang-es>Cuarenta y cinco minutos con los ingenieros que construyeron estos sistemas — no con un equipo comercial. Traiga la cláusula de residencia de datos, el requisito de auditoría o el sistema heredado que todos dicen que no se puede integrar. Saldrá con una opinión arquitectónica trabaje con nosotros o no.</span>
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3.5 justify-center">
+      <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-8 py-4">
+        <span data-lang-en>Book a Technical Briefing</span><span data-lang-es>Agendar Sesión Técnica</span>
+      </a>
+      <a href="case-studies.html" class="ax-btn ax-btn-ghost px-8 py-4">
+        <span data-lang-en>Read the case studies</span><span data-lang-es>Leer los casos de éxito</span>
+      </a>
+    </div>
+  </div>
+</section>

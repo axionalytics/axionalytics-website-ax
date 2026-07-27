@@ -1,0 +1,15 @@
+# Axionalytics — https://www.axionalytics.com
+
+User-agent: *
+Allow: /
+
+# These folders are excluded from publishing by _config.yml, so they should not
+# be reachable at all. The rules below are a second layer, not the primary
+# control — robots.txt is a request to well-behaved crawlers, never an access
+# control. Anything genuinely confidential must be kept out of the published
+# output, which is what _config.yml does.
+Disallow: /_build/
+Disallow: /_legacy/
+Disallow: /_private/
+
+Sitemap: https://www.axionalytics.com/sitemap.xml

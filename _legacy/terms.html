@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+AXIONALYTICS - TERMS & CONDITIONS (terms.html)
+Version: 1.0.0
+Last Updated: February 2026
+
+DEPLOYMENT: Ready for GitHub Pages
+FRAMEWORK: Tailwind CSS via CDN + Custom CSS
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Axionalytics Terms and Conditions - Review the terms governing your use of our website and services.">
+    <meta name="keywords" content="terms and conditions, terms of service, axionalytics, legal">
+    <meta name="author" content="Axionalytics">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Axionalytics - Terms & Conditions">
+    <meta property="og:description" content="Review the terms governing your use of the Axionalytics website and services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axionalytics.com/terms.html">
+    
+    <title>Axionalytics | Terms &amp; Conditions</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo_fixed.png">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'axio': {
+                            'primary': '#1E3A5F',
+                            'secondary': '#2563EB',
+                            'accent': '#F97316',
+                            'dark': '#0F172A',
+                            'charcoal': '#1E293B',
+                            'slate': '#334155',
+                            'light': '#F8FAFC',
+                            'green': '#10B981',
+                            'amber': '#F59E0B',
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['Plus Jakarta Sans', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
+                        'count-up': 'countUp 2s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        /* ============================================
+           GLOBAL STYLES & TYPOGRAPHY
+           ============================================ */
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        /* ============================================
+           BILINGUAL SYSTEM
+           - English shows by default
+           - Spanish hidden by default
+           - .lang-es on html swaps them
+           ============================================ */
+        [data-lang-es] {
+            display: none;
+        }
+        
+        html.lang-es [data-lang-en] {
+            display: none !important;
+        }
+        
+        html.lang-es [data-lang-es] {
+            display: inline !important;
+        }
+        
+        html.lang-es div[data-lang-es],
+        html.lang-es p[data-lang-es],
+        html.lang-es h1[data-lang-es],
+        html.lang-es h2[data-lang-es],
+        html.lang-es h3[data-lang-es],
+        html.lang-es h4[data-lang-es],
+        html.lang-es li[data-lang-es],
+        html.lang-es span[data-lang-es],
+        html.lang-es a[data-lang-es] {
+            display: block !important;
+        }
+        
+        html.lang-es span[data-lang-es] {
+            display: inline !important;
+        }
+        
+        /* ============================================
+           GRADIENT BACKGROUNDS
+           ============================================ */
+        .gradient-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+        }
+        
+        .gradient-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(249, 115, 22, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* ============================================
+           BUTTON STYLES
+           ============================================ */
+        .btn-primary {
+            background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(249, 115, 22, 0.5);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #F97316;
+            background: rgba(249, 115, 22, 0.1);
+        }
+        
+        /* ============================================
+           ANIMATION UTILITIES
+           ============================================ */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #F97316;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.is-open {
+            transform: translateX(0);
+        }
+        
+        /* ============================================
+           LANGUAGE TOGGLE BUTTON
+           ============================================ */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: transparent;
+        }
+        
+        .lang-toggle:hover {
+            border-color: #F97316;
+            background: rgba(249, 115, 22, 0.1);
+        }
+        
+        .lang-toggle-light {
+            border-color: #E2E8F0;
+        }
+        
+        .lang-toggle-light:hover {
+            border-color: #F97316;
+        }
+
+        /* ============================================
+           POLICY / LEGAL CONTENT STYLES
+           ============================================ */
+        .policy-content h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #0F172A;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #F97316;
+            display: inline-block;
+        }
+
+        .policy-content h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #1E293B;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .policy-content p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .policy-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        .policy-content ul li {
+            color: #475569;
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.35rem;
+        }
+
+        .policy-content ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #F97316;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-700 overflow-x-hidden">
+
+    <!-- =========================================================================
+         SECTION: NAVIGATION HEADER
+         - Sticky navigation with logo, menu items, CTA, and language toggle
+         - Mobile responsive with hamburger menu
+         ========================================================================= -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background-color:#0F172A;">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center group">
+                    <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                    <span class="text-2xl font-heading font-bold text-white group-hover:text-orange-400 transition-colors -ml-6">
+                        axionalytics
+                    </span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformaci&#243;n de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integraci&#243;n de IA</span>
+                    </a>
+                    <a href="training.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitaci&#243;n</span>
+                    </a>
+                    <a href="contact.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </div>
+                
+                <!-- Right Side: CTA + Language Toggle -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-3 rounded-xl font-bold text-sm">
+                        <span data-lang-en>Book Now</span>
+                        <span data-lang-es>Reservar</span>
+                    </a>
+                    
+                    <!-- Language Toggle -->
+                    <button id="lang-toggle-desktop" class="lang-toggle text-white text-sm font-medium" aria-label="Toggle language">
+                        <span id="current-lang-flag">&#127482;&#127480;</span>
+                        <span id="current-lang-text">EN</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Slide-in) -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-80 max-w-full bg-axio-dark shadow-2xl lg:hidden z-50" style="background-color:#0F172A;">
+            <div class="flex flex-col h-full p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-xl font-heading font-bold text-white">Menu</span>
+                    <button id="mobile-menu-close" class="text-white p-2" aria-label="Close menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                                <nav class="flex flex-col gap-4">
+                    <a href="index.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformaci&#243;n de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integraci&#243;n de IA</span>
+                    </a>
+                    <a href="training.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitaci&#243;n</span>
+                    </a>
+                    <a href="contact.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </nav>
+                
+                <div class="mt-auto pt-8 border-t border-white/10">
+                    <!-- Mobile Language Toggle -->
+                    <button id="lang-toggle-mobile" class="lang-toggle text-white text-sm font-medium mb-4 w-full justify-center">
+                        <span class="mobile-lang-flag">&#127482;&#127480;</span>
+                        <span class="mobile-lang-text">English</span>
+                    </button>
+                    
+                    <!-- Mobile CTA -->
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-4 rounded-xl font-bold text-center block">
+                        <span data-lang-en>Book Free Assessment</span>
+                        <span data-lang-es>Agendar Evaluaci&#243;n Gratuita</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 lg:hidden z-40 opacity-0 pointer-events-none transition-opacity"></div>
+    </header>
+
+    <!-- =========================================================================
+         SECTION: PAGE HERO BANNER
+         ========================================================================= -->
+    <section class="gradient-hero relative pt-32 pb-16 overflow-hidden">
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-heading font-extrabold text-4xl sm:text-5xl text-white leading-tight mb-4 animate-slide-up">
+                <span data-lang-en>Terms &amp; Conditions</span>
+                <span data-lang-es>T&#233;rminos y Condiciones</span>
+            </h1>
+            <p class="text-lg text-white/80 animate-slide-up" style="animation-delay: 0.2s;">
+                <span data-lang-en>Effective Date: October 17, 2025 &middot; Last Updated: October 17, 2025</span>
+                <span data-lang-es>Fecha de vigencia: 17 de octubre de 2025 &middot; &#218;ltima actualizaci&#243;n: 17 de octubre de 2025</span>
+            </p>
+        </div>
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </section>
+
+    <!-- =========================================================================
+         SECTION: TERMS & CONDITIONS CONTENT
+         ========================================================================= -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- ===== ENGLISH CONTENT ===== -->
+            <div data-lang-en class="policy-content">
+
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing or using the website operated by Axionalytics, you agree to be bound by these Terms and Conditions and our <a href="privacy.html" class="text-orange-500 hover:text-orange-600 underline font-medium">Privacy Policy</a>. If you do not agree, please do not use the Site.</p>
+
+                <h2>2. Services Provided</h2>
+                <p>We offer data analytics, AI productivity tools, consulting, and training services tailored for small and medium businesses. All services are subject to availability and may be modified or discontinued at our discretion.</p>
+
+                <h2>3. Use of the Site</h2>
+                <p>You agree to use the Site and our services only for lawful purposes. You must not:</p>
+                <ul>
+                    <li>Violate any applicable laws or regulations</li>
+                    <li>Infringe on intellectual property rights</li>
+                    <li>Attempt to gain unauthorized access to our systems</li>
+                    <li>Use the Site to distribute spam, malware, or harmful content</li>
+                </ul>
+
+                <h2>4. Intellectual Property</h2>
+                <p>All content on the Site&#8212;including text, graphics, logos, videos, and software&#8212;is the property of Axionalytics or its licensors and is protected by copyright, trademark, and other laws. You may not reproduce, distribute, or create derivative works without our written permission.</p>
+
+                <h2>5. User Content</h2>
+                <p>If you submit content (e.g., feedback, testimonials, or data), you grant us a non-exclusive, royalty-free, worldwide license to use, reproduce, and display that content for business and promotional purposes. You are responsible for ensuring that your content does not violate any laws or third-party rights.</p>
+
+                <h2>6. Payment and Billing</h2>
+                <p>For paid services, you agree to provide accurate billing information and authorize us to charge applicable fees. All payments are due as specified in your service agreement or invoice. Late payments may incur additional charges or service suspension.</p>
+
+                <h2>7. Disclaimers</h2>
+                <p>Our services are provided &#8220;as is&#8221; and &#8220;as available.&#8221; We do not guarantee that our tools or insights will produce specific business outcomes. While we strive for accuracy and reliability, we make no warranties regarding the completeness or performance of our services.</p>
+
+                <h2>8. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, Axionalytics shall not be liable for any indirect, incidental, or consequential damages arising from your use of the Site or services. Our total liability shall not exceed the amount paid by you for the services in the preceding 12 months.</p>
+
+                <h2>9. Indemnification</h2>
+                <p>You agree to indemnify and hold harmless Axionalytics, its affiliates, and employees from any claims, damages, or expenses arising from your use of the Site or violation of these Terms.</p>
+
+                <h2>10. Termination</h2>
+                <p>We reserve the right to suspend or terminate your access to the Site or services at any time, without notice, for conduct that violates these Terms or is otherwise harmful to our business or users.</p>
+
+                <h2>11. Governing Law</h2>
+                <p>These Terms shall be governed by and construed in accordance with the laws of the State of Iowa, United States, without regard to its conflict of law principles.</p>
+
+                <h2>12. Changes to Terms</h2>
+                <p>We may update these Terms from time to time. Changes will be posted on this page with an updated effective date. Continued use of the Site after changes are posted constitutes acceptance of the revised Terms.</p>
+
+                <h2>13. Contact Information</h2>
+                <p>For questions or concerns regarding these Terms, please contact us at:</p>
+                <p><strong>Axionalytics</strong><br>
+                Email: <a href="mailto:info@axionalytics.com" class="text-orange-500 hover:text-orange-600 underline font-medium">info@axionalytics.com</a></p>
+
+            </div>
+
+            <!-- ===== SPANISH CONTENT ===== -->
+            <div data-lang-es class="policy-content">
+
+                <h2>1. Aceptaci&#243;n de los T&#233;rminos</h2>
+                <p>Al acceder o utilizar el sitio web operado por Axionalytics, usted acepta estar sujeto a estos T&#233;rminos y Condiciones y a nuestra <a href="privacy.html" class="text-orange-500 hover:text-orange-600 underline font-medium">Pol&#237;tica de Privacidad</a>. Si no est&#225; de acuerdo, por favor no utilice el Sitio.</p>
+
+                <h2>2. Servicios Proporcionados</h2>
+                <p>Ofrecemos servicios de an&#225;lisis de datos, herramientas de productividad con IA, consultor&#237;a y capacitaci&#243;n dise&#241;ados para peque&#241;as y medianas empresas. Todos los servicios est&#225;n sujetos a disponibilidad y pueden ser modificados o descontinuados a nuestra discreci&#243;n.</p>
+
+                <h2>3. Uso del Sitio</h2>
+                <p>Usted acepta utilizar el Sitio y nuestros servicios &#250;nicamente para fines l&#237;citos. No debe:</p>
+                <ul>
+                    <li>Violar leyes o regulaciones aplicables</li>
+                    <li>Infringir derechos de propiedad intelectual</li>
+                    <li>Intentar obtener acceso no autorizado a nuestros sistemas</li>
+                    <li>Usar el Sitio para distribuir spam, malware o contenido da&#241;ino</li>
+                </ul>
+
+                <h2>4. Propiedad Intelectual</h2>
+                <p>Todo el contenido del Sitio&#8212;incluyendo texto, gr&#225;ficos, logotipos, videos y software&#8212;es propiedad de Axionalytics o sus licenciantes y est&#225; protegido por derechos de autor, marcas registradas y otras leyes. No puede reproducir, distribuir ni crear obras derivadas sin nuestro permiso por escrito.</p>
+
+                <h2>5. Contenido del Usuario</h2>
+                <p>Si env&#237;a contenido (ej. comentarios, testimonios o datos), nos otorga una licencia no exclusiva, libre de regal&#237;as y mundial para usar, reproducir y mostrar dicho contenido con fines comerciales y promocionales. Usted es responsable de asegurar que su contenido no viole ninguna ley ni derechos de terceros.</p>
+
+                <h2>6. Pago y Facturaci&#243;n</h2>
+                <p>Para servicios de pago, usted acepta proporcionar informaci&#243;n de facturaci&#243;n precisa y nos autoriza a cobrar las tarifas aplicables. Todos los pagos vencen seg&#250;n lo especificado en su acuerdo de servicio o factura. Los pagos atrasados pueden generar cargos adicionales o la suspensi&#243;n del servicio.</p>
+
+                <h2>7. Descargos de Responsabilidad</h2>
+                <p>Nuestros servicios se proporcionan &#8220;tal cual&#8221; y &#8220;seg&#250;n disponibilidad.&#8221; No garantizamos que nuestras herramientas o an&#225;lisis produzcan resultados comerciales espec&#237;ficos. Si bien nos esforzamos por la precisi&#243;n y confiabilidad, no ofrecemos garant&#237;as sobre la integridad o el rendimiento de nuestros servicios.</p>
+
+                <h2>8. Limitaci&#243;n de Responsabilidad</h2>
+                <p>En la m&#225;xima medida permitida por la ley, Axionalytics no ser&#225; responsable de da&#241;os indirectos, incidentales o consecuentes derivados de su uso del Sitio o los servicios. Nuestra responsabilidad total no exceder&#225; el monto pagado por usted por los servicios en los 12 meses anteriores.</p>
+
+                <h2>9. Indemnizaci&#243;n</h2>
+                <p>Usted acepta indemnizar y mantener indemne a Axionalytics, sus afiliados y empleados de cualquier reclamo, da&#241;o o gasto derivado de su uso del Sitio o la violaci&#243;n de estos T&#233;rminos.</p>
+
+                <h2>10. Terminaci&#243;n</h2>
+                <p>Nos reservamos el derecho de suspender o terminar su acceso al Sitio o los servicios en cualquier momento, sin previo aviso, por conducta que viole estos T&#233;rminos o que sea perjudicial para nuestro negocio o usuarios.</p>
+
+                <h2>11. Ley Aplicable</h2>
+                <p>Estos T&#233;rminos se regir&#225;n e interpretar&#225;n de acuerdo con las leyes del Estado de Iowa, Estados Unidos, sin tener en cuenta sus principios de conflicto de leyes.</p>
+
+                <h2>12. Cambios a los T&#233;rminos</h2>
+                <p>Podemos actualizar estos T&#233;rminos de vez en cuando. Los cambios se publicar&#225;n en esta p&#225;gina con una fecha de vigencia actualizada. El uso continuado del Sitio despu&#233;s de la publicaci&#243;n de los cambios constituye la aceptaci&#243;n de los T&#233;rminos revisados.</p>
+
+                <h2>13. Informaci&#243;n de Contacto</h2>
+                <p>Para preguntas o inquietudes sobre estos T&#233;rminos, cont&#225;ctenos en:</p>
+                <p><strong>Axionalytics</strong><br>
+                Email: <a href="mailto:info@axionalytics.com" class="text-orange-500 hover:text-orange-600 underline font-medium">info@axionalytics.com</a></p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         FOOTER
+         - Contact info, social links, legal links
+         ========================================================================= -->
+        <!-- ===================================================================
+         FOOTER
+         - Contact info, social links, legal links
+         =================================================================== -->
+    <footer class="bg-axio-dark text-white py-16" style="background-color:#0F172A;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                        <span class="text-2xl font-heading font-bold -ml-6">axionalytics</span>
+                    </a>
+                    <p class="text-white/70 mb-6 max-w-md leading-relaxed">
+                        <span data-lang-en>Enterprise-grade analytics and AI integration without the enterprise price tag. Helping growing businesses make confident, data-driven decisions.</span>
+                        <span data-lang-es>Anal&#237;tica e integraci&#243;n de IA de nivel empresarial sin el precio empresarial. Ayudando a negocios en crecimiento a tomar decisiones basadas en datos.</span>
+                    </p>
+                    
+                    <!-- Social Links -->
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/company/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://wa.me/19562079368" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Services</span>
+                        <span data-lang-es>Servicios</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="datatransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Data Transformation</span>
+                            <span data-lang-es>Transformaci&#243;n de Datos</span>
+                        </a></li>
+                        <li><a href="aitransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>AI Integration</span>
+                            <span data-lang-es>Integraci&#243;n de IA</span>
+                        </a></li>
+                        <li><a href="training.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Team Training</span>
+                            <span data-lang-es>Capacitaci&#243;n de Equipos</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Company</span>
+                        <span data-lang-es>Compa&#241;&#237;a</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>About Us</span>
+                            <span data-lang-es>Nosotros</span>
+                        </a></li>
+                        <li><a href="successstories.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Success Stories</span>
+                            <span data-lang-es>Historias de &#201;xito</span>
+                        </a></li>
+                                                <li><a href="blog.html" class="text-white/70 hover:text-orange-400 transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Contact</span>
+                            <span data-lang-es>Contacto</span>
+                        </a></li>
+                        <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Book Consultation</span>
+                            <span data-lang-es>Agendar Consulta</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/50 text-sm">&copy; 2025 Axionalytics. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Privacy Policy</span>
+                        <span data-lang-es>Pol&#237;tica de Privacidad</span>
+                    </a>
+                    <a href="terms.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Terms &amp; Conditions</span>
+                        <span data-lang-es>T&#233;rminos y Condiciones</span>
+                    </a>
+                    <a href="accessibility.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Accessibility</span>
+                        <span data-lang-es>Accesibilidad</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- =========================================================================
+         JAVASCRIPT
+         - Language toggle
+         - Mobile menu
+         - Scroll animations
+         - Header scroll effect
+         ========================================================================= -->
+    <script>
+        // ============================================
+        // LANGUAGE TOGGLE SYSTEM
+        // ============================================
+        const langToggleDesktop = document.getElementById('lang-toggle-desktop');
+        const langToggleMobile = document.getElementById('lang-toggle-mobile');
+        const currentLangFlag = document.getElementById('current-lang-flag');
+        const currentLangText = document.getElementById('current-lang-text');
+        const mobileLangFlag = document.querySelector('.mobile-lang-flag');
+        const mobileLangText = document.querySelector('.mobile-lang-text');
+        
+        // Check localStorage for saved language preference
+        let currentLang = localStorage.getItem('axio-lang') || 'en';
+        
+        function setLanguage(lang) {
+            if (lang === 'es') {
+                document.documentElement.classList.add('lang-es');
+                if(currentLangFlag) currentLangFlag.textContent = '\u{1F1EA}\u{1F1F8}';
+                if(currentLangText) currentLangText.textContent = 'ES';
+                if(mobileLangFlag) mobileLangFlag.textContent = '\u{1F1EA}\u{1F1F8}';
+                if(mobileLangText) mobileLangText.textContent = 'Espa\u00F1ol';
+            } else {
+                document.documentElement.classList.remove('lang-es');
+                if(currentLangFlag) currentLangFlag.textContent = '\u{1F1FA}\u{1F1F8}';
+                if(currentLangText) currentLangText.textContent = 'EN';
+                if(mobileLangFlag) mobileLangFlag.textContent = '\u{1F1FA}\u{1F1F8}';
+                if(mobileLangText) mobileLangText.textContent = 'English';
+            }
+            localStorage.setItem('axio-lang', lang);
+            currentLang = lang;
+        }
+        setLanguage(currentLang);
+        
+        function toggleLanguage() { setLanguage(currentLang === 'en' ? 'es' : 'en'); }
+        if(langToggleDesktop) langToggleDesktop.addEventListener('click', toggleLanguage);
+        if(langToggleMobile) langToggleMobile.addEventListener('click', toggleLanguage);
+        
+        // ============================================
+        // MOBILE MENU
+        // ============================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        
+        function openMobileMenu() {
+            if(mobileMenu) mobileMenu.classList.add('is-open');
+            if(mobileMenuOverlay) { mobileMenuOverlay.style.opacity = '1'; mobileMenuOverlay.style.pointerEvents = 'auto'; }
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            if(mobileMenu) mobileMenu.classList.remove('is-open');
+            if(mobileMenuOverlay) { mobileMenuOverlay.style.opacity = '0'; mobileMenuOverlay.style.pointerEvents = 'none'; }
+            document.body.style.overflow = '';
+        }
+        
+        if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+        if(mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if(mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        if(mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+        
+        // ============================================
+        // HEADER SCROLL EFFECT
+        // ============================================
+        const header = document.getElementById('header');
+        
+        function updateHeader() {
+            if (!header) return;
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        }
+        
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
+        
+        // ============================================
+        // SCROLL ANIMATIONS (Intersection Observer)
+        // ============================================
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -100px 0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        animateElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

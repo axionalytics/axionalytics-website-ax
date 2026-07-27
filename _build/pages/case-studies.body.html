@@ -1,0 +1,419 @@
+
+<!-- ==========================================================================
+     PAGE HERO
+     ========================================================================== -->
+<section class="ax-hero ax-noise relative pt-36 pb-20 lg:pt-44 lg:pb-24 overflow-hidden">
+  <div class="ax-grid-bg"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <nav class="flex items-center gap-2 text-xs font-semibold text-white/35 mb-8 ax-reveal" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-ax-cyan transition-colors">
+        <span data-lang-en>Home</span><span data-lang-es>Inicio</span>
+      </a>
+      <span>/</span>
+      <span class="text-white/60"><span data-lang-en>Case Studies</span><span data-lang-es>Casos de Éxito</span></span>
+    </nav>
+
+    <div class="max-w-3xl">
+      <h1 class="font-heading font-extrabold text-white text-[2.4rem] sm:text-5xl xl:text-[3.6rem] leading-[1.06] mb-7 ax-reveal">
+        <span data-lang-en>Four deployments, <span class="ax-spectrum-text">no client names</span>.</span>
+        <span data-lang-es>Cuatro despliegues, <span class="ax-spectrum-text">sin nombres de clientes</span>.</span>
+      </h1>
+      <p class="text-lg lg:text-xl text-white/65 leading-relaxed ax-reveal">
+        <span data-lang-en>The organizations below have not authorized us to use their names, so we do not. What we can describe is the constraint, the architecture, and the outcome — which is the part that tells you whether we can help. A vendor who leaks one client's name will eventually leak yours.</span>
+        <span data-lang-es>Las organizaciones a continuación no nos han autorizado a usar sus nombres, así que no lo hacemos. Lo que sí podemos describir es la restricción, la arquitectura y el resultado — que es la parte que le dice si podemos ayudar. Un proveedor que filtra el nombre de un cliente eventualmente filtrará el suyo.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CASE 01
+     ========================================================================== -->
+<section class="py-24 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="ax-reveal">
+
+      <div class="flex flex-wrap items-center gap-3 mb-8">
+        <span class="ax-pill ax-pill-cyan"><span data-lang-en>Case 01</span><span data-lang-es>Caso 01</span></span>
+        <span class="ax-pill bg-ax-ink/5 text-ax-ink/60 border border-ax-ink/10">
+          <span data-lang-en>Industrial equipment manufacturer · Fortune 500</span>
+          <span data-lang-es>Fabricante de equipo industrial · Fortune 500</span>
+        </span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-7">
+          <h2 class="font-heading font-extrabold text-3xl lg:text-[2.4rem] leading-[1.12] mb-6">
+            <span data-lang-en>Verification coverage for safety-critical embedded software</span>
+            <span data-lang-es>Cobertura de verificación para software embebido crítico</span>
+          </h2>
+
+          <h3 class="font-heading font-bold text-lg mb-2.5">
+            <span data-lang-en>The constraint</span><span data-lang-es>La restricción</span>
+          </h3>
+          <p class="text-ax-ink/65 leading-relaxed mb-6">
+            <span data-lang-en>A verification organization maintaining requirements across hundreds of PDF, Word, and Excel specifications, with test cases needing to live in a structured ALM tool. Model-based design repositories defined real system behavior with no corresponding coverage, and thousands of legacy test cases carried inconsistent structure, no signal enrichment, and no requirement traceability. Manual modernization had been costed and rejected as arithmetically impossible.</span>
+            <span data-lang-es>Una organización de verificación que mantiene requisitos en cientos de especificaciones en PDF, Word y Excel, con casos de prueba que deben vivir en una herramienta ALM estructurada. Los repositorios de diseño basado en modelos definían el comportamiento real sin cobertura correspondiente, y miles de casos heredados tenían estructura inconsistente, sin enriquecimiento de señales ni trazabilidad. La modernización manual se había costeado y rechazado como aritméticamente imposible.</span>
+          </p>
+
+          <h3 class="font-heading font-bold text-lg mb-2.5">
+            <span data-lang-en>What we built</span><span data-lang-es>Qué construimos</span>
+          </h3>
+          <p class="text-ax-ink/65 leading-relaxed mb-6">
+            <span data-lang-en>A knowledge base built by parsing the actual source into roughly 14,000 signal entities and 18,000+ embedded code chunks, with three generation paths on top of it: requirement documents, source repositories, and merged pull requests. A fourth path reads existing test cases from suites and retrofits them to a golden structure with a field-level diff. Eight subsystems in total, each isolated, fail-open, and independently kill-switched so the rollout could proceed one capability at a time.</span>
+            <span data-lang-es>Una base de conocimiento construida analizando el código real en unas 14.000 entidades de señal y 18.451 fragmentos embebidos, con tres rutas de generación encima: documentos de requisitos, repositorios y PRs fusionados. Una cuarta ruta lee casos existentes y los adapta a una estructura estándar con diff por campo. Ocho subsistemas en total, cada uno aislado, tolerante a fallos y con interruptor independiente para que el despliegue avanzara capacidad por capacidad.</span>
+          </p>
+
+          <h3 class="font-heading font-bold text-lg mb-2.5">
+            <span data-lang-en>The non-negotiable</span><span data-lang-es>Lo innegociable</span>
+          </h3>
+          <p class="text-ax-ink/65 leading-relaxed">
+            <span data-lang-en>Nothing reaches the ALM tool without human review. Every generated case stops in a queue with the source requirement and matched signals displayed alongside it, and a grounding critic rejects anything referencing a signal absent from the index before a reviewer ever sees it. In a regulated verification context, an unattended write into a test plan is a defect — so the system does not have that capability at all.</span>
+            <span data-lang-es>Nada llega a la herramienta ALM sin revisión humana. Cada caso generado se detiene en una cola con el requisito fuente y las señales emparejadas al lado, y un crítico de fundamentación rechaza cualquier referencia a una señal ausente del índice antes de llegar al revisor. En un contexto de verificación regulado, una escritura desatendida en un plan de pruebas es un defecto — así que el sistema simplemente no tiene esa capacidad.</span>
+          </p>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl border border-ax-ink/10 bg-ax-mist p-7 lg:sticky lg:top-28">
+            <p class="ax-label text-ax-ink/40 mb-5">
+              <span data-lang-en>At a glance</span><span data-lang-es>Resumen</span>
+            </p>
+            <dl class="space-y-4 mb-6">
+              <div class="flex justify-between gap-4 pb-4 border-b border-ax-ink/10">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Signal entities</span><span data-lang-es>Entidades de señal</span></dt>
+                <dd class="ax-mono font-bold text-ax-cyan">14,000+</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-ax-ink/10">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Code chunks</span><span data-lang-es>Fragmentos de código</span></dt>
+                <dd class="ax-mono font-bold">18,000+</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-ax-ink/10">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Generation axes</span><span data-lang-es>Ejes de generación</span></dt>
+                <dd class="ax-mono font-bold">4</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-ax-ink/10">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Subsystems</span><span data-lang-es>Subsistemas</span></dt>
+                <dd class="ax-mono font-bold">8</dd>
+              </div>
+              <div class="flex justify-between gap-4">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Unreviewed writes</span><span data-lang-es>Escrituras sin revisar</span></dt>
+                <dd class="ax-mono font-bold text-ax-go">0</dd>
+              </div>
+            </dl>
+            <a href="agentic-test-engineering.html" class="ax-btn ax-btn-outline w-full py-3 text-sm">
+              <span data-lang-en>How the platform works</span><span data-lang-es>Cómo funciona la plataforma</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CASE 02
+     ========================================================================== -->
+<section class="ax-dark py-24 lg:py-28 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-40"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="ax-reveal">
+
+      <div class="flex flex-wrap items-center gap-3 mb-8">
+        <span class="ax-pill bg-ax-violet/10 text-ax-violet border border-ax-violet/30">
+          <span data-lang-en>Case 02</span><span data-lang-es>Caso 02</span>
+        </span>
+        <span class="ax-pill ax-pill-dark">
+          <span data-lang-en>Enterprise B2B revenue organization</span>
+          <span data-lang-es>Organización de ingresos B2B empresarial</span>
+        </span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-7">
+          <h2 class="font-heading font-extrabold text-3xl lg:text-[2.4rem] text-white leading-[1.12] mb-6">
+            <span data-lang-en>Autonomous revenue workflows that security would sign</span>
+            <span data-lang-es>Flujos de ingresos autónomos que seguridad aprobaría</span>
+          </h2>
+
+          <h3 class="font-heading font-bold text-lg text-white mb-2.5">
+            <span data-lang-en>The constraint</span><span data-lang-es>La restricción</span>
+          </h3>
+          <p class="text-white/60 leading-relaxed mb-6">
+            <span data-lang-en>The organization wanted agents to qualify accounts, run competitive analysis, produce pricing proposals, and update the CRM. Every one of those is a write, and the security position was unambiguous: no proprietary customer data crosses the perimeter, no agent updates a system of record without a human, and any answer used in a forecast has to be traceable to its source. A read-only assistant had already been built and abandoned as not worth operating.</span>
+            <span data-lang-es>La organización quería agentes que calificaran cuentas, analizaran competencia, generaran propuestas de precios y actualizaran el CRM. Cada una de esas es una escritura, y la postura de seguridad era inequívoca: ningún dato propietario cruza el perímetro, ningún agente actualiza un sistema de registro sin un humano, y toda respuesta usada en un pronóstico debe ser trazable a su fuente. Ya se había construido y abandonado un asistente de solo lectura por no valer la pena operarlo.</span>
+          </p>
+
+          <h3 class="font-heading font-bold text-lg text-white mb-2.5">
+            <span data-lang-en>What we built</span><span data-lang-es>Qué construimos</span>
+          </h3>
+          <p class="text-white/60 leading-relaxed mb-6">
+            <span data-lang-en>A two-plane architecture. Orchestration holds no customer data; the execution plane runs inside the customer VPC, where agent-generated code executes in hardware-isolated MicroVMs behind an eBPF egress filter and DNS sinkhole. A semantic router classifies each turn in under 100 milliseconds so follow-up questions reuse a cached agent specification instead of recompiling. Connectors are declarative YAML manifests, so adding a system is a configuration commit rather than a release.</span>
+            <span data-lang-es>Una arquitectura de dos planos. La orquestación no retiene datos del cliente; el plano de ejecución corre dentro de la VPC del cliente, donde el código generado se ejecuta en MicroVMs aisladas por hardware tras un filtro de salida eBPF y un sumidero DNS. Un enrutador semántico clasifica cada turno en menos de 100 milisegundos para que las preguntas de seguimiento reutilicen una especificación en caché en vez de recompilar. Los conectores son manifiestos YAML declarativos, así que agregar un sistema es un commit de configuración y no un lanzamiento.</span>
+          </p>
+
+          <h3 class="font-heading font-bold text-lg text-white mb-2.5">
+            <span data-lang-en>The part that mattered</span><span data-lang-es>Lo que realmente importó</span>
+          </h3>
+          <p class="text-white/60 leading-relaxed">
+            <span data-lang-en>Citations are generated deterministically by the backend from the tool-call record, never by the model, and markers the model invents are stripped before rendering. That single property is what moved the conversation from "can we trust this" to "which systems do we connect next" — because a number in a forecast could now be opened to reveal the exact query that produced it.</span>
+            <span data-lang-es>Las citas se generan de forma determinista en el backend desde el registro de llamadas, nunca por el modelo, y los marcadores inventados se eliminan antes de renderizar. Esa sola propiedad movió la conversación de "¿podemos confiar en esto?" a "¿qué sistemas conectamos ahora?" — porque un número en un pronóstico podía abrirse para revelar la consulta exacta que lo produjo.</span>
+          </p>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7 lg:sticky lg:top-28">
+            <p class="ax-label text-white/40 mb-5">
+              <span data-lang-en>At a glance</span><span data-lang-es>Resumen</span>
+            </p>
+            <dl class="space-y-4 mb-6">
+              <div class="flex justify-between gap-4 pb-4 border-b border-white/10">
+                <dt class="text-sm text-white/55"><span data-lang-en>Automated tests</span><span data-lang-es>Pruebas automatizadas</span></dt>
+                <dd class="ax-mono font-bold text-ax-violet">1,800+</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-white/10">
+                <dt class="text-sm text-white/55"><span data-lang-en>Test failures</span><span data-lang-es>Fallas de prueba</span></dt>
+                <dd class="ax-mono font-bold text-ax-go">0</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-white/10">
+                <dt class="text-sm text-white/55"><span data-lang-en>Production modules</span><span data-lang-es>Módulos en producción</span></dt>
+                <dd class="ax-mono font-bold text-white">60</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-white/10">
+                <dt class="text-sm text-white/55"><span data-lang-en>Catalog navigated</span><span data-lang-es>Catálogo navegado</span></dt>
+                <dd class="ax-mono font-bold text-white">50,000+</dd>
+              </div>
+              <div class="flex justify-between gap-4">
+                <dt class="text-sm text-white/55"><span data-lang-en>Data leaving the VPC</span><span data-lang-es>Datos saliendo de la VPC</span></dt>
+                <dd class="ax-mono font-bold text-ax-go">0</dd>
+              </div>
+            </dl>
+            <a href="enterprise-agentic-ai.html" class="ax-btn ax-btn-ghost w-full py-3 text-sm">
+              <span data-lang-en>How the platform works</span><span data-lang-es>Cómo funciona la plataforma</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CASE 03
+     ========================================================================== -->
+<section class="py-24 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="ax-reveal">
+
+      <div class="flex flex-wrap items-center gap-3 mb-8">
+        <span class="ax-pill bg-ax-blue/10 text-ax-blue border border-ax-blue/25">
+          <span data-lang-en>Case 03</span><span data-lang-es>Caso 03</span>
+        </span>
+        <span class="ax-pill bg-ax-ink/5 text-ax-ink/60 border border-ax-ink/10">
+          <span data-lang-en>Multi-entity analytics organization</span>
+          <span data-lang-es>Organización analítica multi-entidad</span>
+        </span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-7">
+          <h2 class="font-heading font-extrabold text-3xl lg:text-[2.4rem] leading-[1.12] mb-6">
+            <span data-lang-en>Clearing a business intelligence backlog without hiring</span>
+            <span data-lang-es>Vaciar un backlog de BI sin contratar</span>
+          </h2>
+
+          <h3 class="font-heading font-bold text-lg mb-2.5">
+            <span data-lang-en>The constraint</span><span data-lang-es>La restricción</span>
+          </h3>
+          <p class="text-ax-ink/65 leading-relaxed mb-6">
+            <span data-lang-en>A standing queue of dashboard requests measured in months, against sources scattered across cloud warehouses, a lakehouse, finance workbooks, and quarterly PDFs. Business units had begun building shadow spreadsheets rather than waiting, which meant the organization was quietly losing the single source of truth it had spent years establishing. Headcount was not available, and the requests were mostly variations on dashboards the team had already built many times.</span>
+            <span data-lang-es>Una cola permanente de solicitudes de tableros medida en meses, contra fuentes dispersas en almacenes en la nube, un lakehouse, libros de finanzas y PDFs trimestrales. Las unidades de negocio habían comenzado a construir hojas de cálculo paralelas en vez de esperar, lo que significaba que la organización perdía en silencio la fuente única de verdad que le costó años establecer. No había presupuesto para contratar, y las solicitudes eran mayormente variaciones de tableros que el equipo ya había construido muchas veces.</span>
+          </p>
+
+          <h3 class="font-heading font-bold text-lg mb-2.5">
+            <span data-lang-en>What we built</span><span data-lang-es>Qué construimos</span>
+          </h3>
+          <p class="text-ax-ink/65 leading-relaxed mb-6">
+            <span data-lang-en>A pipeline that takes a plain-English request plus a governed source and emits a native Power BI project folder — semantic model, relationships, DAX measures, report pages, theme — in 30 to 90 seconds. Nineteen connectors cover five cloud warehouses and fourteen file and service adapters, including the awkward sources where the real reporting actually lives. Inference decides what the dashboard should contain; deterministic builders emit the output format, which is why the artifact is valid rather than approximately valid.</span>
+            <span data-lang-es>Una tubería que toma una solicitud en lenguaje natural más una fuente gobernada y emite una carpeta de proyecto nativa de Power BI — modelo semántico, relaciones, medidas DAX, páginas de informe, tema — en 30 a 90 segundos. Diecinueve conectores cubren cinco almacenes en la nube y catorce adaptadores de archivos y servicios, incluyendo las fuentes incómodas donde vive el reporte real. La inferencia decide qué debe contener el tablero; constructores deterministas emiten el formato de salida, por eso el artefacto es válido y no aproximadamente válido.</span>
+          </p>
+
+          <h3 class="font-heading font-bold text-lg mb-2.5">
+            <span data-lang-en>The economics</span><span data-lang-es>La economía</span>
+          </h3>
+          <p class="text-ax-ink/65 leading-relaxed">
+            <span data-lang-en>A schema hash check runs before anything else, so a scheduled rebuild against an unchanged structure skips inference entirely and repackages the previous configuration. Since most rebuilds are refreshing data against a stable schema, the steady-state cost of keeping the estate current settled close to zero — which is what turned this from a pilot into standing infrastructure.</span>
+            <span data-lang-es>Una verificación de hash de esquema corre antes que todo, así que una reconstrucción programada contra una estructura sin cambios omite la inferencia por completo y reempaqueta la configuración anterior. Como la mayoría de las reconstrucciones solo refrescan datos contra un esquema estable, el costo en régimen de mantener el patrimonio al día se asentó cerca de cero — y eso convirtió esto de un piloto en infraestructura permanente.</span>
+          </p>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl border border-ax-ink/10 bg-ax-mist p-7 lg:sticky lg:top-28">
+            <p class="ax-label text-ax-ink/40 mb-5">
+              <span data-lang-en>At a glance</span><span data-lang-es>Resumen</span>
+            </p>
+            <dl class="space-y-4 mb-6">
+              <div class="flex justify-between gap-4 pb-4 border-b border-ax-ink/10">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Build time</span><span data-lang-es>Tiempo de construcción</span></dt>
+                <dd class="ax-mono font-bold text-ax-blue">30–90s</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-ax-ink/10">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Connectors</span><span data-lang-es>Conectores</span></dt>
+                <dd class="ax-mono font-bold">19</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-ax-ink/10">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Automated tests</span><span data-lang-es>Pruebas automatizadas</span></dt>
+                <dd class="ax-mono font-bold">750+</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-ax-ink/10">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Correction loops</span><span data-lang-es>Ciclos de corrección</span></dt>
+                <dd class="ax-mono font-bold">3</dd>
+              </div>
+              <div class="flex justify-between gap-4">
+                <dt class="text-sm text-ax-ink/55"><span data-lang-en>Inference on cached rebuild</span><span data-lang-es>Inferencia en reconstrucción en caché</span></dt>
+                <dd class="ax-mono font-bold text-ax-go">0</dd>
+              </div>
+            </dl>
+            <a href="agentic-business-intelligence.html" class="ax-btn ax-btn-outline w-full py-3 text-sm">
+              <span data-lang-en>How the platform works</span><span data-lang-es>Cómo funciona la plataforma</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CASE 04
+     ========================================================================== -->
+<section class="ax-dark py-24 lg:py-28 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-40"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="ax-reveal">
+
+      <div class="flex flex-wrap items-center gap-3 mb-8">
+        <span class="ax-pill bg-ax-magenta/10 text-ax-magenta border border-ax-magenta/30">
+          <span data-lang-en>Case 04</span><span data-lang-es>Caso 04</span>
+        </span>
+        <span class="ax-pill ax-pill-dark">
+          <span data-lang-en>Axionalytics &mdash; our own pipeline</span>
+          <span data-lang-es>Axionalytics &mdash; nuestro propio pipeline</span>
+        </span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12">
+        <div class="lg:col-span-7">
+          <h2 class="font-heading font-extrabold text-3xl lg:text-[2.4rem] text-white leading-[1.12] mb-6">
+            <span data-lang-en>The one we built for ourselves first</span>
+            <span data-lang-es>El que construimos primero para nosotros</span>
+          </h2>
+
+          <h3 class="font-heading font-bold text-lg text-white mb-2.5">
+            <span data-lang-en>The constraint</span><span data-lang-es>La restricci&oacute;n</span>
+          </h3>
+          <p class="text-white/60 leading-relaxed mb-6">
+            <span data-lang-en>A small firm selling complex technical work has no room for a volume outbound motion. Templates do not survive contact with a technical buyer, and a damaged sending domain would take contracts and invoices down with it. The only viable approach was genuinely researched outreach &mdash; which a small team can produce at perhaps five accounts a day, nowhere near enough to build a pipeline on.</span>
+            <span data-lang-es>Una firma peque&ntilde;a que vende trabajo t&eacute;cnico complejo no tiene margen para prospecci&oacute;n por volumen. Las plantillas no sobreviven al contacto con un comprador t&eacute;cnico, y un dominio da&ntilde;ado se llevar&iacute;a por delante contratos y facturas. El &uacute;nico enfoque viable era contacto realmente investigado &mdash; que un equipo peque&ntilde;o produce a unas cinco cuentas diarias, muy lejos de lo necesario.</span>
+          </p>
+
+          <h3 class="font-heading font-bold text-lg text-white mb-2.5">
+            <span data-lang-en>What we built</span><span data-lang-es>Qu&eacute; construimos</span>
+          </h3>
+          <p class="text-white/60 leading-relaxed mb-6">
+            <span data-lang-en>A nine-stage pipeline that discovers qualifying organisations from public filings, federal award records, higher-education registries, and web research; enriches each through a four-tier firmographic waterfall so research works from real size data rather than inference; routes the binary qualification decision to a fast model tier and the nuanced research to a deep one; resolves an executive contact through ranked commercial providers; and clears a three-tier deliverability firewall before anything is drafted.</span>
+            <span data-lang-es>Una tuber&iacute;a de nueve etapas que descubre organizaciones calificadas desde reportes p&uacute;blicos, registros de adjudicaciones federales, registros de educaci&oacute;n superior e investigaci&oacute;n web; enriquece cada una con una cascada firmogr&aacute;fica de cuatro niveles para que la investigaci&oacute;n parta de datos reales y no de inferencias; env&iacute;a la decisi&oacute;n binaria de calificaci&oacute;n a un nivel de modelo r&aacute;pido y la investigaci&oacute;n matizada a uno profundo; resuelve un contacto ejecutivo con proveedores comerciales jerarquizados; y supera un cortafuegos de entregabilidad de tres niveles antes de redactar nada.</span>
+          </p>
+
+          <h3 class="font-heading font-bold text-lg text-white mb-2.5">
+            <span data-lang-en>Where it deliberately stops</span><span data-lang-es>D&oacute;nde se detiene deliberadamente</span>
+          </h3>
+          <p class="text-white/60 leading-relaxed">
+            <span data-lang-en>At the drafts folder. Every message is read by a person before it goes. That is the same architectural position the rest of this site argues for, applied to our own revenue &mdash; and it is why the limitations we publish for this system are specific rather than generic. They are the constraints we actually hit.</span>
+            <span data-lang-es>En la carpeta de borradores. Cada mensaje lo lee una persona antes de salir. Es la misma posici&oacute;n arquitect&oacute;nica que el resto de este sitio defiende, aplicada a nuestros propios ingresos &mdash; y es la raz&oacute;n por la que las limitaciones que publicamos son espec&iacute;ficas y no gen&eacute;ricas. Son las restricciones que realmente encontramos.</span>
+          </p>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7 lg:sticky lg:top-28">
+            <p class="ax-label text-white/40 mb-5">
+              <span data-lang-en>At a glance</span><span data-lang-es>Resumen</span>
+            </p>
+            <dl class="space-y-4 mb-6">
+              <div class="flex justify-between gap-4 pb-4 border-b border-white/10">
+                <dt class="text-sm text-white/55"><span data-lang-en>Pipeline stages</span><span data-lang-es>Etapas de la tuber&iacute;a</span></dt>
+                <dd class="ax-mono font-bold text-ax-magenta">9</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-white/10">
+                <dt class="text-sm text-white/55"><span data-lang-en>Discovery sources</span><span data-lang-es>Fuentes de descubrimiento</span></dt>
+                <dd class="ax-mono font-bold text-white">4</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-white/10">
+                <dt class="text-sm text-white/55"><span data-lang-en>Verification tiers</span><span data-lang-es>Niveles de verificaci&oacute;n</span></dt>
+                <dd class="ax-mono font-bold text-white">3</dd>
+              </div>
+              <div class="flex justify-between gap-4 pb-4 border-b border-white/10">
+                <dt class="text-sm text-white/55"><span data-lang-en>Guessed addresses</span><span data-lang-es>Direcciones adivinadas</span></dt>
+                <dd class="ax-mono font-bold text-ax-go">0</dd>
+              </div>
+              <div class="flex justify-between gap-4">
+                <dt class="text-sm text-white/55"><span data-lang-en>Unreviewed sends</span><span data-lang-es>Env&iacute;os sin revisar</span></dt>
+                <dd class="ax-mono font-bold text-ax-go">0</dd>
+              </div>
+            </dl>
+            <a href="agentic-revenue-development.html" class="ax-btn ax-btn-ghost w-full py-3 text-sm">
+              <span data-lang-en>How the platform works</span><span data-lang-es>C&oacute;mo funciona la plataforma</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ON ANONYMITY
+     ========================================================================== -->
+<section class="py-20 lg:py-24 bg-ax-mist">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ax-reveal">
+    <div class="rounded-2xl border border-ax-ink/10 bg-white p-8 lg:p-10">
+      <h2 class="font-heading font-bold text-2xl mb-4">
+        <span data-lang-en>Why there are no logos on this page</span>
+        <span data-lang-es>Por qué no hay logotipos en esta página</span>
+      </h2>
+      <p class="text-ax-ink/65 leading-relaxed mb-4">
+        <span data-lang-en>Reference logos are the standard currency of enterprise sales, and their absence here is deliberate. The work above touches proprietary product architecture, internal control systems, and revenue data. Naming the organizations would tell you something about our sales pipeline and nothing about whether the architecture fits your problem.</span>
+        <span data-lang-es>Los logotipos de referencia son la moneda estándar de la venta empresarial, y su ausencia aquí es deliberada. El trabajo anterior toca arquitectura de producto propietaria, sistemas de control internos y datos de ingresos. Nombrar a las organizaciones le diría algo sobre nuestro pipeline comercial y nada sobre si la arquitectura resuelve su problema.</span>
+      </p>
+      <p class="text-ax-ink/65 leading-relaxed">
+        <span data-lang-en>In a briefing under mutual non-disclosure we can go considerably deeper — architecture decision records, the actual failure modes we hit, and what we would do differently. If a named reference is a procurement requirement for you, say so early and we will ask a client directly rather than assume.</span>
+        <span data-lang-es>En una sesión bajo acuerdo de confidencialidad mutuo podemos profundizar bastante más — registros de decisiones arquitectónicas, los modos de falla reales que encontramos y qué haríamos distinto. Si una referencia nombrada es un requisito de compras para usted, dígalo pronto y le preguntaremos directamente a un cliente en vez de asumir.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CTA
+     ========================================================================== -->
+<section class="ax-band py-24 lg:py-28 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-50"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative ax-reveal">
+    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+      <span data-lang-en>Yours would be the fourth.</span>
+      <span data-lang-es>El suyo sería el cuarto.</span>
+    </h2>
+    <p class="text-lg text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto">
+      <span data-lang-en>And we would not name you either.</span>
+      <span data-lang-es>Y tampoco lo nombraríamos.</span>
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3.5 justify-center">
+      <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-8 py-4">
+        <span data-lang-en>Book a Technical Briefing</span><span data-lang-es>Agendar Sesión Técnica</span>
+      </a>
+      <a href="solutions.html" class="ax-btn ax-btn-ghost px-8 py-4">
+        <span data-lang-en>Review the solutions</span><span data-lang-es>Ver las soluciones</span>
+      </a>
+    </div>
+  </div>
+</section>

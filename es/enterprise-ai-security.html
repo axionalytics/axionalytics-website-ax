@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  ==========================================================================
+  AXIONALYTICS
+  GENERATED FILE — do not edit directly.
+
+  Source:  _build/pages/<slug>.meta.html  (title, meta, JSON-LD)
+           _build/pages/<slug>.body.html  (page content)
+  Chrome:  _build/partials/*.html         (head, header, footer)
+  Rebuild: bash _build/build.sh
+
+  Static HTML + Tailwind CDN. No server required — GitHub Pages compatible.
+  ==========================================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Axionalytics">
+  <!-- Search Console: paste the content value from the HTML-tag verification
+       method, or delete this line if verifying by DNS. Without verification you
+       get no query data, no index coverage report, and no manual-action alerts. -->
+  <!-- <meta name="google-site-verification" content="PASTE_TOKEN_HERE"> -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Axionalytics">
+  <meta property="og:image" content="https://www.axionalytics.com/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+  <title>Gobernanza de IA de Confianza Cero | Arquitectura de Seguridad | Axionalytics</title>
+  <meta name="description" content="La topología de despliegue, el aislamiento, la integración de identidad y la arquitectura de auditoría que hacen pasar la IA agéntica por la revisión de seguridad Fortune 500.">
+  <link rel="canonical" href="https://www.axionalytics.com/es/enterprise-ai-security.html">
+  <meta property="og:title" content="Gobernanza de IA de Confianza Cero | Arquitectura de Seguridad | Axionalytics">
+  <meta property="og:description" content="La topología de despliegue, el aislamiento, la integración de identidad y la arquitectura de auditoría que hacen pasar la IA agéntica por la revisión de seguridad Fortune 500.">
+  <meta property="og:url" content="https://www.axionalytics.com/es/enterprise-ai-security.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.axionalytics.com/enterprise-ai-security.html#service",
+    "name": "Zero-Trust AI Governance",
+    "serviceType": "AI Security Architecture and Governance Engineering",
+    "provider": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Chief Information Security Officers, Enterprise Security Architects, Compliance and Risk Officers, Data Governance leads"
+    },
+    "description": "Security, governance, and audit architecture for agentic AI systems: bring-your-own-cloud deployment so data never leaves the customer perimeter, hardware-level execution isolation, enterprise identity integration, declarative privacy tokenization, role-based authorization, human-in-the-loop write gates, and end-to-end distributed tracing for audit."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the deployment boundary between vendor and customer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The control plane orchestrates sessions and holds no customer data at rest. The execution plane runs entirely inside your VPC and is the only component that touches your systems. The two communicate over mutual TLS with distributed trace context propagated across the boundary."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What prevents a compromised agent from exfiltrating data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Egress is denied by default. Each execution sandbox carries an eBPF network filter and a DNS sinkhole restricting outbound traffic to an allowlist you define, and a sidecar scans all output for personal data before it leaves. An agent that is fully compromised still has nowhere to send anything."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is a human approval protected from replay?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Approvals are pinned to an optimistic-concurrency version token and to the schema they were granted against. If the underlying plan or tool definition changes after approval, the token no longer matches and the write is refused rather than executed against a plan no one reviewed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can we run this without any outbound internet access?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, in an air-gapped or fully egress-restricted topology. Inference routes through whatever gateway your organization has already approved, deployment supports Kubernetes and Helm on premises, and retrieval models run resident and locally rather than calling a hosted embedding service."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.axionalytics.com/solutions.html" },
+      { "@type": "ListItem", "position": 3, "name": "Zero-Trust AI Governance", "item": "https://www.axionalytics.com/enterprise-ai-security.html" }
+    ]
+  }
+  </script>
+
+  <!-- Apply saved language before first paint to avoid a flash of English -->
+  <script>try{if(localStorage.getItem('axio-lang')==='es'){document.documentElement.classList.add('lang-es');document.documentElement.lang='es';}}catch(e){}</script>
+
+  <link rel="stylesheet" href="../assets/tailwind.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Loaded off the critical path; noscript keeps it working without JS. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+
+  <link rel="alternate" type="application/rss+xml" title="Axionalytics" href="/rss.xml">
+  <link rel="stylesheet" href="../assets/axio.css">
+  <link rel="alternate" hreflang="en" href="https://www.axionalytics.com/enterprise-ai-security.html">
+  <link rel="alternate" hreflang="es" href="https://www.axionalytics.com/es/enterprise-ai-security.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.axionalytics.com/enterprise-ai-security.html">
+</head>
+<body class="bg-white text-ax-ink">
+
+<a href="#main" class="ax-skip">
+  
+  Saltar al contenido
+</a>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header id="ax-header" class="fixed top-0 inset-x-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
+    <div class="flex items-center justify-between h-20">
+
+      <a href="index.html" class="ax-logo group shrink-0" aria-label="Axionalytics — home">
+        <img src="../assets/logo-mark-dark.png" alt="" width="88" height="100" fetchpriority="high" decoding="async">
+        <span class="text-[1.35rem] font-heading font-bold text-white tracking-tight group-hover:text-ax-cyan transition-colors">axionalytics</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden xl:flex items-center gap-9">
+
+        <!-- Solutions mega-dropdown -->
+        <div class="ax-dropdown-host relative">
+          <button class="ax-navlink flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors" aria-haspopup="true">
+            
+            Soluciones
+            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <div class="ax-dropdown absolute left-1/2 top-full pt-5 w-[41rem]">
+            <div class="rounded-2xl border border-white/10 bg-ax-ink/95 backdrop-blur-xl shadow-ax-lift p-3 grid grid-cols-2 gap-1">
+
+              <a href="agentic-test-engineering.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-cyan"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Ingeniería de Pruebas Agéntica
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Requisitos, código fuente y PRs fusionados se convierten en casos de prueba. Suites heredadas modernizadas en sitio.
+                </span>
+              </a>
+
+              <a href="enterprise-agentic-ai.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-violet"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    IA Agéntica Empresarial
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Agentes autónomos multi-paso en su VPC. Aislamiento de confianza cero, aprobación humana, procedencia citada.
+                </span>
+              </a>
+
+              <a href="agentic-business-intelligence.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-blue"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Inteligencia de Negocios Agéntica
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Lenguaje natural más una fuente gobernada se convierte en un tablero con modelo semántico real.
+                </span>
+              </a>
+
+              <a href="agentic-revenue-development.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-magenta"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Desarrollo de Ingresos Agéntico
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Descubrimiento de cuentas, investigación y borradores — con la decisión de envío en manos de una persona.
+                </span>
+              </a>
+
+              <a href="enterprise-ai-security.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors sm:col-span-2">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-teal"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Gobernanza de IA de Confianza Cero
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  La arquitectura que hace pasar los sistemas agénticos por la revisión de seguridad.
+                </span>
+              </a>
+
+              <div class="col-span-2 mt-1 rounded-xl bg-white/[0.03] border border-white/10 p-4 flex items-center justify-between gap-4">
+                <div>
+                  <p class="font-heading font-bold text-white text-sm mb-0.5">
+                    
+                    ¿No sabe cuál aplica?
+                  </p>
+                  <p class="text-xs text-white/55">
+                    
+                    Modele el caso financiero en su navegador. No se envía nada hasta que usted lo pida.
+                  </p>
+                </div>
+                <a href="roi-calculator.html" class="ax-btn ax-btn-primary text-xs px-4 py-2.5 shrink-0">
+                  
+                  Calculadora ROI
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="enterprise-ai-security.html" data-nav-for="enterprise-ai-security.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Seguridad
+        </a>
+        <a href="case-studies.html" data-nav-for="case-studies.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Casos de Éxito
+        </a>
+        <a href="pricing.html" data-nav-for="pricing.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Precios
+        </a>
+        <a href="about.html" data-nav-for="about.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Nosotros
+        </a>
+        <a href="contact.html" data-nav-for="contact.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Contacto
+        </a>
+      </div>
+
+      <!-- Right cluster -->
+      <div class="hidden xl:flex items-center gap-3">
+        <a href="../enterprise-ai-security.html" hreflang="en" aria-label="View this page in English" class="flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-white transition-colors px-2.5 py-2 rounded-lg hover:bg-white/5"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>EN</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary text-sm px-5 py-2.5">
+          
+          Agendar Sesión Técnica
+        </a>
+      </div>
+
+      <button id="ax-drawer-open" class="xl:hidden text-white p-2 -mr-2" aria-expanded="false" aria-controls="ax-drawer" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div id="ax-drawer" class="ax-drawer fixed inset-y-0 right-0 w-[21rem] max-w-full bg-ax-ink border-l border-white/10 z-50 xl:hidden overflow-y-auto ax-scroll-dark" aria-hidden="true">
+    <div class="flex flex-col min-h-full p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="font-heading font-bold text-white">
+          Menú
+        </span>
+        <button id="ax-drawer-close" class="text-white/70 hover:text-white p-2 -mr-2" aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Soluciones
+      </p>
+      <nav class="flex flex-col gap-1 mb-7">
+        <a href="agentic-test-engineering.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Ingeniería de Pruebas Agéntica
+        </a>
+        <a href="enterprise-agentic-ai.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          IA Agéntica Empresarial
+        </a>
+        <a href="agentic-business-intelligence.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Inteligencia de Negocios Agéntica
+        </a>
+        <a href="agentic-revenue-development.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Desarrollo de Ingresos Agéntico
+        </a>
+        <a href="enterprise-ai-security.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Gobernanza de IA de Confianza Cero
+        </a>
+      </nav>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Compañía
+      </p>
+      <nav class="flex flex-col gap-1">
+        <a href="case-studies.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Casos de Éxito
+        </a>
+        <a href="roi-calculator.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Calculadora ROI
+        </a>
+        <a href="glossary.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Glosario
+        </a>
+        <a href="pricing.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Precios
+        </a>
+        <a href="about.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Nosotros
+        </a>
+        <a href="contact.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Contacto
+        </a>
+      </nav>
+
+      <div class="mt-auto pt-8">
+        <a href="../enterprise-ai-security.html" hreflang="en" aria-label="View this page in English" class="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white/80 border border-white/15 rounded-xl py-3 mb-3 hover:bg-white/5 transition-colors"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>English</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary w-full py-3.5 text-sm">
+          Agendar Sesión Técnica
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="ax-scrim" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 xl:hidden opacity-0 pointer-events-none transition-opacity"></div>
+</header>
+
+<main id="main">
+
+<!-- ==========================================================================
+     PAGE HERO
+     ========================================================================== -->
+<section class="ax-hero ax-noise relative pt-36 pb-20 lg:pt-44 lg:pb-24 overflow-hidden">
+  <div class="ax-grid-bg"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <nav class="flex items-center gap-2 text-xs font-semibold text-white/35 mb-8 ax-reveal" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-ax-cyan transition-colors">
+        Inicio
+      </a>
+      <span>/</span>
+      <a href="solutions.html" class="hover:text-ax-cyan transition-colors">
+        Soluciones
+      </a>
+      <span>/</span>
+      <span class="text-white/60">
+        Gobernanza de IA de Confianza Cero
+      </span>
+    </nav>
+
+    <div class="max-w-4xl">
+      <div class="ax-pill ax-pill-dark mb-6 ax-reveal">
+        <span class="w-2 h-2 rounded-full bg-ax-teal"></span>
+        
+        La capa bajo las tres soluciones
+      </div>
+
+      <h1 class="font-heading font-extrabold text-white text-[2.4rem] sm:text-5xl xl:text-[3.6rem] leading-[1.06] mb-7 ax-reveal">
+        
+        Escrito para quien <span class="ax-spectrum-text">dice que no</span>.
+      </h1>
+
+      <p class="text-lg lg:text-xl text-white/65 leading-relaxed max-w-3xl mb-9 ax-reveal">
+        
+        Todo proyecto de IA empresarial termina frente a un arquitecto de seguridad cuyo trabajo es encontrar la razón por la que esto no puede salir. Esa revisión es donde mueren la mayoría de los pilotos — no porque las objeciones sean irrazonables, sino porque nadie diseñó para ellas. Esta página es el conjunto de respuestas, expresadas con claridad suficiente para pegarlas en un cuestionario.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-3.5 ax-reveal">
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-7 py-4">
+          Tráiganos su cuestionario
+        </a>
+        <a href="#boundary" class="ax-btn ax-btn-ghost px-7 py-4">
+          Empezar por la frontera de confianza
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     THE SEVEN QUESTIONS
+     ========================================================================== -->
+<section class="py-20 lg:py-24 bg-white border-b border-ax-ink/[0.07]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="ax-eyebrow text-ax-blue mb-8 ax-reveal">
+      
+      Las siete preguntas, respondidas en una línea
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 ax-stagger">
+      <a href="#boundary" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">01</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          ¿A dónde van nuestros datos?
+        </p>
+        <p class="text-sm text-ax-ink/55">A ningún lado. Se queda en su VPC.</p>
+      </a>
+      <a href="#isolation" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">02</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          ¿Dónde corre el código generado?
+        </p>
+        <p class="text-sm text-ax-ink/55">MicroVMs aisladas por hardware.</p>
+      </a>
+      <a href="#egress" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">03</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          ¿Y si es comprometido?
+        </p>
+        <p class="text-sm text-ax-ink/55">Salida denegada por defecto.</p>
+      </a>
+      <a href="#identity" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">04</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          ¿Quién puede hacer qué?
+        </p>
+        <p class="text-sm text-ax-ink/55">Su IdP, intersectado por turno.</p>
+      </a>
+      <a href="#privacy" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">05</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          ¿Y los datos personales?
+        </p>
+        <p class="text-sm text-ax-ink/55">Tokenizados antes de transmitir.</p>
+      </a>
+      <a href="#hitl" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">06</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          ¿Puede actuar por su cuenta?
+        </p>
+        <p class="text-sm text-ax-ink/55">En una escritura, nunca.</p>
+      </a>
+      <a href="#audit" class="ax-card p-5 block">
+        <p class="ax-mono text-2xs text-ax-ink/30 mb-2">07</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          ¿Qué ve un auditor?
+        </p>
+        <p class="text-sm text-ax-ink/55">La cadena causal completa.</p>
+      </a>
+      <a href="#airgap" class="ax-card p-5 block bg-ax-mist border-ax-blue/20">
+        <p class="ax-mono text-2xs text-ax-blue/50 mb-2">08</p>
+        <p class="font-heading font-bold text-[0.98rem] mb-1.5">
+          ¿Podemos correr sin internet?
+        </p>
+        <p class="text-sm text-ax-ink/55">Sí. El mismo código.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     01 · TRUST BOUNDARY
+     ========================================================================== -->
+<section id="boundary" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14 items-start">
+
+      <div class="lg:col-span-5 lg:sticky lg:top-28 ax-reveal">
+        <p class="ax-eyebrow text-ax-teal mb-5">01 · Frontera de confianza</p>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] mb-6">
+          
+          El proveedor nunca retiene sus datos.
+        </h2>
+        <p class="text-lg text-ax-ink/60 leading-relaxed mb-6">
+          
+          La mayoría de los proveedores de IA le pide aceptar que sus datos propietarios se procesen en infraestructura que usted no controla, bajo un acuerdo de tratamiento y una promesa. Para una Fortune 500 con cláusula de residencia de datos, eso no es una negociación — es un rechazo.
+        </p>
+        <p class="text-lg text-ax-ink/60 leading-relaxed">
+          
+          Por eso la arquitectura se parte en una línea dura. La orquestación decide qué sigue y no retiene datos del cliente. La ejecución vive por completo en su cuenta de nube y es lo único que toca alguno de sus sistemas.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 ax-reveal">
+        <div class="rounded-2xl border border-ax-ink/10 overflow-hidden">
+          <div class="bg-ax-mist p-6 border-b border-ax-ink/10">
+            <div class="flex items-center gap-2.5 mb-4">
+              <span class="w-2.5 h-2.5 rounded-full bg-ax-cyan"></span>
+              <p class="font-heading font-bold">
+                Plano de control · nuestro
+              </p>
+            </div>
+            <ul class="space-y-2 text-[0.93rem] text-ax-ink/65">
+              <li class="flex gap-2.5"><span class="text-ax-cyan">·</span>Ciclo de sesión, enrutamiento y compilación del agente</li>
+              <li class="flex gap-2.5"><span class="text-ax-cyan">·</span>Evaluación de políticas y puerta de pre-ejecución</li>
+              <li class="flex gap-2.5"><span class="text-ax-cyan">·</span>Recolección de trazas y medición</li>
+              <li class="flex gap-2.5 font-semibold text-ax-ink"><span class="text-ax-stop">✕</span>Ningún dato del cliente en reposo</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-4 text-center border-b border-ax-ink/10">
+            <p class="ax-mono text-xs text-ax-ink/45">
+              ↕ mTLS + W3C TraceContext
+            </p>
+          </div>
+
+          <div class="bg-ax-ink p-6">
+            <div class="flex items-center gap-2.5 mb-4">
+              <span class="w-2.5 h-2.5 rounded-full bg-ax-go"></span>
+              <p class="font-heading font-bold text-white">
+                Plano de ejecución · suyo
+              </p>
+            </div>
+            <ul class="space-y-2 text-[0.93rem] text-white/60">
+              <li class="flex gap-2.5"><span class="text-ax-go">·</span>Corre en su VPC, en su cuenta, bajo su IAM</li>
+              <li class="flex gap-2.5"><span class="text-ax-go">·</span>El único componente que conecta a sus sistemas</li>
+              <li class="flex gap-2.5"><span class="text-ax-go">·</span>Ejecución de código en sandbox con política de salida forzada</li>
+              <li class="flex gap-2.5 font-semibold text-white"><span class="text-ax-go">✓</span>Sus datos nunca cruzan la frontera</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     02 + 03 · ISOLATION AND EGRESS
+     ========================================================================== -->
+<section id="isolation" class="ax-band py-24 lg:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-cyan mb-5">02 · Aislamiento de ejecución</p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        
+        Asuma que el agente es hostil. Diseñe en consecuencia.
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        
+        Un agente que escribe y ejecuta código es, arquitectónicamente, una vía de ejecución remota que usted construyó a propósito. El aislamiento a nivel de contenedor no basta — un contenedor comparte kernel, y los escapes de kernel son una categoría conocida, no una hipótesis.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-5 ax-stagger">
+      <div class="ax-card-dark p-7">
+        <div class="w-11 h-11 rounded-xl bg-ax-cyan/10 border border-ax-cyan/25 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-cyan" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12a7 7 0 1114 0 7 7 0 01-14 0zM12 3v2m0 14v2m9-9h-2M5 12H3"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Sandbox a nivel de hipervisor
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          
+          El código generado corre en una MicroVM — un hipervisor a nivel de hardware — con su propio kernel. La frontera de aislamiento es el hipervisor, no un namespace. Un escape exitoso deja al atacante en una máquina virtual vacía.
+        </p>
+      </div>
+
+      <div class="ax-card-dark p-7" id="egress">
+        <div class="w-11 h-11 rounded-xl bg-ax-violet/10 border border-ax-violet/25 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-violet" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728A9 9 0 015.636 5.636"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Salida denegada por defecto
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          
+          Cada sandbox lleva un filtro de red eBPF y un sumidero DNS. El tráfico saliente se restringe a una lista que usted define, así un agente totalmente comprometido no tiene a dónde enviar nada. La exfiltración requiere un destino, y no hay ninguno.
+        </p>
+      </div>
+
+      <div class="ax-card-dark p-7">
+        <div class="w-11 h-11 rounded-xl bg-ax-teal/10 border border-ax-teal/25 flex items-center justify-center mb-5">
+          <svg class="w-5 h-5 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.46 12C3.73 7.94 7.52 5 12 5s8.27 2.94 9.54 7c-1.27 4.06-5.06 7-9.54 7s-8.27-2.94-9.54-7z"/></svg>
+        </div>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Salida escaneada al salir
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          
+          Un sidecar inspecciona todo lo que emite el sandbox antes de salir, detectando datos personales que una consulta devolvió de forma incidental. Defensa en profundidad: el tokenizador actúa a la entrada, el escáner a la salida.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     04 + 05 · IDENTITY AND PRIVACY
+     ========================================================================== -->
+<section id="identity" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-2 gap-8">
+
+      <div class="ax-reveal">
+        <p class="ax-eyebrow text-ax-blue mb-5">04 · Identidad y autorización</p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-[2.1rem] leading-[1.14] mb-5">
+          
+          Los permisos se intersectan, no se heredan.
+        </h2>
+        <p class="text-ax-ink/60 leading-relaxed mb-6">
+          
+          El modo de falla en la mayoría de las plataformas agénticas es una sola cuenta de servicio con acceso amplio, lo que significa que cada usuario tiene efectivamente la unión de los permisos de todos. Aquí el catálogo de herramientas disponible en un turno es la intersección triple de lo que la plataforma soporta, lo que su inquilino tiene habilitado y lo que permite el rol de ese usuario.
+        </p>
+
+        <div class="rounded-xl border border-ax-ink/10 bg-ax-mist p-6 mb-5">
+          <p class="ax-mono text-xs text-ax-ink/55 leading-relaxed">
+            available_tools = platform ∩ tenant ∩ rbac<br>
+            <span class="text-ax-ink/35">→ compiled into a signed session manifest, per turn</span>
+          </p>
+        </div>
+
+        <ul class="space-y-3 text-[0.95rem] text-ax-ink/65">
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span>Ingreso SAML 2.0 y OIDC contra Azure AD, Okta, Google, ADFS o un proveedor propio</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span>Tokens en almacenamiento respaldado por gestión de claves, nunca en configuración</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span>El historial de sesión revalida la autorización al acceder, así un rol revocado pierde también sesiones pasadas</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-ax-blue mt-0.5">→</span>
+            <span>Las especificaciones en caché llevan un hash de permisos y expiran al cambiar los derechos</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="ax-reveal" id="privacy">
+        <p class="ax-eyebrow text-ax-violet mb-5">05 · Privacidad</p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-[2.1rem] leading-[1.14] mb-5">
+          
+          Los datos sensibles nunca llegan al modelo.
+        </h2>
+        <p class="text-ax-ink/60 leading-relaxed mb-6">
+          
+          La tokenización contextual reemplaza los fragmentos sensibles antes de transmitir y reinyecta los valores reales tras la respuesta, de modo que el usuario ve una respuesta completa mientras el modelo solo vio marcadores. Es clave que esto lo gobierne una política declarativa y no reglas codificadas — su equipo de cumplimiento puede leerla y modificarla.
+        </p>
+
+        <div class="space-y-3">
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">Lista de categorías</p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">Qué clases de datos se tokenizan — nombres, identificadores nacionales, instrumentos financieros, datos de salud.</p>
+          </div>
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">Patrones empresariales propios</p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">Sus propios formatos de identificador — números de cuenta internos, códigos de parte, referencias de caso — tratados como sensibles aunque ningún escáner genérico los reconocería.</p>
+          </div>
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">Lista de exclusión segura</p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">Exclusiones literales y por patrón para valores que parecen sensibles pero no lo son, para que la sobre-tokenización no degrade la calidad.</p>
+          </div>
+          <div class="rounded-xl border border-ax-ink/10 p-4">
+            <p class="font-bold text-sm mb-1">Reglas de contexto omitido</p>
+            <p class="text-ax-ink/60 text-sm leading-relaxed">Exclusiones por etiqueta y por precedencia, más anulaciones por dominio, para que la política difiera entre una transcripción de soporte y un libro contable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     06 · HITL
+     ========================================================================== -->
+<section id="hitl" class="ax-dark py-24 lg:py-32 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-40"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-warn mb-5">06 · Control humano</p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        
+        Las lecturas son libres. Las escrituras se detienen. Siempre.
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        
+        "Humano en el ciclo" suele ser una diapositiva, no un mecanismo. Aquí es una máquina de estados con tres propiedades que resisten condiciones adversas.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-5 ax-stagger mb-8">
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="ax-mono text-2xs text-ax-warn mb-3">PROPERTY 01</p>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          El impacto se muestra, no se describe
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          
+          La puerta muestra un diff de exactamente qué cambiaría y cuántos registros alcanza. Un revisor que aprueba "actualizar las oportunidades" sin ver cuáles doce no está revisando, está haciendo ceremonia.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="ax-mono text-2xs text-ax-warn mb-3">PROPERTY 02</p>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Las aprobaciones no se pueden repetir
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          
+          Cada aprobación se ancla a un token de concurrencia optimista y al esquema con el que se otorgó. Si el plan o la definición de la herramienta cambian tras la aprobación, el token ya no coincide y la escritura se rechaza en lugar de ejecutarse contra algo que nadie revisó.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="ax-mono text-2xs text-ax-warn mb-3">PROPERTY 03</p>
+        <h3 class="font-heading font-bold text-white text-lg mb-3">
+          Escalar es un resultado de primera clase
+        </h3>
+        <p class="text-white/55 text-[0.93rem] leading-relaxed">
+          
+          Aprobar y rechazar no bastan. Un revisor que no es la persona indicada puede escalar, lo que enruta la decisión sin aprobarla por inercia ni descartar el trabajo en silencio.
+        </p>
+      </div>
+    </div>
+
+    <div class="rounded-2xl border border-ax-warn/25 bg-ax-warn/[0.06] p-7 lg:p-8 ax-reveal">
+      <p class="text-white/70 leading-relaxed">
+        
+        <strong class="text-white">La misma puerta aplica en cada solución.</strong> En ingeniería de pruebas es la cola de revisión antes de escribir un caso en su herramienta ALM. En flujos agénticos es la puerta antes de actualizar un registro. En inteligencia de negocios es el diff antes de sobrescribir una versión del tablero. Un mecanismo, tres superficies — por eso una revisión de seguridad de uno se traslada a los demás.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     07 · AUDIT
+     ========================================================================== -->
+<section id="audit" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14 items-center">
+
+      <div class="lg:col-span-6 ax-reveal">
+        <p class="ax-eyebrow text-ax-teal mb-5">07 · Auditabilidad</p>
+        <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] mb-6">
+          
+          Reconstruir la decisión, no un resumen de ella.
+        </h2>
+        <p class="text-lg text-ax-ink/60 leading-relaxed mb-6">
+          
+          Seis meses después alguien preguntará por qué el sistema cambió un registro, y "lo decidió la IA" no es una respuesta que sobreviva a una auditoría. Cada acción del agente se traza de extremo a extremo con contexto distribuido propagado entre los planos de control y ejecución, así la cadena causal es reconstruible y no inferida.
+        </p>
+        <ul class="space-y-3 text-[0.95rem] text-ax-ink/65">
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span>Qué turno disparó qué llamada, con los argumentos recibidos</span></li>
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span>Qué devolvió esa llamada y qué cita de la narrativa apunta a ella</span></li>
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span>Quién aprobó la escritura resultante, cuándo y contra qué token de versión</span></li>
+          <li class="flex gap-3"><span class="text-ax-teal mt-0.5">→</span><span>Qué rechazó la puerta y por qué la política se evaluó así</span></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-6 ax-reveal">
+        <div class="ax-terminal shadow-ax-lift">
+          <div class="ax-terminal-bar">
+            <span class="ax-terminal-dot bg-ax-stop/70"></span>
+            <span class="ax-terminal-dot bg-ax-warn/70"></span>
+            <span class="ax-terminal-dot bg-ax-go/70"></span>
+            <span class="ax-mono text-2xs text-white/40 ml-2">audit trace · reconstructed</span>
+          </div>
+          <div class="p-5 ax-mono text-xs space-y-1.5 text-white/60">
+            <p class="text-white/30">trace_id 4bf92f3577b34da6a3ce929d0e0e4736</p>
+            <div class="h-px bg-white/10 my-3"></div>
+            <p><span class="text-ax-cyan">├─</span> ingress <span class="text-white/30">user=j.rivera@ · role=analyst</span></p>
+            <p><span class="text-ax-cyan">│  ├─</span> tokenize <span class="text-white/30">14 spans held</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> injection scan <span class="text-ax-go">clean</span></p>
+            <p><span class="text-ax-cyan">├─</span> route <span class="text-white/30">NEW_TASK · 84ms</span></p>
+            <p><span class="text-ax-cyan">├─</span> factory <span class="text-white/30">manifest signed · 9 tools</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> intersection <span class="text-white/30">platform∩tenant∩rbac</span></p>
+            <p><span class="text-ax-cyan">├─</span> tool <span class="text-white/70">warehouse.aggregate</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> returned <span class="text-white/30">84,112 rows → pointer</span> <span class="text-ax-cyan">[1]</span></p>
+            <p><span class="text-ax-cyan">├─</span> gate <span class="text-white/70">crm.update</span> <span class="text-ax-warn">HELD</span></p>
+            <p><span class="text-ax-cyan">│  ├─</span> blast_radius <span class="text-white/30">12 records</span></p>
+            <p><span class="text-ax-cyan">│  ├─</span> version_token <span class="text-white/30">v7 · pinned</span></p>
+            <p><span class="text-ax-cyan">│  └─</span> approved <span class="text-white/30">m.okafor@ · 14:22:07Z</span></p>
+            <p><span class="text-ax-cyan">├─</span> tool <span class="text-white/70">crm.update</span> <span class="text-ax-go">COMMITTED</span></p>
+            <p><span class="text-ax-cyan">└─</span> egress <span class="text-white/30">detokenize · render</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     08 · DEPLOYMENT TOPOLOGIES
+     ========================================================================== -->
+<section id="airgap" class="py-24 lg:py-28 bg-ax-mist">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-12 ax-reveal">
+      <p class="ax-eyebrow text-ax-blue mb-5">08 · Despliegue</p>
+      <h2 class="font-heading font-extrabold text-3xl lg:text-4xl leading-[1.12] mb-5">
+        
+        Cuatro topologías. Un solo código.
+      </h2>
+      <p class="text-lg text-ax-ink/60 leading-relaxed">
+        
+        Elegir la opción restrictiva no debería dejarlo en una rama rezagada. Es el mismo código en cada topología, por eso el despliegue on-premises no es una degradación.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 ax-stagger">
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Kubernetes / Helm
+        </h3>
+        <p class="ax-pill ax-pill-cyan mb-3.5">Más común</p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          
+          On-premises o BYOC dentro de su clúster existente, bajo su política de red y su malla de servicios.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">Docker</h3>
+        <p class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15 mb-3.5">Inicio rápido</p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          
+          Despliegue con Compose y base de datos gestionada, apropiado para un piloto acotado en infraestructura aislada.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Binario firmado
+        </h3>
+        <p class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15 mb-3.5">Sin red</p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          
+          Un ejecutable de escritorio firmado criptográficamente para entornos donde no se permite ejecutar un servicio.
+        </p>
+      </div>
+      <div class="bg-white rounded-2xl border border-ax-ink/10 p-6">
+        <h3 class="font-heading font-bold text-lg mb-2">
+          Nube gestionada
+        </h3>
+        <p class="ax-pill bg-ax-ink/5 text-ax-ink/50 border border-ax-ink/15 mb-3.5">Menor operación</p>
+        <p class="text-ax-ink/60 text-sm leading-relaxed">
+          
+          Operamos el plano de control; el de ejecución sigue en su cuenta. Adecuado cuando la residencia de datos no es la restricción vinculante.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-6 rounded-2xl border border-ax-ink/10 bg-white p-7 ax-reveal">
+      <h3 class="font-heading font-bold text-lg mb-2.5">
+        Sobre la inferencia y el acceso al modelo
+      </h3>
+      <p class="text-ax-ink/65 leading-relaxed">
+        
+        No exigimos un proveedor de modelo específico ni introducimos una nueva ruta saliente. La inferencia se enruta por el gateway que su organización ya aprobó — un gateway de IA interno, un endpoint nativo de nube en su propia suscripción, o un modelo auto-alojado. Los embeddings de recuperación corren residentes y localmente en lugar de llamar a un servicio alojado, y eso es lo que hace viable, y no teórico, un despliegue con salida totalmente restringida.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     RED TEAM
+     ========================================================================== -->
+<section class="ax-band py-24 lg:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <div class="max-w-3xl mb-14 ax-reveal">
+      <p class="ax-eyebrow text-ax-cyan mb-5">
+        Pruebas adversarias
+      </p>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+        
+        Ataques contra los que diseñamos, por nombre.
+      </h2>
+      <p class="text-lg text-white/55 leading-relaxed">
+        
+        Un proveedor que no puede nombrar los ataques contra su propia clase de sistema no los ha buscado. Cada uno de estos tiene una mitigación específica en el código, y cada uno se ejercita en la fase de endurecimiento del proyecto.
+      </p>
+    </div>
+
+    <div class="ax-table-wrap rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden ax-reveal">
+      <table class="ax-table ax-table-dark">
+        <thead class="bg-white/[0.04]">
+          <tr>
+            <th>Ataque</th>
+            <th>Mitigación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Suplantación de herramienta</td>
+            <td>Un servidor malicioso registra una herramienta que suplanta a una confiable. Las colisiones de nombre fallan cerradas — la solicitud se deniega en lugar de resolverse por conjetura.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Inyección en descripción</td>
+            <td>Instrucciones ocultas en el texto de descripción de una herramienta. Las descripciones se tratan como entrada no confiable y no pueden redirigir al agente.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Evasión por subconsulta</td>
+            <td>Una operación restringida anidada en una subconsulta para burlar una regla de coincidencia textual. Las consultas se analizan en árbol sintáctico y se validan estructuralmente.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Salida por URL / SSRF</td>
+            <td>Una cita o puntero renderizado como enlace a un destino controlado por el atacante. Las URLs se validan contra una lista permitida antes de renderizar.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Repetición de aprobación</td>
+            <td>Reutilizar una aprobación otorgada contra un plan modificado. Las aprobaciones se anclan a un token de concurrencia y al esquema aprobado; una discrepancia rechaza la escritura.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Falsificación de citas</td>
+            <td>El modelo emite marcadores de apariencia autorizada que inventó. Las citas las genera el backend desde el registro de llamadas; los marcadores sin correspondencia se eliminan.</td>
+          </tr>
+          <tr>
+            <td class="font-bold text-white whitespace-nowrap">Reintento con duplicado</td>
+            <td>Una falla transitoria en una escritura no idempotente que se vuelve transacción duplicada al reintentar. Las guardas de reintento son conscientes de idempotencia por operación.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FAQ
+     ========================================================================== -->
+<section class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-12 gap-14">
+
+      <div class="lg:col-span-4 ax-reveal">
+        <p class="ax-eyebrow text-ax-teal mb-5">FAQ</p>
+        <h2 class="font-heading font-extrabold text-3xl lg:text-4xl leading-[1.12]">
+          
+          Directo del cuestionario.
+        </h2>
+      </div>
+
+      <div class="lg:col-span-8 space-y-3 ax-stagger">
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              ¿Cuál es la frontera exacta entre sus sistemas y los nuestros?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">El plano de control orquesta y no retiene datos del cliente; el plano de ejecución corre en su VPC y es lo único que toca sus sistemas.</strong> Se comunican por TLS mutuo con contexto de traza distribuida propagado en la unión, de modo que el rastro de auditoría sobrevive a la frontera. En un despliegue on-premises ambos planos corren en su entorno y la frontera se vuelve interna.
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              Asuma que el agente está comprometido. ¿Qué pasa?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">No tiene a dónde enviar nada ni nada que pueda escribir unilateralmente.</strong> El código se ejecuta en una MicroVM con su propio kernel, así que la frontera es el hipervisor y no un namespace. La salida está denegada por defecto vía filtrado eBPF y sumidero DNS. Toda escritura sigue requiriendo aprobación humana anclada a un token de versión. El peor caso realista son lecturas no autorizadas dentro del catálogo que el rol de ese usuario ya permitía — por eso importa la intersección triple de permisos.
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              ¿Podemos correr sin ningún acceso saliente a internet?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">Sí.</strong> La inferencia se enruta por el gateway que ya aprobó — incluido un modelo auto-alojado — y los embeddings corren residentes y localmente en lugar de llamar a un servicio alojado. El despliegue soporta Kubernetes y Helm en su propia infraestructura, o un binario único firmado donde no se permite ejecutar un servicio. Es el mismo código, así que la topología restrictiva no es un conjunto reducido de funciones.
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              ¿Retienen alguna de nuestras credenciales?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">Las credenciales de conexión y claves de API se cifran en reposo con cifrado simétrico autenticado antes de llegar a cualquier base de datos, y nunca se escriben en configuración en texto plano.</strong> Los tokens de identidad se guardan en almacenamiento respaldado por gestión de claves bajo su propio material criptográfico. En un despliegue BYOC u on-premises el almacén está dentro de su perímetro, así que no retenemos nada — no tenemos acceso al entorno donde viven esos secretos.
+          </p></div></div>
+        </div>
+
+        <div class="ax-acc border border-ax-ink/10 rounded-xl overflow-hidden" data-acc-group="sec-faq">
+          <button data-acc-trigger aria-expanded="false" class="w-full flex items-center justify-between gap-4 text-left p-5 hover:bg-ax-mist transition-colors">
+            <h3 class="font-heading font-bold text-[1.05rem]">
+              
+              ¿Qué necesitan de nuestro equipo de seguridad, y cuándo?
+            </h3>
+            <svg class="ax-acc-icon w-5 h-5 shrink-0 text-ax-teal" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="ax-acc-panel"><div><p class="px-5 pb-5 text-ax-ink/60 leading-relaxed">
+            
+            <strong class="text-ax-ink">Dos semanas de su atención al inicio, no una firma al final.</strong> Las semanas uno y dos definen topología de despliegue, residencia de datos, proveedor de identidad, política de salida y requisitos de auditoría, y producen un modelo de amenazas y un diagrama que sus revisores ya vieron. Posponer esa conversación al final es la razón más común por la que los proyectos de IA empresarial incumplen su fecha.
+          </p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CTA
+     ========================================================================== -->
+<section class="ax-dark py-24 lg:py-28 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-50"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative ax-reveal">
+    <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
+      
+      Envíe el cuestionario antes de la demostración.
+    </h2>
+    <p class="text-lg text-white/60 leading-relaxed mb-10 max-w-2xl mx-auto">
+      
+      Preferimos responder cuarenta preguntas de seguridad por escrito y luego mostrarle algo, que mostrarle algo y pasar dos meses respondiéndolas. Envíenos la evaluación que usa su equipo de riesgo de proveedores.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3.5 justify-center">
+      <a href="contact.html" class="ax-btn ax-btn-primary px-8 py-4">
+        Enviarnos la evaluación
+      </a>
+      <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-ghost px-8 py-4">
+        Agendar Sesión Técnica
+      </a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="bg-ax-void text-white pt-16 pb-10">
+  <hr class="ax-rule-spectrum mb-16 max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
+
+      <div class="lg:col-span-5">
+        <a href="index.html" class="ax-logo mb-5">
+          <img src="../assets/logo-mark-dark.png" alt="Axionalytics" width="88" height="100" loading="lazy" decoding="async">
+          <span class="text-[1.35rem] font-heading font-bold">axionalytics</span>
+        </a>
+        <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
+          
+          IA agéntica en producción para organizaciones Fortune 500 de ingeniería, datos e ingresos. Construida en Davenport, Iowa. Desplegada dentro de su perímetro.
+        </p>
+        <div class="flex gap-2.5">
+          <a href="https://www.linkedin.com/company/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="LinkedIn">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://wa.me/19562079368" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="WhatsApp">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Soluciones
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="agentic-test-engineering.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Ingeniería de Pruebas Agéntica</a></li>
+          <li><a href="enterprise-agentic-ai.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            IA Agéntica Empresarial</a></li>
+          <li><a href="agentic-business-intelligence.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Inteligencia de Negocios Agéntica</a></li>
+          <li><a href="agentic-revenue-development.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Desarrollo de Ingresos Agéntico</a></li>
+          <li><a href="enterprise-ai-security.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Gobernanza de IA de Confianza Cero</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Compañía
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="about.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Nosotros</a></li>
+          <li><a href="case-studies.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Casos de Éxito</a></li>
+          <li><a href="blog.html" class="text-white/65 hover:text-ax-cyan transition-colors">Blog</a></li>
+          <li><a href="contact.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Recursos
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="roi-calculator.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Calculadora ROI</a></li>
+          <li><a href="glossary.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Glosario</a></li>
+          <li><a href="pricing.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Precios</a></li>
+          <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agendar Sesión</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/[0.08] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/35 text-sm">
+        © <span data-year>2026</span> Axionalytics.
+        Todos los derechos reservados.
+      </p>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+        <a href="privacy.html" class="text-white/35 hover:text-white transition-colors">
+          Privacidad</a>
+        <a href="terms.html" class="text-white/35 hover:text-white transition-colors">
+          Términos</a>
+        <a href="accessibility.html" class="text-white/35 hover:text-white transition-colors">
+          Accesibilidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/axio.js"></script>
+<script src="../assets/axio-analytics.js"></script>
+</body>
+</html>

@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+===============================================================================
+AXIONALYTICS - SUCCESS STORIES PAGE (successstories.html)
+Version: 1.0.0
+Last Updated: February 2026
+
+DEPLOYMENT: Ready for GitHub Pages
+FRAMEWORK: Tailwind CSS via CDN + Custom CSS
+
+===============================================================================
+UPDATE INSTRUCTIONS:
+===============================================================================
+
+1. BOOKING LINKS (Google Calendar):
+   - Search for: href="#BOOKING_LINK"
+   - Replace with your Google Calendar appointment scheduling link
+   - Example: href="https://calendar.google.com/calendar/appointments/YOUR_LINK"
+
+2. SOCIAL MEDIA LINKS:
+   - Search for: href="#LINKEDIN", href="#WHATSAPP", href="#INSTAGRAM"
+   - Replace with your actual social media URLs
+
+3. CONTACT EMAIL:
+   - Search for: info@axionalytics.com
+   - Replace with your preferred contact email
+
+4. SPANISH TRANSLATIONS:
+   - All Spanish text is marked with data-lang-es attributes
+   - Text switches automatically based on language toggle
+
+===============================================================================
+PAGE SECTIONS:
+- Header/Navigation
+- Hero Section
+- Featured Case Study (RemodelArT)
+- More Success Stories Grid
+- CTA Section
+- Footer
+===============================================================================
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real results from real businesses. See how Axionalytics has helped companies transform their data chaos into clear strategy and measurable growth.">
+    <meta name="keywords" content="data analytics, AI integration, case studies, success stories, client testimonials, business transformation">
+    <meta name="author" content="Axionalytics">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Success Stories | Axionalytics">
+    <meta property="og:description" content="Real results from real businesses. See how we've helped companies across industries achieve measurable growth through data and AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.axionalytics.com/success-stories">
+    
+    <title>Blog | Axionalytics - Data Analytics Insights</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo_fixed.png">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'axio': {
+                            'primary': '#1E3A5F',      // Dark blue (brand primary)
+                            'secondary': '#2563EB',    // Bright blue
+                            'accent': '#F97316',       // Orange accent
+                            'dark': '#0F172A',         // Near black
+                            'charcoal': '#1E293B',     // Dark gray
+                            'slate': '#334155',        // Medium slate
+                            'light': '#F8FAFC',        // Light background
+                            'green': '#10B981',        // Success green
+                            'amber': '#F59E0B',        // Amber for highlights
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['Plus Jakarta Sans', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideInLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- ============================================
+         CUSTOM STYLES
+         ============================================ -->
+    <style>
+        /* Global Styles */
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        /* ============================================
+           BILINGUAL SYSTEM
+           - English shows by default
+           - Spanish hidden by default
+           - .lang-es on html swaps them
+           ============================================ */
+        [data-lang-es] {
+            display: none;
+        }
+        
+        html.lang-es [data-lang-en] {
+            display: none !important;
+        }
+        
+        html.lang-es [data-lang-es] {
+            display: inline !important;
+        }
+        
+        html.lang-es div[data-lang-es],
+        html.lang-es p[data-lang-es],
+        html.lang-es h1[data-lang-es],
+        html.lang-es h2[data-lang-es],
+        html.lang-es h3[data-lang-es],
+        html.lang-es h4[data-lang-es],
+        html.lang-es li[data-lang-es],
+        html.lang-es span[data-lang-es],
+        html.lang-es a[data-lang-es] {
+            display: block !important;
+        }
+        
+        html.lang-es span[data-lang-es] {
+            display: inline !important;
+        }
+        
+        /* ============================================
+           GRADIENT BACKGROUNDS
+           ============================================ */
+        .gradient-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+        }
+        
+        .gradient-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(249, 115, 22, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .gradient-cta {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        }
+        
+        .gradient-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(249, 115, 22, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* ============================================
+           CASE STUDY CARD STYLES
+           ============================================ */
+        .featured-case {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            border: 3px solid #F97316;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .featured-case:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .case-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            border-color: #F97316;
+        }
+        
+        /* Badge Styles */
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .industry-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Section Label Styles */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .label-challenge { color: #DC2626; }
+        .label-solution { color: #2563EB; }
+        .label-results { color: #10B981; }
+        
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .metric {
+            text-align: center;
+            padding: 14px 8px;
+            background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+            border-radius: 10px;
+        }
+        
+        .metric-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #10B981;
+            display: block;
+            line-height: 1.2;
+        }
+        
+        .metric-label {
+            font-size: 10px;
+            color: #065F46;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border-left: 4px solid #2563EB;
+            padding: 16px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 16px;
+        }
+        
+        .quote-text {
+            font-style: italic;
+            color: #1E293B;
+            font-size: 14px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .quote-author {
+            font-weight: 700;
+            color: #2563EB;
+            font-size: 13px;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.5);
+        }
+        
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.is-open {
+            transform: translateX(0);
+        }
+        
+        /* Scroll Reveal */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: transparent;
+        }
+        
+        .lang-toggle:hover {
+            border-color: #F97316;
+            background: rgba(249, 115, 22, 0.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            
+            .metric {
+                padding: 12px 6px;
+            }
+            
+            .metric-value {
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* ============================================
+           BLOG ACCORDION STYLES
+           ============================================ */
+        .blog-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-item:hover {
+            border-color: #F97316;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .blog-header {
+            padding: 28px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .blog-header::after {
+            content: '▼';
+            position: absolute;
+            right: 28px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #64748B;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-item.active .blog-header::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+        
+        .blog-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease;
+        }
+        
+        .blog-item.active .blog-content {
+            max-height: 5000px;
+        }
+        
+        .blog-content-inner {
+            padding: 0 28px 32px 28px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #334155;
+        }
+        
+        .blog-content-inner h3 {
+            font-size: 24px;
+            margin: 32px 0 16px;
+            color: #1E293B;
+        }
+        
+        .blog-content-inner p {
+            margin-bottom: 20px;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            color: #2563EB;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+            border-left: 4px solid #2563EB;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #2563EB;
+            font-size: 17px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .pro-tip {
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            border-left: 4px solid #F59E0B;
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+        
+        .pro-tip h4 {
+            color: #92400E;
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-white text-axio-dark">
+    
+    <!-- ═══════════════════════════════════════════════════════════════════
+         SECTION: NAVIGATION HEADER
+         - Sticky navigation with logo, menu items, CTA, and language toggle
+         - Mobile responsive with hamburger menu
+         ═══════════════════════════════════════════════════════════════════ -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background-color:#0F172A;">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center group">
+                    <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                    <span class="text-2xl font-heading font-bold text-white group-hover:text-orange-400 transition-colors -ml-6">
+                        axionalytics
+                    </span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformación de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integración de IA</span>
+                    </a>
+                    <a href="training.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitación</span>
+                    </a>
+                    <a href="contact.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </div>
+                
+                <!-- Right Side: CTA + Language Toggle -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <!-- CTA Button - Replace #BOOKING_LINK with your Google Calendar link -->
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-3 rounded-xl font-bold text-sm">
+                        <span data-lang-en>Book Now</span>
+                        <span data-lang-es>Reservar</span>
+                    </a>
+                    
+                    <!-- Language Toggle -->
+                    <button id="lang-toggle-desktop" class="lang-toggle text-white text-sm font-medium" aria-label="Toggle language">
+                        <span id="current-lang-flag">🇺🇸</span>
+                        <span id="current-lang-text">EN</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Slide-in) -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-80 max-w-full bg-axio-dark shadow-2xl lg:hidden z-50" style="background-color:#0F172A;">
+            <div class="flex flex-col h-full p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-xl font-heading font-bold text-white">Menu</span>
+                    <button id="mobile-menu-close" class="text-white p-2" aria-label="Close menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <nav class="flex flex-col gap-4">
+                    <a href="index.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformación de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integración de IA</span>
+                    </a>
+                    <a href="training.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitación</span>
+                    </a>
+                    <a href="contact.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </nav>
+                
+                <div class="mt-auto pt-8 border-t border-white/10">
+                    <!-- Mobile Language Toggle -->
+                    <button id="lang-toggle-mobile" class="lang-toggle text-white text-sm font-medium mb-4 w-full justify-center">
+                        <span class="mobile-lang-flag">🇺🇸</span>
+                        <span class="mobile-lang-text">English</span>
+                    </button>
+                    
+                    <!-- Mobile CTA -->
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-4 rounded-xl font-bold text-center block">
+                        <span data-lang-en>Book Free Assessment</span>
+                        <span data-lang-es>Agendar Evaluación Gratuita</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 lg:hidden z-40 opacity-0 pointer-events-none transition-opacity"></div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="gradient-hero relative pt-32 pb-20">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+            <span class="badge scroll-reveal">
+                <span data-lang-en>Blog &amp; Insights</span>
+                <span data-lang-es>Blog e Insights</span>
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 mt-4 scroll-reveal" style="animation-delay: 0.1s">
+                <span data-lang-en>Data Analytics Insights</span>
+                <span data-lang-es>Insights de Análisis de Datos</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto scroll-reveal" style="animation-delay: 0.2s">
+                <span data-lang-en>Practical guides and expert insights to help you make better data-driven decisions.</span>
+                <span data-lang-es>Guías prácticas y conocimientos expertos para ayudarte a tomar mejores decisiones basadas en datos.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BLOG CONTENT SECTION
+         ============================================ -->
+    <section class="py-20 bg-axio-light">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <!-- Blog Article 1 -->
+            <div class="blog-item scroll-reveal">
+                <div class="blog-header">
+                    <span class="category-badge">
+                        <span data-lang-en>Getting Started</span>
+                        <span data-lang-es>Comenzando</span>
+                    </span>
+                    
+                    <h2 class="text-2xl md:text-3xl font-heading font-bold text-axio-dark mb-3">
+                        <span data-lang-en>How to Build Your First Business Dashboard</span>
+                        <span data-lang-es>Cómo Construir Tu Primer Dashboard Empresarial</span>
+                    </h2>
+                    
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                        <span>📅 <span data-lang-en>December 2024</span><span data-lang-es>Diciembre 2024</span></span>
+                        <span>📖 <span data-lang-en>12 min read</span><span data-lang-es>12 min lectura</span></span>
+                    </div>
+                    
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-lang-en>Learn how to build a useful business dashboard without a computer science degree.</span>
+                        <span data-lang-es>Aprende cómo construir un dashboard empresarial útil sin un título en ciencias de la computación.</span>
+                    </p>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-content-inner">
+                        
+                        <p>
+                            <span data-lang-en>You've heard the buzzwords: "data-driven decisions," "business intelligence," "analytics dashboards." But when you're running a small business, it's easy to feel like these tools are only for companies with dedicated IT departments.</span>
+                            <span data-lang-es>Has escuchado las palabras de moda: "decisiones basadas en datos", "inteligencia empresarial", "dashboards de análisis". Pero cuando diriges un pequeño negocio, es fácil sentir que estas herramientas son solo para empresas con departamentos de TI dedicados.</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en>Here's the truth: building a useful business dashboard doesn't require a computer science degree. It requires clarity about what decisions you need to make.</span>
+                            <span data-lang-es>Aquí está la verdad: construir un dashboard empresarial útil no requiere un título en ciencias de la computación. Requiere claridad sobre las decisiones que necesitas tomar.</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>Why Most Dashboards Fail</span>
+                            <span data-lang-es>Por Qué Fallan Los Dashboards</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Before we build, let's understand why 70% of business dashboards get abandoned within 6 months.</span>
+                            <span data-lang-es>Antes de construir, entendamos por qué el 70% de los dashboards empresariales son abandonados en 6 meses.</span>
+                        </p>
+                        
+                        <div class="highlight-box">
+                            <h4>
+                                <span data-lang-en>The One Question Test</span>
+                                <span data-lang-es>La Prueba de Una Pregunta</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en>Before adding any metric, ask: "If this number changed tomorrow, would I do something different?"</span>
+                                <span data-lang-es>Antes de agregar cualquier métrica, pregunta: "¿Si este número cambiara mañana, haría algo diferente?"</span>
+                            </p>
+                        </div>
+                        
+                        <h3>
+                            <span data-lang-en>Step 1: Identify Your Key Decisions</span>
+                            <span data-lang-es>Paso 1: Identifica Tus Decisiones Clave</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Start with the end in mind. What decisions do you make regularly that would benefit from better data?</span>
+                            <span data-lang-es>Comienza con el fin en mente. ¿Qué decisiones tomas que se beneficiarían de mejores datos?</span>
+                        </p>
+                        
+                        <div class="pro-tip">
+                            <h4>
+                                💡 <span data-lang-en>Pro Tip</span><span data-lang-es>Consejo Profesional</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en>Include at least one "leading indicator" and one "lagging indicator" in your dashboard.</span>
+                                <span data-lang-es>Incluye al menos un "indicador adelantado" y un "indicador rezagado" en tu dashboard.</span>
+                            </p>
+                        </div>
+                        
+                        <h3>
+                            <span data-lang-en>Step 2: Choose Your Metrics</span>
+                            <span data-lang-es>Paso 2: Elige Tus Métricas</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>For each decision, identify 1-2 metrics. Your first dashboard should have no more than 5-7 key metrics.</span>
+                            <span data-lang-es>Para cada decisión, identifica 1-2 métricas. Tu primer dashboard no debe tener más de 5-7 métricas clave.</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>What to Do Next</span>
+                            <span data-lang-es>Qué Hacer Después</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Write down the 3 most important decisions you make each month. For each one, identify what data would help. That's your first dashboard.</span>
+                            <span data-lang-es>Escribe las 3 decisiones más importantes que tomas cada mes. Para cada una, identifica qué datos te ayudarían. Ese es tu primer dashboard.</span>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Article 2: ROI of Data Analytics -->
+            <div class="blog-item scroll-reveal">
+                <div class="blog-header">
+                    <span class="category-badge" style="background: linear-gradient(135deg, #FED7AA 0%, #FDBA74 100%); color: #C2410C;">
+                        <span data-lang-en>ROI & Strategy</span>
+                        <span data-lang-es>ROI y Estrategia</span>
+                    </span>
+                    
+                    <h2 class="text-2xl md:text-3xl font-heading font-bold text-axio-dark mb-3">
+                        <span data-lang-en>The ROI of Data Analytics for Small Business</span>
+                        <span data-lang-es>El ROI de Análisis de Datos para Pequeños Negocios</span>
+                    </h2>
+                    
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                        <span>📅 <span data-lang-en>December 2024</span><span data-lang-es>Diciembre 2024</span></span>
+                        <span>📖 <span data-lang-en>10 min read</span><span data-lang-es>10 min lectura</span></span>
+                    </div>
+                    
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-lang-en>What research says about analytics ROI and how to calculate yours.</span>
+                        <span data-lang-es">Lo que dice la investigación sobre el ROI de análisis y cómo calcular el tuyo.</span>
+                    </p>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-content-inner">
+                        
+                        <p>
+                            <span data-lang-en">"Data analytics" sounds expensive. The short answer is yes—but ROI depends on how you approach it.</span>
+                            <span data-lang-es">"Análisis de datos" suena costoso. La respuesta corta es sí, pero el ROI depende de cómo lo abordes.</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en>If you're expecting a dashboard to magically solve your problems, you'll be disappointed. But if you use analytics to make better decisions, the payoff can be dramatic.</span>
+                            <span data-lang-es>Si esperas que un dashboard resuelva mágicamente tus problemas, te decepcionarás. Pero si usas análisis para tomar mejores decisiones, el retorno puede ser dramático.</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>What the Research Says</span>
+                            <span data-lang-es>Lo Que Dice La Investigación</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Multiple studies have tried to quantify the ROI of analytics investments:</span>
+                            <span data-lang-es>Múltiples estudios han intentado cuantificar el ROI de inversiones en análisis:</span>
+                        </p>
+                        
+                        <div class="highlight-box">
+                            <h4>
+                                <span data-lang-en>Key Research Findings</span>
+                                <span data-lang-es>Hallazgos Clave de Investigación</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en><strong>Nucleus Research:</strong> $13.01 return per $1 spent on analytics</span>
+                                <span data-lang-es><strong>Nucleus Research:</strong> $13.01 de retorno por cada $1 gastado en análisis</span>
+                            </p>
+                            <p>
+                                <span data-lang-en><strong>McKinsey:</strong> Data-driven companies are 23x more likely to acquire customers</span>
+                                <span data-lang-es><strong>McKinsey:</strong> Empresas basadas en datos tienen 23 veces más probabilidad de adquirir clientes</span>
+                            </p>
+                            <p>
+                                <span data-lang-en><strong>Forrester:</strong> Insights-driven businesses see 8-10% revenue growth annually</span>
+                                <span data-lang-es><strong>Forrester:</strong> Negocios impulsados por insights ven 8-10% de crecimiento de ingresos anualmente</span>
+                            </p>
+                        </div>
+                        
+                        <h3>
+                            <span data-lang-en>Where ROI Actually Comes From</span>
+                            <span data-lang-es>De Dónde Viene Realmente El ROI</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>The research numbers are impressive, but what does ROI look like for a real small business? Here are the five most common sources:</span>
+                            <span data-lang-es>Los números de investigación son impresionantes, pero ¿cómo se ve el ROI para un pequeño negocio real? Estas son las cinco fuentes más comunes:</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>1. Faster Accounts Receivable Collection</span>
+                            <span data-lang-es>1. Cobro Más Rápido de Cuentas por Cobrar</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Most small businesses have 15-30% of revenue tied up in unpaid invoices at any given time. A simple AR aging dashboard helps you identify which invoices need follow-up.</span>
+                            <span data-lang-es>La mayoría de pequeños negocios tienen 15-30% de sus ingresos atados en facturas impagadas en cualquier momento. Un simple dashboard de antigüedad de AR te ayuda a identificar qué facturas necesitan seguimiento.</span>
+                        </p>
+                        
+                        <div class="pro-tip">
+                            <h4>
+                                💡 <span data-lang-en>Real Example</span><span data-lang-es>Ejemplo Real</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en">A construction company we worked with had $180K in overdue invoices. By implementing a simple dashboard showing days overdue by client, they collected $120K within 90 days.</span>
+                                <span data-lang-es">Una empresa de construcción con la que trabajamos tenía $180K en facturas vencidas. Al implementar un simple dashboard mostrando días vencidos por cliente, cobraron $120K en 90 días.</span>
+                            </p>
+                        </div>
+                        
+                        <h3>
+                            <span data-lang-en>2. Identifying Unprofitable Customers</span>
+                            <span data-lang-es>2. Identificar Clientes No Rentables</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en">Many businesses lose money on 15-25% of clients without realizing it. When you track actual hours versus billing, patterns emerge.</span>
+                            <span data-lang-es>Muchos negocios pierden dinero en 15-25% de sus clientes sin darse cuenta. Cuando rastreas horas reales versus facturación, emergen patrones.</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>3. Reducing Inventory Waste</span>
+                            <span data-lang-es>3. Reducir Desperdicio de Inventario</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en">For product-based businesses, tracking inventory turn rates identifies what's moving versus what's collecting dust. The average retail business has 20-30% of inventory that hasn't moved in 6+ months.</span>
+                            <span data-lang-es>Para negocios basados en productos, rastrear tasas de rotación de inventario identifica qué se está moviendo versus qué está acumulando polvo. El negocio minorista promedio tiene 20-30% de inventario que no se ha movido en más de 6 meses.</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>4. Marketing Optimization</span>
+                            <span data-lang-es>4. Optimización de Marketing</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en">Most small businesses spend 5-15% of revenue on marketing but can't tell which channels work. Basic attribution tracking shows you where to double down and where to cut.</span>
+                            <span data-lang-es>La mayoría de pequeños negocios gastan 5-15% de ingresos en marketing pero no pueden decir qué canales funcionan. El rastreo básico de atribución te muestra dónde redoblar esfuerzos y dónde recortar.</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>5. Operational Efficiency</span>
+                            <span data-lang-es>5. Eficiencia Operacional</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en">Time tracking and process analytics reveal bottlenecks. Simple dashboards showing "time to complete" by task type help you identify where training or automation would have the biggest impact.</span>
+                            <span data-lang-es">El rastreo de tiempo y análisis de procesos revelan cuellos de botella. Dashboards simples mostrando "tiempo para completar" por tipo de tarea te ayudan a identificar dónde la capacitación o automatización tendría el mayor impacto.</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>How to Calculate Your ROI</span>
+                            <span data-lang-es>Cómo Calcular Tu ROI</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Here's a simple framework to estimate what analytics could be worth to your business:</span>
+                            <span data-lang-es>Aquí hay un marco simple para estimar lo que el análisis podría valer para tu negocio:</span>
+                        </p>
+                        
+                        <div class="highlight-box">
+                            <h4>
+                                <span data-lang-en>ROI Calculation Framework</span>
+                                <span data-lang-es>Marco de Cálculo de ROI</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en><strong>Step 1:</strong> Identify one decision where better data would help</span>
+                                <span data-lang-es><strong>Paso 1:</strong> Identifica una decisión donde mejores datos ayudarían</span>
+                            </p>
+                            <p>
+                                <span data-lang-en><strong>Step 2:</strong> Estimate the financial impact of making that decision 10% better</span>
+                                <span data-lang-es><strong>Paso 2:</strong> Estima el impacto financiero de tomar esa decisión 10% mejor</span>
+                            </p>
+                            <p>
+                                <span data-lang-en"><strong>Step 3:</strong> Compare that to your analytics investment</span>
+                                <span data-lang-es><strong>Paso 3:</strong> Compara eso con tu inversión en análisis</span>
+                            </p>
+                        </div>
+                        
+                        <h3>
+                            <span data-lang-en>What to Do Next</span>
+                            <span data-lang-es>Qué Hacer Después</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Start with one high-impact area. For most businesses, that's either cash flow management or customer profitability. Build a simple dashboard, use it for 90 days, and measure the results.</span>
+                            <span data-lang-es>Comienza con un área de alto impacto. Para la mayoría de negocios, eso es gestión de flujo de caja o rentabilidad del cliente. Construye un dashboard simple, úsalo por 90 días y mide los resultados.</span>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Article 3: AI Tools -->
+            <div class="blog-item scroll-reveal">
+                <div class="blog-header">
+                    <span class="category-badge" style="background: linear-gradient(135deg, #E9D5FF 0%, #D8B4FE 100%); color: #7C3AED;">
+                        <span data-lang-en>AI & Automation</span>
+                        <span data-lang-es>IA y Automatización</span>
+                    </span>
+                    
+                    <h2 class="text-2xl md:text-3xl font-heading font-bold text-axio-dark mb-3">
+                        <span data-lang-en>7 AI Tools Every Small Business Should Know About in 2025</span>
+                        <span data-lang-es>7 Herramientas de IA Que Todo Pequeño Negocio Debe Conocer en 2025</span>
+                    </h2>
+                    
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                        <span>📅 <span data-lang-en>January 2025</span><span data-lang-es>Enero 2025</span></span>
+                        <span>📖 <span data-lang-en>15 min read</span><span data-lang-es>15 min lectura</span></span>
+                    </div>
+                    
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-lang-en>AI tools that consistently deliver value for small businesses.</span>
+                        <span data-lang-es>Herramientas de IA que entregan valor consistentemente para pequeños negocios.</span>
+                    </p>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-content-inner">
+                        
+                        <p>
+                            <span data-lang-en>AI has moved from science fiction to your laptop. But with thousands of AI tools launching every month, how do you know which ones actually matter for your business?</span>
+                            <span data-lang-es>La IA ha pasado de la ciencia ficción a tu laptop. Pero con miles de herramientas de IA lanzándose cada mes, ¿cómo sabes cuáles realmente importan para tu negocio?</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en>This guide covers the AI tools that small businesses are actually using—and seeing results from. No hype, no theoretical use cases. Just practical tools that save time and money.</span>
+                            <span data-lang-es>Esta guía cubre las herramientas de IA que los pequeños negocios realmente están usando—y viendo resultados. Sin exageraciones, sin casos de uso teóricos. Solo herramientas prácticas que ahorran tiempo y dinero.</span>
+                        </p>
+                        
+                        <div class="highlight-box">
+                            <h4>
+                                <span data-lang-en>What Makes the List?</span>
+                                <span data-lang-es">¿Qué Hace La Lista?</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en">These tools meet three criteria: (1) Under $50/month or free tier available, (2) Less than 30 minutes to get value, (3) Clear ROI within 90 days</span>
+                                <span data-lang-es>Estas herramientas cumplen tres criterios: (1) Menos de $50/mes o nivel gratuito disponible, (2) Menos de 30 minutos para obtener valor, (3) ROI claro en 90 días</span>
+                            </p>
+                        </div>
+                        
+                        <h3>
+                            <span data-lang-en>1. ChatGPT / Claude (General Purpose AI)</span>
+                            <span data-lang-es>1. ChatGPT / Claude (IA de Propósito General)</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en><strong>What it does:</strong> Writing, analysis, brainstorming, coding, research—the Swiss Army knife of AI</span>
+                            <span data-lang-es><strong>Qué hace:</strong> Escribir, análisis, lluvia de ideas, codificación, investigación—la navaja suiza de la IA</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Cost:</strong> Free tier available, Pro versions $20/month</span>
+                            <span data-lang-es><strong>Costo:</strong> Nivel gratuito disponible, versiones Pro $20/mes</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Best for:</strong> Email drafting, content creation, problem-solving, market research</span>
+                            <span data-lang-es><strong>Mejor para:</strong> Redacción de emails, creación de contenido, resolución de problemas, investigación de mercado</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Time saved:</strong> 5-10 hours per week for most users</span>
+                            <span data-lang-es><strong>Tiempo ahorrado:</strong> 5-10 horas por semana para la mayoría de usuarios</span>
+                        </p>
+                        
+                        <div class="pro-tip">
+                            <h4>
+                                💡 <span data-lang-en>Pro Tip</span><span data-lang-es>Consejo Profesional</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en>Be specific in your prompts. Instead of "Write an email," try "Write a 150-word follow-up email to a client who hasn't responded in 2 weeks, maintaining a friendly but professional tone."</span>
+                                <span data-lang-es">Sé específico en tus prompts. En lugar de "Escribe un email", prueba "Escribe un email de seguimiento de 150 palabras para un cliente que no ha respondido en 2 semanas, manteniendo un tono amigable pero profesional."</span>
+                            </p>
+                        </div>
+                        
+                        <h3>
+                            <span data-lang-en>2. Fireflies.ai (Meeting Transcription & Notes)</span>
+                            <span data-lang-es>2. Fireflies.ai (Transcripción y Notas de Reuniones)</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en><strong>What it does:</strong> Automatically joins your Zoom/Teams/Meet calls, transcribes everything, and extracts action items</span>
+                            <span data-lang-es><strong>Qué hace:</strong> Se une automáticamente a tus llamadas de Zoom/Teams/Meet, transcribe todo y extrae elementos de acción</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Cost:</strong> Free for up to 800 minutes/month, Pro at $10-19/user/month</span>
+                            <span data-lang-es><strong>Costo:</strong> Gratis hasta 800 minutos/mes, Pro a $10-19/usuario/mes</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Time saved:</strong> 2-4 hours per week on note-taking and meeting summaries</span>
+                            <span data-lang-es><strong>Tiempo ahorrado:</strong> 2-4 horas por semana en tomar notas y resúmenes de reuniones</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>3. Grammarly Business (Writing Assistant)</span>
+                            <span data-lang-es">3. Grammarly Business (Asistente de Escritura)</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en><strong>What it does:</strong> Real-time grammar, tone, and clarity suggestions across all your writing</span>
+                            <span data-lang-es><strong>Qué hace:</strong> Sugerencias en tiempo real de gramática, tono y claridad en toda tu escritura</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Cost:</strong> $15/user/month (Business plan)</span>
+                            <span data-lang-es><strong>Costo:</strong> $15/usuario/mes (plan Business)</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>4. Zapier (Workflow Automation)</span>
+                            <span data-lang-es>4. Zapier (Automatización de Flujos de Trabajo)</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en><strong>What it does:</strong> Connects your apps and automates repetitive tasks without coding</span>
+                            <span data-lang-es><strong>Qué hace:</strong> Conecta tus apps y automatiza tareas repetitivas sin codificación</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Cost:</strong> Free tier available, Starter at $29.99/month</span>
+                            <span data-lang-es><strong>Costo:</strong> Nivel gratuito disponible, Starter a $29.99/mes</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Time saved:</strong> 5-15 hours per week on manual data entry and task routing</span>
+                            <span data-lang-es><strong>Tiempo ahorrado:</strong> 5-15 horas por semana en entrada manual de datos y enrutamiento de tareas</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>5. Microsoft Copilot (Office Suite AI)</span>
+                            <span data-lang-es>5. Microsoft Copilot (IA de Suite Office)</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en><strong>What it does:</strong> AI assistance inside Word, Excel, PowerPoint, and Outlook</span>
+                            <span data-lang-es><strong>Qué hace:</strong> Asistencia de IA dentro de Word, Excel, PowerPoint y Outlook</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Cost:</strong> $30/user/month (requires Microsoft 365 subscription)</span>
+                            <span data-lang-es><strong>Costo:</strong> $30/usuario/mes (requiere suscripción a Microsoft 365)</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>6. Descript (Video/Audio Editing)</span>
+                            <span data-lang-es>6. Descript (Edición de Video/Audio)</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en><strong>What it does:</strong> Edit videos by editing the transcript—removes filler words, awkward pauses automatically</span>
+                            <span data-lang-es><strong>Qué hace:</strong> Edita videos editando la transcripción—elimina palabras de relleno, pausas incómodas automáticamente</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Cost:</strong> Free tier available, Creator at $24/month</span>
+                            <span data-lang-es><strong>Costo:</strong> Nivel gratuito disponible, Creator a $24/mes</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>7. Power Automate (Microsoft's Zapier Alternative)</span>
+                            <span data-lang-es>7. Power Automate (Alternativa de Microsoft a Zapier)</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en><strong>What it does:</strong> Workflow automation with deep Microsoft ecosystem integration</span>
+                            <span data-lang-es><strong>Qué hace:</strong> Automatización de flujos de trabajo con integración profunda del ecosistema Microsoft</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Cost:</strong> Included with many Microsoft 365 plans, standalone at $15/user/month</span>
+                            <span data-lang-es><strong>Costo:</strong> Incluido con muchos planes de Microsoft 365, independiente a $15/usuario/mes</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>How to Get Started</span>
+                            <span data-lang-es>Cómo Comenzar</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Don't try to implement all seven tools at once. Pick the one that addresses your biggest time-sink. Use it consistently for 30 days, then add the next tool.</span>
+                            <span data-lang-es>No intentes implementar las siete herramientas a la vez. Elige la que aborde tu mayor pérdida de tiempo. Úsala consistentemente por 30 días, luego agrega la siguiente herramienta.</span>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Article 4: Excel vs Power BI -->
+            <div class="blog-item scroll-reveal">
+                <div class="blog-header">
+                    <span class="category-badge" style="background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%); color: #047857;">
+                        <span data-lang-en>Tools Comparison</span>
+                        <span data-lang-es>Comparación de Herramientas</span>
+                    </span>
+                    
+                    <h2 class="text-2xl md:text-3xl font-heading font-bold text-axio-dark mb-3">
+                        <span data-lang-en>Excel vs Power BI: Which Is Right for Your Business?</span>
+                        <span data-lang-es>Excel vs Power BI: ¿Cuál Es Correcto Para Tu Negocio?</span>
+                    </h2>
+                    
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                        <span>📅 <span data-lang-en>January 2025</span><span data-lang-es>Enero 2025</span></span>
+                        <span>📖 <span data-lang-en>11 min read</span><span data-lang-es>11 min lectura</span></span>
+                    </div>
+                    
+                    <p class="text-gray-600 leading-relaxed">
+                        <span data-lang-en>Both tools are excellent—but for different situations.</span>
+                        <span data-lang-es>Ambas herramientas son excelentes, pero para diferentes situaciones.</span>
+                    </p>
+                </div>
+                
+                <div class="blog-content">
+                    <div class="blog-content-inner">
+                        
+                        <p>
+                            <span data-lang-en">"Should I stick with Excel or upgrade to Power BI?" It's one of the most common questions we get. The answer: it depends on what you're trying to do.</span>
+                            <span data-lang-es">"¿Debería quedarme con Excel o actualizar a Power BI?" Es una de las preguntas más comunes que recibimos. La respuesta: depende de lo que estés tratando de hacer.</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en>Both tools are powerful. Both have their place. The key is understanding when each makes sense for your business.</span>
+                            <span data-lang-es>Ambas herramientas son poderosas. Ambas tienen su lugar. La clave es entender cuándo cada una tiene sentido para tu negocio.</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>The Quick Answer</span>
+                            <span data-lang-es>La Respuesta Rápida</span>
+                        </h3>
+                        
+                        <div class="highlight-box">
+                            <h4>
+                                <span data-lang-en">📊 Stick with Excel if:</span>
+                                <span data-lang-es">📊 Quédate con Excel si:</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en>You're the only analyst, working with under 100K rows, need frequent data editing, doing financial modeling or detailed calculations, and sharing static reports</span>
+                                <span data-lang-es>Eres el único analista, trabajas con menos de 100K filas, necesitas edición frecuente de datos, haces modelado financiero o cálculos detallados, y compartes reportes estáticos</span>
+                            </p>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h4>
+                                <span data-lang-en">📈 Move to Power BI if:</span>
+                                <span data-lang-es">📈 Muévete a Power BI si:</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en>Multiple people need to view dashboards, you want automatic refresh, working with 100K+ rows, combining multiple data sources, need interactive exploration, or sharing live dashboards</span>
+                                <span data-lang-es>Múltiples personas necesitan ver dashboards, quieres actualización automática, trabajas con más de 100K filas, combinas múltiples fuentes de datos, necesitas exploración interactiva, o compartes dashboards en vivo</span>
+                            </p>
+                        </div>
+                        
+                        <h3>
+                            <span data-lang-en>The Detailed Comparison</span>
+                            <span data-lang-es>La Comparación Detallada</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en><strong>Cost:</strong></span>
+                            <span data-lang-es><strong>Costo:</strong></span>
+                        </p>
+                        <p>
+                            <span data-lang-en">Excel: ~$12.50/user/month (Microsoft 365 Business Basic)</span>
+                            <span data-lang-es>Excel: ~$12.50/usuario/mes (Microsoft 365 Business Basic)</span>
+                        </p>
+                        <p>
+                            <span data-lang-en>Power BI: Free for desktop, $10/user/month for sharing (Pro)</span>
+                            <span data-lang-es>Power BI: Gratis para escritorio, $10/usuario/mes para compartir (Pro)</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Data Limits:</strong></span>
+                            <span data-lang-es"><strong>Límites de Datos:</strong></span>
+                        </p>
+                        <p>
+                            <span data-lang-en>Excel: ~1 million rows (but gets slow above 100K)</span>
+                            <span data-lang-es>Excel: ~1 millón de filas (pero se vuelve lento arriba de 100K)</span>
+                        </p>
+                        <p>
+                            <span data-lang-en>Power BI: 1GB per dataset (typically millions of rows)</span>
+                            <span data-lang-es>Power BI: 1GB por dataset (típicamente millones de filas)</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Learning Curve:</strong></span>
+                            <span data-lang-es><strong>Curva de Aprendizaje:</strong></span>
+                        </p>
+                        <p>
+                            <span data-lang-en>Excel: Low - most business professionals already know basics</span>
+                            <span data-lang-es>Excel: Baja - la mayoría de profesionales de negocios ya conocen los básicos</span>
+                        </p>
+                        <p>
+                            <span data-lang-en>Power BI: Medium - 2-4 weeks to build first useful dashboard</span>
+                            <span data-lang-es>Power BI: Media - 2-4 semanas para construir primer dashboard útil</span>
+                        </p>
+                        
+                        <div class="pro-tip">
+                            <h4>
+                                💡 <span data-lang-en>Pro Tip</span><span data-lang-es>Consejo Profesional</span>
+                            </h4>
+                            <p>
+                                <span data-lang-en>Most businesses benefit from using BOTH tools. Use Excel for ad-hoc analysis, financial models, and data prep. Use Power BI for dashboards and reporting.</span>
+                                <span data-lang-es>La mayoría de negocios se benefician de usar AMBAS herramientas. Usa Excel para análisis ad-hoc, modelos financieros y preparación de datos. Usa Power BI para dashboards y reportes.</span>
+                            </p>
+                        </div>
+                        
+                        <h3>
+                            <span data-lang-en>Real Scenarios: Which to Choose</span>
+                            <span data-lang-es>Escenarios Reales: Cuál Elegir</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en><strong>Scenario 1: Monthly Financial Reports</strong></span>
+                            <span data-lang-es><strong>Escenario 1: Reportes Financieros Mensuales</strong></span>
+                        </p>
+                        <p>
+                            <span data-lang-en"><strong>Best choice:</strong> Excel</span>
+                            <span data-lang-es"><strong>Mejor elección:</strong> Excel</span>
+                        </p>
+                        <p>
+                            <span data-lang-en>Why: Financial reports need manual adjustments, detailed formulas, and precise formatting. Excel excels at this.</span>
+                            <span data-lang-es>Por qué: Los reportes financieros necesitan ajustes manuales, fórmulas detalladas y formato preciso. Excel sobresale en esto.</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Scenario 2: Sales Dashboard for Leadership Team</strong></span>
+                            <span data-lang-es><strong>Escenario 2: Dashboard de Ventas para Equipo de Liderazgo</strong></span>
+                        </p>
+                        <p>
+                            <span data-lang-en><strong>Best choice:</strong> Power BI</span>
+                            <span data-lang-es><strong>Mejor elección:</strong> Power BI</span>
+                        </p>
+                        <p>
+                            <span data-lang-en>Why: Automatic updates from CRM, interactive filters, accessible via web browser. Power BI is built for this.</span>
+                            <span data-lang-es>Por qué: Actualizaciones automáticas desde CRM, filtros interactivos, accesible vía navegador web. Power BI está construido para esto.</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Scenario 3: Budget Planning & Forecasting</strong></span>
+                            <span data-lang-es><strong>Escenario 3: Planificación de Presupuesto y Pronósticos</strong></span>
+                        </p>
+                        <p>
+                            <span data-lang-en><strong>Best choice:</strong> Excel</span>
+                            <span data-lang-es><strong>Mejor elección:</strong> Excel</span>
+                        </p>
+                        <p>
+                            <span data-lang-en>Why: Requires complex formulas, what-if scenarios, and cell-by-cell adjustments. Excel's flexibility wins.</span>
+                            <span data-lang-es>Por qué: Requiere fórmulas complejas, escenarios hipotéticos y ajustes celda por celda. La flexibilidad de Excel gana.</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>The Hybrid Approach (Recommended)</span>
+                            <span data-lang-es>El Enfoque Híbrido (Recomendado)</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Most successful data operations use both tools strategically:</span>
+                            <span data-lang-es>Las operaciones de datos más exitosas usan ambas herramientas estratégicamente:</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Use Excel for:</strong> Data collection, initial exploration, complex calculations, financial modeling, ad-hoc analysis, sharing static reports</span>
+                            <span data-lang-es><strong>Usa Excel para:</strong> Recolección de datos, exploración inicial, cálculos complejos, modelado financiero, análisis ad-hoc, compartir reportes estáticos</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Use Power BI for:</strong> Automated dashboards, combining multiple sources, interactive reporting, sharing with teams, large datasets, scheduled refreshes</span>
+                            <span data-lang-es><strong>Usa Power BI para:</strong> Dashboards automatizados, combinar múltiples fuentes, reportes interactivos, compartir con equipos, datasets grandes, actualizaciones programadas</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>How to Transition from Excel to Power BI</span>
+                            <span data-lang-es>Cómo Hacer la Transición de Excel a Power BI</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en">If you decide Power BI makes sense, here's how to make the switch smooth:</span>
+                            <span data-lang-es>Si decides que Power BI tiene sentido, aquí está cómo hacer la transición suave:</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en"><strong>Step 1:</strong> Start with one high-value dashboard</span>
+                            <span data-lang-es><strong>Paso 1:</strong> Comienza con un dashboard de alto valor</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Step 2:</strong> Keep Excel as your data preparation tool initially</span>
+                            <span data-lang-es><strong>Paso 2:</strong> Mantén Excel como tu herramienta de preparación de datos inicialmente</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Step 3:</strong> Learn Power Query (works in both Excel and Power BI)</span>
+                            <span data-lang-es><strong>Paso 3:</strong> Aprende Power Query (funciona tanto en Excel como en Power BI)</span>
+                        </p>
+                        
+                        <p>
+                            <span data-lang-en><strong>Step 4:</strong> Gradually automate data connections</span>
+                            <span data-lang-es><strong>Paso 4:</strong> Gradualmente automatiza conexiones de datos</span>
+                        </p>
+                        
+                        <h3>
+                            <span data-lang-en>What to Do Next</span>
+                            <span data-lang-es>Qué Hacer Después</span>
+                        </h3>
+                        
+                        <p>
+                            <span data-lang-en>Look at your current reporting pain points. If you're spending hours manually updating reports that multiple people need to see, Power BI is probably worth exploring. If you need maximum flexibility for analysis and calculations, stick with Excel.</span>
+                            <span data-lang-es>Mira tus puntos de dolor actuales de reportes. Si estás gastando horas actualizando manualmente reportes que múltiples personas necesitan ver, Power BI probablemente vale la pena explorar. Si necesitas máxima flexibilidad para análisis y cálculos, quédate con Excel.</span>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA SECTION
+         ============================================ -->
+    <section class="gradient-cta relative py-20">
+        <div class="relative z-10 max-w-4xl mx-auto px-4 text-center scroll-reveal">
+            <h3 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+                <span data-lang-en>Ready to Become Our Next Success Story?</span>
+                <span data-lang-es>¿Listo Para Ser Nuestra Próxima Historia de Éxito?</span>
+            </h3>
+            <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                <span data-lang-en>Every transformation starts with a conversation. Let's discuss your data challenges and create a custom solution for your business.</span>
+                <span data-lang-es">Cada transformación comienza con una conversación. Hablemos sobre sus desafíos de datos y creemos una solución personalizada para su negocio.</span>
+            </p>
+            <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary inline-block text-white px-8 py-4 rounded-xl font-bold text-lg">
+                <span data-lang-en>Book Your Free 30-Min Assessment</span>
+                <span data-lang-es>Agende Su Evaluación Gratuita de 30 Minutos</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         FOOTER
+         - Contact info, social links, legal links
+         ═══════════════════════════════════════════════════════════════════ -->
+    <footer class="bg-axio-dark text-white py-16" style="background-color:#0F172A;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                        <span class="text-2xl font-heading font-bold -ml-6">axionalytics</span>
+                    </a>
+                    <p class="text-white/70 mb-6 max-w-md leading-relaxed">
+                        <span data-lang-en>Enterprise-grade analytics and AI integration without the enterprise price tag. Helping growing businesses make confident, data-driven decisions.</span>
+                        <span data-lang-es>Analítica e integración de IA de nivel empresarial sin el precio empresarial. Ayudando a negocios en crecimiento a tomar decisiones basadas en datos.</span>
+                    </p>
+                    
+                    <!-- Social Links - Replace # with actual URLs -->
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/company/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://wa.me/19562079368" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Services</span>
+                        <span data-lang-es>Servicios</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="datatransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Data Transformation</span>
+                            <span data-lang-es>Transformación de Datos</span>
+                        </a></li>
+                        <li><a href="aitransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>AI Integration</span>
+                            <span data-lang-es>Integración de IA</span>
+                        </a></li>
+                        <li><a href="training.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Team Training</span>
+                            <span data-lang-es>Capacitación de Equipos</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Company</span>
+                        <span data-lang-es>Compañía</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>About Us</span>
+                            <span data-lang-es>Nosotros</span>
+                        </a></li>
+                        <li><a href="successstories.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Success Stories</span>
+                            <span data-lang-es>Historias de Éxito</span>
+                        </a></li>
+                        <li><a href="blog.html" class="text-white/70 hover:text-orange-400 transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Contact</span>
+                            <span data-lang-es>Contacto</span>
+                        </a></li>
+                        <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Book Consultation</span>
+                            <span data-lang-es>Agendar Consulta</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/50 text-sm">© 2025 Axionalytics. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Privacy Policy</span>
+                        <span data-lang-es>Política de Privacidad</span>
+                    </a>
+                    <a href="terms.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Terms & Conditions</span>
+                        <span data-lang-es>Términos y Condiciones</span>
+                    </a>
+                    <a href="accessibility.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Accessibility</span>
+                        <span data-lang-es>Accesibilidad</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- ============================================
+         JAVASCRIPT
+         - Language toggle, mobile menu, header scroll, scroll reveal animations
+         ============================================ -->
+    <script>
+        // ============================================
+        // LANGUAGE TOGGLE
+        // ============================================
+        const langToggleDesktop = document.getElementById('lang-toggle-desktop');
+        const langToggleMobile = document.getElementById('lang-toggle-mobile');
+        let currentLang = localStorage.getItem('axio-lang') || 'en';
+        
+        // Apply saved language on page load
+        if (currentLang === 'es') {
+            document.documentElement.classList.add('lang-es');
+            document.getElementById('current-lang-flag').textContent = '🇪🇸';
+            document.getElementById('current-lang-text').textContent = 'ES';
+            const mobileFlag = document.querySelector('.mobile-lang-flag');
+            const mobileText = document.querySelector('.mobile-lang-text');
+            if (mobileFlag) mobileFlag.textContent = '🇪🇸';
+            if (mobileText) mobileText.textContent = 'Español';
+        }
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            document.documentElement.classList.toggle('lang-es', currentLang === 'es');
+            document.getElementById('current-lang-flag').textContent = currentLang === 'es' ? '🇪🇸' : '🇺🇸';
+            document.getElementById('current-lang-text').textContent = currentLang === 'es' ? 'ES' : 'EN';
+            const mobileFlag = document.querySelector('.mobile-lang-flag');
+            const mobileText = document.querySelector('.mobile-lang-text');
+            if (mobileFlag) mobileFlag.textContent = currentLang === 'es' ? '🇪🇸' : '🇺🇸';
+            if (mobileText) mobileText.textContent = currentLang === 'es' ? 'Español' : 'English';
+            localStorage.setItem('axio-lang', currentLang);
+        }
+        
+        if (langToggleDesktop) langToggleDesktop.addEventListener('click', toggleLanguage);
+        if (langToggleMobile) langToggleMobile.addEventListener('click', toggleLanguage);
+        
+        // ============================================
+        // MOBILE MENU
+        // ============================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        
+        function openMobileMenu() {
+            if (mobileMenu) mobileMenu.classList.add('is-open');
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            if (mobileMenu) mobileMenu.classList.remove('is-open');
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+            document.body.style.overflow = '';
+        }
+        
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        // Close menu when clicking nav links
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        }
+        
+        // Close menu on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
+        
+        // ============================================
+        // HEADER SCROLL EFFECT
+        // ============================================
+        const header = document.getElementById('header');
+        
+        function updateHeader() {
+            if (!header) return;
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        }
+        
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
+        
+        // ============================================
+        // SCROLL REVEAL ANIMATIONS
+        // ============================================
+        const scrollElements = document.querySelectorAll('.scroll-reveal');
+        
+        if ('IntersectionObserver' in window && scrollElements.length) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            scrollElements.forEach(el => observer.observe(el));
+        } else {
+            // Fallback: show all elements
+            scrollElements.forEach(el => el.classList.add('revealed'));
+        }
+        
+        // ============================================
+        // BLOG ACCORDION
+        // ============================================
+        const blogItems = document.querySelectorAll('.blog-item');
+        
+        blogItems.forEach(item => {
+            const header = item.querySelector('.blog-header');
+            
+            if (header) {
+                header.addEventListener('click', function() {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all other items
+                    blogItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    if (!isActive) {
+                        item.classList.add('active');
+                        // Scroll to top of opened article
+                        setTimeout(() => {
+                            const headerHeight = document.getElementById('header').offsetHeight;
+                            const elementPosition = item.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }, 100);
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

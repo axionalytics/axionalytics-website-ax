@@ -1,0 +1,77 @@
+
+  <title>Zero-Trust AI Governance | Security Architecture for Enterprise Agents | Axionalytics</title>
+  <meta name="description" content="The deployment topology, isolation model, identity integration, privacy controls, and audit architecture that get agentic AI through Fortune 500 security review — BYOC execution, hardware isolation, HITL write gates, and immutable traces.">
+  <link rel="canonical" href="https://www.axionalytics.com/enterprise-ai-security.html">
+  <meta property="og:title" content="Zero-Trust AI Governance | Axionalytics">
+  <meta property="og:description" content="Answers for the security questionnaire: where code runs, what leaves your network, who approved the write, and what an auditor can reconstruct afterward.">
+  <meta property="og:url" content="https://www.axionalytics.com/enterprise-ai-security.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.axionalytics.com/enterprise-ai-security.html#service",
+    "name": "Zero-Trust AI Governance",
+    "serviceType": "AI Security Architecture and Governance Engineering",
+    "provider": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Chief Information Security Officers, Enterprise Security Architects, Compliance and Risk Officers, Data Governance leads"
+    },
+    "description": "Security, governance, and audit architecture for agentic AI systems: bring-your-own-cloud deployment so data never leaves the customer perimeter, hardware-level execution isolation, enterprise identity integration, declarative privacy tokenization, role-based authorization, human-in-the-loop write gates, and end-to-end distributed tracing for audit."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the deployment boundary between vendor and customer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The control plane orchestrates sessions and holds no customer data at rest. The execution plane runs entirely inside your VPC and is the only component that touches your systems. The two communicate over mutual TLS with distributed trace context propagated across the boundary."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What prevents a compromised agent from exfiltrating data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Egress is denied by default. Each execution sandbox carries an eBPF network filter and a DNS sinkhole restricting outbound traffic to an allowlist you define, and a sidecar scans all output for personal data before it leaves. An agent that is fully compromised still has nowhere to send anything."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is a human approval protected from replay?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Approvals are pinned to an optimistic-concurrency version token and to the schema they were granted against. If the underlying plan or tool definition changes after approval, the token no longer matches and the write is refused rather than executed against a plan no one reviewed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can we run this without any outbound internet access?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, in an air-gapped or fully egress-restricted topology. Inference routes through whatever gateway your organization has already approved, deployment supports Kubernetes and Helm on premises, and retrieval models run resident and locally rather than calling a hosted embedding service."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.axionalytics.com/solutions.html" },
+      { "@type": "ListItem", "position": 3, "name": "Zero-Trust AI Governance", "item": "https://www.axionalytics.com/enterprise-ai-security.html" }
+    ]
+  }
+  </script>

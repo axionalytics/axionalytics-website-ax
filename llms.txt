@@ -1,0 +1,59 @@
+# Axionalytics
+
+> Axionalytics designs and ships production agentic AI systems for enterprise
+> engineering, data, and revenue organizations. Systems are deployed inside the
+> customer's own cloud perimeter, every write action requires human approval, and
+> every factual claim is traceable to the tool call that produced it. Engagements
+> end in full source transfer.
+
+Based in Davenport, Iowa. Work is delivered in English and Spanish.
+
+## Solutions
+
+- [Agentic Test Engineering](https://www.axionalytics.com/agentic-test-engineering.html): Requirements, source code, and merged pull requests become reviewed, traceable verification test cases.
+- [Enterprise Agentic AI](https://www.axionalytics.com/enterprise-agentic-ai.html): Autonomous multi-step agents inside your VPC, with human approval on every write and citations the backend generates.
+- [Agentic Business Intelligence](https://www.axionalytics.com/agentic-business-intelligence.html): A sentence and a governed source produce a real Power BI artifact your BI team owns and edits.
+- [Zero-Trust AI Governance](https://www.axionalytics.com/enterprise-ai-security.html): The deployment topology, isolation model, and audit architecture that get agentic systems through security review.
+
+## Tools
+
+- [ROI Calculator](https://www.axionalytics.com/roi-calculator.html): Client-side model of reclaimed capacity, net annualized recovery, and payback period. Every assumption is stated; no input is transmitted.
+
+## Company
+
+- [About](https://www.axionalytics.com/about.html): How engagements are structured and when we are the wrong fit.
+- [Case Studies](https://www.axionalytics.com/case-studies.html): Anonymized deployment accounts. Client names are withheld deliberately.
+- [Contact](https://www.axionalytics.com/contact.html): Direct contact and technical briefing booking.
+
+## Writing
+
+### Zero-Trust AI Governance
+
+- [Why Enterprise AI Pilots Die in Security Review](https://www.axionalytics.com/why-ai-pilots-fail-security-review.html): The pilot worked. Eighteen months later it still is not in production. Five architectural questions decide that outcome, and all five are settled before the first line of code.
+- [Prompt Injection Is a Containment Problem, Not a Prompting Problem](https://www.axionalytics.com/prompt-injection-tool-abuse-defense.html): The defence and the attack share a channel, so no instruction closes the class. Four named attacks, and the architectural layers that make a successful one harmless.
+- [BYOC, SaaS, or On-Premises: Choosing a Deployment Topology for Enterprise AI](https://www.axionalytics.com/byoc-vs-saas-enterprise-ai.html): Deployment topology is not an infrastructure detail you settle later. It determines which data the system may touch, and it is the hardest decision to reverse.
+
+### Enterprise Agentic AI
+
+- [Human-in-the-Loop That Actually Holds: Write Gates, Blast Radius, and Replay Protection](https://www.axionalytics.com/human-in-the-loop-ai-architecture.html): Most human-in-the-loop is a confirmation dialog. Three properties separate a real approval gate from a checkbox that manufactures consent.
+- [How an Agent Queries a 50,000-Table Warehouse Without Reading the Schema](https://www.axionalytics.com/agentic-data-exploration-at-scale.html): Every demo works against twelve tables. Real catalogs have tens of thousands, and the standard approach collapses on cost, latency, and accuracy at the same time.
+- [Build, Buy, or Assemble: Sourcing Enterprise AI Capability](https://www.axionalytics.com/ai-tools-for-business.html): The build-versus-buy framing hides the option most enterprises actually need, and the three constraints that decide it have nothing to do with engineering capacity.
+
+### Agentic Test Engineering
+
+- [Requirements Traceability Without the Spreadsheet](https://www.axionalytics.com/requirements-traceability-automation.html): The traceability matrix is accurate the day it is written and wrong within a sprint. Generating the link at authoring time is what makes it survive.
+- [Line Coverage Is Not Verification Coverage](https://www.axionalytics.com/coverage-gap-analysis.html): Most organisations can report line coverage to two decimals and cannot say which implemented behaviour nobody has written a test for. Those are different numbers.
+- [Paying Down Legacy Test Debt Without an Engineer-Year](https://www.axionalytics.com/legacy-test-suite-modernization.html): The assertions in a decade-old suite are usually fine. What is missing is everything around them — and retrofitting that is tractable in a way rewriting is not.
+
+### Agentic Business Intelligence
+
+- [Your BI Backlog Is a Transcription Bottleneck, Not a Capacity Problem](https://www.axionalytics.com/bi-backlog-bottleneck.html): Adding analysts to a forty-item queue buys a quarter of relief. The queue is long because the same dashboard is being hand-built for the eleventh time.
+- [Excel Sprawl vs a Governed Semantic Model](https://www.axionalytics.com/excel-vs-power-bi.html): The question is not which tool is better. It is which numbers the board sees when four departments each maintain their own version of revenue.
+- [Building the Business Case for Enterprise AI](https://www.axionalytics.com/data-analytics-roi.html): Finance rejects AI business cases for predictable reasons. Understated loaded cost, unfalsifiable benefits, and an automation rate nobody believes.
+- [Why Enterprise Dashboards Get Abandoned](https://www.axionalytics.com/business-dashboard-guide.html): A dashboard nobody opens is not a design failure. It is a specification failure — it was built from the data that existed rather than the decision it serves.
+
+## Optional
+
+- [Blog index](https://www.axionalytics.com/blog.html)
+- [RSS feed](https://www.axionalytics.com/rss.xml)
+- [Sitemap](https://www.axionalytics.com/sitemap.xml)

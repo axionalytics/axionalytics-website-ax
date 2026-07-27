@@ -1,0 +1,120 @@
+<!--FAQ Why do requirements traceability matrices go stale? | Because they are maintained separately from the artifacts they describe. The link between a requirement and a test case lives in a spreadsheet rather than on the test case, so every requirement revision, test edit, or reorganisation silently breaks it and nothing surfaces the break until an audit.-->
+<!--FAQ How can requirements traceability be automated? | Generate the link at authoring time rather than reconstructing it later. When a test case is produced from a requirement, the requirement identifier and the matched signals are written onto the case as it is created, so traceability is a property of the artifact instead of a parallel document.-->
+<!--FAQ What is bidirectional traceability? | The ability to answer both directions: which tests verify this requirement, and which requirement justifies this test. The second direction is the one that finds orphaned tests — cases that survive long after the requirement motivating them was withdrawn.-->
+
+<p>
+  <span data-lang-en><strong>A traceability matrix is accurate on the day it is written and wrong within a sprint. The problem is not discipline. It is that the link lives in a document rather than on the artifact.</strong></span>
+  <span data-lang-es><strong>Una matriz de trazabilidad es exacta el día que se escribe y errónea en un sprint. El problema no es la disciplina. Es que el vínculo vive en un documento y no en el artefacto.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>Every regulated engineering organization maintains one. Almost none trusts it. The ritual before an audit — freeze the requirements, reconstruct the mapping by hand, discover that four hundred test cases reference requirement identifiers that no longer exist — is familiar enough that teams budget weeks for it.</span>
+  <span data-lang-es>Toda organización de ingeniería regulada mantiene una. Casi ninguna confía en ella. El ritual previo a una auditoría — congelar los requisitos, reconstruir el mapeo a mano, descubrir que cuatrocientos casos de prueba referencian identificadores que ya no existen — es lo bastante familiar como para que los equipos presupuesten semanas para él.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Why the matrix decays</span>
+  <span data-lang-es>Por qué se degrada la matriz</span>
+</h2>
+
+<p>
+  <span data-lang-en>The matrix is a second source of truth about a relationship that is not recorded anywhere else. Nothing enforces it, and nothing detects when it drifts.</span>
+  <span data-lang-es>La matriz es una segunda fuente de verdad sobre una relación que no está registrada en ningún otro lado. Nada la hace cumplir, y nada detecta cuándo se desvía.</span>
+</p>
+
+<p>
+  <span data-lang-en>A requirement is revised and its identifier changes. A test suite is reorganised and cases are renumbered. An engineer writes three cases for a requirement and records one. Someone deletes a requirement that turned out to be a duplicate, leaving the tests that verified it in place with no justification. None of these produces an error at the time — each surfaces months later, in an audit, as a finding.</span>
+  <span data-lang-es>Un requisito se revisa y su identificador cambia. Una suite se reorganiza y los casos se renumeran. Un ingeniero escribe tres casos para un requisito y registra uno. Alguien elimina un requisito que resultó duplicado, dejando en su lugar las pruebas que lo verificaban sin justificación. Ninguno produce un error en el momento — cada uno aparece meses después, en una auditoría, como un hallazgo.</span>
+</p>
+
+<p>
+  <span data-lang-en>The manual fix is to reconstruct the mapping periodically, which is expensive enough that it happens only when compelled. Between reconstructions the organization is operating on a document it knows to be inaccurate.</span>
+  <span data-lang-es>La solución manual es reconstruir el mapeo periódicamente, lo bastante caro como para que ocurra solo cuando se exige. Entre reconstrucciones la organización opera sobre un documento que sabe inexacto.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Write the link at authoring time</span>
+  <span data-lang-es>Escribir el vínculo al momento de crear</span>
+</h2>
+
+<p>
+  <span data-lang-en>The structural fix is to stop treating traceability as documentation and start treating it as provenance. When a test case is generated from a requirement, the requirement identifier and the specific signals it implicates are written onto the case as it is created — not recorded in a parallel spreadsheet afterwards.</span>
+  <span data-lang-es>La solución estructural es dejar de tratar la trazabilidad como documentación y empezar a tratarla como procedencia. Cuando un caso de prueba se genera desde un requisito, el identificador del requisito y las señales específicas que implica se escriben en el caso al crearlo — no se registran después en una hoja de cálculo paralela.</span>
+</p>
+
+<p>
+  <span data-lang-en>The consequence is that the matrix stops being a document to maintain and becomes a query to run. Nothing can drift, because there is no second copy to drift from.</span>
+  <span data-lang-es>La consecuencia es que la matriz deja de ser un documento que mantener y se convierte en una consulta que ejecutar. Nada puede desviarse, porque no hay una segunda copia de la cual desviarse.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>Both directions matter</span>
+    <span data-lang-es>Ambas direcciones importan</span>
+  </h4>
+  <p>
+    <span data-lang-en>Forward traceability — which tests verify this requirement — is what auditors ask for. Backward traceability — which requirement justifies this test — is what finds orphaned cases: tests that outlived the requirement motivating them and now consume review effort verifying behaviour nobody asked for. Most matrices only support the first direction.</span>
+    <span data-lang-es>La trazabilidad directa — qué pruebas verifican este requisito — es lo que piden los auditores. La trazabilidad inversa — qué requisito justifica esta prueba — es lo que encuentra casos huérfanos: pruebas que sobrevivieron al requisito que las motivó y ahora consumen esfuerzo de revisión verificando comportamiento que nadie pidió. La mayoría de las matrices solo soporta la primera dirección.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Grounding: the part that makes it trustworthy</span>
+  <span data-lang-es>Fundamentación: la parte que lo hace confiable</span>
+</h2>
+
+<p>
+  <span data-lang-en>Automating the link is only useful if the link is correct. A system that confidently associates a requirement with signals that do not exist has made the matrix worse, because now the errors carry machine authority.</span>
+  <span data-lang-es>Automatizar el vínculo solo sirve si el vínculo es correcto. Un sistema que asocia con confianza un requisito con señales que no existen ha empeorado la matriz, porque ahora los errores llevan autoridad de máquina.</span>
+</p>
+
+<p>
+  <span data-lang-en>This is why generation has to be grounded in an index built by parsing your actual source — the real signal entities, the real interfaces — rather than in a model's recollection of what a system like yours probably contains. The model selects among things that demonstrably exist; it does not supply the vocabulary.</span>
+  <span data-lang-es>Por eso la generación debe fundamentarse en un índice construido analizando su código real — las entidades de señal reales, las interfaces reales — y no en el recuerdo de un modelo sobre qué contiene probablemente un sistema como el suyo. El modelo elige entre cosas que demostrablemente existen; no aporta el vocabulario.</span>
+</p>
+
+<p>
+  <span data-lang-en>A grounding check then rejects any output referencing something absent from the index, before a reviewer sees it. That inverts the review economics: engineers spend their time judging whether coverage is adequate rather than checking whether the signal names are real.</span>
+  <span data-lang-es>Una verificación de fundamentación rechaza entonces cualquier salida que referencie algo ausente del índice, antes de que un revisor la vea. Eso invierte la economía de la revisión: los ingenieros dedican su tiempo a juzgar si la cobertura es adecuada en lugar de comprobar si los nombres de señal son reales.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The coverage question nobody could answer</span>
+  <span data-lang-es>La pregunta de cobertura que nadie podía responder</span>
+</h2>
+
+<p>
+  <span data-lang-en>Once traceability is a property of the artifacts rather than a document, a question that was previously unanswerable becomes routine: what fraction of implemented behaviour is actually verified, and specifically where is the gap?</span>
+  <span data-lang-es>Una vez que la trazabilidad es una propiedad de los artefactos y no un documento, una pregunta antes irresponsable se vuelve rutinaria: qué fracción del comportamiento implementado está realmente verificada, y dónde está exactamente la brecha.</span>
+</p>
+
+<p>
+  <span data-lang-en>With both directions recorded and an index of what exists, a scan can enumerate signals and functions with no covering test, per configuration. That output is a work queue rather than an audit finding — the difference between discovering a gap deliberately and discovering it under examination.</span>
+  <span data-lang-es>Con ambas direcciones registradas y un índice de lo que existe, un escaneo puede enumerar señales y funciones sin prueba que las cubra, por configuración. Esa salida es una cola de trabajo y no un hallazgo de auditoría — la diferencia entre descubrir una brecha deliberadamente y descubrirla bajo examen.</span>
+</p>
+
+<div class="pro-tip">
+  <h4>
+    <span data-lang-en>Human review stays</span>
+    <span data-lang-es>La revisión humana permanece</span>
+  </h4>
+  <p>
+    <span data-lang-en>Automating traceability does not mean automating judgment. Every generated case should stop in a review queue with its source requirement and matched signals shown alongside it, and legacy updates should show a field-level diff before the write. In a regulated context, an unattended write into a test plan is a defect rather than a feature — the automation removes the transcription, not the engineer.</span>
+    <span data-lang-es>Automatizar la trazabilidad no significa automatizar el criterio. Cada caso generado debe detenerse en una cola de revisión con su requisito fuente y las señales emparejadas al lado, y las actualizaciones heredadas deben mostrar un diff por campo antes de escribir. En un contexto regulado, una escritura desatendida en un plan de pruebas es un defecto, no una función — la automatización elimina la transcripción, no al ingeniero.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>What this is worth</span>
+  <span data-lang-es>Cuánto vale esto</span>
+</h2>
+
+<p>
+  <span data-lang-en>The obvious saving is the weeks of pre-audit reconstruction, which is real but not the largest number. The larger one is what stops happening: requirements that were never covered because the omission was invisible, and test effort spent on cases nobody could justify.</span>
+  <span data-lang-es>El ahorro obvio son las semanas de reconstrucción previa a la auditoría, que es real pero no la cifra mayor. La mayor es lo que deja de ocurrir: requisitos que nunca se cubrieron porque la omisión era invisible, y esfuerzo de prueba gastado en casos que nadie podía justificar.</span>
+</p>
+
+<p>
+  <span data-lang-en>Both are hard to put in a business case, because they are costs that were never recorded as costs. They show up instead as schedule slippage nobody could attribute.</span>
+  <span data-lang-es>Ambas son difíciles de poner en un caso de negocio, porque son costos que nunca se registraron como costos. Aparecen en cambio como retrasos de cronograma que nadie pudo atribuir.</span>
+</p>

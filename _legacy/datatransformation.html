@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+======================================================================
+AXIONALYTICS - DATA TRANSFORMATION PAGE
+Version: 1.0.0 | Ready for GitHub Pages
+
+UPDATE INSTRUCTIONS:
+1. Replace #BOOKING_LINK with your Google Calendar appointment URL (appears 6 times)
+2. Replace #LINKEDIN, #WHATSAPP, #INSTAGRAM with actual social media URLs
+======================================================================
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transform your data into actionable insights with custom dashboards, predictive analytics, and real-time reporting. From gut decisions to data-driven growth.">
+        <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo_fixed.png">
+    
+    <title>Data Transformation | Axionalytics</title>
+    
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'axio': {
+                            'primary': '#1E3A5F',
+                            'secondary': '#2563EB',
+                            'accent': '#F97316',
+                            'dark': '#0F172A',
+                            'charcoal': '#1E293B',
+                            'slate': '#334155',
+                            'light': '#F8FAFC',
+                        }
+                    },
+                    fontFamily: {
+                        'heading': ['Plus Jakarta Sans', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        /* Bilingual System */
+        [data-lang-es] { display: none; }
+        html.lang-es [data-lang-en] { display: none !important; }
+        html.lang-es [data-lang-es] { display: inline !important; }
+        html.lang-es div[data-lang-es], html.lang-es p[data-lang-es], html.lang-es h1[data-lang-es], html.lang-es h2[data-lang-es], html.lang-es h3[data-lang-es], html.lang-es h4[data-lang-es], html.lang-es li[data-lang-es], html.lang-es span[data-lang-es] { display: block !important; }
+        html.lang-es span[data-lang-es] { display: inline !important; }
+        
+        /* Buttons */
+        .btn-primary { background: linear-gradient(135deg, #F97316 0%, #FB923C 100%); box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4); transition: all 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(249, 115, 22, 0.5); }
+        
+        /* Cards */
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        
+        /* Navigation */
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: #F97316; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        
+        /* FAQ Accordion */
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.is-open .faq-answer { max-height: 500px; }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.is-open .faq-icon { transform: rotate(180deg); }
+        
+        /* Language Toggle */
+        .lang-toggle { display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 9999px; border: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease; cursor: pointer; background: transparent; }
+        .lang-toggle:hover { border-color: #F97316; background: rgba(249, 115, 22, 0.1); }
+        
+        /* Mobile Menu */
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+        .mobile-menu.is-open { transform: translateX(0); }
+        
+        /* Pricing Card Popular */
+        .pricing-popular { position: relative; }
+        .pricing-popular::before { content: ''; position: absolute; inset: -3px; background: linear-gradient(135deg, #F97316, #2563EB); border-radius: 1.25rem; z-index: -1; }
+        
+        /* Hero Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(-5px) translateX(-50%); }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-700">
+
+    <!-- ======================================================================
+         HEADER / NAVIGATION
+         ====================================================================== -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         SECTION: NAVIGATION HEADER
+         - Sticky navigation with logo, menu items, CTA, and language toggle
+         - Mobile responsive with hamburger menu
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background-color:#0F172A;">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center group">
+                    <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                    <span class="text-2xl font-heading font-bold text-white group-hover:text-orange-400 transition-colors -ml-6">
+                        axionalytics
+                    </span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <!-- Desktop Navigation (matches training.html - 5 links, no About) -->
+                                <div class="hidden lg:flex items-center gap-8">
+                    <a href="index.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="text-orange-400 font-medium">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformación de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integración de IA</span>
+                    </a>
+                    <a href="training.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitación</span>
+                    </a>
+                    <a href="contact.html" class="nav-link text-white/90 hover:text-white font-medium transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </div>
+                
+                <!-- Right Side: CTA + Language Toggle -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <!-- CTA Button - Replace #BOOKING_LINK with your Google Calendar link -->
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-3 rounded-xl font-bold text-sm">
+                        <span data-lang-en>Book Now</span>
+                        <span data-lang-es>Reservar</span>
+                    </a>
+                    
+                    <!-- Language Toggle -->
+                    <button id="lang-toggle-desktop" class="lang-toggle text-white text-sm font-medium" aria-label="Toggle language">
+                        <span id="current-lang-flag">🇺🇸</span>
+                        <span id="current-lang-text">EN</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Slide-in) -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-80 max-w-full bg-axio-dark shadow-2xl lg:hidden z-50" style="background-color:#0F172A;">
+            <div class="flex flex-col h-full p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-xl font-heading font-bold text-white">Menu</span>
+                    <button id="mobile-menu-close" class="text-white p-2" aria-label="Close menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                                <nav class="flex flex-col gap-4">
+                    <a href="index.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Home</span>
+                        <span data-lang-es>Inicio</span>
+                    </a>
+                    <a href="datatransformation.html" class="text-orange-400 font-medium py-2">
+                        <span data-lang-en>Data Transformation</span>
+                        <span data-lang-es>Transformación de Datos</span>
+                    </a>
+                    <a href="aitransformation.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>AI Integration</span>
+                        <span data-lang-es>Integración de IA</span>
+                    </a>
+                    <a href="training.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Team Training</span>
+                        <span data-lang-es>Capacitación</span>
+                    </a>
+                    <a href="contact.html" class="text-white/90 hover:text-orange-400 font-medium py-2 transition-colors">
+                        <span data-lang-en>Contact</span>
+                        <span data-lang-es>Contacto</span>
+                    </a>
+                </nav>
+                
+                <div class="mt-auto pt-8 border-t border-white/10">
+                    <!-- Mobile Language Toggle -->
+                    <button id="lang-toggle-mobile" class="lang-toggle text-white text-sm font-medium mb-4 w-full justify-center">
+                        <span class="mobile-lang-flag">🇺🇸</span>
+                        <span class="mobile-lang-text">English</span>
+                    </button>
+                    
+                    <!-- Mobile CTA -->
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-6 py-4 rounded-xl font-bold text-center block">
+                        <span data-lang-en>Book Free Assessment</span>
+                        <span data-lang-es>Agendar Evaluación Gratuita</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 lg:hidden z-40 opacity-0 pointer-events-none transition-opacity"></div>
+    </header>
+
+
+    <!-- ======================================================================
+         SECTION 1: HERO
+         Data-themed hero with animated elements and key value proposition
+         ====================================================================== -->
+    <section id="hero" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #1E3A5F 50%, #1E40AF 100%);">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <!-- Data Grid Pattern -->
+            <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.3) 1px, transparent 1px); background-size: 50px 50px;"></div>
+            
+            <!-- Floating Data Points -->
+            <div class="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-400/40 rounded-full animate-pulse"></div>
+            <div class="absolute top-1/3 right-1/3 w-2 h-2 bg-orange-400/40 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+            <div class="absolute bottom-1/4 left-1/3 w-4 h-4 bg-blue-300/30 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 right-1/4 w-2 h-2 bg-purple-400/30 rounded-full animate-pulse" style="animation-delay: 1.5s;"></div>
+            
+            <!-- Gradient Orbs -->
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl animate-pulse" style="animation-duration: 4s;"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-orange-500/15 rounded-full blur-3xl animate-pulse" style="animation-duration: 5s; animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left: Content -->
+                <div class="text-center lg:text-left">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500/20 to-orange-500/20 border border-blue-500/30 text-blue-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                        <span class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
+                        <span data-lang-en>Real-Time Business Intelligence</span>
+                        <span data-lang-es>Inteligencia de Negocios en Tiempo Real</span>
+                    </div>
+                    
+                    <!-- Main Headline -->
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6">
+                        <span data-lang-en>From Gut Decisions to</span>
+                        <span data-lang-es>De Decisiones Instintivas a</span>
+                        <br>
+                        <span class="bg-gradient-to-r from-blue-400 via-cyan-400 to-orange-400 bg-clip-text text-transparent">
+                            <span data-lang-en>Data-Driven Growth</span>
+                            <span data-lang-es>Crecimiento Basado en Datos</span>
+                        </span>
+                    </h1>
+                    
+                    <!-- Subtitle -->
+                    <p class="text-lg lg:text-xl text-white/80 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                        <span data-lang-en>You're sitting on a goldmine of data but still making decisions in the dark. Your reports are always outdated. Your team wastes hours in Excel. Meanwhile, your competitors already know what's working and what's not.</span>
+                        <span data-lang-es>Estas sentado sobre una mina de oro de datos pero aun tomas decisiones a ciegas. Tus reportes siempre estan desactualizados. Tu equipo pierde horas en Excel. Mientras tanto, tus competidores ya saben que funciona y que no.</span>
+                    </p>
+                    
+                    <!-- Key Metrics -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-10 mb-8">
+                        <div class="text-center lg:text-left">
+                            <div class="font-heading text-3xl lg:text-4xl font-extrabold text-orange-400 mb-1">80%</div>
+                            <div class="text-xs lg:text-sm text-white/60 uppercase tracking-wider font-medium">
+                                <span data-lang-en>Faster Reporting</span>
+                                <span data-lang-es>Reportes Mas Rapidos</span>
+                            </div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="font-heading text-3xl lg:text-4xl font-extrabold text-orange-400 mb-1">100%</div>
+                            <div class="text-xs lg:text-sm text-white/60 uppercase tracking-wider font-medium">
+                                <span data-lang-en>Data Accuracy</span>
+                                <span data-lang-es>Precision de Datos</span>
+                            </div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="font-heading text-3xl lg:text-4xl font-extrabold text-orange-400 mb-1">4</div>
+                            <div class="text-xs lg:text-sm text-white/60 uppercase tracking-wider font-medium">
+                                <span data-lang-en>Weeks to Deploy</span>
+                                <span data-lang-es>Semanas para Desplegar</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg">
+                            <span data-lang-en>Get Your Data Assessment</span>
+                            <span data-lang-es>Obten Tu Evaluacion de Datos</span>
+                        </a>
+                        <a href="#solutions" class="border-2 border-white/30 hover:border-orange-400 hover:bg-orange-400/10 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300">
+                            <span data-lang-en>See How It Works</span>
+                            <span data-lang-es>Ver Como Funciona</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right: Data Visualization -->
+                <div class="hidden lg:block relative">
+                    <div class="relative w-80 h-80 mx-auto">
+                        <!-- Outer Ring -->
+                        <div class="absolute inset-0 rounded-full border-2 border-blue-500/30 animate-spin" style="animation-duration: 20s;"></div>
+                        <div class="absolute inset-4 rounded-full border border-orange-500/20 animate-spin" style="animation-direction: reverse; animation-duration: 15s;"></div>
+                        
+                        <!-- Center Dashboard Icon -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-40 h-40 bg-gradient-to-br from-blue-600/30 to-orange-500/20 rounded-3xl backdrop-blur-sm border border-white/10 flex items-center justify-center" style="animation: float 3s ease-in-out infinite;">
+                                <span class="text-7xl">📊</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Orbiting Elements -->
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg" style="animation: bounce 2s ease-in-out infinite;">
+                            📈
+                        </div>
+                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg" style="animation: bounce 2s ease-in-out infinite 0.5s;">
+                            ✅
+                        </div>
+                        <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg" style="animation: bounce 2s ease-in-out infinite 1s;">
+                            🔗
+                        </div>
+                        <div class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg" style="animation: bounce 2s ease-in-out infinite 1.5s;">
+                            ⚡
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Cards -->
+                    <div class="absolute -bottom-4 -left-4 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20" style="animation: float 4s ease-in-out infinite 1s;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center text-green-400">✓</div>
+                            <div>
+                                <div class="text-white font-semibold text-sm">
+                                    <span data-lang-en>Dashboard Live</span>
+                                    <span data-lang-es>Dashboard Activo</span>
+                                </div>
+                                <div class="text-white/60 text-xs">
+                                    <span data-lang-en>Updated just now</span>
+                                    <span data-lang-es>Actualizado ahora</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -top-4 -right-4 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20" style="animation: float 4s ease-in-out infinite 2s;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400">📊</div>
+                            <div>
+                                <div class="text-white font-semibold text-sm">
+                                    <span data-lang-en>KPIs Tracked</span>
+                                    <span data-lang-es>KPIs Monitoreados</span>
+                                </div>
+                                <div class="text-white/60 text-xs">
+                                    <span data-lang-en>Real-time sync</span>
+                                    <span data-lang-es>Sincronizado en vivo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 2: TRANSFORMATION FLOW (4 Steps)
+         ====================================================================== -->
+    <section id="solutions" class="py-12 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1: Data Chaos -->
+                <div class="text-center p-6 bg-white/60 rounded-2xl">
+                    <div class="text-4xl mb-3">📉</div>
+                    <h3 class="font-heading font-bold text-gray-900 mb-2">
+                        <span data-lang-en>Data Chaos</span><span data-lang-es>Caos de Datos</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        <span data-lang-en>Spreadsheets everywhere, no single source of truth</span>
+                        <span data-lang-es>Hojas de cálculo por todos lados, sin fuente única de verdad</span>
+                    </p>
+                </div>
+                <!-- Step 2: Quick Visibility -->
+                <div class="text-center p-6 bg-white/60 rounded-2xl">
+                    <div class="text-4xl mb-3">📊</div>
+                    <h3 class="font-heading font-bold text-gray-900 mb-2">
+                        <span data-lang-en>Quick Visibility</span><span data-lang-es>Visibilidad Rápida</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        <span data-lang-en>Dashboards showing what matters, updated in real-time</span>
+                        <span data-lang-es>Dashboards mostrando lo importante, actualizado en tiempo real</span>
+                    </p>
+                </div>
+                <!-- Step 3: Predictive Power -->
+                <div class="text-center p-6 bg-white/60 rounded-2xl">
+                    <div class="text-4xl mb-3">🔮</div>
+                    <h3 class="font-heading font-bold text-gray-900 mb-2">
+                        <span data-lang-en>Predictive Power</span><span data-lang-es>Poder Predictivo</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        <span data-lang-en>Know what's coming before it happens</span>
+                        <span data-lang-es>Saber qué viene antes de que suceda</span>
+                    </p>
+                </div>
+                <!-- Step 4: Competitive Edge -->
+                <div class="text-center p-6 bg-white/60 rounded-2xl">
+                    <div class="text-4xl mb-3">📈</div>
+                    <h3 class="font-heading font-bold text-gray-900 mb-2">
+                        <span data-lang-en>Competitive Edge</span><span data-lang-es>Ventaja Competitiva</span>
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        <span data-lang-en>Make faster, smarter decisions than competitors</span>
+                        <span data-lang-es>Toma decisiones más rápidas e inteligentes que la competencia</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 3: PROBLEM & SOLUTION
+         ====================================================================== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                
+                <!-- The Problem -->
+                <div class="bg-red-50 rounded-3xl p-8 lg:p-10 border-2 border-red-100">
+                    <h2 class="font-heading font-extrabold text-2xl lg:text-3xl text-gray-900 mb-6">
+                        <span data-lang-en>The Problem: Blind Spots Everywhere</span>
+                        <span data-lang-es>El Problema: Puntos Ciegos Por Todos Lados</span>
+                    </h2>
+                    <p class="text-gray-600 mb-6">
+                        <span data-lang-en>Without proper analytics, you're flying blind:</span>
+                        <span data-lang-es>Sin analítica adecuada, vuelas a ciegas:</span>
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 text-xl">❌</span>
+                            <span class="text-gray-700"><span data-lang-en>You don't know which products/services are actually profitable</span><span data-lang-es>No sabes qué productos/servicios son realmente rentables</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 text-xl">❌</span>
+                            <span class="text-gray-700"><span data-lang-en>You can't see problems until it's too late</span><span data-lang-es>No puedes ver los problemas hasta que es demasiado tarde</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 text-xl">❌</span>
+                            <span class="text-gray-700"><span data-lang-en>Your team argues over which numbers are "right"</span><span data-lang-es>Tu equipo discute sobre cuáles números son los "correctos"</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 text-xl">❌</span>
+                            <span class="text-gray-700"><span data-lang-en>You waste money on things that don't work</span><span data-lang-es>Desperdicias dinero en cosas que no funcionan</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-500 text-xl">❌</span>
+                            <span class="text-gray-700"><span data-lang-en>Competitors beat you to opportunities you didn't see coming</span><span data-lang-es>La competencia te gana oportunidades que no viste venir</span></span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Our Solution -->
+                <div class="bg-green-50 rounded-3xl p-8 lg:p-10 border-2 border-green-100">
+                    <h2 class="font-heading font-extrabold text-2xl lg:text-3xl text-gray-900 mb-6">
+                        <span data-lang-en>Our Solution: Your Data Advantage</span>
+                        <span data-lang-es>Nuestra Solución: Tu Ventaja de Datos</span>
+                    </h2>
+                    <p class="text-gray-600 mb-6">
+                        <span data-lang-en>We turn your data into a competitive weapon:</span>
+                        <span data-lang-es>Convertimos tus datos en un arma competitiva:</span>
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700"><span data-lang-en>Start with a Strategy Session, know exactly what's possible</span><span data-lang-es>Comienza con una Sesión de Estrategia, sabe exactamente qué es posible</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700"><span data-lang-en>Get 3-5 dashboards in 2 weeks (Dashboard Accelerator)</span><span data-lang-es>Obtén 3-5 dashboards en 2 semanas (Acelerador de Dashboards)</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700"><span data-lang-en>Build complete analytics platform in 6-8 weeks (predictive models included)</span><span data-lang-es>Construye plataforma analítica completa en 6-8 semanas (modelos predictivos incluidos)</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700"><span data-lang-en>See 32% average cost reduction in first 6 months</span><span data-lang-es>Ve 32% de reducción promedio de costos en los primeros 6 meses</span></span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-green-500 text-xl">✓</span>
+                            <span class="text-gray-700"><span data-lang-en>Save 10-20 hours per week on reporting (per person!)</span><span data-lang-es>Ahorra 10-20 horas semanales en reportes (¡por persona!)</span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 4: PRICING TIERS
+         ====================================================================== -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                
+                <!-- Tier 1: Discovery & Strategy -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-xs font-bold uppercase mb-4">
+                            <span data-lang-en>Discovery & Strategy</span><span data-lang-es>Descubrimiento y Estrategia</span>
+                        </div>
+                        <div class="text-4xl mb-3">🎯</div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-2">
+                            <span data-lang-en>Data Strategy Session</span><span data-lang-es>Sesión de Estrategia de Datos</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            <span data-lang-en>90-minute consultation to create your custom data roadmap with ROI projections and quick wins.</span>
+                            <span data-lang-es>Consulta de 90 minutos para crear tu hoja de ruta de datos personalizada con proyecciones de ROI y victorias rápidas.</span>
+                        </p>
+                        <div class="mb-2">
+                            <span class="font-heading font-extrabold text-4xl text-gray-900">$499</span>
+                        </div>
+                        <p class="text-gray-500 text-sm"><span data-lang-en>One-time investment</span><span data-lang-es>Inversión única</span></p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-blue-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>Current state data assessment</span><span data-lang-es>Evaluación del estado actual de datos</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-blue-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>Quick win identification</span><span data-lang-es>Identificación de victorias rápidas</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-blue-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>12-month implementation roadmap</span><span data-lang-es>Hoja de ruta de implementación de 12 meses</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-blue-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>ROI projections delivered in 48 hours</span><span data-lang-es>Proyecciones de ROI entregadas en 48 horas</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-blue-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>Tool recommendations</span><span data-lang-es>Recomendaciones de herramientas</span></span>
+                        </li>
+                    </ul>
+                    
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold transition-colors">
+                        <span data-lang-en>Book Your Session</span><span data-lang-es>Reserva Tu Sesión</span>
+                    </a>
+                </div>
+                
+                <!-- Tier 2: Quick Wins (Most Popular) -->
+                <div class="pricing-popular card-hover bg-blue-600 rounded-2xl p-8 shadow-xl relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase shadow-lg">
+                        <span data-lang-en>Most Popular</span><span data-lang-es>Más Popular</span>
+                    </div>
+                    
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-white/20 text-white px-4 py-1 rounded-full text-xs font-bold uppercase mb-4">
+                            <span data-lang-en>Quick Wins (2-3 Weeks)</span><span data-lang-es>Victorias Rápidas (2-3 Semanas)</span>
+                        </div>
+                        <div class="text-4xl mb-3">📊</div>
+                        <h3 class="font-heading font-bold text-xl text-white mb-2">
+                            <span data-lang-en>Dashboard Accelerator</span><span data-lang-es>Acelerador de Dashboards</span>
+                        </h3>
+                        <p class="text-blue-100 text-sm mb-4">
+                            <span data-lang-en>Get 3-5 custom dashboards built and your team trained in just 2 weeks. Stop drowning in spreadsheets.</span>
+                            <span data-lang-es>Obtén 3-5 dashboards personalizados y tu equipo capacitado en solo 2 semanas. Deja de ahogarte en hojas de cálculo.</span>
+                        </p>
+                        <div class="mb-2">
+                            <span class="font-heading font-extrabold text-4xl text-white">$4,499</span>
+                        </div>
+                        <p class="text-blue-200 text-sm"><span data-lang-en>One-time  •  Add extra dashboards for $750 each</span><span data-lang-es>Único  •  Añade dashboards extra por $750 c/u</span></p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3 text-white text-sm">
+                            <span class="text-orange-400 mt-0.5">✓</span>
+                            <span><span data-lang-en>3-5 custom dashboards (Power BI or Tableau)</span><span data-lang-es>3-5 dashboards personalizados (Power BI o Tableau)</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white text-sm">
+                            <span class="text-orange-400 mt-0.5">✓</span>
+                            <span><span data-lang-en>Up to 3 data sources integrated</span><span data-lang-es>Hasta 3 fuentes de datos integradas</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white text-sm">
+                            <span class="text-orange-400 mt-0.5">✓</span>
+                            <span><span data-lang-en>Automated daily/weekly refresh</span><span data-lang-es>Actualización automática diaria/semanal</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white text-sm">
+                            <span class="text-orange-400 mt-0.5">✓</span>
+                            <span><span data-lang-en>2-hour team training</span><span data-lang-es>2 horas de capacitación del equipo</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white text-sm">
+                            <span class="text-orange-400 mt-0.5">✓</span>
+                            <span><span data-lang-en>Documentation & user guides</span><span data-lang-es>Documentación y guías de usuario</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white text-sm">
+                            <span class="text-orange-400 mt-0.5">✓</span>
+                            <span><span data-lang-en>30-day support & optimization</span><span data-lang-es>30 días de soporte y optimización</span></span>
+                        </li>
+                    </ul>
+                    
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block text-center bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-xl font-bold transition-colors">
+                        <span data-lang-en>Get Started</span><span data-lang-es>Comenzar</span>
+                    </a>
+                </div>
+                
+                <!-- Tier 3: Comprehensive Solutions -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-100">
+                    <div class="text-center mb-6">
+                        <div class="inline-block bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-xs font-bold uppercase mb-4">
+                            <span data-lang-en>Comprehensive Solutions (6-10 Weeks)</span><span data-lang-es>Soluciones Integrales (6-10 Semanas)</span>
+                        </div>
+                        <div class="text-4xl mb-3">🗓️</div>
+                        <h3 class="font-heading font-bold text-xl text-gray-900 mb-2">
+                            <span data-lang-en>Analytics Platform Build</span><span data-lang-es>Construcción de Plataforma Analítica</span>
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            <span data-lang-en>Complete analytics infrastructure with 10-15 dashboards, predictive models, and full team training in 6-8 weeks.</span>
+                            <span data-lang-es>Infraestructura analítica completa con 10-15 dashboards, modelos predictivos, y capacitación completa en 6-8 semanas.</span>
+                        </p>
+                        <div class="mb-2">
+                            <span class="font-heading font-extrabold text-2xl text-gray-900"><span data-lang-en>Custom Quote</span><span data-lang-es>Cotización Personalizada</span></span>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-purple-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>Full analytics architecture design</span><span data-lang-es>Diseño completo de arquitectura analítica</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-purple-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>Unlimited data source integrations</span><span data-lang-es>Integraciones ilimitadas de fuentes de datos</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-purple-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>10-15 custom dashboards & reports</span><span data-lang-es>10-15 dashboards y reportes personalizados</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-purple-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>2-3 predictive analytics models</span><span data-lang-es>2-3 modelos de analítica predictiva</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-purple-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>16 hours comprehensive training</span><span data-lang-es>16 horas de capacitación integral</span></span>
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 text-sm">
+                            <span class="text-purple-500 mt-0.5">✓</span>
+                            <span><span data-lang-en>90-day optimization & support</span><span data-lang-es>90 días de optimización y soporte</span></span>
+                        </li>
+                    </ul>
+                    
+                    <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="block text-center bg-purple-600 hover:bg-purple-700 text-white py-3 rounded-xl font-bold transition-colors">
+                        <span data-lang-en>Book Your Session</span><span data-lang-es>Reserva Tu Sesión</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 5: FAQ
+         ====================================================================== -->
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-14">
+                <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-gray-900">
+                    <span data-lang-en>Got questions? We got answers</span><span data-lang-es>¿Tienes preguntas? Tenemos respuestas</span>
+                </h2>
+            </div>
+            
+            <div class="space-y-4" id="faq-list">
+                
+                <!-- FAQ 1 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900"><span data-lang-en>What exactly does "Data Transformation" mean for my business?</span><span data-lang-es>¿Qué significa exactamente "Transformación de Datos" para mi negocio?</span></h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Data transformation is the process of taking the "noise — raw data from your sales, inventory, and customer interactions — and converting it into a clean, organized, and visual format. We turn spreadsheets and disconnected databases into clear dashboards that show you exactly what is working, what isn't, and where your next opportunity lies.</span><span data-lang-es>La transformación de datos es el proceso de tomar el "ruido — datos crudos de tus ventas, inventario e interacciones con clientes — y convertirlo en un formato limpio, organizado y visual. Convertimos hojas de cálculo y bases de datos desconectadas en dashboards claros que te muestran exactamente qué funciona, qué no, y dónde está tu próxima oportunidad.</span></p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900"><span data-lang-en>Our data is a mess (or incomplete). Can you still help us?</span><span data-lang-es>Nuestros datos están desordenados (o incompletos). ¿Aún pueden ayudarnos?</span></h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Absolutely. In fact, most of our clients start here. "Messy data" is the industry standard for growing businesses. Our process includes a comprehensive data audit and cleaning phase where we fix inconsistencies and establish automated systems to ensure your data stays clean and reliable moving forward.</span><span data-lang-es>Absolutamente. De hecho, la mayoría de nuestros clientes empiezan aquí. Los "datos desordenados" son el estándar de la industria para negocios en crecimiento. Nuestro proceso incluye una fase integral de auditoría y limpieza de datos donde arreglamos inconsistencias y establecemos sistemas automatizados para asegurar que tus datos se mantengan limpios y confiables en adelante.</span></p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900"><span data-lang-en>How long does the transformation process take?</span><span data-lang-es>¿Cuánto tiempo toma el proceso de transformación?</span></h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>We move at the speed of your business. Our standard implementation follows a proven 4-week roadmap: Week 1: Discovery & Audit, Week 2: System Setup & Integration, Week 3: Team Training, Week 4: Official Launch & Optimization. Most clients see their first live dashboard within 14 days.</span><span data-lang-es>Nos movemos a la velocidad de tu negocio. Nuestra implementación estándar sigue una hoja de ruta probada de 4 semanas: Semana 1: Descubrimiento y Auditoría, Semana 2: Configuración e Integración del Sistema, Semana 3: Capacitación del Equipo, Semana 4: Lanzamiento Oficial y Optimización. La mayoría de los clientes ven su primer dashboard en vivo dentro de 14 días.</span></p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900"><span data-lang-en>We already use Excel/QuickBooks/CRMs. Do we have to switch tools?</span><span data-lang-es>Ya usamos Excel/QuickBooks/CRMs. ¿Tenemos que cambiar de herramientas?</span></h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>No. We don't want to disrupt your workflow; we want to enhance it. We specialize in integrating with your existing tech stack (CRM, ERP, accounting software, etc.) to pull data into a centralized "source of truth" without requiring your team to learn entirely new software for their daily tasks.</span><span data-lang-es>No. No queremos interrumpir tu flujo de trabajo; queremos mejorarlo. Nos especializamos en integrar con tu stack tecnológico existente (CRM, ERP, software de contabilidad, etc.) para extraer datos en una "fuente de verdad" centralizada sin requerir que tu equipo aprenda software completamente nuevo para sus tareas diarias.</span></p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900"><span data-lang-en>How is Axionalytics different from hiring a full-time Data Analyst?</span><span data-lang-es>¿Cómo se diferencia Axionalytics de contratar un Analista de Datos de tiempo completo?</span></h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>A full-time analyst typically costs $70k — œ$120k/year, requires benefits, and takes months to onboard. With Axionalytics, you get an entire team of experts (analysts, AI specialists, and trainers) for a fraction of the cost. You get enterprise-level intelligence without the HR overhead or the 6-month learning curve.</span><span data-lang-es>Un analista de tiempo completo típicamente cuesta $70k — œ$120k/año, requiere beneficios, y toma meses para integrar. Con Axionalytics, obtienes un equipo completo de expertos (analistas, especialistas en IA, y capacitadores) por una fracción del costo. Obtienes inteligencia de nivel empresarial sin los gastos de recursos humanos ni la curva de aprendizaje de 6 meses.</span></p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 6 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900"><span data-lang-en>What kind of ROI can I expect?</span><span data-lang-es>¿Qué tipo de ROI puedo esperar?</span></h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Our average client sees a 312% ROI in the first year. This comes from three areas: identifying "lost" revenue opportunities, reducing operational waste (like overstock or under-billing), and saving 10 — œ15 hours per employee per week through automated reporting.</span><span data-lang-es>Nuestro cliente promedio ve un 312% de ROI en el primer año. Esto viene de tres áreas: identificar oportunidades de ingresos "perdidas", reducir desperdicio operacional (como exceso de inventario o subfacturación), y ahorrar 10-15 horas por empleado por semana a través de reportes automatizados.</span></p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 7 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900"><span data-lang-en>Do you provide training for my team?</span><span data-lang-es>¿Proveen capacitación para mi equipo?</span></h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Yes. We don't just hand you a dashboard and walk away. Week 3 of our process is dedicated entirely to hands-on training. We provide custom playbooks and recorded sessions so your team feels 100% confident using these tools to make daily decisions.</span><span data-lang-es>Sí. No solo te entregamos un dashboard y nos vamos. La Semana 3 de nuestro proceso está dedicada completamente a capacitación práctica. Proporcionamos manuales personalizados y sesiones grabadas para que tu equipo se sienta 100% confiado usando estas herramientas para tomar decisiones diarias.</span></p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 8 -->
+                <div class="faq-item bg-gray-50 rounded-xl border-2 border-gray-100 overflow-hidden">
+                    <button class="faq-trigger w-full text-left p-6 flex justify-between items-center gap-4">
+                        <h4 class="font-heading font-bold text-gray-900"><span data-lang-en>Is my data secure?</span><span data-lang-es>¿Mis datos están seguros?</span></h4>
+                        <svg class="faq-icon w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600"><span data-lang-en>Security is our top priority. We use industry-standard encryption and follow best practices for data governance. We work within your existing security protocols to ensure that your proprietary information remains private and protected at all times.</span><span data-lang-es>La seguridad es nuestra máxima prioridad. Usamos encriptación estándar de la industria y seguimos las mejores prácticas de gobernanza de datos. Trabajamos dentro de tus protocolos de seguridad existentes para asegurar que tu información propietaria permanezca privada y protegida en todo momento.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 6: FINAL CTA
+         ====================================================================== -->
+    <section class="bg-gradient-to-r from-axio-dark to-axio-charcoal py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-heading font-extrabold text-3xl lg:text-4xl text-white mb-6">
+                <span data-lang-en>Ready to See What We Can Do for Your Business?</span>
+                <span data-lang-es>¿Listo Para Ver Qué Podemos Hacer Por Tu Negocio?</span>
+            </h2>
+            <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+                <span data-lang-en>Book a free consultation. No pressure, no sales pitch, just an honest conversation about your challenges and how we might help.</span>
+                <span data-lang-es>Agenda una consulta gratuita. Sin presión, sin discurso de ventas, solo una conversación honesta sobre tus desafíos y cómo podríamos ayudar.</span>
+            </p>
+            <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="btn-primary text-white px-10 py-5 rounded-xl font-bold text-lg inline-block mb-8">
+                <span data-lang-en>Book Free Consultation</span><span data-lang-es>Agenda Consulta Gratuita</span>
+            </a>
+            
+            <div class="flex flex-wrap justify-center gap-8 text-white/70 text-sm">
+                <span class="flex items-center gap-2">
+                    <span class="text-green-400">✓</span>
+                    <span data-lang-en>30-minute call</span><span data-lang-es>Llamada de 30 minutos</span>
+                </span>
+                <span class="flex items-center gap-2">
+                    <span class="text-green-400">✓</span>
+                    <span data-lang-en>No obligation</span><span data-lang-es>Sin obligación</span>
+                </span>
+                <span class="flex items-center gap-2">
+                    <span class="text-green-400">✓</span>
+                    <span data-lang-en>Custom recommendations</span><span data-lang-es>Recomendaciones personalizadas</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================================
+         FOOTER
+         ====================================================================== -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+         FOOTER
+         - Contact info, social links, legal links
+         â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+    <footer class="bg-axio-dark text-white py-16" style="background-color:#0F172A;">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Brand Column -->
+                <div class="lg:col-span-2">
+                    <!-- Logo -->
+                    <a href="index.html" class="flex items-center mb-6">
+                        <img src="logo_fixed.png" alt="Axionalytics Logo" class="h-16 w-auto object-contain">
+                        <span class="text-2xl font-heading font-bold -ml-6">axionalytics</span>
+                    </a>
+                    <p class="text-white/70 mb-6 max-w-md leading-relaxed">
+                        <span data-lang-en>Enterprise-grade analytics and AI integration without the enterprise price tag. Helping growing businesses make confident, data-driven decisions.</span>
+                        <span data-lang-es>Analítica e integración de IA de nivel empresarial sin el precio empresarial. Ayudando a negocios en crecimiento a tomar decisiones basadas en datos.</span>
+                    </p>
+                    
+                    <!-- Social Links - Replace # with actual URLs -->
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/company/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://wa.me/19562079368" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/axionalytics" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Services</span>
+                        <span data-lang-es>Servicios</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="datatransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Data Transformation</span>
+                            <span data-lang-es>Transformación de Datos</span>
+                        </a></li>
+                        <li><a href="aitransformation.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>AI Integration</span>
+                            <span data-lang-es>Integración de IA</span>
+                        </a></li>
+                        <li><a href="training.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Team Training</span>
+                            <span data-lang-es>Capacitación de Equipos</span>
+                        </a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="font-heading font-bold text-lg mb-6">
+                        <span data-lang-en>Company</span>
+                        <span data-lang-es>Compañía</span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>About Us</span>
+                            <span data-lang-es>Nosotros</span>
+                        </a></li>
+                        <li><a href="successstories.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Success Stories</span>
+                            <span data-lang-es>Historias de Éxito</span>
+                        </a></li>
+                                                <li><a href="blog.html" class="text-white/70 hover:text-orange-400 transition-colors">Blog</a></li>
+                        <li><a href="contact.html" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Contact</span>
+                            <span data-lang-es>Contacto</span>
+                        </a></li>
+                        <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" class="text-white/70 hover:text-orange-400 transition-colors">
+                            <span data-lang-en>Book Consultation</span>
+                            <span data-lang-es>Agendar Consulta</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/50 text-sm">© 2025 Axionalytics. All rights reserved.</p>
+                <div class="flex gap-6 text-sm">
+                    <a href="privacy.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Privacy Policy</span>
+                        <span data-lang-es>Política de Privacidad</span>
+                    </a>
+                    <a href="terms.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Terms & Conditions</span>
+                        <span data-lang-es>Términos y Condiciones</span>
+                    </a>
+                    <a href="accessibility.html" class="text-white/50 hover:text-white transition-colors">
+                        <span data-lang-en>Accessibility</span>
+                        <span data-lang-es>Accesibilidad</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ======================================================================
+         JAVASCRIPT
+         ====================================================================== -->
+    <script>
+        // ============================================
+        // LANGUAGE TOGGLE
+        // ============================================
+        const langToggleDesktop = document.getElementById('lang-toggle-desktop');
+        const langToggleMobile = document.getElementById('lang-toggle-mobile');
+        const currentLangFlag = document.getElementById('current-lang-flag');
+        const currentLangText = document.getElementById('current-lang-text');
+        const mobileLangFlag = document.querySelector('.mobile-lang-flag');
+        const mobileLangText = document.querySelector('.mobile-lang-text');
+        let currentLang = localStorage.getItem('axio-lang') || 'en';
+        
+        function setLanguage(lang) {
+            if (lang === 'es') {
+                document.documentElement.classList.add('lang-es');
+                if(currentLangFlag) currentLangFlag.textContent = '🇪🇸';
+                if(currentLangText) currentLangText.textContent = 'ES';
+                if(mobileLangFlag) mobileLangFlag.textContent = '🇪🇸';
+                if(mobileLangText) mobileLangText.textContent = 'Español';
+            } else {
+                document.documentElement.classList.remove('lang-es');
+                if(currentLangFlag) currentLangFlag.textContent = '🇺🇸';
+                if(currentLangText) currentLangText.textContent = 'EN';
+                if(mobileLangFlag) mobileLangFlag.textContent = '🇺🇸';
+                if(mobileLangText) mobileLangText.textContent = 'English';
+            }
+            localStorage.setItem('axio-lang', lang);
+            currentLang = lang;
+        }
+        setLanguage(currentLang);
+        
+        function toggleLanguage() { setLanguage(currentLang === 'en' ? 'es' : 'en'); }
+        if(langToggleDesktop) langToggleDesktop.addEventListener('click', toggleLanguage);
+        if(langToggleMobile) langToggleMobile.addEventListener('click', toggleLanguage);
+        
+        // ============================================
+        // MOBILE MENU
+        // ============================================
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        
+        function openMobileMenu() {
+            if(mobileMenu) mobileMenu.classList.add('is-open');
+            if(mobileMenuOverlay) { mobileMenuOverlay.style.opacity = '1'; mobileMenuOverlay.style.pointerEvents = 'auto'; }
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            if(mobileMenu) mobileMenu.classList.remove('is-open');
+            if(mobileMenuOverlay) { mobileMenuOverlay.style.opacity = '0'; mobileMenuOverlay.style.pointerEvents = 'none'; }
+            document.body.style.overflow = '';
+        }
+        
+        if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+        if(mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+        if(mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        if(mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+        
+        // ============================================
+        // HEADER SCROLL EFFECT
+        // ============================================
+        const header = document.getElementById('header');
+        
+        function updateHeader() {
+            if (!header) return;
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        }
+        
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        updateHeader();
+        
+        // ============================================
+        // FAQ ACCORDION
+        // ============================================
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-trigger').addEventListener('click', () => {
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== item) other.classList.remove('is-open');
+                });
+                item.classList.toggle('is-open');
+            });
+        });
+    </script>
+
+</body>
+</html>

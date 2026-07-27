@@ -1,0 +1,88 @@
+
+  <title>Enterprise Agentic AI | Autonomous Agents Inside Your VPC | Axionalytics</title>
+  <meta name="description" content="Autonomous multi-step AI agents deployed inside your own cloud perimeter. Hardware-isolated execution, human-in-the-loop write gates, deterministic citation provenance, and declarative connectors that need no code change.">
+  <link rel="canonical" href="https://www.axionalytics.com/enterprise-agentic-ai.html">
+  <meta property="og:title" content="Enterprise Agentic AI | Axionalytics">
+  <meta property="og:description" content="Autonomous agents that execute in hardware-isolated MicroVMs inside your VPC, stop at a human approval before every write, and cite the exact tool call behind every claim.">
+  <meta property="og:url" content="https://www.axionalytics.com/enterprise-agentic-ai.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://www.axionalytics.com/enterprise-agentic-ai.html#service",
+    "name": "Enterprise Agentic AI",
+    "serviceType": "Autonomous AI Agent Engineering and Deployment",
+    "provider": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "areaServed": "Worldwide",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Chief Technology Officers, VPs of Engineering, Heads of Revenue Operations, Enterprise Security Architects"
+    },
+    "description": "Autonomous multi-step AI agents deployed under a bring-your-own-cloud model. Agent-generated code executes in hardware-isolated MicroVMs inside the customer VPC, every write action requires human approval pinned to a concurrency token, and every factual claim is traceable to the tool call that produced it.",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Agentic Platform Capabilities",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Zero-Trust Execution Plane", "description": "Agent-generated code runs in hardware-level MicroVMs with an eBPF egress filter and DNS sinkhole, never on shared hosts." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Context-Aware Session Routing", "description": "A semantic router classifies every conversational turn before any pipeline runs, with working memory persisting across turns under two-phase commit." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Connector Abstraction Layer", "description": "Declarative YAML manifests add new enterprise systems without code changes, with shadow-tool suppression, description-injection defense, and AST-parsed query validation." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Citation Engine", "description": "Deterministic data provenance where the backend generates every citation marker and hallucinated markers are stripped before rendering." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agentic Data Exploration", "description": "Iterative schema discovery and probing tools that navigate enterprise catalogs of tens of thousands of tables without bulk schema injection." } }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where does agent-generated code actually execute?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Inside your own VPC, in hardware-level MicroVMs using a hardware-level hypervisor, never on a shared host. Each sandbox carries an eBPF egress filter and a DNS sinkhole so outbound traffic is restricted to an allowlist you define, and a sidecar scans all output for personal data before it leaves the sandbox."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the agent query a database with 50,000 tables?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It explores rather than ingests. Retrieval-driven schema discovery surfaces the handful of relevant tables, then a probing tool suite previews, counts, aggregates, and text-searches them the way an analyst would. Result sets above a threshold are materialized to object storage and passed as a pre-signed pointer, so the model never receives the raw rows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to personal data before it reaches the model?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is tokenized and held. Context-aware tokenization replaces sensitive spans before transmission and re-injects them after the response returns. A declarative policy per tenant controls category allowlists, custom enterprise identifier patterns, known-safe denylists, and skip-context rules."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to connect a new enterprise system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A YAML manifest, not a code change. The connector abstraction layer discovers the tool schema at runtime and injects it just in time to avoid context bloat, so adding a warehouse, ticketing system, or ERP is a configuration commit rather than a release."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://www.axionalytics.com/solutions.html" },
+      { "@type": "ListItem", "position": 3, "name": "Enterprise Agentic AI", "item": "https://www.axionalytics.com/enterprise-agentic-ai.html" }
+    ]
+  }
+  </script>

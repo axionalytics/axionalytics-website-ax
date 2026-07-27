@@ -1,0 +1,63 @@
+
+  <title>Prompt Injection Is a Containment Problem, Not a Prompting Problem | Axionalytics</title>
+  <meta name="description" content="The defence and the attack share a channel, so no instruction closes the class. Four named attacks, and the architectural layers that make a successful one harmless.">
+  <link rel="canonical" href="https://www.axionalytics.com/prompt-injection-tool-abuse-defense.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Prompt Injection Is a Containment Problem, Not a Prompting Problem">
+  <meta property="og:description" content="The defence and the attack share a channel, so no instruction closes the class. Four named attacks, and the architectural layers that make a successful one harmless.">
+  <meta property="og:url" content="https://www.axionalytics.com/prompt-injection-tool-abuse-defense.html">
+  <meta property="article:published_time" content="2026-07-17">
+  <meta property="article:section" content="Security">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://www.axionalytics.com/prompt-injection-tool-abuse-defense.html#article",
+    "headline": "Prompt Injection Is a Containment Problem, Not a Prompting Problem",
+    "description": "The defence and the attack share a channel, so no instruction closes the class. Four named attacks, and the architectural layers that make a successful one harmless.",
+    "datePublished": "2026-07-17",
+    "dateModified": "2026-07-17",
+    "articleSection": "Security",
+    "inLanguage": ["en", "es"],
+    "wordCount": 756,
+    "timeRequired": "PT3M",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/prompt-injection-tool-abuse-defense.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Zero-Trust AI Governance", "url": "https://www.axionalytics.com/enterprise-ai-security.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Prompt Injection Is a Containment Problem, Not a Prompting Problem", "item": "https://www.axionalytics.com/prompt-injection-tool-abuse-defense.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is prompt injection in an agentic system?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Instructions smuggled into content the agent processes — a document, a database field, a tool description, a web page — that the model treats as direction rather than data. It matters more in agentic systems than in chatbots because the model holds tools, so a successful injection redirects actions rather than merely text." } },
+      { "@type": "Question", "name": "Can prompt injection be solved by better prompting?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Instructing a model to ignore embedded instructions raises the cost of an attack without changing what is possible, because the defence and the attack occupy the same channel. Injection has to be contained architecturally: by validating tool calls before dispatch, and by removing the capability an injected instruction would need." } },
+      { "@type": "Question", "name": "What is tool shadowing?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A connected server registering a tool whose name or description impersonates a trusted one, so the agent selects the malicious tool believing it is the legitimate one. The mitigation is fail-closed name resolution — a collision denies the call rather than resolving it by preference order." } }
+    ]
+  }
+  </script>

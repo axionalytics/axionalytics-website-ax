@@ -1,0 +1,63 @@
+
+  <title>Paying Down Legacy Test Debt Without an Engineer-Year | Axionalytics</title>
+  <meta name="description" content="The assertions in a decade-old suite are usually fine. What is missing is everything around them — and retrofitting that is tractable in a way rewriting is not.">
+  <link rel="canonical" href="https://www.axionalytics.com/legacy-test-suite-modernization.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Paying Down Legacy Test Debt Without an Engineer-Year">
+  <meta property="og:description" content="The assertions in a decade-old suite are usually fine. What is missing is everything around them — and retrofitting that is tractable in a way rewriting is not.">
+  <meta property="og:url" content="https://www.axionalytics.com/legacy-test-suite-modernization.html">
+  <meta property="article:published_time" content="2026-06-19">
+  <meta property="article:section" content="Verification">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://www.axionalytics.com/legacy-test-suite-modernization.html#article",
+    "headline": "Paying Down Legacy Test Debt Without an Engineer-Year",
+    "description": "The assertions in a decade-old suite are usually fine. What is missing is everything around them — and retrofitting that is tractable in a way rewriting is not.",
+    "datePublished": "2026-06-19",
+    "dateModified": "2026-06-19",
+    "articleSection": "Verification",
+    "inLanguage": ["en", "es"],
+    "wordCount": 684,
+    "timeRequired": "PT3M",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/legacy-test-suite-modernization.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Agentic Test Engineering", "url": "https://www.axionalytics.com/agentic-test-engineering.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Paying Down Legacy Test Debt Without an Engineer-Year", "item": "https://www.axionalytics.com/legacy-test-suite-modernization.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Why is legacy test debt so hard to pay down?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Because the work is arithmetically impossible by hand. Modernising a suite of several thousand cases at even thirty minutes each consumes multiple engineer-years, which never survives prioritisation against feature delivery. The debt is not tolerated by choice; it is tolerated because no realistic schedule retires it." } },
+      { "@type": "Question", "name": "What does modernising a legacy test case actually involve?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Restructuring it to a consistent format, adding the pre-conditions the original omitted, enriching it with the interface elements it exercises, and attaching the requirement that justifies it. The assertion logic usually survives unchanged — what is missing is the surrounding structure that makes the case reviewable and traceable." } },
+      { "@type": "Question", "name": "Is it safe to let a tool rewrite existing test cases in place?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Only behind a field-level diff and human approval. A modernisation pass that overwrites cases unattended can silently weaken an assertion, and nobody would notice until the defect it used to catch escapes. Every change should be shown against the existing case before it is written." } }
+    ]
+  }
+  </script>

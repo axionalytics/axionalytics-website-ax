@@ -1,0 +1,719 @@
+/* ============================================================================
+   AXIONALYTICS — DESIGN SYSTEM
+   Loaded after Tailwind CDN + axio-config.js on every page.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   1. BASE
+   --------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem; /* clears the fixed header on anchor jumps */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #fff;
+  color: #0A101C;
+  overflow-x: hidden; /* wide diagrams scroll in their own container, never the page */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  letter-spacing: -0.021em;
+}
+
+h1 { letter-spacing: -0.034em; }
+
+::selection { background: rgba(34, 211, 238, 0.28); }
+
+:focus-visible {
+  outline: 2px solid #22D3EE;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   2. BILINGUAL ENGINE  (EN default / ES on html.lang-es)
+   ---------------------------------------------------------------------------
+   The previous implementation forced `display:block !important` on every
+   Spanish node, which collapsed flex and grid children into stacked blocks.
+   `display: revert` restores each element's own UA default instead — span
+   returns to inline, li to list-item, div to block — so layout survives the
+   language swap. Opt-out helpers below cover the rare case where a translated
+   node must itself be a flex/grid container.
+   --------------------------------------------------------------------------- */
+[data-lang-es] { display: none; }
+
+html.lang-es [data-lang-en] { display: none; }
+html.lang-es [data-lang-es] { display: revert; }
+
+html.lang-es [data-lang-es].ax-flex        { display: flex; }
+html.lang-es [data-lang-es].ax-inline-flex { display: inline-flex; }
+html.lang-es [data-lang-es].ax-grid        { display: grid; }
+html.lang-es [data-lang-es].ax-block       { display: block; }
+html.lang-es [data-lang-es].ax-inline      { display: inline; }
+
+/* ---------------------------------------------------------------------------
+   3. SURFACES & DECORATION
+   --------------------------------------------------------------------------- */
+.ax-dark { background: #0A101C; color: #fff; }
+
+/* Deep hero well with two spectrum blooms */
+.ax-hero {
+  position: relative;
+  background: linear-gradient(165deg, #05080F 0%, #0A101C 42%, #111C30 100%);
+  isolation: isolate;
+}
+.ax-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 55% at 18% 12%, rgba(34, 211, 238, 0.17), transparent 62%),
+    radial-gradient(ellipse 55% 60% at 86% 78%, rgba(168, 85, 247, 0.16), transparent 62%),
+    radial-gradient(ellipse 70% 40% at 50% 108%, rgba(59, 130, 246, 0.13), transparent 68%);
+  pointer-events: none;
+}
+
+/* Faint engineering grid — signals "systems company", not "agency" */
+.ax-grid-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(44, 62, 92, 0.30) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(44, 62, 92, 0.30) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 78% 62% at 50% 34%, #000 35%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 78% 62% at 50% 34%, #000 35%, transparent 78%);
+  pointer-events: none;
+}
+
+.ax-band {
+  background:
+    radial-gradient(ellipse 70% 90% at 12% 50%, rgba(34, 211, 238, 0.10), transparent 60%),
+    radial-gradient(ellipse 70% 90% at 88% 50%, rgba(168, 85, 247, 0.10), transparent 60%),
+    linear-gradient(135deg, #0A101C 0%, #111C30 100%);
+}
+
+/* Top hairline that carries the brand spectrum */
+.ax-rule-spectrum {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, transparent, #0EA5A5, #22D3EE, #3B82F6, #A855F7, transparent);
+  opacity: 0.55;
+}
+
+/* ---------------------------------------------------------------------------
+   4. TYPE HELPERS
+   --------------------------------------------------------------------------- */
+.ax-spectrum-text {
+  background: linear-gradient(100deg, #22D3EE 0%, #3B82F6 45%, #A855F7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Section eyebrow: uppercase, tracked, with a leading spectrum tick */
+.ax-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.ax-eyebrow::before {
+  content: '';
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #22D3EE, #A855F7);
+}
+
+/* ---------------------------------------------------------------------------
+   5. BUTTONS
+   --------------------------------------------------------------------------- */
+.ax-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease,
+              background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+
+.ax-btn-primary {
+  color: #05080F;
+  background: linear-gradient(100deg, #22D3EE 0%, #38BDF8 50%, #818CF8 100%);
+  box-shadow: 0 10px 30px -12px rgba(34, 211, 238, 0.75);
+}
+.ax-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 42px -14px rgba(34, 211, 238, 0.9);
+}
+
+.ax-btn-ghost {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+}
+.ax-btn-ghost:hover {
+  border-color: rgba(34, 211, 238, 0.65);
+  background: rgba(34, 211, 238, 0.10);
+  transform: translateY(-2px);
+}
+
+.ax-btn-solid {
+  color: #fff;
+  background: #0A101C;
+}
+.ax-btn-solid:hover { transform: translateY(-2px); background: #111C30; }
+
+.ax-btn-outline {
+  color: #0A101C;
+  background: transparent;
+  border: 1px solid rgba(10, 16, 28, 0.20);
+}
+.ax-btn-outline:hover { border-color: #3B82F6; color: #3B82F6; }
+
+/* ---------------------------------------------------------------------------
+   6. CARDS
+   --------------------------------------------------------------------------- */
+.ax-card {
+  background: #fff;
+  border: 1px solid rgba(10, 16, 28, 0.09);
+  border-radius: 1rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.ax-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(59, 130, 246, 0.35);
+  box-shadow: 0 24px 60px -20px rgba(10, 16, 28, 0.35);
+}
+
+.ax-card-dark {
+  background: linear-gradient(160deg, rgba(27, 41, 66, 0.85), rgba(17, 28, 48, 0.85));
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.ax-card-dark:hover {
+  transform: translateY(-5px);
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 24px 60px -22px rgba(34, 211, 238, 0.35);
+}
+
+/* Gradient top-edge accent for the three solution pillars */
+.ax-card-top {
+  position: relative;
+  overflow: hidden;
+}
+.ax-card-top::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--ax-accent, linear-gradient(90deg, #22D3EE, #A855F7));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ax-card-top:hover::before { transform: scaleX(1); }
+
+/* ---------------------------------------------------------------------------
+   7. BADGES & PILLS
+   --------------------------------------------------------------------------- */
+.ax-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.ax-pill-dark {
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.ax-pill-cyan {
+  color: #0E7490;
+  background: rgba(34, 211, 238, 0.12);
+  border: 1px solid rgba(34, 211, 238, 0.30);
+}
+
+.ax-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: #10B981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+}
+
+/* ---------------------------------------------------------------------------
+   8. CODE / TERMINAL / DIAGRAM BLOCKS
+   --------------------------------------------------------------------------- */
+.ax-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-variant-ligatures: none;
+}
+
+.ax-terminal {
+  background: #05080F;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 0.875rem;
+  overflow: hidden;
+}
+.ax-terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 1rem;
+  background: rgba(255, 255, 255, 0.035);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.ax-terminal-dot { width: 0.65rem; height: 0.65rem; border-radius: 9999px; }
+
+/* Wide ASCII architecture diagrams: scroll inside their own box, never the page */
+.ax-diagram {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.ax-diagram pre {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  white-space: pre;
+  min-width: max-content;
+}
+@media (min-width: 768px) {
+  .ax-diagram pre { font-size: 0.78rem; }
+}
+
+/* Scrollbar treatment for dark scrollable regions */
+.ax-scroll-dark::-webkit-scrollbar { height: 8px; width: 8px; }
+.ax-scroll-dark::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.04); border-radius: 9999px; }
+.ax-scroll-dark::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); border-radius: 9999px; }
+.ax-scroll-dark::-webkit-scrollbar-thumb:hover { background: rgba(34, 211, 238, 0.45); }
+
+/* ---------------------------------------------------------------------------
+   9. TABLES
+   --------------------------------------------------------------------------- */
+.ax-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.ax-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 34rem; }
+.ax-table th {
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 0.85rem 1rem;
+  white-space: nowrap;
+}
+.ax-table td { padding: 0.85rem 1rem; vertical-align: top; }
+.ax-table tbody tr { border-top: 1px solid rgba(10, 16, 28, 0.08); }
+.ax-table-dark th { color: rgba(255, 255, 255, 0.55); }
+.ax-table-dark td { color: rgba(255, 255, 255, 0.80); }
+.ax-table-dark tbody tr { border-top: 1px solid rgba(255, 255, 255, 0.09); }
+.ax-table-dark tbody tr:hover { background: rgba(255, 255, 255, 0.03); }
+
+/* ---------------------------------------------------------------------------
+   10. NAVIGATION
+   --------------------------------------------------------------------------- */
+#ax-header {
+  transition: background-color 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+  border-bottom: 1px solid transparent;
+}
+#ax-header.is-scrolled {
+  background: rgba(5, 8, 15, 0.86);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom-color: rgba(255, 255, 255, 0.09);
+}
+
+.ax-navlink { position: relative; }
+.ax-navlink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #22D3EE, #A855F7);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ax-navlink:hover::after,
+.ax-navlink[aria-current="page"]::after { width: 100%; }
+
+/* Solutions mega-dropdown */
+.ax-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px) translateX(-50%);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+}
+.ax-dropdown-host:hover .ax-dropdown,
+.ax-dropdown-host:focus-within .ax-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) translateX(-50%);
+}
+
+/* Mobile drawer */
+.ax-drawer { transform: translateX(100%); transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1); }
+.ax-drawer.is-open { transform: translateX(0); }
+
+/* ---------------------------------------------------------------------------
+   11. SCROLL-REVEAL
+   --------------------------------------------------------------------------- */
+.ax-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ax-reveal.is-in { opacity: 1; transform: none; }
+
+.ax-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ax-stagger.is-in > * { opacity: 1; transform: none; }
+.ax-stagger.is-in > *:nth-child(1) { transition-delay: 0.05s; }
+.ax-stagger.is-in > *:nth-child(2) { transition-delay: 0.12s; }
+.ax-stagger.is-in > *:nth-child(3) { transition-delay: 0.19s; }
+.ax-stagger.is-in > *:nth-child(4) { transition-delay: 0.26s; }
+.ax-stagger.is-in > *:nth-child(5) { transition-delay: 0.33s; }
+.ax-stagger.is-in > *:nth-child(6) { transition-delay: 0.40s; }
+.ax-stagger.is-in > *:nth-child(7) { transition-delay: 0.47s; }
+.ax-stagger.is-in > *:nth-child(8) { transition-delay: 0.54s; }
+.ax-stagger.is-in > *:nth-child(9) { transition-delay: 0.61s; }
+
+/* ---------------------------------------------------------------------------
+   12. ACCORDION (FAQ)
+   --------------------------------------------------------------------------- */
+.ax-acc-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ax-acc.is-open .ax-acc-panel { grid-template-rows: 1fr; }
+.ax-acc-panel > div { overflow: hidden; }
+.ax-acc-icon { transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1); }
+.ax-acc.is-open .ax-acc-icon { transform: rotate(45deg); }
+
+/* ---------------------------------------------------------------------------
+   13. PIPELINE / STEPPER
+   --------------------------------------------------------------------------- */
+.ax-step { position: relative; padding-left: 3.25rem; }
+.ax-step::before {
+  content: '';
+  position: absolute;
+  left: 1.09rem;
+  top: 2.4rem;
+  bottom: -1.75rem;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.5), rgba(168, 85, 247, 0.12));
+}
+.ax-step:last-child::before { display: none; }
+.ax-step-num {
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------------------
+   14. FORMS (contact + ROI gate)
+   --------------------------------------------------------------------------- */
+.ax-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(10, 16, 28, 0.16);
+  background: #fff;
+  color: #0A101C;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.ax-input:focus {
+  outline: none;
+  border-color: #22D3EE;
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.16);
+}
+.ax-input-dark {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+.ax-input-dark::placeholder { color: rgba(255, 255, 255, 0.38); }
+.ax-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+/* Range sliders in the ROI calculator */
+.ax-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.14);
+  outline: none;
+}
+.ax-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #22D3EE, #818CF8);
+  border: 2px solid #05080F;
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.20);
+}
+.ax-range::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #22D3EE, #818CF8);
+  border: 2px solid #05080F;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------------
+   15. LOGO LOCKUP
+   ---------------------------------------------------------------------------
+   The mark is an image; the "axionalytics" wordmark is live text beside it, so
+   it stays crisp at any size and inherits the heading font.
+
+   assets/logo-mark-dark.png is trimmed tight to the artwork, so the negative
+   margin the previous asset needed (to claw back its baked-in padding) is gone
+   — spacing is now real spacing. Height is set below the old 3.25rem because
+   the untrimmed file only filled about 60% of its own box; 2.25rem renders the
+   mark at the same optical size the padded version did at 3.25rem.
+   --------------------------------------------------------------------------- */
+.ax-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.ax-logo img {
+  height: 2.25rem;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .ax-logo img { height: 2.5rem; }
+}
+
+/* ---------------------------------------------------------------------------
+   16. LONG-FORM PROSE
+   ---------------------------------------------------------------------------
+   Shared by the legal pages and the article pages. Styles bare tags so the
+   content itself carries no utility classes — which is what lets an article
+   body be authored (or migrated) as plain HTML.
+   --------------------------------------------------------------------------- */
+.ax-prose {
+  color: rgba(10, 16, 28, 0.72);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.ax-prose > *:first-child { margin-top: 0; }
+.ax-prose > *:last-child { margin-bottom: 0; }
+
+.ax-prose h2 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #0A101C;
+  margin: 3rem 0 1rem;
+  scroll-margin-top: 6rem;
+}
+
+.ax-prose h3 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: #0A101C;
+  margin: 2.5rem 0 0.85rem;
+  scroll-margin-top: 6rem;
+}
+
+.ax-prose h4 {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0A101C;
+  margin: 1.75rem 0 0.6rem;
+}
+
+.ax-prose p { margin: 0 0 1.25rem; }
+
+.ax-prose strong { color: #0A101C; font-weight: 700; }
+
+.ax-prose a {
+  color: #2563EB;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  font-weight: 500;
+}
+.ax-prose a:hover { color: #4F46E5; }
+
+.ax-prose ul,
+.ax-prose ol { margin: 0 0 1.25rem; padding-left: 1.35rem; }
+.ax-prose ul { list-style: disc; }
+.ax-prose ol { list-style: decimal; }
+.ax-prose li { margin-bottom: 0.5rem; }
+.ax-prose li::marker { color: #3B82F6; }
+
+.ax-prose blockquote {
+  margin: 1.75rem 0;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  border-left: 3px solid #22D3EE;
+  color: rgba(10, 16, 28, 0.62);
+  font-style: italic;
+}
+
+.ax-prose hr {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px solid rgba(10, 16, 28, 0.10);
+}
+
+.ax-prose code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  border-radius: 0.3rem;
+  background: rgba(10, 16, 28, 0.06);
+  color: #0A101C;
+}
+
+/* Callouts carried over from the pre-2026 blog markup. Kept as class names so
+   existing article bodies migrate without a find-and-replace pass. */
+.ax-prose .highlight-box,
+.ax-prose .pro-tip {
+  margin: 2rem 0;
+  padding: 1.4rem 1.5rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(10, 16, 28, 0.10);
+  background: #F6F8FC;
+}
+
+.ax-prose .highlight-box {
+  border-left: 3px solid #3B82F6;
+  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.20);
+}
+
+.ax-prose .pro-tip {
+  border-left: 3px solid #22D3EE;
+  background: rgba(34, 211, 238, 0.06);
+  border-color: rgba(34, 211, 238, 0.24);
+}
+
+.ax-prose .highlight-box > *:first-child,
+.ax-prose .pro-tip > *:first-child { margin-top: 0; }
+.ax-prose .highlight-box > *:last-child,
+.ax-prose .pro-tip > *:last-child { margin-bottom: 0; }
+
+.ax-prose .highlight-box h4,
+.ax-prose .pro-tip h4 { margin-top: 0; margin-bottom: 0.5rem; }
+
+/* Numbered section headings on the legal pages */
+.ax-legal h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  margin: 2.75rem 0 0.9rem;
+}
+
+/* ---------------------------------------------------------------------------
+   17. TABLE OF CONTENTS (sticky, article + legal pages)
+   --------------------------------------------------------------------------- */
+.ax-toc a {
+  display: block;
+  padding: 0.4rem 0 0.4rem 0.85rem;
+  border-left: 2px solid rgba(10, 16, 28, 0.10);
+  color: rgba(10, 16, 28, 0.55);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.ax-toc a:hover { color: #2563EB; border-left-color: #3B82F6; }
+
+/* ---------------------------------------------------------------------------
+   18. MISC
+   --------------------------------------------------------------------------- */
+.ax-marquee-track { display: flex; width: max-content; animation: axMarquee 38s linear infinite; }
+.ax-marquee:hover .ax-marquee-track { animation-play-state: paused; }
+
+.ax-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.ax-skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+}
+.ax-skip:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: #22D3EE;
+  color: #05080F;
+  font-weight: 700;
+  border-radius: 0.5rem;
+}

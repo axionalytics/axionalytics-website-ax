@@ -1,0 +1,129 @@
+<!--FAQ How does an AI agent query a database with tens of thousands of tables? | By exploring rather than ingesting. Retrieval surfaces a handful of candidate tables from the catalog, then a probing tool suite previews, counts, aggregates, and text-searches them the way an analyst would before committing to an expensive query. The full schema is never injected into the context window.-->
+<!--FAQ Why does injecting a full database schema into the prompt fail at enterprise scale? | It fails on three axes at once. A fifty-thousand-table catalog exceeds any context window, the token cost is incurred on every turn regardless of relevance, and accuracy falls as the model selects from thousands of similarly named candidates instead of a ranked shortlist.-->
+<!--FAQ How do you stop an agent pulling millions of rows into a context window? | Materialise large result sets to object storage and return a pre-signed pointer plus a summary. The model receives a reference and aggregate statistics rather than raw rows, so cost stays bounded regardless of result size and the sensitive payload never enters the context.-->
+
+<p>
+  <span data-lang-en><strong>Every text-to-SQL demo works against twelve tables. Enterprise catalogs have tens of thousands, and the standard approach — dump the schema into context, hand the model one query tool — fails on cost, latency, and accuracy simultaneously.</strong></span>
+  <span data-lang-es><strong>Toda demostración de texto-a-SQL funciona con doce tablas. Los catálogos empresariales tienen decenas de miles, y el enfoque estándar — volcar el esquema al contexto y dar al modelo una herramienta de consulta — falla en costo, latencia y precisión a la vez.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>The gap between those two situations is where most conversational analytics projects quietly die. It is not a prompt engineering problem, and no amount of instruction tuning closes it.</span>
+  <span data-lang-es>La brecha entre esas dos situaciones es donde mueren silenciosamente la mayoría de los proyectos de analítica conversacional. No es un problema de ingeniería de prompts, y ninguna cantidad de ajuste de instrucciones lo cierra.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Why bulk schema injection breaks</span>
+  <span data-lang-es>Por qué falla la inyección masiva de esquema</span>
+</h2>
+
+<p>
+  <span data-lang-en>Three failures compound, and fixing one worsens another.</span>
+  <span data-lang-es>Tres fallas se combinan, y corregir una empeora otra.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>It does not fit.</strong> A fifty-thousand-table catalog with columns, types, and keys runs to millions of tokens. Even where the window is nominally large enough, retrieval quality degrades badly across that much undifferentiated material.</span>
+  <span data-lang-es><strong>No cabe.</strong> Un catálogo de cincuenta mil tablas con columnas, tipos y claves alcanza millones de tokens. Incluso donde la ventana es nominalmente suficiente, la calidad de recuperación se degrada mucho con tanto material indiferenciado.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>It is paid for on every turn.</strong> The schema is re-sent with each question, including follow-ups that touch two tables. Cost scales with catalog size rather than with the work being done, which is the wrong relationship.</span>
+  <span data-lang-es><strong>Se paga en cada turno.</strong> El esquema se reenvía con cada pregunta, incluidas las de seguimiento que tocan dos tablas. El costo escala con el tamaño del catálogo y no con el trabajo realizado, que es la relación equivocada.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>It reduces accuracy.</strong> This is the counterintuitive one. Given thousands of similarly named candidates — <code>fct_orders</code>, <code>fct_orders_v2</code>, <code>fct_orders_deprecated</code>, <code>stg_fct_orders</code> — the model picks plausibly rather than correctly. More context makes selection harder, not easier.</span>
+  <span data-lang-es><strong>Reduce la precisión.</strong> Esta es la contraintuitiva. Ante miles de candidatos con nombres similares — <code>fct_orders</code>, <code>fct_orders_v2</code>, <code>fct_orders_deprecated</code>, <code>stg_fct_orders</code> — el modelo elige de forma plausible y no correcta. Más contexto hace la selección más difícil, no más fácil.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What a competent analyst does instead</span>
+  <span data-lang-es>Qué hace en cambio un analista competente</span>
+</h2>
+
+<p>
+  <span data-lang-en>An analyst handed the same question does not read the catalog. They search for likely tables, open one and look at five rows, check whether it is populated for the period in question, look at the distinct values in a status column, and only then write the query.</span>
+  <span data-lang-es>Un analista ante la misma pregunta no lee el catálogo. Busca tablas probables, abre una y mira cinco filas, verifica si está poblada para el periodo en cuestión, revisa los valores distintos de una columna de estado, y solo entonces escribe la consulta.</span>
+</p>
+
+<p>
+  <span data-lang-en>That is an iterative loop of cheap probes narrowing toward one expensive operation. Giving an agent the same shape is what makes it work at scale.</span>
+  <span data-lang-es>Eso es un ciclo iterativo de sondeos baratos que se estrecha hacia una operación costosa. Darle al agente la misma forma es lo que lo hace funcionar a escala.</span>
+</p>
+
+<h3>
+  <span data-lang-en>Retrieval-driven discovery</span>
+  <span data-lang-es>Descubrimiento guiado por recuperación</span>
+</h3>
+
+<p>
+  <span data-lang-en>Index the catalog once — table names, column names, descriptions, and lineage — into a retrieval store. A question then surfaces a ranked shortlist of perhaps seven candidate tables. Those seven enter the context. The other fifty-one thousand do not.</span>
+  <span data-lang-es>Indexe el catálogo una vez — nombres de tablas, de columnas, descripciones y linaje — en un almacén de recuperación. Una pregunta destaca entonces una lista corta y ordenada de quizá siete tablas candidatas. Esas siete entran al contexto. Las otras cincuenta y un mil no.</span>
+</p>
+
+<h3>
+  <span data-lang-en>A probing tool suite, not one query tool</span>
+  <span data-lang-es>Un conjunto de sondeo, no una sola herramienta de consulta</span>
+</h3>
+
+<p>
+  <span data-lang-en>Replace the monolithic query tool with narrow operations the agent can compose: preview a table's first rows, count rows under a filter, list distinct values in a column, compute an aggregate, search text. Each is cheap, each returns little, and each informs the next.</span>
+  <span data-lang-es>Reemplace la herramienta de consulta monolítica por operaciones acotadas que el agente pueda componer: previsualizar las primeras filas, contar filas bajo un filtro, listar valores distintos de una columna, calcular un agregado, buscar texto. Cada una es barata, devuelve poco e informa a la siguiente.</span>
+</p>
+
+<p>
+  <span data-lang-en>The secondary benefit is auditability. A trace of five named probes is legible to a reviewer in a way that one generated query joining nine tables is not.</span>
+  <span data-lang-es>El beneficio secundario es la auditabilidad. Un rastro de cinco sondeos nombrados es legible para un revisor de una forma en que una consulta generada que une nueve tablas no lo es.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The pointer pattern</span>
+    <span data-lang-es>El patrón de puntero</span>
+  </h4>
+  <p>
+    <span data-lang-en>When a result set exceeds a threshold, do not return it. Materialise it to object storage and return a pre-signed URL plus summary statistics. The model receives a reference and aggregates; it never sees the rows. Cost stays bounded regardless of answer size, and — the part security cares about — the sensitive payload never enters a context window or a model provider's logs.</span>
+    <span data-lang-es>Cuando un conjunto de resultados supera un umbral, no lo devuelva. Materialícelo en almacenamiento de objetos y devuelva una URL prefirmada más estadísticas resumidas. El modelo recibe una referencia y agregados; nunca ve las filas. El costo queda acotado sin importar el tamaño de la respuesta y — la parte que le importa a seguridad — la carga sensible nunca entra en una ventana de contexto ni en los registros de un proveedor de modelos.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Three attacks this design has to survive</span>
+  <span data-lang-es>Tres ataques que este diseño debe resistir</span>
+</h2>
+
+<p>
+  <span data-lang-en>Iterative exploration introduces failure modes that bulk injection does not have. Each has a specific mitigation.</span>
+  <span data-lang-es>La exploración iterativa introduce modos de falla que la inyección masiva no tiene. Cada uno tiene una mitigación específica.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>The blind reasoner.</strong> If the model never sees the rows, it can assert things about them that the data does not support. The mitigation is to return summary statistics alongside the pointer — row count, null rates, value ranges, distinct counts — so the narrative is grounded in something checkable rather than in the model's expectation of what a table like that contains.</span>
+  <span data-lang-es><strong>El razonador ciego.</strong> Si el modelo nunca ve las filas, puede afirmar cosas que los datos no respaldan. La mitigación es devolver estadísticas resumidas junto al puntero — conteo de filas, tasas de nulos, rangos de valores, conteos distintos — para que la narrativa se fundamente en algo verificable y no en la expectativa del modelo sobre qué contiene una tabla así.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Egress through the pointer.</strong> A pre-signed URL rendered as a clickable link is an exfiltration channel if the destination can be influenced. Validate every URL against an allowlist before it renders, and scope the signature narrowly in both time and object.</span>
+  <span data-lang-es><strong>Salida a través del puntero.</strong> Una URL prefirmada mostrada como enlace es un canal de exfiltración si el destino puede influirse. Valide cada URL contra una lista permitida antes de renderizar, y limite la firma estrictamente en tiempo y objeto.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Subquery evasion.</strong> A rule that inspects generated SQL as a string is defeated by nesting the restricted operation inside a subquery. Parse the query into a syntax tree and validate structurally, so a restricted operation is caught wherever it appears in the tree.</span>
+  <span data-lang-es><strong>Evasión por subconsulta.</strong> Una regla que inspecciona el SQL generado como texto se burla anidando la operación restringida en una subconsulta. Analice la consulta en un árbol sintáctico y valide estructuralmente, para que una operación restringida se detecte donde sea que aparezca en el árbol.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What changes operationally</span>
+  <span data-lang-es>Qué cambia operativamente</span>
+</h2>
+
+<p>
+  <span data-lang-en>Exploration costs more round trips per question — five or six tool calls rather than one. In exchange, each call is small, the total token spend falls sharply, and the answer is arrived at rather than guessed. The trace also becomes a review artifact: a reader can see that the agent checked whether the table was populated for Q3 before aggregating it.</span>
+  <span data-lang-es>La exploración cuesta más viajes de ida y vuelta por pregunta — cinco o seis llamadas en lugar de una. A cambio, cada llamada es pequeña, el gasto total en tokens cae marcadamente, y la respuesta se alcanza en lugar de adivinarse. El rastro se vuelve además un artefacto de revisión: un lector puede ver que el agente verificó si la tabla estaba poblada para el tercer trimestre antes de agregarla.</span>
+</p>
+
+<p>
+  <span data-lang-en>The practical test of whether a vendor has solved this is simple. Ask how many tables their system injects into context for a question touching two of them. If the answer scales with your catalog rather than with the question, it will not survive your warehouse.</span>
+  <span data-lang-es>La prueba práctica de si un proveedor resolvió esto es simple. Pregunte cuántas tablas inyecta su sistema al contexto para una pregunta que toca dos. Si la respuesta escala con su catálogo y no con la pregunta, no sobrevivirá a su almacén de datos.</span>
+</p>

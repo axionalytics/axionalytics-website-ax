@@ -1,0 +1,140 @@
+<!--FAQ Should enterprises replace Excel with a BI platform? | No. The two solve different problems and both belong in the estate. Excel is the right tool for modelling, scenario work, and any analysis where the structure changes as you think. A governed BI platform is the right tool for a metric many people read and act on. The failure is using Excel as a reporting system of record.-->
+<!--FAQ What is Excel sprawl and why does it matter? | Excel sprawl is the accumulation of departmental spreadsheets that each redefine a shared metric. It matters because it dissolves the single source of truth: four departments arrive at a meeting with four revenue figures, all defensible, none reconciled, and the meeting becomes a reconciliation exercise instead of a decision.-->
+<!--FAQ How do you migrate reporting out of spreadsheets without a rewrite? | Move the metric definition, not the file. Identify the handful of definitions the spreadsheets disagree on, implement those once in the semantic layer, and publish them. Most spreadsheets then become thin views over a governed measure rather than independent calculations, and the ones that remain are genuine modelling work that should stay in Excel.-->
+
+<p>
+  <span data-lang-en><strong>The question is not which tool is better. It is which number the board sees when four departments each maintain their own version of revenue — and whether anyone can say which one is right.</strong></span>
+  <span data-lang-es><strong>La pregunta no es qué herramienta es mejor. Es qué cifra ve el directorio cuando cuatro departamentos mantienen cada uno su propia versión de los ingresos — y si alguien puede decir cuál es la correcta.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>Framed as a tool comparison, this discussion never resolves. Excel is genuinely better at some things, the BI platform at others, and both camps produce accurate arguments indefinitely. Framed as a governance question, it resolves in about ten minutes.</span>
+  <span data-lang-es>Planteada como comparación de herramientas, esta discusión nunca se resuelve. Excel es genuinamente mejor en algunas cosas, la plataforma de BI en otras, y ambos bandos producen argumentos correctos indefinidamente. Planteada como pregunta de gobernanza, se resuelve en unos diez minutos.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What Excel is actually excellent at</span>
+  <span data-lang-es>En qué es realmente excelente Excel</span>
+</h2>
+
+<p>
+  <span data-lang-en>It is worth saying plainly, because the migration pitch usually pretends otherwise. Excel is the best tool most organizations have for analysis where the structure changes as you think: scenario modelling, reconciliation, anything requiring a column that exists for twenty minutes, and financial work where an analyst needs to override a value and see the consequence immediately.</span>
+  <span data-lang-es>Vale la pena decirlo con claridad, porque el discurso de migración suele fingir lo contrario. Excel es la mejor herramienta que tienen la mayoría de las organizaciones para análisis donde la estructura cambia mientras se piensa: modelado de escenarios, conciliación, cualquier cosa que requiera una columna que existe veinte minutos, y trabajo financiero donde un analista necesita anular un valor y ver la consecuencia de inmediato.</span>
+</p>
+
+<p>
+  <span data-lang-en>No BI platform matches that iteration speed, and organizations that try to eliminate spreadsheets entirely find their analysts exporting to CSV within a month. The tool is not the problem.</span>
+  <span data-lang-es>Ninguna plataforma de BI iguala esa velocidad de iteración, y las organizaciones que intentan eliminar las hojas de cálculo por completo encuentran a sus analistas exportando a CSV en un mes. La herramienta no es el problema.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Where it fails as a system of record</span>
+  <span data-lang-es>Dónde falla como sistema de registro</span>
+</h2>
+
+<p>
+  <span data-lang-en>The failure begins when a spreadsheet stops being an analysis and becomes a report other people rely on. At that point the properties that make Excel excellent become liabilities.</span>
+  <span data-lang-es>La falla empieza cuando una hoja de cálculo deja de ser un análisis y se convierte en un informe del que otros dependen. En ese punto, las propiedades que hacen excelente a Excel se vuelven pasivos.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>The definition is invisible.</strong> A measure lives inside a cell formula, in one file, on one person's drive. Nobody outside that file can see how revenue was calculated, and nobody is notified when it changes.</span>
+  <span data-lang-es><strong>La definición es invisible.</strong> Una medida vive dentro de la fórmula de una celda, en un archivo, en el disco de una persona. Nadie fuera de ese archivo puede ver cómo se calculó el ingreso, y nadie se entera cuando cambia.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>It forks silently.</strong> Someone copies the file to adapt it for their region. Both copies are maintained. Both are now correct in their own terms and disagree with each other. Nothing detects this.</span>
+  <span data-lang-es><strong>Se bifurca en silencio.</strong> Alguien copia el archivo para adaptarlo a su región. Ambas copias se mantienen. Ambas son ahora correctas en sus propios términos y discrepan entre sí. Nada detecta esto.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>Access control is file-level.</strong> Row-level security — this regional manager sees their region — is not expressible. In practice the whole file is shared and the sensitive columns are hidden, which is not a control.</span>
+  <span data-lang-es><strong>El control de acceso es a nivel de archivo.</strong> La seguridad a nivel de fila — este gerente regional ve su región — no es expresable. En la práctica se comparte todo el archivo y se ocultan las columnas sensibles, lo que no es un control.</span>
+</p>
+
+<p>
+  <span data-lang-en><strong>There is no audit trail.</strong> Six months later, nobody can say who changed the figure, when, or why.</span>
+  <span data-lang-es><strong>No hay rastro de auditoría.</strong> Seis meses después nadie puede decir quién cambió la cifra, cuándo ni por qué.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The test that settles it</span>
+    <span data-lang-es>La prueba que lo resuelve</span>
+  </h4>
+  <p>
+    <span data-lang-en>Ask whether anyone other than the author reads the output and acts on it. If yes, the metric belongs in the semantic layer regardless of how convenient the spreadsheet is. If no, leave it alone — it is analysis, and governing it adds cost without adding safety.</span>
+    <span data-lang-es>Pregunte si alguien además del autor lee la salida y actúa sobre ella. Si es sí, la métrica pertenece a la capa semántica sin importar qué tan cómoda sea la hoja de cálculo. Si es no, déjela en paz — es análisis, y gobernarlo agrega costo sin agregar seguridad.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>What a governed semantic model buys</span>
+  <span data-lang-es>Qué aporta un modelo semántico gobernado</span>
+</h2>
+
+<p>
+  <span data-lang-en>The value is not the visuals. It is that a metric has exactly one definition, stored where it can be inspected, versioned, and secured.</span>
+  <span data-lang-es>El valor no son los visuales. Es que una métrica tiene exactamente una definición, guardada donde puede inspeccionarse, versionarse y protegerse.</span>
+</p>
+
+<p>
+  <span data-lang-en>Revenue is defined once. Every report referencing it inherits that definition, and changing it changes every consumer at the same moment. Row-level security is a property of the model rather than of who received which file. The definition sits in source control, so a change is a reviewable diff with an author and a date attached.</span>
+  <span data-lang-es>El ingreso se define una vez. Todo informe que lo referencia hereda esa definición, y cambiarla cambia a todos los consumidores en el mismo momento. La seguridad a nivel de fila es una propiedad del modelo y no de quién recibió qué archivo. La definición vive en control de versiones, así que un cambio es un diff revisable con autor y fecha.</span>
+</p>
+
+<p>
+  <span data-lang-en>That is what makes the board meeting a decision rather than a reconciliation exercise.</span>
+  <span data-lang-es>Eso es lo que convierte la reunión de directorio en una decisión en lugar de un ejercicio de conciliación.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Why sprawl happens anyway</span>
+  <span data-lang-es>Por qué la proliferación ocurre igualmente</span>
+</h2>
+
+<p>
+  <span data-lang-en>Organizations that already own a BI platform still accumulate shadow spreadsheets, and the reason is almost never that people prefer Excel. It is queue length.</span>
+  <span data-lang-es>Las organizaciones que ya tienen una plataforma de BI acumulan igualmente hojas de cálculo paralelas, y la razón casi nunca es que la gente prefiera Excel. Es la longitud de la cola.</span>
+</p>
+
+<p>
+  <span data-lang-en>A business unit needs a view. The BI backlog is eleven weeks. They export to a spreadsheet and build it themselves — not as a governance decision but as a scheduling one. Every week the queue stays long, more definitions escape the model.</span>
+  <span data-lang-es>Una unidad de negocio necesita una vista. El backlog de BI es de once semanas. Exportan a una hoja de cálculo y la construyen ellos mismos — no como decisión de gobernanza sino de calendario. Cada semana que la cola sigue larga, más definiciones escapan del modelo.</span>
+</p>
+
+<p>
+  <span data-lang-en>Which means governance policy alone does not fix sprawl. Banning spreadsheets while the queue stays at eleven weeks produces the same spreadsheets with worse naming. The durable fix is making the governed path faster than the ungoverned one.</span>
+  <span data-lang-es>Lo que significa que la política de gobernanza por sí sola no arregla la proliferación. Prohibir las hojas de cálculo mientras la cola sigue en once semanas produce las mismas hojas con peores nombres. La solución duradera es hacer que la ruta gobernada sea más rápida que la no gobernada.</span>
+</p>
+
+<h2>
+  <span data-lang-en>A migration that works</span>
+  <span data-lang-es>Una migración que funciona</span>
+</h2>
+
+<p>
+  <span data-lang-en>Do not migrate files. Migrate definitions.</span>
+  <span data-lang-es>No migre archivos. Migre definiciones.</span>
+</p>
+
+<p>
+  <span data-lang-en>Inventory the spreadsheets that circulate and identify the handful of metrics they disagree on — usually revenue, margin, headcount, and one operational measure specific to the business. Implement those in the semantic layer, get the definitions agreed in a room with the people who currently disagree, and publish.</span>
+  <span data-lang-es>Inventaríe las hojas que circulan e identifique las pocas métricas en las que discrepan — normalmente ingresos, margen, personal y alguna medida operativa propia del negocio. Impleméntelas en la capa semántica, acuerde las definiciones en una sala con quienes hoy discrepan, y publique.</span>
+</p>
+
+<p>
+  <span data-lang-en>Most of the spreadsheets then collapse into thin views over a governed measure. The ones that survive are genuine modelling work, and those should stay in Excel — now reading a trusted number instead of recomputing their own.</span>
+  <span data-lang-es>La mayoría de las hojas colapsan entonces en vistas delgadas sobre una medida gobernada. Las que sobreviven son trabajo de modelado genuino, y esas deberían quedarse en Excel — ahora leyendo una cifra confiable en lugar de recalcular la propia.</span>
+</p>
+
+<div class="pro-tip">
+  <h4>
+    <span data-lang-en>Keep both, deliberately</span>
+    <span data-lang-es>Conserve ambos, deliberadamente</span>
+  </h4>
+  <p>
+    <span data-lang-en>The mature estate uses a governed model for anything read by more than one person, and Excel for analysis — connected to the model rather than to raw extracts. The line is not tool preference. It is whether someone else depends on the output.</span>
+    <span data-lang-es>El patrimonio maduro usa un modelo gobernado para todo lo que lee más de una persona, y Excel para análisis — conectado al modelo y no a extracciones crudas. La línea no es preferencia de herramienta. Es si alguien más depende de la salida.</span>
+  </p>
+</div>
