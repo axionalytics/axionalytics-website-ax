@@ -452,6 +452,32 @@ html.lang-es [data-lang-es].ax-inline      { display: inline; }
   font-weight: 700;
 }
 
+/* The connector draws itself as the reader passes each step. Numbered stages
+   with real week ranges are a genuine sequence, so a progress spine encodes
+   something true about the content rather than decorating it.
+
+   Scroll-driven, so the browser runs it off the compositor with no script and
+   no scroll listener; where animation-timeline is unsupported the rule never
+   applies and the static gradient below is what ships, unchanged. This lives in
+   the shared stylesheet rather than the homepage one because it has the same
+   specificity as the .ax-step::before rule above and so depends on following
+   it — and because every page using the stepper should behave alike. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ax-step::before {
+      transform-origin: top center;
+      animation: axSpineDraw linear both;
+      animation-timeline: view();
+      animation-range: entry 22% cover 38%;
+    }
+
+    @keyframes axSpineDraw {
+      from { transform: scaleY(0); }
+      to   { transform: scaleY(1); }
+    }
+  }
+}
+
 /* ---------------------------------------------------------------------------
    14. FORMS (contact + ROI gate)
    --------------------------------------------------------------------------- */

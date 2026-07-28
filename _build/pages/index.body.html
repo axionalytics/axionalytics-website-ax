@@ -5,6 +5,12 @@
 <section class="ax-hero ax-noise relative pt-36 pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
   <div class="ax-grid-bg"></div>
 
+  <!-- The axion field. Purely decorative and announced as such: it carries no
+       information the copy does not already state, so a screen reader gains
+       nothing from it. Painted by axio-home.js; with scripting off it is an
+       empty element and the hero renders exactly as it did before. -->
+  <canvas class="ax-field" aria-hidden="true"></canvas>
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div class="grid lg:grid-cols-12 gap-14 items-center">
 
@@ -56,7 +62,7 @@
 
       <!-- Hero visual: a governed agent run, rendered the way the product behaves -->
       <div class="lg:col-span-5 ax-reveal">
-        <div class="ax-terminal shadow-ax-lift">
+        <div class="ax-terminal shadow-ax-lift ax-run">
           <div class="ax-terminal-bar">
             <span class="ax-terminal-dot bg-ax-stop/70"></span>
             <span class="ax-terminal-dot bg-ax-warn/70"></span>
@@ -65,30 +71,30 @@
           </div>
 
           <div class="p-5 space-y-3 ax-mono text-xs leading-relaxed">
-            <div class="text-white/40">
+            <div class="text-white/40 ax-run-row" data-run-t="0">
               <span class="text-ax-cyan">▸</span>
               <span data-lang-en>"Which accounts slipped last quarter, and why?"</span>
               <span data-lang-es>"¿Qué cuentas se retrasaron el trimestre pasado y por qué?"</span>
             </div>
 
             <div class="pl-3 border-l border-white/10 space-y-2 pt-1">
-              <div class="flex items-start gap-2">
+              <div class="flex items-start gap-2 ax-run-row" data-run-t="1">
                 <span class="text-ax-go shrink-0">✓</span>
                 <span class="text-white/55">router · <span class="text-white/80">NEW_TASK</span> <span class="text-white/30">(84 ms)</span></span>
               </div>
-              <div class="flex items-start gap-2">
+              <div class="flex items-start gap-2 ax-run-row" data-run-t="2">
                 <span class="text-ax-go shrink-0">✓</span>
                 <span class="text-white/55">tokenize · <span class="text-white/80">14 PII spans held</span></span>
               </div>
-              <div class="flex items-start gap-2">
+              <div class="flex items-start gap-2 ax-run-row" data-run-t="3">
                 <span class="text-ax-go shrink-0">✓</span>
                 <span class="text-white/55">discover · <span class="text-white/80">7 tables of 50,000+</span></span>
               </div>
-              <div class="flex items-start gap-2">
+              <div class="flex items-start gap-2 ax-run-row" data-run-t="4">
                 <span class="text-ax-go shrink-0">✓</span>
                 <span class="text-white/55">aggregate · <span class="text-white/80">warehouse read</span> <span class="text-ax-cyan">[1]</span></span>
               </div>
-              <div class="flex items-start gap-2">
+              <div class="flex items-start gap-2 ax-run-row" data-run-t="5">
                 <span class="text-ax-warn shrink-0 animate-pulse">◆</span>
                 <span class="text-white/55">crm.update · <span class="text-ax-warn">
                   <span data-lang-en>awaiting approval</span><span data-lang-es>esperando aprobación</span>
@@ -96,8 +102,9 @@
               </div>
             </div>
 
-            <!-- HITL gate card -->
-            <div class="rounded-lg border border-ax-warn/30 bg-ax-warn/[0.07] p-3.5 mt-1">
+            <!-- HITL gate card. Arrives 1.3s after the run halts: the pause is
+                 the claim the whole page is making, so it is timed, not filled. -->
+            <div class="rounded-lg border border-ax-warn/30 bg-ax-warn/[0.07] p-3.5 mt-1 ax-run-row" data-run-t="6">
               <div class="flex items-center justify-between mb-2.5">
                 <span class="text-2xs font-bold uppercase tracking-wider text-ax-warn">
                   <span data-lang-en>Write gate</span><span data-lang-es>Puerta de escritura</span>
@@ -121,7 +128,7 @@
               </div>
             </div>
 
-            <p class="text-2xs text-white/25 pt-1">
+            <p class="text-2xs text-white/25 pt-1 ax-run-row" data-run-t="7">
               <span class="text-ax-cyan">[1]</span>
               <span data-lang-en>citation resolves to the exact tool call and result set</span>
               <span data-lang-es>la cita resuelve a la llamada y el conjunto de resultados exactos</span>
@@ -148,6 +155,14 @@
           <span data-lang-en>Automated tests across shipped platforms</span>
           <span data-lang-es>Pruebas automatizadas en plataformas entregadas</span>
         </p>
+        <!-- Sparklines are drawn by the .is-in class the existing scroll-reveal
+             observer already applies to .ax-stagger, so they cost no new script.
+             The viewBox is authored at the aspect it renders at, so it scales
+             uniformly: line weight stays even without a non-scaling stroke, and
+             pathLength="100" keeps the draw normalised. -->
+        <svg class="ax-spark-wrap" viewBox="0 0 260 24" aria-hidden="true" focusable="false">
+          <path class="ax-spark" pathLength="100" stroke="#22D3EE" d="M2 21 L45 17 L86 18 L130 10 L174 11 L216 5 L258 3"/>
+        </svg>
       </div>
 
       <div class="text-center lg:border-r border-white/10 lg:pr-4">
@@ -156,6 +171,12 @@
           <span data-lang-en>Bytes of customer data leaving the customer VPC</span>
           <span data-lang-es>Bytes de datos del cliente que salen de su VPC</span>
         </p>
+        <!-- The one that does not climb. Its neighbours rise; this holds flat at
+             zero, which is the claim stated as a shape instead of a sentence. -->
+        <svg class="ax-spark-wrap" viewBox="0 0 260 24" aria-hidden="true" focusable="false">
+          <path class="ax-spark" pathLength="100" stroke="#10B981" d="M2 20 L252 20"/>
+          <line class="ax-spark-hold" x1="254" y1="13" x2="254" y2="27" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
       </div>
 
       <div class="text-center lg:border-r border-white/10 lg:pr-4">
@@ -166,6 +187,9 @@
           <span data-lang-en>Tables an agent navigates without bulk schema injection</span>
           <span data-lang-es>Tablas que un agente navega sin inyección masiva de esquema</span>
         </p>
+        <svg class="ax-spark-wrap" viewBox="0 0 260 24" aria-hidden="true" focusable="false">
+          <path class="ax-spark" pathLength="100" stroke="#A855F7" d="M2 21 L52 21 L52 15 L117 15 L117 9 L182 9 L182 4 L258 4"/>
+        </svg>
       </div>
 
       <div class="text-center">
@@ -176,6 +200,10 @@
           <span data-lang-en>Upper bound on a governed dashboard build</span>
           <span data-lang-es>Límite superior para construir un tablero gobernado</span>
         </p>
+        <!-- Descending, because on this metric down is the good direction. -->
+        <svg class="ax-spark-wrap" viewBox="0 0 260 24" aria-hidden="true" focusable="false">
+          <path class="ax-spark" pathLength="100" stroke="#3B82F6" d="M2 4 L52 8 L109 7 L161 15 L208 18 L258 21"/>
+        </svg>
       </div>
     </div>
   </div>
@@ -282,6 +310,24 @@
         <div class="flex items-center gap-3 mb-6">
           <span class="ax-mono text-2xs text-white/30">01</span>
           <span class="h-px flex-1 bg-gradient-to-r from-ax-cyan/60 to-transparent"></span>
+          <!-- One topology per system, drawn from the logo's node-graph
+               vocabulary. A tree: one specification fans out into sections and
+               then into individual tests. Nodes rest visible; the edges trace
+               in on hover or keyboard focus. -->
+          <svg class="ax-glyph" viewBox="0 0 72 36" aria-hidden="true" focusable="false">
+            <path class="ax-glyph-edge" pathLength="100" stroke="#22D3EE" d="M8 18 L32 8 M8 18 L32 18 M8 18 L32 28 M32 8 L60 3 M32 8 L60 11 M32 18 L60 18 M32 28 L60 25 M32 28 L60 33"/>
+            <g fill="#22D3EE">
+              <circle class="ax-glyph-node" cx="8" cy="18" r="2.6"/>
+              <circle class="ax-glyph-node" cx="32" cy="8" r="2"/>
+              <circle class="ax-glyph-node" cx="32" cy="18" r="2"/>
+              <circle class="ax-glyph-node" cx="32" cy="28" r="2"/>
+              <circle class="ax-glyph-node" cx="60" cy="3" r="1.6"/>
+              <circle class="ax-glyph-node" cx="60" cy="11" r="1.6"/>
+              <circle class="ax-glyph-node" cx="60" cy="18" r="1.6"/>
+              <circle class="ax-glyph-node" cx="60" cy="25" r="1.6"/>
+              <circle class="ax-glyph-node" cx="60" cy="33" r="1.6"/>
+            </g>
+          </svg>
         </div>
         <h3 class="font-heading font-bold text-2xl text-white mb-4 leading-tight">
           <span data-lang-en>Agentic Test Engineering</span>
@@ -316,6 +362,18 @@
         <div class="flex items-center gap-3 mb-6">
           <span class="ax-mono text-2xs text-white/30">02</span>
           <span class="h-px flex-1 bg-gradient-to-r from-ax-violet/60 to-transparent"></span>
+          <!-- A mesh: isolated subsystems around a router, every one reachable
+               and every one independently switchable. -->
+          <svg class="ax-glyph" viewBox="0 0 72 36" aria-hidden="true" focusable="false">
+            <path class="ax-glyph-edge" pathLength="100" stroke="#A855F7" d="M12 7 L36 18 L60 7 M12 29 L36 18 L60 29 M12 7 L12 29 M60 7 L60 29 M12 7 L60 7 M12 29 L60 29"/>
+            <g fill="#A855F7">
+              <circle class="ax-glyph-node" cx="36" cy="18" r="2.8"/>
+              <circle class="ax-glyph-node" cx="12" cy="7" r="2"/>
+              <circle class="ax-glyph-node" cx="60" cy="7" r="2"/>
+              <circle class="ax-glyph-node" cx="12" cy="29" r="2"/>
+              <circle class="ax-glyph-node" cx="60" cy="29" r="2"/>
+            </g>
+          </svg>
         </div>
         <h3 class="font-heading font-bold text-2xl text-white mb-4 leading-tight">
           <span data-lang-en>Enterprise Agentic AI</span>
@@ -350,6 +408,18 @@
         <div class="flex items-center gap-3 mb-6">
           <span class="ax-mono text-2xs text-white/30">03</span>
           <span class="h-px flex-1 bg-gradient-to-r from-ax-blue/60 to-transparent"></span>
+          <!-- A funnel: many governed sources collapse to one artifact. -->
+          <svg class="ax-glyph" viewBox="0 0 72 36" aria-hidden="true" focusable="false">
+            <path class="ax-glyph-edge" pathLength="100" stroke="#3B82F6" d="M8 4 L38 18 M8 12 L38 18 M8 24 L38 18 M8 32 L38 18 M38 18 L64 18"/>
+            <g fill="#3B82F6">
+              <circle class="ax-glyph-node" cx="8" cy="4" r="1.6"/>
+              <circle class="ax-glyph-node" cx="8" cy="12" r="1.6"/>
+              <circle class="ax-glyph-node" cx="8" cy="24" r="1.6"/>
+              <circle class="ax-glyph-node" cx="8" cy="32" r="1.6"/>
+              <circle class="ax-glyph-node" cx="38" cy="18" r="2.8"/>
+              <circle class="ax-glyph-node" cx="64" cy="18" r="2.4"/>
+            </g>
+          </svg>
         </div>
         <h3 class="font-heading font-bold text-2xl text-white mb-4 leading-tight">
           <span data-lang-en>Agentic Business Intelligence</span>
@@ -384,6 +454,18 @@
         <div class="flex items-center gap-3 mb-6">
           <span class="ax-mono text-2xs text-white/30">04</span>
           <span class="h-px flex-1 bg-gradient-to-r from-ax-magenta/60 to-transparent"></span>
+          <!-- A chain: discover, research, resolve, verify, then stop at a
+               person. Every stage gated on the one before it. -->
+          <svg class="ax-glyph" viewBox="0 0 72 36" aria-hidden="true" focusable="false">
+            <path class="ax-glyph-edge" pathLength="100" stroke="#C026D3" d="M8 27 L24 11 L40 27 L56 11 L66 19"/>
+            <g fill="#C026D3">
+              <circle class="ax-glyph-node" cx="8" cy="27" r="2"/>
+              <circle class="ax-glyph-node" cx="24" cy="11" r="2"/>
+              <circle class="ax-glyph-node" cx="40" cy="27" r="2"/>
+              <circle class="ax-glyph-node" cx="56" cy="11" r="2"/>
+              <circle class="ax-glyph-node" cx="66" cy="19" r="2.6"/>
+            </g>
+          </svg>
         </div>
         <h3 class="font-heading font-bold text-2xl text-white mb-4 leading-tight">
           <span data-lang-en>Agentic Revenue Development</span>

@@ -1,0 +1,190 @@
+/* ============================================================================
+   AXIONALYTICS — HOMEPAGE ONLY
+   ----------------------------------------------------------------------------
+   Referenced from _build/pages/index.meta.html, so index.html and es/index.html
+   are the only two pages that ever download it. The other 76 pages are byte-for
+   -byte unchanged by everything in this file.
+
+   THREE PROPERTIES THIS FILE MAINTAINS
+
+   1. Additive. Every selector here is a class that exists nowhere else in the
+      codebase. Nothing overrides axio.css, so load order does not matter — which
+      is what lets this be linked from the meta block, ahead of tailwind.css and
+      axio.css, without a cascade fight.
+
+   2. Degrades to the page as it shipped. No effect below is load-bearing. With
+      JavaScript off the terminal reads in full, the sparklines sit at rest, and
+      the canvas paints nothing. Nothing here can hide content.
+
+   3. Compositor-only. Every animated property is transform, opacity, or
+      stroke-dashoffset. Nothing animates a property that triggers layout.
+
+   The site-wide prefers-reduced-motion rule in axio.css already collapses every
+   animation and transition here to ~0ms, so these need no separate guard. The
+   one exception is the hero sheen, which is wrapped explicitly because it should
+   not merely run fast — it should not run.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------------------
+   1. THE AXION FIELD
+   ---------------------------------------------------------------------------
+   Sits between the engineering grid and the hero content, at the same stacking
+   level as .ax-grid-bg and the .ax-hero::before blooms — so DOM order alone
+   places it: blooms, grid, field, copy.
+
+   The 12px overhang on each side exists because the field is parallax-shifted by
+   up to 7px. Without it, a shifted canvas would expose a hairline of bare
+   background along one edge.
+   --------------------------------------------------------------------------- */
+.ax-field {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+  z-index: -1;
+  display: block;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------------------
+   2. THE GOVERNED RUN
+   ---------------------------------------------------------------------------
+   .is-armed is added by axio-home.js and by nothing else. Until it lands, these
+   rules do not apply and every row renders normally — so a script that fails to
+   parse leaves a readable terminal rather than an empty box.
+
+   Rows animate opacity and transform only, so they hold their layout space from
+   first paint. The terminal cannot change height as it plays; there is no shift.
+   --------------------------------------------------------------------------- */
+.ax-run .ax-run-row {
+  transition: opacity 0.38s ease, transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ax-run.is-armed .ax-run-row {
+  opacity: 0;
+  transform: translateY(5px);
+}
+
+.ax-run.is-armed .ax-run-row.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------------------------------------------------------------------
+   3. PROOF-BAR SPARKLINES
+   ---------------------------------------------------------------------------
+   Driven entirely by the .is-in class the existing scroll-reveal observer in
+   axio.js already puts on .ax-stagger. No new JavaScript participates.
+
+   pathLength="100" on each path normalises every line to 100 units regardless of
+   its real geometry, so one dasharray value hides all four correctly.
+   --------------------------------------------------------------------------- */
+/* Height comes from the viewBox aspect rather than being fixed, because these
+   scale uniformly. The earlier version stretched a square-ish viewBox to fill
+   the column with preserveAspectRatio="none" and restored even line weight with
+   vector-effect="non-scaling-stroke" — but that combination silently breaks the
+   draw: a non-scaling stroke resolves its dash pattern in screen space, so
+   pathLength="100" stops normalising it and every line rendered as a 100px dash
+   followed by a 100px gap. A wide viewBox scaled uniformly needs neither. */
+.ax-spark-wrap {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 0.75rem;
+  overflow: visible;
+}
+
+.ax-spark {
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.ax-stagger.is-in .ax-spark { stroke-dashoffset: 0; }
+
+/* The zero that refuses to move. Its line is already flat, so the draw carries
+   no information — the endpoint marker is what says "live, and holding". It is a
+   status indicator in the same family as the .ax-dot in the hero pill and the
+   pulsing HITL marker in the terminal, not ambient decoration. */
+.ax-spark-hold {
+  opacity: 0;
+  transition: opacity 0.4s ease 1.2s;
+}
+
+.ax-stagger.is-in .ax-spark-hold {
+  opacity: 1;
+  animation: axHold 2.8s ease-in-out 1.6s infinite;
+}
+
+@keyframes axHold {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.32; }
+}
+
+/* ---------------------------------------------------------------------------
+   4. PILLAR CONSTELLATIONS
+   ---------------------------------------------------------------------------
+   Four node-graph glyphs drawn from the logo's own vocabulary, one topology per
+   system: a tree for test generation, a mesh for the agent runtime, a funnel for
+   BI, a chain for revenue development.
+
+   At rest only the nodes show. The edges trace themselves in on hover or when
+   anything inside the card takes keyboard focus, so the effect is reachable
+   without a pointer.
+   --------------------------------------------------------------------------- */
+.ax-glyph {
+  width: 4.5rem;
+  height: 2.25rem;
+  flex: none;
+  overflow: visible;
+}
+
+.ax-glyph-edge {
+  fill: none;
+  stroke-width: 1;
+  opacity: 0.72;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ax-card-dark:hover .ax-glyph-edge,
+.ax-card-dark:focus-within .ax-glyph-edge { stroke-dashoffset: 0; }
+
+.ax-glyph-node { opacity: 0.85; transition: opacity 0.3s ease; }
+
+.ax-card-dark:hover .ax-glyph-node,
+.ax-card-dark:focus-within .ax-glyph-node { opacity: 1; }
+
+/* ---------------------------------------------------------------------------
+   5. HERO SHEEN
+   ---------------------------------------------------------------------------
+   A light pass across the spectrum headline. Scoped to .ax-hero so the same
+   class stays static everywhere else it is used on the site.
+
+   Two deliberate constraints. It runs three times and stops — a gradient clipped
+   to text cannot be composited, so every frame is a real repaint of the largest
+   type on the page, and an infinite loop would spend that cost forever. And the
+   sheen is a separate background layer above the brand gradient rather than a
+   pan across it, so the resting appearance is identical to the design as drawn.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .ax-hero .ax-spectrum-text {
+    background-image:
+      linear-gradient(100deg, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 58%),
+      linear-gradient(100deg, #22D3EE 0%, #3B82F6 45%, #A855F7 100%);
+    background-size: 300% 100%, 100% 100%;
+    background-position: -70% 0, 0 0;
+    animation: axSheen 9s ease-in-out 3;
+  }
+
+  @keyframes axSheen {
+    0%, 58% { background-position: -70% 0, 0 0; }
+    100%    { background-position: 170% 0, 0 0; }
+  }
+}
