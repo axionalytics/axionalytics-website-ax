@@ -40,7 +40,7 @@ Then rebuild.
 bash _build/scripts/all.sh
 ```
 
-Fourteen steps, under a minute, idempotent — run it as often as you like. Always
+Fifteen steps, under a minute, idempotent — run it as often as you like. Always
 use this rather than individual scripts; several steps consume the output of
 earlier ones.
 
@@ -79,9 +79,46 @@ destroying the Spanish tree.
 | 12 | `make-sitemap.py` | `sitemap.xml`, both languages |
 | 13 | `make-redirects.sh` | Stubs for retired URLs |
 | 14 | `check-leaks.py` | Verification gate; non-zero exit fails the build |
+| 15 | `check-links.py` | Every link, anchor, asset, id, and control resolves. Non-zero exit fails the build. |
 
 Run by hand only when needed: `make-logo-assets.py` (regenerates logo PNGs and
 favicons), `install-hooks.sh` (once per clone, see below).
+
+### What step 15 checks, and why
+
+The site once shipped a dead email gate. The markup nested one `<form>` inside
+another; the HTML parser silently discards the inner tag, so `getElementById`
+returned `null`, no listener was ever attached, and the button did nothing when
+clicked. No console error, no failed request, no visible symptom. It was found
+by a person clicking it, after it had been live for days.
+
+Every check exists because of a way this site can break without anyone noticing:
+
+| Check | Catches |
+|---|---|
+| internal links | a link to a page that no longer exists |
+| anchors | `#fragment` with no matching `id` on the target page |
+| assets | a stylesheet, script, or image reference that resolves nowhere |
+| duplicate ids | invalid HTML; `getElementById` silently returns one of them |
+| nested forms | **the bug above** — inner tag discarded by the browser |
+| JS-referenced ids | a control the scripts drive that no page renders |
+| EN/ES parity | an id renamed in one language tree but not the other |
+| button types | a `<button>` in a form with no `type`, which defaults to submit |
+
+Root-absolute references such as `/rss.xml` resolve against the site root, not
+the page's folder — worth knowing, because getting that wrong makes every one
+of them look broken when it is fine.
+
+**External links are not checked by default.** It needs network, it is slow, and
+a third party being briefly down should not fail a local build. Run them when
+you want them:
+
+```bash
+python _build/scripts/check-links.py --external
+```
+
+That skips `rel="preconnect"` and `rel="dns-prefetch"` hints, which name an
+origin to warm up rather than a document and return 404 by design.
 
 ---
 

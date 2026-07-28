@@ -22,6 +22,7 @@
 #  12. make-sitemap     sitemap.xml across both language trees
 #  13. make-redirects   noindex stubs for retired URLs
 #  14. check-leaks      fails the build if a substitution was missed
+#  15. check-links      every link, anchor, asset, id, and control resolves
 #
 # make-i18n must run after build.sh, because build.sh regenerates the bilingual
 # pages it consumes. Running build.sh alone leaves the site in an intermediate
@@ -36,50 +37,53 @@ cd "$ROOT"
 
 step() { printf '\n\033[1m== %s\033[0m\n' "$1"; }
 
-step "1/14  articles + blog index"
+step "1/15  articles + blog index"
 python _build/scripts/make-articles.py
 
-step "2/14  glossary"
+step "2/15  glossary"
 python _build/scripts/make-glossary.py
 
-step "3/14  legal pages"
+step "3/15  legal pages"
 python _build/scripts/extract-legal.py
 
-step "4/14  breadcrumbs"
+step "4/15  breadcrumbs"
 python _build/scripts/add-breadcrumbs.py
 
-step "4b/14 local business schema"
+step "4b/15 local business schema"
 python _build/scripts/add-local-business.py
 
-step "5/14  author page"
+step "5/15  author page"
 python _build/scripts/make-author-page.py
 
-step "6/14  sanitize"
+step "6/15  sanitize"
 python _build/scripts/sanitize-sources.py
 
-step "7/14  assemble pages"
+step "7/15  assemble pages"
 bash _build/scripts/build.sh
 
-step "8/14  contextual links"
+step "8/15  contextual links"
 python _build/scripts/add-contextual-links.py
 
-step "9/14  compile tailwind"
+step "9/15  compile tailwind"
 python _build/scripts/build-tailwind.py
 
-step "10/14 split language trees"
+step "10/15 split language trees"
 python _build/scripts/make-i18n.py
 
-step "11/14 feeds"
+step "11/15 feeds"
 python _build/scripts/make-feeds.py
 
-step "12/14 sitemap"
+step "12/15 sitemap"
 python _build/scripts/make-sitemap.py
 
-step "13/14 redirect stubs"
+step "13/15 redirect stubs"
 bash _build/scripts/make-redirects.sh
 
-step "14/14 verification"
+step "14/15 verification"
 python _build/scripts/check-leaks.py
+
+step "15/15 links, anchors, and controls"
+python _build/scripts/check-links.py
 
 printf '\n\033[1mdone.\033[0m  %s pages en  ·  %s pages es\n' \
   "$(ls -1 *.html | wc -l)" "$(ls -1 es/*.html | wc -l)"

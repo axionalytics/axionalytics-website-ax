@@ -49,7 +49,7 @@ def block():
         '      "url": "%s/",' % BASE,
         '      "image": "%s/assets/og-card.png",' % BASE,
         '      "logo": "%s/assets/favicon-512.png",' % BASE,
-        '      "email": "axionalytics@gmail.com",',
+        '      "email": "info@axionalytics.com",',
         '      "telephone": "+1-956-207-9368",',
         '      "priceRange": "$$$$",',
         ('      "description": "Axionalytics designs and ships production agentic '
