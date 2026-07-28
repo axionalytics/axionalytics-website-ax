@@ -106,6 +106,14 @@
 
   <link rel="alternate" type="application/rss+xml" title="Axionalytics" href="/rss.xml">
   <link rel="stylesheet" href="../assets/axio.css">
+
+  <!-- Motion layer: the hero field, varied per page by the table in the script.
+       Deferred, so it runs after axio.js and never blocks parsing. Every effect
+       it drives is additive — with scripting off, each page renders exactly as
+       it did before this existed. make-i18n.py rewrites assets/ to ../assets/
+       for the Spanish tree. -->
+  <link rel="stylesheet" href="../assets/axio-motion.css">
+  <script defer src="../assets/axio-motion.js"></script>
   <link rel="alternate" hreflang="en" href="https://www.axionalytics.com/byoc-vs-saas-enterprise-ai.html">
   <link rel="alternate" hreflang="es" href="https://www.axionalytics.com/es/byoc-vs-saas-enterprise-ai.html">
   <link rel="alternate" hreflang="x-default" href="https://www.axionalytics.com/byoc-vs-saas-enterprise-ai.html">

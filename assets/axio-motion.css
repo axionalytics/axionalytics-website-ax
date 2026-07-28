@@ -1,16 +1,22 @@
 /* ============================================================================
-   AXIONALYTICS — HOMEPAGE ONLY
+   AXIONALYTICS — MOTION LAYER
    ----------------------------------------------------------------------------
-   Referenced from _build/pages/index.meta.html, so index.html and es/index.html
-   are the only two pages that ever download it. The other 76 pages are byte-for
-   -byte unchanged by everything in this file.
+   Referenced from the shared head partial. It was homepage-only until the field
+   was generalised across the site; one shared file that every page requests
+   once and then reads from cache costs a visitor less than a second sheet split
+   off for a single page.
+
+   Several blocks below are still homepage markup — the run rows, the proof-bar
+   sparklines, the pillar constellations. They stay here rather than being split
+   out because they are all one design language, and because a selector that
+   matches nothing on a page costs nothing to ship.
 
    THREE PROPERTIES THIS FILE MAINTAINS
 
    1. Additive. Every selector here is a class that exists nowhere else in the
       codebase. Nothing overrides axio.css, so load order does not matter — which
-      is what lets this be linked from the meta block, ahead of tailwind.css and
-      axio.css, without a cascade fight.
+      is what lets this be linked ahead of tailwind.css and axio.css without a
+      cascade fight.
 
    2. Degrades to the page as it shipped. No effect below is load-bearing. With
       JavaScript off the terminal reads in full, the sparklines sit at rest, and
@@ -30,7 +36,11 @@
    ---------------------------------------------------------------------------
    Sits between the engineering grid and the hero content, at the same stacking
    level as .ax-grid-bg and the .ax-hero::before blooms — so DOM order alone
-   places it: blooms, grid, field, copy.
+   places it: blooms, grid, field, copy. The element is created by
+   axio-motion.js and appears in no body file; see the mount note there.
+
+   Every .ax-hero on the site carries overflow-hidden, so the overhang below is
+   safe on all 39 templates.
 
    The 12px overhang on each side exists because the field is parallax-shifted by
    up to 7px. Without it, a shifted canvas would expose a hairline of bare
@@ -50,7 +60,7 @@
 /* ---------------------------------------------------------------------------
    2. THE GOVERNED RUN
    ---------------------------------------------------------------------------
-   .is-armed is added by axio-home.js and by nothing else. Until it lands, these
+   .is-armed is added by axio-motion.js and by nothing else. Until it lands, these
    rules do not apply and every row renders normally — so a script that fails to
    parse leaves a readable terminal rather than an empty box.
 
@@ -164,8 +174,8 @@
 /* ---------------------------------------------------------------------------
    5. HERO SHEEN
    ---------------------------------------------------------------------------
-   A light pass across the spectrum headline. Scoped to .ax-hero so the same
-   class stays static everywhere else it is used on the site.
+   A light pass across the spectrum headline, on each of the 14 pages whose hero
+   uses it. Scoped to .ax-hero so the same class stays static in body copy.
 
    Two deliberate constraints. It runs three times and stops — a gradient clipped
    to text cannot be composited, so every frame is a real repaint of the largest

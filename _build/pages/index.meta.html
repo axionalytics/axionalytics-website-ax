@@ -194,11 +194,3 @@
     ]
   }
   </script>
-
-  <!-- Homepage-only presentation layer. Declared here rather than in the shared
-       head partial so the other 76 pages never request either file. Both use
-       only class selectors that exist nowhere else, so loading ahead of
-       tailwind.css and axio.css cannot produce a cascade conflict. make-i18n.py
-       rewrites assets/ paths to ../assets/ for the Spanish tree. -->
-  <link rel="stylesheet" href="assets/axio-home.css">
-  <script defer src="assets/axio-home.js"></script>
