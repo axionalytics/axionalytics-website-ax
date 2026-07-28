@@ -41,8 +41,20 @@ Usage: python _build/scripts/make-logo-assets.py
 from PIL import Image
 import os
 
-SRC = "media/Company_Logo_White_Logo_only.png"
+# The source art is local working material and lives outside version control.
+# It was under media/ when this script was written and now sits in _private/;
+# both are tried so the script runs from either layout rather than failing with
+# a path that looks like a typo.
+SRC_CANDIDATES = (
+    "_private/media/Company_Logo_White_Logo_only.png",
+    "media/Company_Logo_White_Logo_only.png",
+)
 OUT = "assets"
+
+# Favicon plate. The mark is placed on the site's own dark surface rather than
+# left transparent — see the favicon note in main().
+PLATE = (10, 16, 28, 255)   # #0A101C, the header and footer background
+PLATE_FILL = 0.82           # mark width as a fraction of the plate
 
 # Trimap thresholds, in "distance from white" units (0-255).
 CORE_D = 50   # at or above -> fully opaque
@@ -273,14 +285,24 @@ def save(im, name, **kw):
                                             os.path.getsize(path) / 1024.0))
 
 
+def plate(mark, size):
+    """The mark centred on an opaque brand-navy square."""
+    tile = Image.new("RGBA", (size, size), PLATE)
+    m = resize(square(mark), int(round(size * PLATE_FILL)))
+    tile.paste(m, ((size - m.size[0]) // 2, (size - m.size[1]) // 2), m)
+    return tile
+
+
 def main():
-    if not os.path.exists(SRC):
-        raise SystemExit("missing %s" % SRC)
+    src = next((p for p in SRC_CANDIDATES if os.path.exists(p)), None)
+    if src is None:
+        raise SystemExit("missing source art; looked for:\n  " +
+                         "\n  ".join(SRC_CANDIDATES))
     if not os.path.isdir(OUT):
         os.makedirs(OUT)
 
-    print("  source: %s" % SRC)
-    raw = Image.open(SRC)
+    print("  source: %s" % src)
+    raw = Image.open(src)
     keyed = key_out_white(raw)
     keyed = keep_largest_component(keyed)
     mark = trim_to_content(keyed)
@@ -310,14 +332,37 @@ def main():
     save(resize(mark, 512), "logo-mark-512.png")
     save(resize(dark_mark, 512), "logo-mark-dark-512.png")
 
-    # Favicons. The mark is squared first so it is not cropped or distorted,
-    # and the dark-hub variant is used because most browser tab strips and
-    # bookmark bars render on a light chrome.
-    print("\n  favicons (squared, light-background variant):")
-    sq = square(mark)
+    # Favicons.
+    #
+    # These used to be the black-hub variant on transparency, on the reasoning
+    # that tab strips render on a light chrome. That is no longer safe to assume:
+    # in a dark-themed browser the black hub sits on a near-black tab and
+    # disappears, so the mark stops reading as hub-and-spoke and becomes a ring
+    # of unconnected dots — the exact failure the dark header variant was created
+    # to avoid.
+    #
+    # So the favicon now carries its own ground: the lifted-hub variant on
+    # #0A101C, which is the mark exactly as it appears in the site header. It is
+    # legible on any tab colour, it matches what a visitor already associates
+    # with the site, and it follows the same reasoning as the social card below —
+    # a transparent icon is at the mercy of a background you do not control.
+    #
+    # The plate also buys legibility at 32px. The spokes are thin; against an
+    # unknown background they smear, and against a known one they do not.
+    print("\n  favicons (mark on the header's own navy, for legibility on any tab):")
     for size in (32, 180, 512):
         name = "favicon-%d.png" % size if size != 180 else "apple-touch-icon.png"
-        save(resize(square(mark), size), name)
+        save(plate(dark_mark, size), name)
+
+    # Browsers and crawlers request /favicon.ico from the site root whether or
+    # not any page links to it. Without this the site answers 404 on every one
+    # of those requests. It ships the small sizes only: the .ico is a fallback
+    # for clients too old to take the PNGs above, and they are the clients least
+    # able to spare the bytes.
+    print("\n  root favicon.ico (16/32/48, for clients that ignore the PNGs):")
+    ico = plate(dark_mark, 48)
+    ico.save("favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
+    print("    %-30s %6.1f KB" % ("favicon.ico", os.path.getsize("favicon.ico") / 1024.0))
 
     # A social card needs an opaque background: transparent PNGs render
     # unpredictably (black on some clients, white on others) in link previews.
