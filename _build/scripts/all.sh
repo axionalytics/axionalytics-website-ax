@@ -16,6 +16,8 @@
 #                       (still bilingual at this point)
 #   8. add-contextual-links  inserts in-prose internal links; runs on built
 #                       output so it is idempotent by construction
+#  8b. add-pillar-clusters  links each pillar back down to its cluster, closing
+#                       the one-way pillar/cluster relationship
 #   9. build-tailwind   harvests the utility classes now present -> tailwind.css
 #  10. make-i18n        splits the bilingual build into /  (en) and /es/ (es)
 #  11. make-feeds       rss.xml + llms.txt from the article manifest
@@ -63,6 +65,9 @@ bash _build/scripts/build.sh
 
 step "8/15  contextual links"
 python _build/scripts/add-contextual-links.py
+
+step "8b/15 pillar -> cluster back-links"
+python _build/scripts/add-pillar-clusters.py
 
 step "9/15  compile tailwind"
 python _build/scripts/build-tailwind.py

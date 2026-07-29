@@ -48,7 +48,14 @@
       "name": "Axionalytics Enterprise AI Glossary",
       "url": "https://www.axionalytics.com/glossary.html"
     },
-    "subjectOf": { "@type": "WebPage", "url": "https://www.axionalytics.com/what-is-prompt-injection.html" }
+    "subjectOf": {
+      "@type": "WebPage",
+      "url": "https://www.axionalytics.com/what-is-prompt-injection.html",
+      "citation": [
+        { "@type": "CreativeWork", "name": "OWASP Top 10 for Large Language Model Applications", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/", "publisher": { "@type": "Organization", "name": "OWASP" } },
+        { "@type": "CreativeWork", "name": "ATLAS — Adversarial Threat Landscape for AI Systems", "url": "https://atlas.mitre.org/", "publisher": { "@type": "Organization", "name": "MITRE" } }
+      ]
+    }
   }
   </script>
 
@@ -442,6 +449,28 @@
         
       </p>
     </div>
+
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        References
+      </p>
+      <ol class="space-y-2.5 text-sm">
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">01</span>
+          <span>
+            <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">OWASP Top 10 for Large Language Model Applications</a>
+            <span class="text-ax-ink/45"> — OWASP</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">02</span>
+          <span>
+            <a href="https://atlas.mitre.org/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">ATLAS — Adversarial Threat Landscape for AI Systems</a>
+            <span class="text-ax-ink/45"> — MITRE</span>
+          </span>
+        </li>
+      </ol>
+    </aside>
 
     <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">
       <p class="ax-label text-ax-ink/40 mb-3">

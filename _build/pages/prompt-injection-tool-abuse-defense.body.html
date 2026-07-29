@@ -62,6 +62,19 @@
         <span data-lang-es>En un chatbot esto es un problema de contenido: el peor caso es texto que no quería. En un sistema agéntico el modelo tiene herramientas, así que el mismo ataque redirige acciones — y el radio de impacto es todo lo que ese agente estaba autorizado a hacer.</span>
       </p>
 
+      <figure class="my-9 border-l-2 border-ax-blue pl-6">
+        <p class="ax-label text-ax-ink/40 mb-2.5">
+          <span data-lang-en>From the standard</span><span data-lang-es>Del est&aacute;ndar</span>
+        </p>
+        <blockquote class="font-heading text-lg lg:text-xl leading-relaxed text-ax-ink/85">
+          &ldquo;Manipulating LLMs via crafted inputs can lead to unauthorized access, data breaches, and compromised decision-making.&rdquo;
+        </blockquote>
+        <figcaption class="mt-3 text-sm text-ax-ink/50">
+          OWASP, LLM01: Prompt Injection &mdash;
+          <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">owasp.org</a>
+        </figcaption>
+      </figure>
+
       <h2>
         <span data-lang-en>The channels people forget</span>
         <span data-lang-es>Los canales que se olvidan</span>
@@ -178,6 +191,35 @@
         <span data-lang-es>Esas pruebas pertenecen a la suite automatizada, no a una evaluación anual. La resistencia a inyección es una propiedad que se degrada en silencio cada vez que se agrega un conector o se edita un prompt, y una prueba que corre en cada commit es lo único que lo nota.</span>
       </p>
     </div>
+
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        <span data-lang-en>References</span><span data-lang-es>Referencias</span>
+      </p>
+      <ol class="space-y-2.5 text-sm">
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">01</span>
+          <span>
+            <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">OWASP Top 10 for Large Language Model Applications</a>
+            <span class="text-ax-ink/45"> — OWASP</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">02</span>
+          <span>
+            <a href="https://atlas.mitre.org/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">ATLAS — Adversarial Threat Landscape for AI Systems</a>
+            <span class="text-ax-ink/45"> — MITRE</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">03</span>
+          <span>
+            <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">AI Risk Management Framework (AI RMF 1.0)</a>
+            <span class="text-ax-ink/45"> — NIST</span>
+          </span>
+        </li>
+      </ol>
+    </aside>
 
     <!-- Cluster -> pillar link -->
     <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">

@@ -1,0 +1,78 @@
+# Axionalytics
+
+> Axionalytics diseña y entrega sistemas de IA agéntica en producción para
+> organizaciones empresariales de ingeniería, datos e ingresos. Los sistemas se
+> despliegan dentro del perímetro de nube del propio cliente, toda acción de
+> escritura requiere aprobación humana, y toda afirmación es trazable a la llamada
+> de herramienta que la produjo. Los proyectos terminan con transferencia completa
+> del código fuente.
+
+Con sede en Quad Cities, Iowa. El trabajo se entrega en inglés y español.
+
+## Soluciones
+
+- [Ingeniería de Pruebas Agéntica](https://www.axionalytics.com/es/agentic-test-engineering.html): Requisitos, código fuente y PRs fusionados se convierten en casos de prueba revisados y trazables.
+- [IA Agéntica Empresarial](https://www.axionalytics.com/es/enterprise-agentic-ai.html): Agentes autónomos multi-paso dentro de su VPC, con aprobación humana en cada escritura y citas generadas por el backend.
+- [Inteligencia de Negocios Agéntica](https://www.axionalytics.com/es/agentic-business-intelligence.html): Una frase y una fuente gobernada producen un artefacto real de Power BI que su equipo posee y edita.
+- [Gobernanza de IA de Confianza Cero](https://www.axionalytics.com/es/enterprise-ai-security.html): La topología de despliegue, el modelo de aislamiento y la arquitectura de auditoría que hacen pasar los sistemas agénticos por la revisión de seguridad.
+
+## Herramientas
+
+- [Calculadora de ROI](https://www.axionalytics.com/es/roi-calculator.html): Modelo del lado del cliente de capacidad recuperada, recuperación neta anualizada y periodo de retorno. Cada supuesto está declarado; ningún dato se transmite.
+
+## Empresa
+
+- [Acerca de](https://www.axionalytics.com/es/about.html): Cómo se estructuran los proyectos y cuándo no somos la opción correcta.
+- [Casos de éxito](https://www.axionalytics.com/es/case-studies.html): Cuatro despliegues anonimizados con la arquitectura y la restricción declaradas. Los nombres de clientes se omiten deliberadamente.
+- [Contacto](https://www.axionalytics.com/es/contact.html): Contacto directo y agenda de sesión técnica.
+
+## Artículos
+
+### Gobernanza de IA de Confianza Cero
+
+- [Por Qué los Pilotos de IA Empresarial Mueren en la Revisión de Seguridad](https://www.axionalytics.com/es/why-ai-pilots-fail-security-review.html): El piloto funcionó. Dieciocho meses después sigue sin estar en producción. Cinco preguntas de arquitectura deciden ese resultado, y las cinco se resuelven antes de la primera línea de código.
+- [La Inyección de Prompts Es un Problema de Contención, No de Prompts](https://www.axionalytics.com/es/prompt-injection-tool-abuse-defense.html): La defensa y el ataque comparten canal, así que ninguna instrucción cierra la clase. Cuatro ataques nombrados y las capas arquitectónicas que vuelven inofensivo uno exitoso.
+- [BYOC, SaaS u On-Premises: Cómo Elegir la Topología de Despliegue para IA Empresarial](https://www.axionalytics.com/es/byoc-vs-saas-enterprise-ai.html): La topología de despliegue no es un detalle de infraestructura que se resuelve después. Determina qué datos puede tocar el sistema, y es la decisión más difícil de revertir.
+
+### IA Agéntica Empresarial
+
+- [Aprobación Humana Que Realmente Resiste: Puertas de Escritura, Radio de Impacto y Protección Contra Repetición](https://www.axionalytics.com/es/human-in-the-loop-ai-architecture.html): La mayoría de las aprobaciones humanas son un diálogo de confirmación. Tres propiedades separan una puerta de aprobación real de una casilla que fabrica consentimiento.
+- [Cómo un Agente Consulta un Almacén de 50.000 Tablas Sin Leer el Esquema](https://www.axionalytics.com/es/agentic-data-exploration-at-scale.html): Toda demostración funciona con doce tablas. Los catálogos reales tienen decenas de miles, y el enfoque estándar colapsa en costo, latencia y precisión a la vez.
+- [Construir, Comprar o Ensamblar: Cómo Adquirir Capacidad de IA Empresarial](https://www.axionalytics.com/es/ai-tools-for-business.html): El marco construir-o-comprar oculta la opción que la mayoría de las empresas realmente necesita, y las tres restricciones que la deciden no tienen que ver con capacidad de ingeniería.
+
+### Ingeniería de Pruebas Agéntica
+
+- [Trazabilidad de Requisitos Sin la Hoja de Cálculo](https://www.axionalytics.com/es/requirements-traceability-automation.html): La matriz de trazabilidad es exacta el día que se escribe y errónea en un sprint. Generar el vínculo al momento de crear el caso es lo que la hace sobrevivir.
+- [La Cobertura de Líneas No Es Cobertura de Verificación](https://www.axionalytics.com/es/coverage-gap-analysis.html): La mayoría de las organizaciones reporta cobertura de líneas con dos decimales y no puede decir para qué comportamiento implementado nadie escribió una prueba. Son cifras distintas.
+- [Cómo Saldar la Deuda de Pruebas Heredadas Sin un Año-Ingeniero](https://www.axionalytics.com/es/legacy-test-suite-modernization.html): Las verificaciones de una suite de hace una década suelen estar bien. Lo que falta es todo lo que las rodea — y adaptarlo es abordable de una forma en que reescribir no lo es.
+
+### Inteligencia de Negocios Agéntica
+
+- [Su Backlog de BI Es un Cuello de Botella de Transcripción, No un Problema de Capacidad](https://www.axionalytics.com/es/bi-backlog-bottleneck.html): Agregar analistas a una cola de cuarenta ítems compra un trimestre de alivio. La cola es larga porque el mismo tablero se construye a mano por undécima vez.
+- [Proliferación de Excel vs un Modelo Semántico Gobernado](https://www.axionalytics.com/es/excel-vs-power-bi.html): La pregunta no es qué herramienta es mejor. Es qué cifras ve el directorio cuando cuatro departamentos mantienen cada uno su propia versión de los ingresos.
+- [Cómo Construir el Caso de Negocio para la IA Empresarial](https://www.axionalytics.com/es/data-analytics-roi.html): Finanzas rechaza los casos de negocio de IA por razones predecibles. Costo cargado subestimado, beneficios no verificables y una tasa de automatización que nadie cree.
+- [Por Qué se Abandonan los Tableros Empresariales](https://www.axionalytics.com/es/business-dashboard-guide.html): Un tablero que nadie abre no es una falla de diseño. Es una falla de especificación — se construyó con los datos que existían y no con la decisión a la que sirve.
+
+### Desarrollo de Ingresos Agéntico
+
+- [La Prospección se Rompió Porque el Volumen se Abarató](https://www.axionalytics.com/es/outbound-research-not-volume.html): La investigación y el volumen se contraponen, y todo equipo termina eligiendo el lado perdedor. La salida es automatizar la investigación y no tocar el envío.
+- [Su Dominio de Envío Es un Activo. Los Rebotes Son Cómo lo Gasta.](https://www.axionalytics.com/es/email-deliverability-firewall.html): Las direcciones adivinadas cuestan más que la campaña que las produjo. Tres niveles de verificación escalonados, y la decisión de diseño que más importa cuando ninguno puede responder.
+
+## Glosario
+
+- [¿Qué Es la IA Agéntica?](https://www.axionalytics.com/es/what-is-agentic-ai.html): La IA agéntica describe un sistema donde un modelo de lenguaje planifica y ejecuta una tarea de varios pasos usando herramientas, en lugar de solo producir texto.
+- [¿Qué Es el Despliegue BYOC?](https://www.axionalytics.com/es/what-is-byoc.html): La nube propia es un modelo de despliegue donde el software del proveedor corre dentro de la cuenta de nube del cliente y no en la del proveedor.
+- [¿Qué Es la IA con Aprobación Humana?](https://www.axionalytics.com/es/what-is-human-in-the-loop.html): La aprobación humana significa que un sistema automatizado se detiene en un punto definido y requiere que una persona apruebe antes de continuar.
+- [¿Qué Es la Inyección de Prompts?](https://www.axionalytics.com/es/what-is-prompt-injection.html): La inyección de prompts es un ataque donde se ocultan instrucciones dentro del contenido que procesa un modelo — un documento, un campo de base de datos, la descripción de una herramienta — y el modelo las trata como órdenes y no como datos.
+- [¿Qué Es la Entregabilidad de Correo?](https://www.axionalytics.com/es/what-is-email-deliverability.html): La entregabilidad de correo es si un mensaje llega a la bandeja de entrada en lugar de la de spam.
+- [¿Qué Es una Capa Semántica?](https://www.axionalytics.com/es/what-is-a-semantic-layer.html): Una capa semántica es donde una métrica de negocio se define una sola vez, de forma inspeccionable, versionable y protegible, para que todo informe que la referencia herede la misma definición.
+- [¿Qué Es la Trazabilidad de Requisitos?](https://www.axionalytics.com/es/what-is-requirements-traceability.html): La trazabilidad de requisitos es el vínculo registrado entre un requisito y los casos de prueba que lo verifican, en ambas direcciones.
+
+## Opcional
+
+- [Índice del blog](https://www.axionalytics.com/es/blog.html)
+- [Portada del glosario](https://www.axionalytics.com/es/glossary.html)
+- [Texto completo de cada articulo y termino, en un archivo](https://www.axionalytics.com/llms-full.txt)
+- [Feed RSS](https://www.axionalytics.com/rss.xml)
+- [Mapa del sitio](https://www.axionalytics.com/sitemap.xml)
+- [English edition of this index](https://www.axionalytics.com/llms.txt)

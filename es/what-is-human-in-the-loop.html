@@ -48,7 +48,14 @@
       "name": "Axionalytics Enterprise AI Glossary",
       "url": "https://www.axionalytics.com/glossary.html"
     },
-    "subjectOf": { "@type": "WebPage", "url": "https://www.axionalytics.com/what-is-human-in-the-loop.html" }
+    "subjectOf": {
+      "@type": "WebPage",
+      "url": "https://www.axionalytics.com/what-is-human-in-the-loop.html",
+      "citation": [
+        { "@type": "CreativeWork", "name": "AI Risk Management Framework (AI RMF 1.0)", "url": "https://www.nist.gov/itl/ai-risk-management-framework", "publisher": { "@type": "Organization", "name": "NIST" } },
+        { "@type": "CreativeWork", "name": "ISO/IEC 42001:2023 — AI management systems", "url": "https://www.iso.org/standard/42001", "publisher": { "@type": "Organization", "name": "ISO/IEC" } }
+      ]
+    }
   }
   </script>
 
@@ -437,6 +444,28 @@
         En la ruta de ejecución, no en la interfaz. Una puerta implementada en la UI es consultiva — cualquier cosa que llame directamente a la herramienta, como un reintento o una ejecución programada, la evita. La verificación va en el punto de despacho, por donde pasa todo llamador sin importar su origen.
       </p>
     </div>
+
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        Referencias
+      </p>
+      <ol class="space-y-2.5 text-sm">
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">01</span>
+          <span>
+            <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">AI Risk Management Framework (AI RMF 1.0)</a>
+            <span class="text-ax-ink/45"> — NIST</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">02</span>
+          <span>
+            <a href="https://www.iso.org/standard/42001" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">ISO/IEC 42001:2023 — AI management systems</a>
+            <span class="text-ax-ink/45"> — ISO/IEC</span>
+          </span>
+        </li>
+      </ol>
+    </aside>
 
     <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">
       <p class="ax-label text-ax-ink/40 mb-3">

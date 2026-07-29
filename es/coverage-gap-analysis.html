@@ -42,16 +42,20 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "TechArticle",
     "@id": "https://www.axionalytics.com/coverage-gap-analysis.html#article",
     "headline": "Line Coverage Is Not Verification Coverage",
     "description": "Most organisations can report line coverage to two decimals and cannot say which implemented behaviour nobody has written a test for. Those are different numbers.",
     "datePublished": "2026-06-26",
-    "dateModified": "2026-06-26",
+    "dateModified": "2026-07-26",
     "articleSection": "Verification",
     "inLanguage": ["en", "es"],
     "wordCount": 775,
     "timeRequired": "PT3M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "IEEE 1012-2016 — System, software, and hardware verification and validation", "url": "https://standards.ieee.org/ieee/1012/5609/", "publisher": { "@type": "Organization", "name": "IEEE" } },
+      { "@type": "CreativeWork", "name": "ISO/IEC/IEEE 29148:2018 — Requirements engineering", "url": "https://www.iso.org/standard/72089.html", "publisher": { "@type": "Organization", "name": "ISO/IEC/IEEE" } }
+    ],
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/coverage-gap-analysis.html" },
     "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
     "about": { "@type": "Thing", "name": "Agentic Test Engineering", "url": "https://www.axionalytics.com/agentic-test-engineering.html" },
@@ -411,6 +415,19 @@
         La mayoría de las organizaciones de verificación puede reportar cobertura de líneas con dos decimales y no puede responder una pregunta más simple: ¿de qué partes del comportamiento implementado nadie ha escrito una prueba? Las herramientas miden la ejecución porque es fácil de instrumentar. La intención no lo es.
       </p>
 
+      <figure class="my-9 border-l-2 border-ax-blue pl-6">
+        <p class="ax-label text-ax-ink/40 mb-2.5">
+          Del est&aacute;ndar
+        </p>
+        <blockquote class="font-heading text-lg lg:text-xl leading-relaxed text-ax-ink/85">
+          &ldquo;Verification and validation (V&amp;V) processes are used to determine whether the development products of a given activity conform to the requirements of that activity and whether the product satisfies its intended use and user needs.&rdquo;
+        </blockquote>
+        <figcaption class="mt-3 text-sm text-ax-ink/50">
+          IEEE 1012-2016, System, Software, and Hardware Verification and Validation &mdash;
+          <a href="https://standards.ieee.org/ieee/1012/5609/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">standards.ieee.org</a>
+        </figcaption>
+      </figure>
+
       <h2>
         
         Por qué divergen ambas cifras
@@ -528,6 +545,28 @@
         Su uso es direccional: saber dónde se concentra el comportamiento sin probar, para que el esfuerzo de verificación vaya donde está el riesgo y no donde ocurrió el último defecto. Eso es una entrada de planificación para un líder de ingeniería, no un indicador para un tablero.
       </p>
     </div>
+
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        Referencias
+      </p>
+      <ol class="space-y-2.5 text-sm">
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">01</span>
+          <span>
+            <a href="https://standards.ieee.org/ieee/1012/5609/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">IEEE 1012-2016 — System, software, and hardware verification and validation</a>
+            <span class="text-ax-ink/45"> — IEEE</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">02</span>
+          <span>
+            <a href="https://www.iso.org/standard/72089.html" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">ISO/IEC/IEEE 29148:2018 — Requirements engineering</a>
+            <span class="text-ax-ink/45"> — ISO/IEC/IEEE</span>
+          </span>
+        </li>
+      </ol>
+    </aside>
 
     <!-- Cluster -> pillar link -->
     <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">

@@ -83,6 +83,196 @@ PILLARS = {
     },
 }
 
+# ---------------------------------------------------------------------------
+# SOURCES — authoritative references, per article.
+#
+# Generative engines weight documents that already cite verifiable third-party
+# authority: a page carrying references reads as pre-vetted evidence rather than
+# as an unsupported assertion. These are rendered as a visible reference list at
+# the foot of the article and emitted into the Article JSON-LD as `citation`.
+#
+# Rules for anything added here:
+#   - primary sources only — the standards body, the RFC, the paper, the vendor's
+#     own documentation. Never a summary of one, never an SEO blog.
+#   - a stable URL. These are checked by `check-links.py --external`.
+#   - a title a reader would recognise without clicking.
+#
+# `org` is the publisher shown alongside the title. Titles are standards names
+# and stay in English in both trees, which is how they are cited in practice.
+# ---------------------------------------------------------------------------
+
+S_NIST_AIRMF = ("https://www.nist.gov/itl/ai-risk-management-framework",
+                "AI Risk Management Framework (AI RMF 1.0)", "NIST")
+S_NIST_ZT    = ("https://csrc.nist.gov/pubs/sp/800/207/final",
+                "SP 800-207: Zero Trust Architecture", "NIST")
+S_NIST_53    = ("https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+                "SP 800-53 Rev. 5: Security and Privacy Controls", "NIST")
+S_ISO_42001  = ("https://www.iso.org/standard/42001",
+                "ISO/IEC 42001:2023 — AI management systems", "ISO/IEC")
+S_ISO_29148  = ("https://www.iso.org/standard/72089.html",
+                "ISO/IEC/IEEE 29148:2018 — Requirements engineering", "ISO/IEC/IEEE")
+S_IEEE_1012  = ("https://standards.ieee.org/ieee/1012/5609/",
+                "IEEE 1012-2016 — System, software, and hardware verification and validation",
+                "IEEE")
+S_OWASP_LLM  = ("https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+                "OWASP Top 10 for Large Language Model Applications", "OWASP")
+S_ATLAS      = ("https://atlas.mitre.org/",
+                "ATLAS — Adversarial Threat Landscape for AI Systems", "MITRE")
+# CISA's Zero Trust Maturity Model was cited here and has been removed: the host
+# rejects every non-browser TLS client, so --external cannot verify it and a
+# permanently-failing check is one nobody reads. SP 800-207 already carries the
+# zero-trust argument in this cluster; SP 800-53 covers the control mapping.
+S_RAG        = ("https://arxiv.org/abs/2005.11401",
+                "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+                "Lewis et al., arXiv")
+S_MCP        = ("https://modelcontextprotocol.io/",
+                "Model Context Protocol specification", "Anthropic")
+S_PBI_MODEL  = ("https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand",
+                "Semantic models in Power BI", "Microsoft Learn")
+S_PBI_DAX    = ("https://learn.microsoft.com/en-us/dax/dax-overview",
+                "Data Analysis Expressions (DAX) reference", "Microsoft Learn")
+S_SPF        = ("https://www.rfc-editor.org/rfc/rfc7208.html",
+                "RFC 7208 — Sender Policy Framework (SPF)", "IETF")
+S_DKIM       = ("https://www.rfc-editor.org/rfc/rfc6376.html",
+                "RFC 6376 — DomainKeys Identified Mail (DKIM)", "IETF")
+S_DMARC      = ("https://www.rfc-editor.org/rfc/rfc7489.html",
+                "RFC 7489 — Domain-based Message Authentication (DMARC)", "IETF")
+S_CANSPAM    = ("https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business",
+                "CAN-SPAM Act: A Compliance Guide for Business", "US FTC")
+
+# ---------------------------------------------------------------------------
+# PULLQUOTES — one verbatim quotation per article, from a cited primary source.
+#
+# Quotation formatting reads to a synthesis model as third-party validation, so
+# a blockquote carrying a standards body's own words is worth more than the same
+# claim in our voice. It also keeps us honest: if the standard cannot be quoted
+# saying what the article says it says, the article is wrong.
+#
+# Every string below is verbatim from the URL it names. Do not paraphrase into
+# this table, do not tidy the grammar, and do not add one you have not read at
+# the source. A quotation that turns out to be invented is worse than no
+# quotation, because it is the one thing on the page a reader will spot-check.
+#
+# Quotes stay in English in both trees. A direct quotation is not translated —
+# the surrounding label is, which is what the template does.
+#
+# (slug: (quote, attribution, url))
+# ---------------------------------------------------------------------------
+
+PULLQUOTES = {
+    "why-ai-pilots-fail-security-review": (
+        "Zero trust (ZT) is the term for an evolving set of cybersecurity "
+        "paradigms that move defenses from static, network-based perimeters to "
+        "focus on users, assets, and resources.",
+        "NIST SP 800-207, Zero Trust Architecture",
+        "https://csrc.nist.gov/pubs/sp/800/207/final"),
+
+    "byoc-vs-saas-enterprise-ai": (
+        "Zero trust (ZT) is the term for an evolving set of cybersecurity "
+        "paradigms that move defenses from static, network-based perimeters to "
+        "focus on users, assets, and resources.",
+        "NIST SP 800-207, Zero Trust Architecture",
+        "https://csrc.nist.gov/pubs/sp/800/207/final"),
+
+    "prompt-injection-tool-abuse-defense": (
+        "Manipulating LLMs via crafted inputs can lead to unauthorized access, "
+        "data breaches, and compromised decision-making.",
+        "OWASP, LLM01: Prompt Injection",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/"),
+
+    "human-in-the-loop-ai-architecture": (
+        "a framework to better manage risks to individuals, organizations, and "
+        "society associated with artificial intelligence (AI)",
+        "NIST, on the AI Risk Management Framework",
+        "https://www.nist.gov/itl/ai-risk-management-framework"),
+
+    "ai-tools-for-business": (
+        "a framework to better manage risks to individuals, organizations, and "
+        "society associated with artificial intelligence (AI)",
+        "NIST, on the AI Risk Management Framework",
+        "https://www.nist.gov/itl/ai-risk-management-framework"),
+
+    "agentic-data-exploration-at-scale": (
+        "Pre-trained models with a differentiable access mechanism to explicit "
+        "non-parametric memory can overcome this issue",
+        "Lewis et al. (2020), Retrieval-Augmented Generation for "
+        "Knowledge-Intensive NLP Tasks",
+        "https://arxiv.org/abs/2005.11401"),
+
+    "coverage-gap-analysis": (
+        "Verification and validation (V&amp;V) processes are used to determine "
+        "whether the development products of a given activity conform to the "
+        "requirements of that activity and whether the product satisfies its "
+        "intended use and user needs.",
+        "IEEE 1012-2016, System, Software, and Hardware Verification and Validation",
+        "https://standards.ieee.org/ieee/1012/5609/"),
+
+    "legacy-test-suite-modernization": (
+        "Verification and validation (V&amp;V) processes are used to determine "
+        "whether the development products of a given activity conform to the "
+        "requirements of that activity and whether the product satisfies its "
+        "intended use and user needs.",
+        "IEEE 1012-2016, System, Software, and Hardware Verification and Validation",
+        "https://standards.ieee.org/ieee/1012/5609/"),
+
+    "requirements-traceability-automation": (
+        "Verification and validation (V&amp;V) processes are used to determine "
+        "whether the development products of a given activity conform to the "
+        "requirements of that activity and whether the product satisfies its "
+        "intended use and user needs.",
+        "IEEE 1012-2016, System, Software, and Hardware Verification and Validation",
+        "https://standards.ieee.org/ieee/1012/5609/"),
+
+    "excel-vs-power-bi": (
+        "Power BI semantic models represent a source of data that's ready for "
+        "reporting and visualization.",
+        "Microsoft Learn, Semantic models in the Power BI service",
+        "https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand"),
+
+    "bi-backlog-bottleneck": (
+        "Power BI semantic models represent a source of data that's ready for "
+        "reporting and visualization.",
+        "Microsoft Learn, Semantic models in the Power BI service",
+        "https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand"),
+
+    "business-dashboard-guide": (
+        "Power BI semantic models represent a source of data that's ready for "
+        "reporting and visualization.",
+        "Microsoft Learn, Semantic models in the Power BI service",
+        "https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand"),
+
+    "email-deliverability-firewall": (
+        "DMARC does not grant privileged delivery status to authenticated "
+        "messages.",
+        "RFC 7489, Domain-based Message Authentication, Reporting, and Conformance",
+        "https://www.rfc-editor.org/rfc/rfc7489.html"),
+
+    "outbound-research-not-volume": (
+        "DMARC does not grant privileged delivery status to authenticated "
+        "messages.",
+        "RFC 7489, Domain-based Message Authentication, Reporting, and Conformance",
+        "https://www.rfc-editor.org/rfc/rfc7489.html"),
+}
+
+SOURCES = {
+    "why-ai-pilots-fail-security-review":   [S_NIST_AIRMF, S_NIST_ZT, S_ISO_42001],
+    "prompt-injection-tool-abuse-defense":  [S_OWASP_LLM, S_ATLAS, S_NIST_AIRMF],
+    "byoc-vs-saas-enterprise-ai":           [S_NIST_ZT, S_NIST_53, S_ISO_42001],
+    "human-in-the-loop-ai-architecture":    [S_NIST_AIRMF, S_NIST_53, S_ISO_42001],
+    "agentic-data-exploration-at-scale":    [S_RAG, S_MCP, S_NIST_ZT],
+    "ai-tools-for-business":                [S_ISO_42001, S_NIST_AIRMF, S_MCP],
+    "requirements-traceability-automation": [S_ISO_29148, S_IEEE_1012],
+    "coverage-gap-analysis":                [S_IEEE_1012, S_ISO_29148],
+    "legacy-test-suite-modernization":      [S_IEEE_1012, S_ISO_29148],
+    "bi-backlog-bottleneck":                [S_PBI_MODEL, S_PBI_DAX],
+    "excel-vs-power-bi":                    [S_PBI_MODEL, S_PBI_DAX],
+    "business-dashboard-guide":             [S_PBI_MODEL],
+    "data-analytics-roi":                   [S_NIST_AIRMF, S_ISO_42001],
+    "outbound-research-not-volume":         [S_CANSPAM, S_DMARC],
+    "email-deliverability-firewall":        [S_SPF, S_DKIM, S_DMARC],
+}
+
+
 # Newest first — this order drives the blog index.
 ARTICLES = [
     {
@@ -275,16 +465,16 @@ META = u"""
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "{schema_type}",
     "@id": "{base}/{slug}.html#article",
     "headline": "{title_en}",
     "description": "{desc_en}",
     "datePublished": "{date}",
-    "dateModified": "{date}",
+    "dateModified": "{modified}",
     "articleSection": "{cat_en}",
     "inLanguage": ["en", "es"],
     "wordCount": {words},
-    "timeRequired": "PT{read}M",
+    "timeRequired": "PT{read}M",{citation_json}
     "mainEntityOfPage": {{ "@type": "WebPage", "@id": "{base}/{slug}.html" }},
     "isPartOf": {{ "@type": "Blog", "@id": "{base}/blog.html#blog" }},
     "about": {{ "@type": "Thing", "name": "{pillar_name}", "url": "{base}/{pillar_url}" }},
@@ -378,6 +568,7 @@ BODY = u"""
     <div class="ax-prose">
 {body}
     </div>
+{sources}
 
     <!-- Cluster -> pillar link -->
     <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">
@@ -458,12 +649,153 @@ RELATED_CARD = u"""      <a href="{slug}.html" class="rounded-xl border border-w
       </a>"""
 
 
+PULLQUOTE = u"""<figure class="my-9 border-l-2 border-ax-blue pl-6">
+  <p class="ax-label text-ax-ink/40 mb-2.5">
+    <span data-lang-en>From the standard</span><span data-lang-es>Del est&aacute;ndar</span>
+  </p>
+  <blockquote class="font-heading text-lg lg:text-xl leading-relaxed text-ax-ink/85">
+    &ldquo;{quote}&rdquo;
+  </blockquote>
+  <figcaption class="mt-3 text-sm text-ax-ink/50">
+    {attrib} &mdash;
+    <a href="{url}" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">{url_label}</a>
+  </figcaption>
+</figure>"""
+
+
+SOURCES_BLOCK = u"""
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        <span data-lang-en>References</span><span data-lang-es>Referencias</span>
+      </p>
+      <ol class="space-y-2.5 text-sm">
+{items}
+      </ol>
+    </aside>"""
+
+SOURCE_ITEM = u"""        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">{n:02d}</span>
+          <span>
+            <a href="{url}" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">{title}</a>
+            <span class="text-ax-ink/45"> — {org}</span>
+          </span>
+        </li>"""
+
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
 def esc(s):
     return s.replace('"', '\\"')
+
+
+def last_modified(path, fallback):
+    """
+    Date the source was last actually changed, for schema `dateModified`.
+
+    Read from git rather than the filesystem: a clone rewrites every mtime to
+    the moment it ran, so mtime would have every article claiming it changed
+    today. The last commit that touched the file is the honest answer, and it is
+    identical on every machine. Falls back to the publication date when git is
+    unavailable or the file is not yet committed.
+    """
+    try:
+        import subprocess
+        out = subprocess.check_output(
+            ["git", "log", "-1", "--format=%cs", "--", path],
+            stderr=subprocess.DEVNULL).decode("utf-8", "replace").strip()
+        return out if re.match(r"^\d{4}-\d{2}-\d{2}$", out) else fallback
+    except Exception:
+        return fallback
+
+
+# Articles that are engineering documentation get TechArticle; the ones arguing
+# a business case stay Article. The distinction is not decorative — TechArticle
+# tells a retrieval model this page answers an implementation question, and
+# applying it to a piece about how finance evaluates a business case would be a
+# claim about the content that the content does not support.
+TECH_ARTICLES = {
+    "why-ai-pilots-fail-security-review",
+    "prompt-injection-tool-abuse-defense",
+    "byoc-vs-saas-enterprise-ai",
+    "human-in-the-loop-ai-architecture",
+    "agentic-data-exploration-at-scale",
+    "requirements-traceability-automation",
+    "coverage-gap-analysis",
+    "legacy-test-suite-modernization",
+    "email-deliverability-firewall",
+}
+
+
+def schema_type(slug):
+    return "TechArticle" if slug in TECH_ARTICLES else "Article"
+
+
+def insert_pullquote(body, slug):
+    """
+    Drop the article's quotation in after its opening argument.
+
+    Placed after the second paragraph: late enough that the lead still holds the
+    front-loaded answer the first 30% of the page is judged on, early enough to
+    sit inside the span a retrieval model actually reads. Articles without a
+    quotation are returned untouched.
+    """
+    q = PULLQUOTES.get(slug)
+    if not q:
+        return body
+
+    quote, attrib, url = q
+    block = PULLQUOTE.format(
+        quote=quote, attrib=attrib, url=url,
+        url_label=url.split("//", 1)[-1].split("/", 1)[0].replace("www.", ""))
+
+    # After the 2nd </p>; fall back to the 1st on a short article.
+    ends = [m.end() for m in re.finditer(r"</p>", body)]
+    if not ends:
+        return body + "\n\n" + block
+    at = ends[1] if len(ends) > 1 else ends[0]
+    return body[:at] + "\n\n" + block + body[at:]
+
+
+def render_sources_for(refs):
+    """Visible reference list from a source list. Empty string when there is none."""
+    if not refs:
+        return ""
+    items = "\n".join(
+        SOURCE_ITEM.format(n=i, url=u, title=t, org=o)
+        for i, (u, t, o) in enumerate(refs, 1))
+    return SOURCES_BLOCK.format(items=items)
+
+
+def render_sources(slug):
+    """Visible reference list for an article, by slug."""
+    return render_sources_for(SOURCES.get(slug, []))
+
+
+def citation_array(refs, pad):
+    """
+    A `citation` property, or "" when there is nothing to cite.
+
+    `pad` is the indentation of the property itself; entries sit two spaces
+    deeper. Returned without surrounding punctuation so the caller decides where
+    the comma goes — the Article schema puts this mid-object and the glossary's
+    WebPage puts it last, and those need the comma on opposite sides.
+    """
+    if not refs:
+        return ""
+    entries = ",\n".join(
+        '{p}  {{ "@type": "CreativeWork", "name": "{t}", "url": "{u}", '
+        '"publisher": {{ "@type": "Organization", "name": "{o}" }} }}'
+        .format(p=pad, t=esc(t), u=u, o=esc(o))
+        for u, t, o in refs)
+    return '{p}"citation": [\n{e}\n{p}]'.format(p=pad, e=entries)
+
+
+def citation_json(slug):
+    """`citation` for the Article schema — mid-object, so it owns its comma."""
+    body = citation_array(SOURCES.get(slug, []), "    ")
+    return "\n%s," % body if body else ""
 
 
 def indent(block, spaces=6):
@@ -545,12 +877,18 @@ def main():
         meta = META.format(
             base=BASE, words=words, read=read, faq=faq,
             author_json=AUTHOR.person_schema(),
+            citation_json=citation_json(art["slug"]),
+            schema_type=schema_type(art["slug"]),
+            modified=last_modified(path, art["date"]),
             title_esc=esc(art["title_en"]),
             pillar_name=p["name_en"], pillar_url=p["url"],
             **art)
 
         page = BODY.format(
-            body=indent(body), related=related,
+            # Quotation goes in after the word count: it is the standards body's
+            # prose, not ours, and wordCount should describe what we wrote.
+            body=indent(insert_pullquote(body, art["slug"])), related=related,
+            sources=render_sources(art["slug"]),
             byline=AUTHOR.byline_html(),
             read=read, accent=p["accent"],
             pillar_url=p["url"],

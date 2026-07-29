@@ -2,9 +2,10 @@
    AXIONALYTICS — ROI CALCULATOR
    ----------------------------------------------------------------------------
    Runs entirely client-side. No input is transmitted while the user models.
-   The email gate unlocks the detailed breakdown immediately and, if
-   LEAD_ENDPOINT is configured below, posts a JSON summary in the background.
-   Unconfigured, it captures nothing and says so in the comment there.
+   Nothing here is gated: the full breakdown renders on load. The email field
+   is an optional "send me a copy" — if LEAD_ENDPOINT is configured below it
+   posts a JSON summary in the background, and unconfigured it captures
+   nothing and says so.
 
    Model
    -----
@@ -145,7 +146,7 @@
     setText('out-net', moneyCompact(r.netRecovery));
     setText('out-payback', isFinite(r.paybackMonths) ? r.paybackMonths.toFixed(1) : '—');
 
-    // Detailed breakdown (revealed after the gate)
+    // Detailed breakdown
     setText('det-hourly', money(r.hourlyCost) + '/hr');
     setText('det-current', hours(r.currentHours) + ' hrs');
     setText('det-share', Math.round(r.autoShare * 100) + '%');
@@ -229,17 +230,16 @@
 
        Any endpoint accepting a JSON POST also works.
 
-     Left empty, the gate still unlocks the breakdown client-side and captures
-     nothing. That is deliberate: a dead form that silently swallows an address
-     is worse than an honest one that does not ask.
+     Left empty, this captures nothing and says so. That is deliberate: a dead
+     form that silently swallows an address is worse than an honest one that
+     does not ask.
 
-     The unlock never waits on the network. A visitor who gave you an address
-     should not stare at a spinner because your form provider is slow, and the
-     breakdown is not secret — the email is a courtesy, not a paywall.
+     Nothing here blocks the breakdown. It is already on screen by the time
+     anyone reaches this field, so a slow or broken form provider costs the
+     visitor nothing.
      ---------------------------------------------------------------------- */
   var LEAD_ENDPOINT = 'https://formspree.io/f/xwvgabdz';
 
-  var gate = $('roi-gate');
   var detail = $('roi-detail');
   var gateBtn = $('roi-gate-submit');
   var gateNote = $('roi-gate-note');
@@ -308,17 +308,18 @@
     };
 
     if (window.axioTrack) {
-      window.axioTrack('roi_unlock', {
+      window.axioTrack('roi_email_copy', {
         scenario: state.scenario,
         captured: LEAD_ENDPOINT ? 'yes' : 'no'
       });
     }
 
-    // Reveal first, transmit second.
-    unlock();
+    if (!LEAD_ENDPOINT) {
+      note('Thanks — the breakdown below is yours either way.');
+      return;
+    }
 
-    if (!LEAD_ENDPOINT) return;
-
+    note('Sending...');
     send(payload);
   }
 
@@ -343,18 +344,18 @@
     gateNote.hidden = false;
   }
 
-  function unlock() {
-    if (gate) gate.hidden = true;
-    if (detail) {
-      detail.hidden = false;
-      detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-    try { sessionStorage.setItem('axio-roi-unlocked', '1'); } catch (e) {}
-  }
+  /* The breakdown is not gated.
+     ------------------------------------------------------------------------
+     It used to be: the detail stayed hidden until a visitor surrendered an
+     address. That was the only friction on a site that otherwise publishes its
+     pricing and ungates its case studies, and it was aimed at the audience
+     least willing to pay it — the people evaluating this are the same people
+     who bounce off a registration wall on principle.
 
-  try {
-    if (sessionStorage.getItem('axio-roi-unlocked') === '1') unlock();
-  } catch (e) {}
+     So the numbers are simply shown, and the email field below them is an
+     offer rather than a toll: leave an address and the summary arrives in your
+     inbox. Everything still works if you ignore it. */
+  if (detail) detail.hidden = false;
 
   /* ----------------------------------------------------------------------
      Print / export

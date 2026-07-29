@@ -31,11 +31,31 @@ SRC = "_build/src/glossary"
 OUT = "_build/pages"
 
 
-def pillars():
+def articles_module():
+    """The article generator, which owns PILLARS and the source catalogue."""
     spec = importlib.util.spec_from_file_location("ma", "_build/scripts/make-articles.py")
     m = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(m)
-    return m.PILLARS
+    return m
+
+
+def pillars():
+    return articles_module().PILLARS
+
+
+# Authoritative references per term, drawn from the same catalogue the articles
+# use so a standard is cited identically wherever it appears. Keyed by slug;
+# a term absent from this map simply renders no reference list.
+def gloss_sources(ma):
+    return {
+        "what-is-agentic-ai":                [ma.S_NIST_AIRMF, ma.S_MCP],
+        "what-is-byoc":                      [ma.S_NIST_ZT, ma.S_ISO_42001],
+        "what-is-human-in-the-loop":         [ma.S_NIST_AIRMF, ma.S_ISO_42001],
+        "what-is-prompt-injection":          [ma.S_OWASP_LLM, ma.S_ATLAS],
+        "what-is-email-deliverability":      [ma.S_SPF, ma.S_DMARC],
+        "what-is-a-semantic-layer":          [ma.S_PBI_MODEL, ma.S_PBI_DAX],
+        "what-is-requirements-traceability": [ma.S_ISO_29148, ma.S_IEEE_1012],
+    }
 
 
 # `answer` is the BLUF definition: it appears verbatim as the lead paragraph,
@@ -121,7 +141,10 @@ META = u"""
       "name": "Axionalytics Enterprise AI Glossary",
       "url": "{base}/glossary.html"
     }},
-    "subjectOf": {{ "@type": "WebPage", "url": "{base}/{slug}.html" }}
+    "subjectOf": {{
+      "@type": "WebPage",
+      "url": "{base}/{slug}.html"{citation_json}
+    }}
   }}
   </script>
 
@@ -202,6 +225,7 @@ BODY = u"""
     <div class="ax-prose pt-12">
 {body}
     </div>
+{sources}
 
     <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">
       <p class="ax-label text-ax-ink/40 mb-3">
@@ -268,7 +292,9 @@ def check(block, slug):
 
 
 def main():
-    P = pillars()
+    ma = articles_module()
+    P = ma.PILLARS
+    GS = gloss_sources(ma)
     built = 0
 
     for t in TERMS:
@@ -287,11 +313,16 @@ def main():
         if len(short) > 300:
             short = short[:297].rsplit(" ", 1)[0] + "..."
 
+        refs = GS.get(t["slug"], [])
+        cites = ma.citation_array(refs, "      ")
+
         meta = META.format(base=BASE, answer_short=esc(short),
                            answer_esc=esc(t["answer_en"]),
                            title_esc=esc(t["title_en"]),
+                           citation_json=(",\n" + cites) if cites else "",
                            term_esc=esc(t["term_en"]), **t)
         page = BODY.format(body=indent(body), related=related,
+                           sources=ma.render_sources_for(refs),
                            accent=p["accent"], pillar_url=p["url"],
                            pillar_name=p["name_en"], pillar_name_es=p["name_es"],
                            pillar_blurb=p["blurb_en"], pillar_blurb_es=p["blurb_es"],

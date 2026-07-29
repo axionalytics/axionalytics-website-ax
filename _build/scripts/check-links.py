@@ -264,29 +264,75 @@ def check_external(docs, fail):
             if u:
                 urls.add(u.group(1))
 
-    ok = 0
-    for u in sorted(urls):
-        req = urllib.request.Request(u, method="HEAD",
-                                     headers={"User-Agent": "axio-link-check"})
+    # Standards bodies sit behind WAFs that reject urllib's minimal header set
+    # and answer a browser fine — iso.org and cisa.gov both do. The retry below
+    # sends what a browser sends, so a live page is not reported as a dead link.
+    # It is the last attempt, not the first: if the plain request works, that is
+    # the one whose result we want.
+    BROWSER = {
+        "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                       "AppleWebKit/537.36 (KHTML, like Gecko) "
+                       "Chrome/126.0.0.0 Safari/537.36"),
+        "Accept": ("text/html,application/xhtml+xml,application/xml;q=0.9,"
+                   "image/avif,image/webp,*/*;q=0.8"),
+        "Accept-Language": "en-US,en;q=0.9",
+    }
+
+    def probe(url, method, headers):
+        """
+        "ok" | "blocked" | "dead". Never raises.
+
+        The distinction that matters is between a server that refused us and a
+        server that has nothing at that address. 401/403/429 mean the host is up
+        and the path exists — it declined this particular client, which is what
+        WAFs in front of standards bodies do to anything without a browser's TLS
+        fingerprint. 404 or a DNS failure means the citation is gone, and that is
+        the only case worth failing a build over.
+        """
         try:
+            req = urllib.request.Request(url, method=method, headers=headers)
             with urllib.request.urlopen(req, timeout=15) as r:
-                if r.status >= 400:
-                    fail("external link", "%s -> HTTP %d" % (u, r.status))
-                else:
-                    ok += 1
-        except Exception as exc:
-            # Some hosts reject HEAD but serve GET; retry once before failing.
-            try:
-                req = urllib.request.Request(
-                    u, headers={"User-Agent": "axio-link-check"})
-                with urllib.request.urlopen(req, timeout=15) as r:
-                    if r.status >= 400:
-                        fail("external link", "%s -> HTTP %d" % (u, r.status))
-                    else:
-                        ok += 1
-            except Exception:
-                fail("external link", "%s -> %s" % (u, exc))
+                return "ok" if r.status < 400 else "dead"
+        except urllib.error.HTTPError as e:
+            return "blocked" if e.code in (401, 403, 429) else "dead"
+        except Exception:
+            return "dead"
+
+    plain = {"User-Agent": "axio-link-check"}
+
+    def classify(u):
+        # HEAD first (cheapest), then GET for hosts that refuse HEAD, then a
+        # full browser GET for hosts that refuse anything that is not a browser.
+        # Best outcome across the three wins.
+        seen = set()
+        for method, headers in (("HEAD", plain), ("GET", plain), ("GET", BROWSER)):
+            r = probe(u, method, headers)
+            if r == "ok":
+                return "ok"
+            seen.add(r)
+        return "blocked" if "blocked" in seen else "dead"
+
+    ok, blocked, dead = 0, [], []
+    for u in sorted(urls):
+        r = classify(u)
+        if r == "ok":
+            ok += 1
+        elif r == "blocked":
+            blocked.append(u)
+        else:
+            dead.append(u)
+
+    for u in dead:
+        fail("external link", "%s -> unreachable" % u)
+
     print("  external:            %d URLs reachable" % ok)
+    if blocked:
+        # Reported, not failed. Re-check these by hand if one looks wrong; the
+        # build should not break because a standards body dislikes urllib.
+        print("  external:            %d refused this client (403/429), "
+              "host is up:" % len(blocked))
+        for u in blocked:
+            print("                         %s" % u)
     return len(urls)
 
 

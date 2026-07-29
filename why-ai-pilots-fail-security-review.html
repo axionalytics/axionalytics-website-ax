@@ -42,16 +42,21 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "TechArticle",
     "@id": "https://www.axionalytics.com/why-ai-pilots-fail-security-review.html#article",
     "headline": "Why Enterprise AI Pilots Die in Security Review",
     "description": "The pilot worked. Eighteen months later it still is not in production. Five architectural questions decide that outcome, and all five are settled before the first line of code.",
     "datePublished": "2026-07-20",
-    "dateModified": "2026-07-20",
+    "dateModified": "2026-07-26",
     "articleSection": "Security",
     "inLanguage": ["en", "es"],
     "wordCount": 1033,
     "timeRequired": "PT5M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "AI Risk Management Framework (AI RMF 1.0)", "url": "https://www.nist.gov/itl/ai-risk-management-framework", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "SP 800-207: Zero Trust Architecture", "url": "https://csrc.nist.gov/pubs/sp/800/207/final", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "ISO/IEC 42001:2023 — AI management systems", "url": "https://www.iso.org/standard/42001", "publisher": { "@type": "Organization", "name": "ISO/IEC" } }
+    ],
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/why-ai-pilots-fail-security-review.html" },
     "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
     "about": { "@type": "Thing", "name": "Zero-Trust AI Governance", "url": "https://www.axionalytics.com/enterprise-ai-security.html" },
@@ -411,6 +416,19 @@
         
       </p>
 
+      <figure class="my-9 border-l-2 border-ax-blue pl-6">
+        <p class="ax-label text-ax-ink/40 mb-2.5">
+          From the standard
+        </p>
+        <blockquote class="font-heading text-lg lg:text-xl leading-relaxed text-ax-ink/85">
+          &ldquo;Zero trust (ZT) is the term for an evolving set of cybersecurity paradigms that move defenses from static, network-based perimeters to focus on users, assets, and resources.&rdquo;
+        </blockquote>
+        <figcaption class="mt-3 text-sm text-ax-ink/50">
+          NIST SP 800-207, Zero Trust Architecture &mdash;
+          <a href="https://csrc.nist.gov/pubs/sp/800/207/final" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">csrc.nist.gov</a>
+        </figcaption>
+      </figure>
+
       <p>
         The reflex is to blame the review process. That is the wrong diagnosis. The objections are almost always correct, and the reason they cannot be resolved is that each one is a property of the system's shape rather than a setting inside it.
         
@@ -548,6 +566,35 @@
         
       </p>
     </div>
+
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        References
+      </p>
+      <ol class="space-y-2.5 text-sm">
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">01</span>
+          <span>
+            <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">AI Risk Management Framework (AI RMF 1.0)</a>
+            <span class="text-ax-ink/45"> — NIST</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">02</span>
+          <span>
+            <a href="https://csrc.nist.gov/pubs/sp/800/207/final" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">SP 800-207: Zero Trust Architecture</a>
+            <span class="text-ax-ink/45"> — NIST</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">03</span>
+          <span>
+            <a href="https://www.iso.org/standard/42001" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">ISO/IEC 42001:2023 — AI management systems</a>
+            <span class="text-ax-ink/45"> — ISO/IEC</span>
+          </span>
+        </li>
+      </ol>
+    </aside>
 
     <!-- Cluster -> pillar link -->
     <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">

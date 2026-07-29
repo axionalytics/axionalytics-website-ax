@@ -22,7 +22,7 @@ Based in the Quad Cities, Iowa. Work is delivered in English and Spanish.
 ## Company
 
 - [About](https://www.axionalytics.com/about.html): How engagements are structured and when we are the wrong fit.
-- [Case Studies](https://www.axionalytics.com/case-studies.html): Anonymized deployment accounts. Client names are withheld deliberately.
+- [Case Studies](https://www.axionalytics.com/case-studies.html): Four anonymized deployment accounts with the architecture and the constraint stated. Client names are withheld deliberately.
 - [Contact](https://www.axionalytics.com/contact.html): Direct contact and technical briefing booking.
 
 ## Writing
@@ -52,8 +52,26 @@ Based in the Quad Cities, Iowa. Work is delivered in English and Spanish.
 - [Building the Business Case for Enterprise AI](https://www.axionalytics.com/data-analytics-roi.html): Finance rejects AI business cases for predictable reasons. Understated loaded cost, unfalsifiable benefits, and an automation rate nobody believes.
 - [Why Enterprise Dashboards Get Abandoned](https://www.axionalytics.com/business-dashboard-guide.html): A dashboard nobody opens is not a design failure. It is a specification failure — it was built from the data that existed rather than the decision it serves.
 
+### Agentic Revenue Development
+
+- [Outbound Broke Because Volume Got Cheap](https://www.axionalytics.com/outbound-research-not-volume.html): Research and volume trade against each other, and every team eventually picks the losing side. The way out is to automate the research and leave the send alone.
+- [Your Sending Domain Is an Asset. Bounces Are How You Spend It.](https://www.axionalytics.com/email-deliverability-firewall.html): Guessed addresses cost more than the campaign that produced them. Three escalating verification tiers, and the design decision that matters most when none of them can answer.
+
+## Glossary
+
+- [What Is Agentic AI?](https://www.axionalytics.com/what-is-agentic-ai.html): Agentic AI describes a system where a language model plans and executes a multi-step task using tools, rather than only producing text.
+- [What Is BYOC Deployment?](https://www.axionalytics.com/what-is-byoc.html): Bring-your-own-cloud is a deployment model where the vendor's software runs inside the customer's own cloud account rather than the vendor's.
+- [What Is Human-in-the-Loop AI?](https://www.axionalytics.com/what-is-human-in-the-loop.html): Human-in-the-loop means an automated system pauses at a defined point and requires a person to approve before it proceeds.
+- [What Is Prompt Injection?](https://www.axionalytics.com/what-is-prompt-injection.html): Prompt injection is an attack where instructions are hidden inside content a language model processes — a document, a database field, a tool description — and the model treats them as direction rather than data.
+- [What Is Email Deliverability?](https://www.axionalytics.com/what-is-email-deliverability.html): Email deliverability is whether a message reaches the inbox rather than the spam folder.
+- [What Is a Semantic Layer?](https://www.axionalytics.com/what-is-a-semantic-layer.html): A semantic layer is where a business metric is defined once, in a form that can be inspected, versioned, and secured, so every report that references it inherits the same definition.
+- [What Is Requirements Traceability?](https://www.axionalytics.com/what-is-requirements-traceability.html): Requirements traceability is the recorded link between a requirement and the test cases that verify it, in both directions.
+
 ## Optional
 
 - [Blog index](https://www.axionalytics.com/blog.html)
+- [Glossary hub](https://www.axionalytics.com/glossary.html)
+- [Full text of every article and glossary entry, one file](https://www.axionalytics.com/llms-full.txt)
 - [RSS feed](https://www.axionalytics.com/rss.xml)
 - [Sitemap](https://www.axionalytics.com/sitemap.xml)
+- [Spanish edition of this index](https://www.axionalytics.com/es/llms.txt)

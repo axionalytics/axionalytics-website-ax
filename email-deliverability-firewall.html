@@ -42,16 +42,21 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "TechArticle",
     "@id": "https://www.axionalytics.com/email-deliverability-firewall.html#article",
     "headline": "Your Sending Domain Is an Asset. Bounces Are How You Spend It.",
     "description": "Guessed addresses cost more than the campaign that produced them. Three escalating verification tiers, and the design decision that matters most when none of them can answer.",
     "datePublished": "2026-07-10",
-    "dateModified": "2026-07-10",
+    "dateModified": "2026-07-26",
     "articleSection": "Revenue",
     "inLanguage": ["en", "es"],
     "wordCount": 560,
     "timeRequired": "PT2M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "RFC 7208 — Sender Policy Framework (SPF)", "url": "https://www.rfc-editor.org/rfc/rfc7208.html", "publisher": { "@type": "Organization", "name": "IETF" } },
+      { "@type": "CreativeWork", "name": "RFC 6376 — DomainKeys Identified Mail (DKIM)", "url": "https://www.rfc-editor.org/rfc/rfc6376.html", "publisher": { "@type": "Organization", "name": "IETF" } },
+      { "@type": "CreativeWork", "name": "RFC 7489 — Domain-based Message Authentication (DMARC)", "url": "https://www.rfc-editor.org/rfc/rfc7489.html", "publisher": { "@type": "Organization", "name": "IETF" } }
+    ],
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/email-deliverability-firewall.html" },
     "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
     "about": { "@type": "Thing", "name": "Agentic Revenue Development", "url": "https://www.axionalytics.com/agentic-revenue-development.html" },
@@ -411,6 +416,19 @@
         
       </p>
 
+      <figure class="my-9 border-l-2 border-ax-blue pl-6">
+        <p class="ax-label text-ax-ink/40 mb-2.5">
+          From the standard
+        </p>
+        <blockquote class="font-heading text-lg lg:text-xl leading-relaxed text-ax-ink/85">
+          &ldquo;DMARC does not grant privileged delivery status to authenticated messages.&rdquo;
+        </blockquote>
+        <figcaption class="mt-3 text-sm text-ax-ink/50">
+          RFC 7489, Domain-based Message Authentication, Reporting, and Conformance &mdash;
+          <a href="https://www.rfc-editor.org/rfc/rfc7489.html" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">rfc-editor.org</a>
+        </figcaption>
+      </figure>
+
       <h2>
         The habit that causes it
         
@@ -507,6 +525,35 @@
         
       </p>
     </div>
+
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        References
+      </p>
+      <ol class="space-y-2.5 text-sm">
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">01</span>
+          <span>
+            <a href="https://www.rfc-editor.org/rfc/rfc7208.html" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">RFC 7208 — Sender Policy Framework (SPF)</a>
+            <span class="text-ax-ink/45"> — IETF</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">02</span>
+          <span>
+            <a href="https://www.rfc-editor.org/rfc/rfc6376.html" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">RFC 6376 — DomainKeys Identified Mail (DKIM)</a>
+            <span class="text-ax-ink/45"> — IETF</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">03</span>
+          <span>
+            <a href="https://www.rfc-editor.org/rfc/rfc7489.html" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">RFC 7489 — Domain-based Message Authentication (DMARC)</a>
+            <span class="text-ax-ink/45"> — IETF</span>
+          </span>
+        </li>
+      </ol>
+    </aside>
 
     <!-- Cluster -> pillar link -->
     <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">

@@ -42,16 +42,21 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "TechArticle",
     "@id": "https://www.axionalytics.com/prompt-injection-tool-abuse-defense.html#article",
     "headline": "Prompt Injection Is a Containment Problem, Not a Prompting Problem",
     "description": "The defence and the attack share a channel, so no instruction closes the class. Four named attacks, and the architectural layers that make a successful one harmless.",
     "datePublished": "2026-07-17",
-    "dateModified": "2026-07-17",
+    "dateModified": "2026-07-26",
     "articleSection": "Security",
     "inLanguage": ["en", "es"],
     "wordCount": 756,
     "timeRequired": "PT3M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "OWASP Top 10 for Large Language Model Applications", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/", "publisher": { "@type": "Organization", "name": "OWASP" } },
+      { "@type": "CreativeWork", "name": "ATLAS — Adversarial Threat Landscape for AI Systems", "url": "https://atlas.mitre.org/", "publisher": { "@type": "Organization", "name": "MITRE" } },
+      { "@type": "CreativeWork", "name": "AI Risk Management Framework (AI RMF 1.0)", "url": "https://www.nist.gov/itl/ai-risk-management-framework", "publisher": { "@type": "Organization", "name": "NIST" } }
+    ],
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/prompt-injection-tool-abuse-defense.html" },
     "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
     "about": { "@type": "Thing", "name": "Zero-Trust AI Governance", "url": "https://www.axionalytics.com/enterprise-ai-security.html" },
@@ -411,6 +416,19 @@
         En un chatbot esto es un problema de contenido: el peor caso es texto que no quería. En un <a href="what-is-agentic-ai.html">sistema agéntico</a> el modelo tiene herramientas, así que el mismo ataque redirige acciones — y el radio de impacto es todo lo que ese agente estaba autorizado a hacer.
       </p>
 
+      <figure class="my-9 border-l-2 border-ax-blue pl-6">
+        <p class="ax-label text-ax-ink/40 mb-2.5">
+          Del est&aacute;ndar
+        </p>
+        <blockquote class="font-heading text-lg lg:text-xl leading-relaxed text-ax-ink/85">
+          &ldquo;Manipulating LLMs via crafted inputs can lead to unauthorized access, data breaches, and compromised decision-making.&rdquo;
+        </blockquote>
+        <figcaption class="mt-3 text-sm text-ax-ink/50">
+          OWASP, LLM01: Prompt Injection &mdash;
+          <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">owasp.org</a>
+        </figcaption>
+      </figure>
+
       <h2>
         
         Los canales que se olvidan
@@ -527,6 +545,35 @@
         Esas pruebas pertenecen a la suite automatizada, no a una evaluación anual. La resistencia a inyección es una propiedad que se degrada en silencio cada vez que se agrega un conector o se edita un prompt, y una prueba que corre en cada commit es lo único que lo nota.
       </p>
     </div>
+
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        Referencias
+      </p>
+      <ol class="space-y-2.5 text-sm">
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">01</span>
+          <span>
+            <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">OWASP Top 10 for Large Language Model Applications</a>
+            <span class="text-ax-ink/45"> — OWASP</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">02</span>
+          <span>
+            <a href="https://atlas.mitre.org/" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">ATLAS — Adversarial Threat Landscape for AI Systems</a>
+            <span class="text-ax-ink/45"> — MITRE</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">03</span>
+          <span>
+            <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">AI Risk Management Framework (AI RMF 1.0)</a>
+            <span class="text-ax-ink/45"> — NIST</span>
+          </span>
+        </li>
+      </ol>
+    </aside>
 
     <!-- Cluster -> pillar link -->
     <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">

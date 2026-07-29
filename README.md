@@ -73,9 +73,10 @@ destroying the Spanish tree.
 | 6 | `sanitize-sources.py` | Applies the editorial substitution list |
 | 7 | `build.sh` | Assembles head + meta + header + body + footer |
 | 8 | `add-contextual-links.py` | In-prose internal links on matched phrases |
+| 8b | `add-pillar-clusters.py` | Links each pillar back down to its cluster articles |
 | 9 | `build-tailwind.py` | Compiles the utility stylesheet actually in use |
 | 10 | `make-i18n.py` | Splits bilingual pages into `/` and `/es/` |
-| 11 | `make-feeds.py` | `rss.xml`, `llms.txt` |
+| 11 | `make-feeds.py` | `rss.xml`, `llms.txt`, `es/llms.txt`, `llms-full.txt` |
 | 12 | `make-sitemap.py` | `sitemap.xml`, both languages |
 | 13 | `make-redirects.sh` | Stubs for retired URLs |
 | 14 | `check-leaks.py` | Verification gate; non-zero exit fails the build |
@@ -171,8 +172,31 @@ URLs.
 Emitted by the generators, so they cannot drift from the content.
 
 **Pillar and cluster.** Five commercial pages are pillars; every article and
-glossary entry declares exactly one pillar in the manifest and links to it. The
-link is generated, never typed.
+glossary entry declares exactly one pillar in the manifest and links to it, and
+step 8b links the pillar back down to each of them. Both directions are
+generated from the same manifest entry, so they cannot disagree and publishing
+an article stays a one-line change.
+
+**References.** Articles and glossary entries carry a list of primary sources —
+the standard, the RFC, the paper, the vendor's own documentation — declared in
+the `SOURCES` catalogue in `make-articles.py` and shared with the glossary so a
+standard is cited identically wherever it appears. Each one renders as a visible
+reference list and as `citation` in the page's structured data. Run
+`check-links.py --external` after changing any of them.
+
+**Pull quotes.** `PULLQUOTES` in `make-articles.py` holds one verbatim quotation
+per article, from a source that article already cites, rendered after the second
+paragraph. Every string in that table is copied from the source and not
+paraphrased — the comment above it says so, and it means what it says. Quotes
+stay in English in both trees, because a direct quotation is not translated; the
+label around it is.
+
+**`llms.txt` and `llms-full.txt`.** `llms.txt` is the index — what the site is
+and what is on it, one per language tree. `llms-full.txt` is the corpus: every
+article and glossary entry as one Markdown file, so an agent researching a
+question can read the whole thing in one request instead of fetching thirty
+pages and parsing chrome out of each. English only, deliberately — it is a token
+budget, and the Spanish tree is a translation rather than more information.
 
 **No CDN.** The stylesheet is compiled locally from the utility classes actually
 present in the output. This replaced a 400 KB CDN dependency with roughly 29 KB
