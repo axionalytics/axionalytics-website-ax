@@ -264,6 +264,19 @@ def check_external(docs, fail):
             if u:
                 urls.add(u.group(1))
 
+    # Our own absolute URLs are not external links. Canonical, og:url, and
+    # hreflang tags all name this site, and fetching them asks "is this page
+    # deployed yet?" rather than "does this link resolve?" — so every new page
+    # fails this check until it ships, which is exactly backwards: the point of
+    # the check is to catch problems *before* deploying. The internal-link pass
+    # already proves these paths exist in the build.
+    OWN = "axionalytics.com"
+    skipped_self = len([u for u in urls if OWN in u])
+    urls = set(u for u in urls if OWN not in u)
+    if skipped_self:
+        print("  external:            %d self-referencing URLs skipped "
+              "(canonical/hreflang)" % skipped_self)
+
     # Standards bodies sit behind WAFs that reject urllib's minimal header set
     # and answer a browser fine — iso.org and cisa.gov both do. The retry below
     # sends what a browser sends, so a live page is not reported as a dead link.

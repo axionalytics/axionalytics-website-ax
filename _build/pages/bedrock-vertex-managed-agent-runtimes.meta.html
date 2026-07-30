@@ -1,0 +1,68 @@
+
+  <title>Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You | Axionalytics</title>
+  <meta name="description" content="Four architectural decisions you inherit with a managed agent runtime, the one written commitment that rules it out, and why the switching cost is not where people look for it.">
+  <link rel="canonical" href="https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You">
+  <meta property="og:description" content="Four architectural decisions you inherit with a managed agent runtime, the one written commitment that rules it out, and why the switching cost is not where people look for it.">
+  <meta property="og:url" content="https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html">
+  <meta property="article:published_time" content="2026-07-27">
+  <meta property="article:section" content="Comparison">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html#article",
+    "headline": "Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You",
+    "description": "Four architectural decisions you inherit with a managed agent runtime, the one written commitment that rules it out, and why the switching cost is not where people look for it.",
+    "datePublished": "2026-07-27",
+    "dateModified": "2026-07-27",
+    "articleSection": "Comparison",
+    "inLanguage": ["en", "es"],
+    "wordCount": 597,
+    "timeRequired": "PT3M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "SP 800-207: Zero Trust Architecture", "url": "https://csrc.nist.gov/pubs/sp/800/207/final", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "ISO/IEC 42001:2023 — AI management systems", "url": "https://www.iso.org/standard/42001", "publisher": { "@type": "Organization", "name": "ISO/IEC" } },
+      { "@type": "CreativeWork", "name": "SP 800-53 Rev. 5: Security and Privacy Controls", "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", "publisher": { "@type": "Organization", "name": "NIST" } }
+    ],
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Zero-Trust AI Governance", "url": "https://www.axionalytics.com/enterprise-ai-security.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You", "item": "https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do Bedrock Agents or Vertex AI Agent Builder keep data inside our perimeter?",
+        "acceptedAnswer": { "@type": "Answer", "text": "They keep it inside the cloud provider's boundary under your account, which satisfies a large number of enterprise requirements and is genuinely strong. What they do not do is keep it inside a perimeter you define independently of that provider. If a contract or regulator constrains processing to your own infrastructure or to a specific jurisdiction the provider does not offer, the managed runtime is the wrong shape." } },
+      { "@type": "Question", "name": "What does a managed agent runtime decide for you?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Where inference runs, which models are available, how the execution sandbox is isolated, and what the audit record contains. Those are good defaults chosen by a competent provider. They become a problem only when one of them conflicts with a constraint you cannot change, because they are the parts of a managed service you do not get to redesign." } },
+      { "@type": "Question", "name": "Does using AWS or Google for agents lock us in?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Partially, and in a specific place. Model access and orchestration are portable in principle; the surrounding integration — identity wiring, tool definitions, audit plumbing, the agent definitions themselves — is written against a provider-specific surface. Rebuilding that is the switching cost, and it is usually larger than the model-level portability suggests." } }
+    ]
+  }
+  </script>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--
+  ==========================================================================
+  AXIONALYTICS
+  GENERATED FILE — do not edit directly.
+
+  Source:  _build/pages/<slug>.meta.html  (title, meta, JSON-LD)
+           _build/pages/<slug>.body.html  (page content)
+  Chrome:  _build/partials/*.html         (head, header, footer)
+  Rebuild: bash _build/build.sh
+
+  Static HTML + Tailwind CDN. No server required — GitHub Pages compatible.
+  ==========================================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Axionalytics">
+  <!-- Search Console: paste the content value from the HTML-tag verification
+       method, or delete this line if verifying by DNS. Without verification you
+       get no query data, no index coverage report, and no manual-action alerts. -->
+  <meta name="google-site-verification" content="-TslZu_rnioog2HmrqIuSxQ2l6iKYM4nwGu5T7poawM" />
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Axionalytics">
+  <meta property="og:image" content="https://www.axionalytics.com/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+
+  <title>Snowflake, BigQuery, Azure SQL: One Pipeline, Five Sets of Quirks | Axionalytics</title>
+  <meta name="description" content="Role-scoped visibility breaks more dashboards than any other single cause. What the warehouses share, what they do not, and why the profiling step decides your deployment topology.">
+  <link rel="canonical" href="https://www.axionalytics.com/es/cloud-warehouse-governed-bi-deployment.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Snowflake, BigQuery, Azure SQL: One Pipeline, Five Sets of Quirks">
+  <meta property="og:description" content="Role-scoped visibility breaks more dashboards than any other single cause. What the warehouses share, what they do not, and why the profiling step decides your deployment topology.">
+  <meta property="og:url" content="https://www.axionalytics.com/es/cloud-warehouse-governed-bi-deployment.html">
+  <meta property="article:published_time" content="2026-07-29">
+  <meta property="article:section" content="Playbook">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://www.axionalytics.com/cloud-warehouse-governed-bi-deployment.html#article",
+    "headline": "Snowflake, BigQuery, Azure SQL: One Pipeline, Five Sets of Quirks",
+    "description": "Role-scoped visibility breaks more dashboards than any other single cause. What the warehouses share, what they do not, and why the profiling step decides your deployment topology.",
+    "datePublished": "2026-07-29",
+    "dateModified": "2026-07-29",
+    "articleSection": "Playbook",
+    "inLanguage": ["en", "es"],
+    "wordCount": 770,
+    "timeRequired": "PT3M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "Semantic models in Power BI", "url": "https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand", "publisher": { "@type": "Organization", "name": "Microsoft Learn" } },
+      { "@type": "CreativeWork", "name": "Data Analysis Expressions (DAX) reference", "url": "https://learn.microsoft.com/en-us/dax/dax-overview", "publisher": { "@type": "Organization", "name": "Microsoft Learn" } },
+      { "@type": "CreativeWork", "name": "ISO/IEC 42001:2023 — AI management systems", "url": "https://www.iso.org/standard/42001", "publisher": { "@type": "Organization", "name": "ISO/IEC" } }
+    ],
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/cloud-warehouse-governed-bi-deployment.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Agentic Business Intelligence", "url": "https://www.axionalytics.com/agentic-business-intelligence.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Snowflake, BigQuery, Azure SQL: One Pipeline, Five Sets of Quirks", "item": "https://www.axionalytics.com/cloud-warehouse-governed-bi-deployment.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Which cloud warehouses can an agentic BI system connect to?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Snowflake, Databricks, BigQuery, Azure SQL, and PostgreSQL cover the large majority of enterprise deployments, and they share one adapter surface: connect, discover schema, profile, and emit a governed semantic model. What differs between them is authentication, type mapping, and how each reports the metadata the profiling step depends on." } },
+      { "@type": "Question", "name": "Does the generated Power BI model belong to us or to the vendor?",
+        "acceptedAnswer": { "@type": "Answer", "text": "To you. The output is a standard .pbip project folder — tables, relationships, DAX measures, visuals, and page layouts — that opens in Power BI Desktop and is edited by your BI team without the generating system present. If it cannot be opened and edited without the tool that produced it, it is not a deliverable." } },
+      { "@type": "Question", "name": "How long does a dashboard build take against a cloud warehouse?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Cold builds are dominated by schema discovery and inference. Rebuilds against an unchanged schema skip inference entirely through incremental detection and complete in a small fraction of the time at no inference cost. The gap between the two is the number worth measuring in your own environment before committing to a refresh cadence." } }
+    ]
+  }
+  </script>
+
+  <!-- Apply saved language before first paint to avoid a flash of English -->
+  <script>try{if(localStorage.getItem('axio-lang')==='es'){document.documentElement.classList.add('lang-es');document.documentElement.lang='es';}}catch(e){}</script>
+
+  <link rel="stylesheet" href="../assets/tailwind.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Loaded off the critical path; noscript keeps it working without JS. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+
+  <link rel="alternate" type="application/rss+xml" title="Axionalytics" href="/rss.xml">
+  <link rel="stylesheet" href="../assets/axio.css">
+
+  <!-- Motion layer: the hero field, varied per page by the table in the script.
+       Deferred, so it runs after axio.js and never blocks parsing. Every effect
+       it drives is additive — with scripting off, each page renders exactly as
+       it did before this existed. make-i18n.py rewrites assets/ to ../assets/
+       for the Spanish tree. -->
+  <link rel="stylesheet" href="../assets/axio-motion.css">
+  <script defer src="../assets/axio-motion.js"></script>
+  <link rel="alternate" hreflang="en" href="https://www.axionalytics.com/cloud-warehouse-governed-bi-deployment.html">
+  <link rel="alternate" hreflang="es" href="https://www.axionalytics.com/es/cloud-warehouse-governed-bi-deployment.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.axionalytics.com/cloud-warehouse-governed-bi-deployment.html">
+</head>
+<body class="bg-white text-ax-ink">
+
+<a href="#main" class="ax-skip">
+  
+  Saltar al contenido
+</a>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header id="ax-header" class="fixed top-0 inset-x-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
+    <div class="flex items-center justify-between h-20">
+
+      <a href="index.html" class="ax-logo group shrink-0" aria-label="Axionalytics — home">
+        <img src="../assets/logo-mark-dark.png" alt="" width="88" height="100" fetchpriority="high" decoding="async">
+        <span class="text-[1.35rem] font-heading font-bold text-white tracking-tight group-hover:text-ax-cyan transition-colors">axionalytics</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden xl:flex items-center gap-9">
+
+        <!-- Solutions mega-dropdown -->
+        <div class="ax-dropdown-host relative">
+          <button class="ax-navlink flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors" aria-haspopup="true">
+            
+            Soluciones
+            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <div class="ax-dropdown absolute left-1/2 top-full pt-5 w-[41rem]">
+            <div class="rounded-2xl border border-white/10 bg-ax-ink/95 backdrop-blur-xl shadow-ax-lift p-3 grid grid-cols-2 gap-1">
+
+              <a href="agentic-test-engineering.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-cyan"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Ingeniería de Pruebas Agéntica
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Requisitos, código fuente y PRs fusionados se convierten en pruebas. Suites heredadas modernizadas en sitio.
+                </span>
+              </a>
+
+              <a href="enterprise-agentic-ai.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-violet"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    IA Agéntica Empresarial
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Agentes autónomos multi-paso en su VPC. Aislamiento de confianza cero, aprobación humana, procedencia citada.
+                </span>
+              </a>
+
+              <a href="agentic-business-intelligence.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-blue"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Inteligencia de Negocios Agéntica
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Lenguaje natural más una fuente gobernada se convierte en un tablero con modelo semántico real.
+                </span>
+              </a>
+
+              <a href="agentic-revenue-development.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-magenta"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Desarrollo de Ingresos Agéntico
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  Descubrimiento de cuentas, investigación y borradores — con la decisión de envío en manos de una persona.
+                </span>
+              </a>
+
+              <a href="enterprise-ai-security.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors sm:col-span-2">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-teal"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    
+                    Gobernanza de IA de Confianza Cero
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  
+                  La arquitectura que hace pasar los sistemas agénticos por la revisión de seguridad.
+                </span>
+              </a>
+
+              <div class="col-span-2 mt-1 rounded-xl bg-white/[0.03] border border-white/10 p-4 flex items-center justify-between gap-4">
+                <div>
+                  <p class="font-heading font-bold text-white text-sm mb-0.5">
+                    
+                    ¿No sabe cuál aplica?
+                  </p>
+                  <p class="text-xs text-white/55">
+                    
+                    Modele el caso financiero en su navegador. No se envía nada hasta que usted lo pida.
+                  </p>
+                </div>
+                <a href="roi-calculator.html" class="ax-btn ax-btn-primary text-xs px-4 py-2.5 shrink-0">
+                  
+                  Calculadora ROI
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="enterprise-ai-security.html" data-nav-for="enterprise-ai-security.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Seguridad
+        </a>
+        <a href="case-studies.html" data-nav-for="case-studies.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Casos de Éxito
+        </a>
+        <a href="pricing.html" data-nav-for="pricing.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Precios
+        </a>
+        <a href="about.html" data-nav-for="about.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Nosotros
+        </a>
+        <a href="contact.html" data-nav-for="contact.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          
+          Contacto
+        </a>
+      </div>
+
+      <!-- Right cluster -->
+      <div class="hidden xl:flex items-center gap-3">
+        <a href="../cloud-warehouse-governed-bi-deployment.html" hreflang="en" aria-label="View this page in English" class="flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-white transition-colors px-2.5 py-2 rounded-lg hover:bg-white/5"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>EN</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary text-sm px-5 py-2.5">
+          
+          Agendar Sesión Técnica
+        </a>
+      </div>
+
+      <button id="ax-drawer-open" class="xl:hidden text-white p-2 -mr-2" aria-expanded="false" aria-controls="ax-drawer" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div id="ax-drawer" class="ax-drawer fixed inset-y-0 right-0 w-[21rem] max-w-full bg-ax-ink border-l border-white/10 z-50 xl:hidden overflow-y-auto ax-scroll-dark" aria-hidden="true">
+    <div class="flex flex-col min-h-full p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="font-heading font-bold text-white">
+          Menú
+        </span>
+        <button id="ax-drawer-close" class="text-white/70 hover:text-white p-2 -mr-2" aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Soluciones
+      </p>
+      <nav class="flex flex-col gap-1 mb-7">
+        <a href="agentic-test-engineering.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Ingeniería de Pruebas Agéntica
+        </a>
+        <a href="enterprise-agentic-ai.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          IA Agéntica Empresarial
+        </a>
+        <a href="agentic-business-intelligence.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Inteligencia de Negocios Agéntica
+        </a>
+        <a href="agentic-revenue-development.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Desarrollo de Ingresos Agéntico
+        </a>
+        <a href="enterprise-ai-security.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Gobernanza de IA de Confianza Cero
+        </a>
+      </nav>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Compañía
+      </p>
+      <nav class="flex flex-col gap-1">
+        <a href="case-studies.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Casos de Éxito
+        </a>
+        <a href="roi-calculator.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Calculadora ROI
+        </a>
+        <a href="glossary.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Glosario
+        </a>
+        <a href="pricing.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Precios
+        </a>
+        <a href="about.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Nosotros
+        </a>
+        <a href="contact.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Contacto
+        </a>
+      </nav>
+
+      <div class="mt-auto pt-8">
+        <a href="../cloud-warehouse-governed-bi-deployment.html" hreflang="en" aria-label="View this page in English" class="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white/80 border border-white/15 rounded-xl py-3 mb-3 hover:bg-white/5 transition-colors"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>English</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary w-full py-3.5 text-sm">
+          Agendar Sesión Técnica
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="ax-scrim" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 xl:hidden opacity-0 pointer-events-none transition-opacity"></div>
+</header>
+
+<main id="main">
+
+<!-- ==========================================================================
+     ARTICLE HEADER
+     Generated by _build/scripts/make-articles.py from _build/src/articles/cloud-warehouse-governed-bi-deployment.html
+     ========================================================================== -->
+<section class="ax-hero ax-noise relative pt-36 pb-16 lg:pt-44 lg:pb-20 overflow-hidden">
+  <div class="ax-grid-bg"></div>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <nav class="flex items-center gap-2 text-xs font-semibold text-white/35 mb-8 ax-reveal" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-ax-cyan transition-colors">
+        Inicio
+      </a>
+      <span>/</span>
+      <a href="blog.html" class="hover:text-ax-cyan transition-colors">Blog</a>
+      <span>/</span>
+      <span class="text-white/60">
+        Guía
+      </span>
+    </nav>
+
+    <span class="ax-pill ax-pill-dark mb-6 ax-reveal">
+      <span class="w-1.5 h-1.5 rounded-full" style="background:#3B82F6"></span>
+      Guía
+    </span>
+
+    <h1 class="font-heading font-extrabold text-white text-[1.95rem] sm:text-4xl lg:text-[2.75rem] leading-[1.1] mb-6 ax-reveal">
+      
+      Snowflake, BigQuery, Azure SQL: Un Pipeline, Cinco Conjuntos de Peculiaridades
+    </h1>
+
+    <p class="text-lg text-white/60 leading-relaxed mb-7 ax-reveal">
+      
+      La visibilidad por rol rompe más tableros que cualquier otra causa. Lo que comparten los almacenes, lo que no, y por qué el paso de perfilado decide su topología de despliegue.
+    </p>
+
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/40 ax-reveal">
+      <time datetime="2026-07-29">
+        Julio 2026
+      </time>
+      <span class="w-1 h-1 rounded-full bg-white/20"></span>
+      <span>
+        3 min de lectura
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ARTICLE BODY
+     ========================================================================== -->
+<article class="py-16 lg:py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="ax-prose">
+      <p>
+        
+        <strong>Snowflake, Databricks, BigQuery, Azure SQL y PostgreSQL son una sola superficie de integración con cinco conjuntos de peculiaridades. El pipeline es idéntico —conectar, descubrir, perfilar, generar, validar, empaquetar— y lo que cambia por almacén es la autenticación, el mapeo de tipos y cuánto le dirá el catálogo antes de que tenga que ir a mirar.</strong>
+      </p>
+
+      <p>
+        
+        Esta es una guía de despliegue para apuntar un pipeline de generación a un almacén gobernado y obtener un artefacto de Power BI que su equipo posee. Cubre lo que es común, lo que no, y las dos cosas que deciden si la salida es utilizable.
+      </p>
+
+      <figure class="my-9 border-l-2 border-ax-blue pl-6">
+        <p class="ax-label text-ax-ink/40 mb-2.5">
+          Del est&aacute;ndar
+        </p>
+        <blockquote class="font-heading text-lg lg:text-xl leading-relaxed text-ax-ink/85">
+          &ldquo;Power BI semantic models represent a source of data that's ready for reporting and visualization.&rdquo;
+        </blockquote>
+        <figcaption class="mt-3 text-sm text-ax-ink/50">
+          Microsoft Learn, Semantic models in the Power BI service &mdash;
+          <a href="https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">learn.microsoft.com</a>
+        </figcaption>
+      </figure>
+
+      <h2>
+        
+        El pipeline compartido
+      </h2>
+
+      <div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+      <pre class="text-white/70">connect          driver + credential, read-only role
+           │
+           ▼
+      discover         tables, columns, types, keys, relationships
+           │           ← the warehouse-specific part lives here
+           ▼
+      profile          cardinality, null density, candidate dimensions
+           │           and measures
+           ▼
+      generate         semantic model: tables, relationships,
+           │           DAX measures, visuals, page layout
+           ▼
+      validate         self-correction loop — errors are fixed and
+           │           re-checked, bounded by a retry limit
+           ▼
+      package          .pbip project folder — opens in Power BI Desktop</pre>
+      </div>
+
+      <p>
+        
+        Solo el paso de descubrimiento es genuinamente específico del almacén. Todo lo posterior opera sobre una descripción normalizada del esquema, razón por la cual agregar un almacén es un driver y una consulta de metadatos, no un pipeline nuevo.
+      </p>
+
+      <h2>
+        
+        Qué difiere por almacén
+      </h2>
+
+      <div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+      <pre class="text-white/70">WAREHOUSE     WATCH FOR
+      ──────────────────────────────────────────────────────────────
+      Snowflake     Role-scoped visibility: the schema you discover is
+                    the schema the role can see. Profile under the same
+                    role the refresh will use, or the model references
+                    tables the report cannot read.
+
+      Databricks    Unity Catalog governs by identity. Three-level
+                    namespace (catalog.schema.table) — flatten it and
+                    you will collide names across catalogs.
+
+      BigQuery      Dataset location is part of the identity. Nested
+                    and repeated fields have no direct Power BI
+                    equivalent and need an explicit flattening rule.
+
+      Azure SQL     Closest to a conventional relational source, and
+                    the one most likely to carry legacy type quirks
+                    that map badly to a semantic model.
+
+      PostgreSQL    Fastest to stand up and the usual choice for
+                    validating the pipeline before pointing it at a
+                    production warehouse.</pre>
+      </div>
+
+      <p>
+        
+        El punto de visibilidad por rol aplica a los cinco y causa los fallos más confusos. Un modelo generado bajo un rol administrativo y actualizado bajo un rol de informes produce un informe que funcionó una vez y luego se rompió, con un error que menciona un permiso en lugar de la decisión de diseño que lo causó.
+      </p>
+
+      <h2>
+        
+        Conéctese en solo lectura, y en serio
+      </h2>
+
+      <p>
+        
+        El pipeline de generación lee esquema y muestrea datos. No tiene razón para tener acceso de escritura al almacén, y concederlo elimina el argumento más simple que tiene en una <a href="enterprise-ai-security.html">revisión de seguridad</a>. Un rol de solo lectura limitado a los esquemas en juego convierte el radio de impacto de un pipeline comprometido en una cuestión de divulgación y no de integridad.
+      </p>
+
+      <div class="highlight-box">
+        <h4>
+          
+          El perfilado lee datos, no solo metadatos
+        </h4>
+        <p>
+          
+          La cardinalidad y la densidad de nulos no pueden inferirse de los tipos de columna. El paso de perfilado muestrea filas, lo que significa que toca datos reales y pertenece dentro del perímetro que gobierna esos datos. Si el almacén contiene datos regulados, el pipeline corre donde corre el almacén: esta es una cuestión de topología de despliegue, no un ajuste del conector.
+        </p>
+      </div>
+
+      <h2>
+        
+        Construcción en frío frente a reconstrucción en caliente
+      </h2>
+
+      <p>
+        
+        Una primera construcción contra un esquema desconocido pasa la mayor parte del tiempo en descubrimiento e inferencia. Una reconstrucción de la misma fuente con esquema sin cambios omite la inferencia por completo: la detección incremental compara el esquema, lo encuentra idéntico y reutiliza el modelo sin costo de inferencia.
+      </p>
+
+      <p>
+        
+        Esa diferencia es la cifra a medir en su propio entorno antes de fijar una cadencia de actualización, porque cambia la economía de la programación. Una reconstrucción nocturna cuesta casi nada cuando el esquema es estable y cuesta una construcción completa cada vez que alguien agrega una columna.
+      </p>
+
+      <h2>
+        
+        La salida debe sobrevivir sin la herramienta
+      </h2>
+
+      <p>
+        
+        El entregable es una carpeta de proyecto <code>.pbip</code> estándar: tablas, relaciones, medidas DAX, visuales y diseños de página. Se abre en Power BI Desktop y su equipo de BI la edita como cualquier otra cosa que mantenga.
+      </p>
+
+      <p>
+        
+        Esta es la propiedad que hay que exigir sin importar quién construya el pipeline. Un artefacto generado que solo puede editarse a través del sistema que lo generó no es un tablero que usted posee: es una dependencia con forma de tablero, y el costo de eso aparece la primera vez que la herramienta no está disponible y una cifra del consejo está equivocada.
+      </p>
+
+      <h2>
+        
+        Dónde encaja esto y dónde no
+      </h2>
+
+      <p>
+        
+        Encaja donde el mismo tablero se construye a mano repetidamente contra una fuente gobernada que ya tiene una definición semántica que merece heredarse. No encaja donde las definiciones de métricas son la parte no resuelta: un pipeline de generación codificará fielmente cualquier inconsistencia que exista en el almacén, y producirá una versión rápida, segura y gobernada de la cifra equivocada.
+      </p>
+    </div>
+
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        Referencias
+      </p>
+      <ol class="space-y-2.5 text-sm">
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">01</span>
+          <span>
+            <a href="https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">Semantic models in Power BI</a>
+            <span class="text-ax-ink/45"> — Microsoft Learn</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">02</span>
+          <span>
+            <a href="https://learn.microsoft.com/en-us/dax/dax-overview" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">Data Analysis Expressions (DAX) reference</a>
+            <span class="text-ax-ink/45"> — Microsoft Learn</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">03</span>
+          <span>
+            <a href="https://www.iso.org/standard/42001" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">ISO/IEC 42001:2023 — AI management systems</a>
+            <span class="text-ax-ink/45"> — ISO/IEC</span>
+          </span>
+        </li>
+      </ol>
+    </aside>
+
+    <!-- Cluster -> pillar link -->
+    <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">
+      <p class="ax-label text-ax-ink/40 mb-3">
+        El sistema detrás de esto
+      </p>
+      <h2 class="font-heading font-bold text-xl mb-2.5">
+        <a href="agentic-business-intelligence.html" class="hover:text-ax-blue transition-colors">
+          Inteligencia de Negocios Agéntica
+        </a>
+      </h2>
+      <p class="text-ax-ink/65 leading-relaxed mb-5">
+        Una frase y una fuente gobernada producen un artefacto real de Power BI que su equipo posee y edita.
+      </p>
+      <a href="agentic-business-intelligence.html" class="ax-btn ax-btn-outline px-5 py-2.5 text-sm">
+        Cómo funciona
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+      </a>
+    </aside>
+
+    <div class="mt-10 pt-8 border-t border-ax-ink/10 flex flex-wrap items-center gap-4">
+      <img src="../assets/logo-mark.png" alt="" class="w-12 h-12 object-contain" width="141" height="160" loading="lazy" decoding="async">
+      <div>
+        <p class="font-heading font-bold">Axionalytics</p>
+        <p class="text-sm text-ax-ink/55">
+          
+          IA agéntica en producción para equipos empresariales de ingeniería, datos e ingresos.
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==========================================================================
+     RELATED + CTA
+     ========================================================================== -->
+<section class="ax-band py-20 lg:py-24 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-50"></div>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <p class="ax-eyebrow text-ax-cyan mb-7 ax-reveal">
+      Seguir leyendo
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-4 mb-14 ax-stagger">
+      <a href="bi-backlog-bottleneck.html" class="rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+        <p class="text-2xs font-bold uppercase tracking-wider text-ax-cyan mb-2">
+          Analítica
+        </p>
+        <p class="font-heading font-bold text-white leading-snug">
+          Su Backlog de BI Es un Cuello de Botella de Transcripción, No un Problema de Capacidad
+        </p>
+      </a>
+      <a href="excel-vs-power-bi.html" class="rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+        <p class="text-2xs font-bold uppercase tracking-wider text-ax-cyan mb-2">
+          Analítica
+        </p>
+        <p class="font-heading font-bold text-white leading-snug">
+          Proliferación de Excel vs un Modelo Semántico Gobernado
+        </p>
+      </a>
+      <a href="data-analytics-roi.html" class="rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+        <p class="text-2xs font-bold uppercase tracking-wider text-ax-cyan mb-2">
+          Estrategia
+        </p>
+        <p class="font-heading font-bold text-white leading-snug">
+          Cómo Construir el Caso de Negocio para la IA Empresarial
+        </p>
+      </a>
+    </div>
+
+    <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 lg:p-10 text-center ax-reveal">
+      <h2 class="font-heading font-extrabold text-2xl lg:text-3xl text-white leading-tight mb-4">
+        
+        ¿Enfrenta esto en su propio entorno?
+      </h2>
+      <p class="text-white/60 leading-relaxed mb-8 max-w-2xl mx-auto">
+        
+        Cuarenta y cinco minutos con los ingenieros que construyen estos sistemas. Traiga la restricción que lo ha estado bloqueando — saldrá con una opinión arquitectónica trabaje con nosotros o no.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3.5 justify-center">
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-7 py-3.5">
+          Agendar Sesión Técnica
+        </a>
+        <a href="roi-calculator.html" class="ax-btn ax-btn-ghost px-7 py-3.5">
+          Modelar el ROI
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="bg-ax-void text-white pt-16 pb-10">
+  <hr class="ax-rule-spectrum mb-16 max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
+
+      <div class="lg:col-span-5">
+        <a href="index.html" class="ax-logo mb-5">
+          <img src="../assets/logo-mark-dark.png" alt="Axionalytics" width="88" height="100" loading="lazy" decoding="async">
+          <span class="text-[1.35rem] font-heading font-bold">axionalytics</span>
+        </a>
+        <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
+          
+          IA agéntica en producción para organizaciones Fortune 500 de ingeniería, datos e ingresos. Construida en Quad Cities, Iowa. Desplegada dentro de su perímetro.
+        </p>
+        <div class="flex gap-2.5">
+          <a href="https://www.linkedin.com/company/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="LinkedIn">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://wa.me/19562079368" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="WhatsApp">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Soluciones
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="agentic-test-engineering.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Ingeniería de Pruebas Agéntica</a></li>
+          <li><a href="enterprise-agentic-ai.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            IA Agéntica Empresarial</a></li>
+          <li><a href="agentic-business-intelligence.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Inteligencia de Negocios Agéntica</a></li>
+          <li><a href="agentic-revenue-development.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Desarrollo de Ingresos Agéntico</a></li>
+          <li><a href="enterprise-ai-security.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Gobernanza de IA de Confianza Cero</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Compañía
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="about.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Nosotros</a></li>
+          <li><a href="case-studies.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Casos de Éxito</a></li>
+          <li><a href="blog.html" class="text-white/65 hover:text-ax-cyan transition-colors">Blog</a></li>
+          <li><a href="contact.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Recursos
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="roi-calculator.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Calculadora ROI</a></li>
+          <li><a href="glossary.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Glosario</a></li>
+          <li><a href="pricing.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Precios</a></li>
+          <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agendar Sesión</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/[0.08] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/35 text-sm">
+        © <span data-year>2026</span> Axionalytics.
+        Todos los derechos reservados.
+      </p>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+        <a href="privacy.html" class="text-white/35 hover:text-white transition-colors">
+          Privacidad</a>
+        <a href="terms.html" class="text-white/35 hover:text-white transition-colors">
+          Términos</a>
+        <a href="accessibility.html" class="text-white/35 hover:text-white transition-colors">
+          Accesibilidad</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/axio.js"></script>
+<script src="../assets/axio-analytics.js"></script>
+</body>
+</html>

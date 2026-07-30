@@ -1,0 +1,68 @@
+
+  <title>Connecting an Agentic System to Azure DevOps | Axionalytics</title>
+  <meta name="description" content="Tools split by consequence rather than by endpoint, a credential the sandbox never sees, and the two operations — pipeline triggers and stale approvals — that break a naive integration.">
+  <link rel="canonical" href="https://www.axionalytics.com/azure-devops-ai-test-case-deployment.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Connecting an Agentic System to Azure DevOps">
+  <meta property="og:description" content="Tools split by consequence rather than by endpoint, a credential the sandbox never sees, and the two operations — pipeline triggers and stale approvals — that break a naive integration.">
+  <meta property="og:url" content="https://www.axionalytics.com/azure-devops-ai-test-case-deployment.html">
+  <meta property="article:published_time" content="2026-07-29">
+  <meta property="article:section" content="Playbook">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://www.axionalytics.com/azure-devops-ai-test-case-deployment.html#article",
+    "headline": "Connecting an Agentic System to Azure DevOps",
+    "description": "Tools split by consequence rather than by endpoint, a credential the sandbox never sees, and the two operations — pipeline triggers and stale approvals — that break a naive integration.",
+    "datePublished": "2026-07-29",
+    "dateModified": "2026-07-29",
+    "articleSection": "Playbook",
+    "inLanguage": ["en", "es"],
+    "wordCount": 834,
+    "timeRequired": "PT4M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "IEEE 1012-2016 — System, software, and hardware verification and validation", "url": "https://standards.ieee.org/ieee/1012/5609/", "publisher": { "@type": "Organization", "name": "IEEE" } },
+      { "@type": "CreativeWork", "name": "SP 800-53 Rev. 5: Security and Privacy Controls", "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "ISO/IEC/IEEE 29148:2018 — Requirements engineering", "url": "https://www.iso.org/standard/72089.html", "publisher": { "@type": "Organization", "name": "ISO/IEC/IEEE" } }
+    ],
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/azure-devops-ai-test-case-deployment.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Agentic Test Engineering", "url": "https://www.axionalytics.com/agentic-test-engineering.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Connecting an Agentic System to Azure DevOps", "item": "https://www.axionalytics.com/azure-devops-ai-test-case-deployment.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Can AI-generated test cases be pushed into Azure DevOps automatically?",
+        "acceptedAnswer": { "@type": "Answer", "text": "They can, and in a regulated verification context they should not be. Every generated case stops in a review queue with its source requirement and matched signals displayed alongside it, and only an approved case is written to the work item. The integration deliberately has no unattended write path — an unreviewed write into a test plan is itself a defect." } },
+      { "@type": "Question", "name": "How do you authenticate an AI agent against Azure DevOps?",
+        "acceptedAnswer": { "@type": "Answer", "text": "OAuth 2.0 client credentials, scoped to the specific project and work item types the agent may touch, with the token held outside the execution sandbox and injected after the request leaves it. Code running in the sandbox cannot read the credential, which matters because agent-generated code is code nobody reviewed before it ran." } },
+      { "@type": "Question", "name": "What is the difference between a read and a write operation in an Azure DevOps connector?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Reads — querying work items, fetching a test plan, listing fields — pass a policy check and execute. Writes and pipeline triggers stop at a human gate showing exactly what would change, and are marked non-idempotent so a retry after a timeout cannot silently create a duplicate work item or fire a build twice." } }
+    ]
+  }
+  </script>

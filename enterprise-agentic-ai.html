@@ -550,7 +550,7 @@
         
       </h2>
       <p class="text-lg text-white/55 leading-relaxed">
-        Most agent frameworks rebuild the entire pipeline on every turn, which is why follow-up questions are slow, expensive, and lose the thread. A semantic router classifies each turn in under 100 milliseconds and picks one of four paths before any pipeline runs.
+        Most agent frameworks rebuild the entire pipeline on every turn, which is why follow-up questions are slow, expensive, and lose the thread. A semantic router is designed to classify each turn in under 100 milliseconds, picking one of four paths before any pipeline runs.
         
       </p>
     </div>
@@ -1035,6 +1035,61 @@
       The engineering behind it, in detail
     </h2>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="databricks-unity-catalog-agentic-deployment.html" class="rounded-xl border border-ax-ink/10 bg-white p-5 hover:border-ax-blue/40 hover:shadow-ax-card transition-all">
+          <p class="text-2xs font-bold uppercase tracking-wider text-ax-blue mb-2">
+            Playbook
+          </p>
+          <p class="font-heading font-bold leading-snug mb-1.5">
+            Deploying an Agent Against Databricks Unity Catalog
+          </p>
+          <p class="text-sm text-ax-ink/55 leading-relaxed">
+            Schema injection collapses somewhere past a few hundred tables. A narrow probing tool set, retrieval-driven discovery, a pointer pattern for bulk results — and the three failure modes that only appear once a real catalog is behind it.
+          </p>
+        </a>
+        <a href="langgraph-langchain-enterprise-deployment.html" class="rounded-xl border border-ax-ink/10 bg-white p-5 hover:border-ax-blue/40 hover:shadow-ax-card transition-all">
+          <p class="text-2xs font-bold uppercase tracking-wider text-ax-blue mb-2">
+            Comparison
+          </p>
+          <p class="font-heading font-bold leading-snug mb-1.5">
+            LangChain and LangGraph in an Enterprise Deployment
+          </p>
+          <p class="text-sm text-ax-ink/55 leading-relaxed">
+            An orchestration library is not an alternative to a governed system — it is a component inside one. Twelve decisions the library leaves to you, and when owning them is the right call.
+          </p>
+        </a>
+        <a href="crewai-autogen-multi-agent-frameworks.html" class="rounded-xl border border-ax-ink/10 bg-white p-5 hover:border-ax-blue/40 hover:shadow-ax-card transition-all">
+          <p class="text-2xs font-bold uppercase tracking-wider text-ax-blue mb-2">
+            Comparison
+          </p>
+          <p class="font-heading font-bold leading-snug mb-1.5">
+            CrewAI and AutoGen Against Enterprise Constraints
+          </p>
+          <p class="text-sm text-ax-ink/55 leading-relaxed">
+            Coordination frameworks solve delegation well. Delegation is also how an injected instruction escalates privilege, and agent count is a design cost rather than a capability.
+          </p>
+        </a>
+        <a href="write-gate-architecture.html" class="rounded-xl border border-ax-ink/10 bg-white p-5 hover:border-ax-blue/40 hover:shadow-ax-card transition-all">
+          <p class="text-2xs font-bold uppercase tracking-wider text-ax-blue mb-2">
+            Teardown
+          </p>
+          <p class="font-heading font-bold leading-snug mb-1.5">
+            Teardown: The Pre-Execution Write Gate
+          </p>
+          <p class="text-sm text-ax-ink/55 leading-relaxed">
+            Policy the model cannot read, a tool roster compiled per turn, and a rendered blast-radius diff pinned to a version token. Three checks in the execution path, and the throughput ceiling they buy.
+          </p>
+        </a>
+        <a href="citation-provenance-architecture.html" class="rounded-xl border border-ax-ink/10 bg-white p-5 hover:border-ax-blue/40 hover:shadow-ax-card transition-all">
+          <p class="text-2xs font-bold uppercase tracking-wider text-ax-blue mb-2">
+            Teardown
+          </p>
+          <p class="font-heading font-bold leading-snug mb-1.5">
+            Teardown: Deterministic Citation Provenance
+          </p>
+          <p class="text-sm text-ax-ink/55 leading-relaxed">
+            The model writes the answer; the backend decides what it may point at. A grounding critic, marker resolution against the execution record, and why rendering a citation is a security boundary.
+          </p>
+        </a>
         <a href="human-in-the-loop-ai-architecture.html" class="rounded-xl border border-ax-ink/10 bg-white p-5 hover:border-ax-blue/40 hover:shadow-ax-card transition-all">
           <p class="text-2xs font-bold uppercase tracking-wider text-ax-blue mb-2">
             Architecture

@@ -1,0 +1,152 @@
+<!--FAQ What does a write gate actually check before an agent writes? | Three things in sequence. The proposed call is validated against a policy the model cannot see or influence. The tool must be present in the signed session manifest compiled for that turn. And a human approves a rendered diff of exactly what would change and how many records it reaches. Any one of the three failing stops the write rather than degrading it.-->
+<!--FAQ How is a human approval protected from being replayed? | Every approval is pinned to an optimistic-concurrency version token and to the schema it was granted against. If the underlying plan, the record, or the tool definition changes after approval, the token no longer matches and the write is refused rather than executed against a plan nobody reviewed.-->
+<!--FAQ Why show a diff instead of describing the action? | Because a description is a claim by the system about itself, and an approver cannot verify it. A diff of the exact field changes and the record count is evidence. An approval gate that shows a summary rather than the change is a mechanism for manufacturing consent, not for granting it.-->
+
+<p>
+  <span data-lang-en><strong>An agent that can only read is a search box with worse latency. The value arrives when it can file the test, update the opportunity, or publish the dashboard — and that is precisely the capability a security review exists to constrain. This teardown describes the gate that sits in the execution path, and the three properties that separate it from a confirmation dialog.</strong></span>
+  <span data-lang-es><strong>Un agente que solo puede leer es un buscador con peor latencia. El valor llega cuando puede registrar la prueba, actualizar la oportunidad o publicar el tablero; y esa es justamente la capacidad que una revisión de seguridad existe para acotar. Este desglose describe la puerta que se sitúa en la ruta de ejecución, y las tres propiedades que la distinguen de un diálogo de confirmación.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>The distinction is structural rather than a matter of degree. A confirmation dialog sits beside the execution path and can be routed around; a gate sits inside it and cannot. Everything below follows from putting it in the path.</span>
+  <span data-lang-es>La distinción es estructural, no de grado. Un diálogo de confirmación se sitúa al lado de la ruta de ejecución y puede rodearse; una puerta se sitúa dentro de ella y no puede. Todo lo que sigue se deriva de ponerla en la ruta.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The sequence</span>
+  <span data-lang-es>La secuencia</span>
+</h2>
+
+<div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+<pre class="text-white/70">model proposes a tool call
+          │
+          ▼
+┌───────────────────────────────────────────────┐
+│ 1. POLICY VALIDATION                          │
+│    evaluated against a policy the model        │
+│    cannot see, read back, or influence         │
+└───────────────────────────────────────────────┘
+          │  pass
+          ▼
+┌───────────────────────────────────────────────┐
+│ 2. MANIFEST CHECK                             │
+│    is this tool in the signed session          │
+│    manifest for this turn?                     │
+│    platform ∩ tenant ∩ rbac                    │
+└───────────────────────────────────────────────┘
+          │  pass
+          ▼
+┌───────────────────────────────────────────────┐
+│ 3. HUMAN GATE            (WRITE actions only)  │
+│    blast-radius diff rendered                  │
+│    approve · reject · escalate                 │
+│    approval pinned to version token + schema   │
+└───────────────────────────────────────────────┘
+          │  approved, token still valid
+          ▼
+       write executes
+          │
+          ▼
+    trace: turn → call → args → result → approver</pre>
+</div>
+
+<p>
+  <span data-lang-en>Reads pass through stages one and two. Writes pass through all three. The asymmetry is deliberate: read latency matters to whether the system gets used at all, and a read inside the user's existing permissions is not the risk the gate exists for.</span>
+  <span data-lang-es>Las lecturas pasan por las etapas uno y dos. Las escrituras pasan por las tres. La asimetría es deliberada: la latencia de lectura determina si el sistema llega a usarse, y una lectura dentro de los permisos que el usuario ya tiene no es el riesgo para el que existe la puerta.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Property 1 — the policy is outside the model's reach</span>
+  <span data-lang-es>Propiedad 1 — la política está fuera del alcance del modelo</span>
+</h2>
+
+<p>
+  <span data-lang-en>The validation policy is not in the prompt. It is not in a system message, not in a tool description, and not in any text the model processes. This matters because the defence and the attack otherwise share a channel: anything written into the prompt to constrain the model is text an injected instruction can also address.</span>
+  <span data-lang-es>La política de validación no está en el prompt. No está en un mensaje de sistema, ni en la descripción de una herramienta, ni en ningún texto que el modelo procese. Esto importa porque de lo contrario la defensa y el ataque comparten canal: todo lo que se escriba en el prompt para restringir al modelo es texto que una instrucción inyectada también puede dirigir.</span>
+</p>
+
+<p>
+  <span data-lang-en>Placing the check outside that channel is what turns a successful injection into a failed tool call rather than an unauthorized write.</span>
+  <span data-lang-es>Colocar la verificación fuera de ese canal es lo que convierte una inyección exitosa en una llamada de herramienta fallida en lugar de una escritura no autorizada.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Property 2 — blast radius is shown, not described</span>
+  <span data-lang-es>Propiedad 2 — el radio de impacto se muestra, no se describe</span>
+</h2>
+
+<p>
+  <span data-lang-en>The gate renders a diff of exactly what would change and how many records it reaches. Not a sentence describing the action — the field-level change itself, and the count.</span>
+  <span data-lang-es>La puerta renderiza un diff de exactamente qué cambiaría y a cuántos registros alcanza. No una frase que describa la acción: el cambio a nivel de campo en sí, y el conteo.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The failure this prevents</span>
+    <span data-lang-es>El fallo que esto previene</span>
+  </h4>
+  <p>
+    <span data-lang-en>An approver shown "update the opportunity records" has no way to distinguish one record from eleven thousand. Approving it is not a decision; it is a reflex the interface has trained. Showing the count and the field-level change is what makes the approval mean something an auditor can rely on later.</span>
+    <span data-lang-es>A un aprobador al que se le muestra «actualizar los registros de oportunidad» no tiene forma de distinguir entre un registro y once mil. Aprobarlo no es una decisión; es un reflejo que la interfaz ha entrenado. Mostrar el conteo y el cambio a nivel de campo es lo que hace que la aprobación signifique algo en lo que un auditor pueda apoyarse después.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Property 3 — approvals cannot be replayed</span>
+  <span data-lang-es>Propiedad 3 — las aprobaciones no pueden reproducirse</span>
+</h2>
+
+<p>
+  <span data-lang-en>Every approval is pinned to an optimistic-concurrency version token and to the schema it was granted against. If the underlying plan changes after approval — a record edited by someone else, a tool definition updated, a parameter altered — the token no longer matches and the write is refused.</span>
+  <span data-lang-es>Cada aprobación se ancla a un token de versión de concurrencia optimista y al esquema contra el que se concedió. Si el plan subyacente cambia después de la aprobación —un registro editado por otra persona, una definición de herramienta actualizada, un parámetro modificado— el token ya no coincide y la escritura se rechaza.</span>
+</p>
+
+<p>
+  <span data-lang-en>Refused, not re-approved automatically and not silently retried against the new state. The approval was granted against a specific thing, and when that thing changes the correct behaviour is to stop and ask again.</span>
+  <span data-lang-es>Rechazada, no re-aprobada automáticamente ni reintentada en silencio contra el nuevo estado. La aprobación se concedió contra algo específico, y cuando eso cambia el comportamiento correcto es detenerse y volver a preguntar.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Where the capability is bounded, not just the action</span>
+  <span data-lang-es>Dónde se acota la capacidad, no solo la acción</span>
+</h2>
+
+<p>
+  <span data-lang-en>The gate is the last line, not the only one. The tool roster available in any turn is computed as the intersection of platform capability, tenant entitlement, and the acting user's role, then compiled into a signed session manifest. A capability outside that intersection is not merely denied at the gate — it is absent from the manifest, so there is nothing for an injected instruction to reach for.</span>
+  <span data-lang-es>La puerta es la última línea, no la única. El catálogo de herramientas disponible en cada turno se calcula como la intersección de la capacidad de la plataforma, los derechos del inquilino y el rol del usuario que actúa, y se compila en un manifiesto de sesión firmado. Una capacidad fuera de esa intersección no se deniega meramente en la puerta: está ausente del manifiesto, así que no hay nada que una instrucción inyectada pueda alcanzar.</span>
+</p>
+
+<p>
+  <span data-lang-en>This is the difference between a system that refuses an unauthorized action and one where the unauthorized action was never expressible.</span>
+  <span data-lang-es>Esta es la diferencia entre un sistema que rechaza una acción no autorizada y uno donde la acción no autorizada nunca fue expresable.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What the trace records</span>
+  <span data-lang-es>Qué registra la traza</span>
+</h2>
+
+<p>
+  <span data-lang-en>A distributed trace spans both planes, and for any write an auditor can reconstruct which turn triggered which tool call, with the arguments it was given; what that call returned, and which citation in the narrative points at it; and who approved the resulting write, when, and against which version.</span>
+  <span data-lang-es>Una traza distribuida abarca ambos planos, y para cualquier escritura un auditor puede reconstruir qué turno disparó qué llamada de herramienta, con los argumentos que recibió; qué devolvió esa llamada y qué cita del texto apunta a ella; y quién aprobó la escritura resultante, cuándo y contra qué versión.</span>
+</p>
+
+<p>
+  <span data-lang-en>Tracing has to be present at every call site or the chain has gaps, and a chain with gaps is not an audit trail — it is a log. This is why instrumentation is not a phase-two concern: retrofitting it produces coverage everywhere except the places that were hard, which are the places that matter.</span>
+  <span data-lang-es>El trazado debe estar presente en cada punto de llamada o la cadena tiene huecos, y una cadena con huecos no es un rastro de auditoría: es un registro. Por eso la instrumentación no es una preocupación de segunda fase: adaptarla después produce cobertura en todas partes salvo en los sitios que eran difíciles, que son los que importan.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The honest cost</span>
+  <span data-lang-es>El costo honesto</span>
+</h2>
+
+<p>
+  <span data-lang-en>A gate on every write means a human is in the path of every write, and that is a throughput ceiling. It is the right ceiling in a regulated context — in the verification deployment this pattern came from, an unattended write into a test plan is itself a defect, so the system does not have that capability at all, and the count of unreviewed writes is zero by construction rather than by policy.</span>
+  <span data-lang-es>Una puerta en cada escritura significa que hay un humano en la ruta de cada escritura, y eso es un techo de rendimiento. Es el techo correcto en un contexto regulado: en el despliegue de verificación del que proviene este patrón, una escritura desatendida en un plan de pruebas es en sí misma un defecto, así que el sistema simplemente no tiene esa capacidad, y el número de escrituras sin revisar es cero por construcción y no por política.</span>
+</p>
+
+<p>
+  <span data-lang-en>Where volume matters more than reversibility, this is the wrong design and a narrower blast radius with unattended execution is the better trade. The question to settle first is not how much you trust the model. It is what the worst single write could do before anyone noticed.</span>
+  <span data-lang-es>Donde el volumen importa más que la reversibilidad, este es el diseño equivocado y un radio de impacto más estrecho con ejecución desatendida es mejor compromiso. La pregunta a resolver primero no es cuánto confía en el modelo. Es qué podría hacer la peor escritura individual antes de que alguien lo notara.</span>
+</p>

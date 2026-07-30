@@ -1,0 +1,68 @@
+
+  <title>Teardown: The Pre-Execution Write Gate | Axionalytics</title>
+  <meta name="description" content="Policy the model cannot read, a tool roster compiled per turn, and a rendered blast-radius diff pinned to a version token. Three checks in the execution path, and the throughput ceiling they buy.">
+  <link rel="canonical" href="https://www.axionalytics.com/write-gate-architecture.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Teardown: The Pre-Execution Write Gate">
+  <meta property="og:description" content="Policy the model cannot read, a tool roster compiled per turn, and a rendered blast-radius diff pinned to a version token. Three checks in the execution path, and the throughput ceiling they buy.">
+  <meta property="og:url" content="https://www.axionalytics.com/write-gate-architecture.html">
+  <meta property="article:published_time" content="2026-07-27">
+  <meta property="article:section" content="Teardown">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://www.axionalytics.com/write-gate-architecture.html#article",
+    "headline": "Teardown: The Pre-Execution Write Gate",
+    "description": "Policy the model cannot read, a tool roster compiled per turn, and a rendered blast-radius diff pinned to a version token. Three checks in the execution path, and the throughput ceiling they buy.",
+    "datePublished": "2026-07-27",
+    "dateModified": "2026-07-27",
+    "articleSection": "Teardown",
+    "inLanguage": ["en", "es"],
+    "wordCount": 870,
+    "timeRequired": "PT4M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "AI Risk Management Framework (AI RMF 1.0)", "url": "https://www.nist.gov/itl/ai-risk-management-framework", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "SP 800-53 Rev. 5: Security and Privacy Controls", "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "OWASP Top 10 for Large Language Model Applications", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/", "publisher": { "@type": "Organization", "name": "OWASP" } }
+    ],
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/write-gate-architecture.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Enterprise Agentic AI", "url": "https://www.axionalytics.com/enterprise-agentic-ai.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Teardown: The Pre-Execution Write Gate", "item": "https://www.axionalytics.com/write-gate-architecture.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What does a write gate actually check before an agent writes?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Three things in sequence. The proposed call is validated against a policy the model cannot see or influence. The tool must be present in the signed session manifest compiled for that turn. And a human approves a rendered diff of exactly what would change and how many records it reaches. Any one of the three failing stops the write rather than degrading it." } },
+      { "@type": "Question", "name": "How is a human approval protected from being replayed?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Every approval is pinned to an optimistic-concurrency version token and to the schema it was granted against. If the underlying plan, the record, or the tool definition changes after approval, the token no longer matches and the write is refused rather than executed against a plan nobody reviewed." } },
+      { "@type": "Question", "name": "Why show a diff instead of describing the action?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Because a description is a claim by the system about itself, and an approver cannot verify it. A diff of the exact field changes and the record count is evidence. An approval gate that shows a summary rather than the change is a mechanism for manufacturing consent, not for granting it." } }
+    ]
+  }
+  </script>

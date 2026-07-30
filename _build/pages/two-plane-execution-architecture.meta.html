@@ -1,0 +1,68 @@
+
+  <title>Teardown: The Two-Plane Execution Architecture | Axionalytics</title>
+  <meta name="description" content="A control plane that holds no customer data, an execution plane inside your VPC, and a hypervisor boundary between agent-generated code and everything else. What each layer defends against, and what the shape costs.">
+  <link rel="canonical" href="https://www.axionalytics.com/two-plane-execution-architecture.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Teardown: The Two-Plane Execution Architecture">
+  <meta property="og:description" content="A control plane that holds no customer data, an execution plane inside your VPC, and a hypervisor boundary between agent-generated code and everything else. What each layer defends against, and what the shape costs.">
+  <meta property="og:url" content="https://www.axionalytics.com/two-plane-execution-architecture.html">
+  <meta property="article:published_time" content="2026-07-28">
+  <meta property="article:section" content="Teardown">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://www.axionalytics.com/two-plane-execution-architecture.html#article",
+    "headline": "Teardown: The Two-Plane Execution Architecture",
+    "description": "A control plane that holds no customer data, an execution plane inside your VPC, and a hypervisor boundary between agent-generated code and everything else. What each layer defends against, and what the shape costs.",
+    "datePublished": "2026-07-28",
+    "dateModified": "2026-07-28",
+    "articleSection": "Teardown",
+    "inLanguage": ["en", "es"],
+    "wordCount": 1078,
+    "timeRequired": "PT5M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "SP 800-207: Zero Trust Architecture", "url": "https://csrc.nist.gov/pubs/sp/800/207/final", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "SP 800-53 Rev. 5: Security and Privacy Controls", "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "ISO/IEC 42001:2023 — AI management systems", "url": "https://www.iso.org/standard/42001", "publisher": { "@type": "Organization", "name": "ISO/IEC" } }
+    ],
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/two-plane-execution-architecture.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Zero-Trust AI Governance", "url": "https://www.axionalytics.com/enterprise-ai-security.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Teardown: The Two-Plane Execution Architecture", "item": "https://www.axionalytics.com/two-plane-execution-architecture.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Where does customer data go in a two-plane architecture?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Nowhere outside the customer's own cloud account. The control plane orchestrates sessions, compiles agents, evaluates policy, and collects traces, and holds no customer data at rest. The execution plane runs inside the customer VPC and is the only component that touches customer systems. The two communicate over mutual TLS with W3C trace context propagated across the boundary." } },
+      { "@type": "Question", "name": "Why is container isolation insufficient for agent-generated code?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Containers share a host kernel, and kernel escapes are a known category of vulnerability rather than a hypothetical one. Agent-generated code is code nobody reviewed before it ran, so the isolation boundary has to be the hypervisor. Each execution runs in a MicroVM with its own kernel, which means a successful escape lands the attacker in an empty virtual machine rather than on a shared host." } },
+      { "@type": "Question", "name": "What stops a compromised agent from exfiltrating data?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Egress is denied by default. Each sandbox carries an eBPF network filter and a DNS sinkhole restricting outbound traffic to an allowlist the customer defines, and a scanner inspects output for personal data before it leaves. Exfiltration requires a destination, and in this topology there is not one." } }
+    ]
+  }
+  </script>

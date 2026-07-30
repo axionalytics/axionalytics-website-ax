@@ -6,8 +6,89 @@
     <atom:link href="https://www.axionalytics.com/rss.xml" rel="self" type="application/rss+xml"/>
     <description>Architecture writing on enterprise agentic AI: deployment topology, execution isolation, human approval gates, data provenance, and analytics governance.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 24 Jul 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 00:00:00 +0000</lastBuildDate>
     <generator>_build/scripts/make-feeds.py</generator>
+    <item>
+      <title>Deploying an Agent Against Databricks Unity Catalog</title>
+      <link>https://www.axionalytics.com/databricks-unity-catalog-agentic-deployment.html</link>
+      <guid isPermaLink="true">https://www.axionalytics.com/databricks-unity-catalog-agentic-deployment.html</guid>
+      <description>Schema injection collapses somewhere past a few hundred tables. A narrow probing tool set, retrieval-driven discovery, a pointer pattern for bulk results — and the three failure modes that only appear once a real catalog is behind it.</description>
+      <category>Playbook</category>
+      <category>Enterprise Agentic AI</category>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Connecting an Agentic System to Azure DevOps</title>
+      <link>https://www.axionalytics.com/azure-devops-ai-test-case-deployment.html</link>
+      <guid isPermaLink="true">https://www.axionalytics.com/azure-devops-ai-test-case-deployment.html</guid>
+      <description>Tools split by consequence rather than by endpoint, a credential the sandbox never sees, and the two operations — pipeline triggers and stale approvals — that break a naive integration.</description>
+      <category>Playbook</category>
+      <category>Agentic Test Engineering</category>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Snowflake, BigQuery, Azure SQL: One Pipeline, Five Sets of Quirks</title>
+      <link>https://www.axionalytics.com/cloud-warehouse-governed-bi-deployment.html</link>
+      <guid isPermaLink="true">https://www.axionalytics.com/cloud-warehouse-governed-bi-deployment.html</guid>
+      <description>Role-scoped visibility breaks more dashboards than any other single cause. What the warehouses share, what they do not, and why the profiling step decides your deployment topology.</description>
+      <category>Playbook</category>
+      <category>Agentic Business Intelligence</category>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>LangChain and LangGraph in an Enterprise Deployment</title>
+      <link>https://www.axionalytics.com/langgraph-langchain-enterprise-deployment.html</link>
+      <guid isPermaLink="true">https://www.axionalytics.com/langgraph-langchain-enterprise-deployment.html</guid>
+      <description>An orchestration library is not an alternative to a governed system — it is a component inside one. Twelve decisions the library leaves to you, and when owning them is the right call.</description>
+      <category>Comparison</category>
+      <category>Enterprise Agentic AI</category>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You</title>
+      <link>https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html</link>
+      <guid isPermaLink="true">https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html</guid>
+      <description>Four architectural decisions you inherit with a managed agent runtime, the one written commitment that rules it out, and why the switching cost is not where people look for it.</description>
+      <category>Comparison</category>
+      <category>Zero-Trust AI Governance</category>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CrewAI and AutoGen Against Enterprise Constraints</title>
+      <link>https://www.axionalytics.com/crewai-autogen-multi-agent-frameworks.html</link>
+      <guid isPermaLink="true">https://www.axionalytics.com/crewai-autogen-multi-agent-frameworks.html</guid>
+      <description>Coordination frameworks solve delegation well. Delegation is also how an injected instruction escalates privilege, and agent count is a design cost rather than a capability.</description>
+      <category>Comparison</category>
+      <category>Enterprise Agentic AI</category>
+      <pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Teardown: The Two-Plane Execution Architecture</title>
+      <link>https://www.axionalytics.com/two-plane-execution-architecture.html</link>
+      <guid isPermaLink="true">https://www.axionalytics.com/two-plane-execution-architecture.html</guid>
+      <description>A control plane that holds no customer data, an execution plane inside your VPC, and a hypervisor boundary between agent-generated code and everything else. What each layer defends against, and what the shape costs.</description>
+      <category>Teardown</category>
+      <category>Zero-Trust AI Governance</category>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Teardown: The Pre-Execution Write Gate</title>
+      <link>https://www.axionalytics.com/write-gate-architecture.html</link>
+      <guid isPermaLink="true">https://www.axionalytics.com/write-gate-architecture.html</guid>
+      <description>Policy the model cannot read, a tool roster compiled per turn, and a rendered blast-radius diff pinned to a version token. Three checks in the execution path, and the throughput ceiling they buy.</description>
+      <category>Teardown</category>
+      <category>Enterprise Agentic AI</category>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Teardown: Deterministic Citation Provenance</title>
+      <link>https://www.axionalytics.com/citation-provenance-architecture.html</link>
+      <guid isPermaLink="true">https://www.axionalytics.com/citation-provenance-architecture.html</guid>
+      <description>The model writes the answer; the backend decides what it may point at. A grounding critic, marker resolution against the execution record, and why rendering a citation is a security boundary.</description>
+      <category>Teardown</category>
+      <category>Enterprise Agentic AI</category>
+      <pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Why Enterprise AI Pilots Die in Security Review</title>
       <link>https://www.axionalytics.com/why-ai-pilots-fail-security-review.html</link>

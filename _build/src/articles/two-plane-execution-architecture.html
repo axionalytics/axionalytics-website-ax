@@ -1,0 +1,189 @@
+<!--FAQ Where does customer data go in a two-plane architecture? | Nowhere outside the customer's own cloud account. The control plane orchestrates sessions, compiles agents, evaluates policy, and collects traces, and holds no customer data at rest. The execution plane runs inside the customer VPC and is the only component that touches customer systems. The two communicate over mutual TLS with W3C trace context propagated across the boundary.-->
+<!--FAQ Why is container isolation insufficient for agent-generated code? | Containers share a host kernel, and kernel escapes are a known category of vulnerability rather than a hypothetical one. Agent-generated code is code nobody reviewed before it ran, so the isolation boundary has to be the hypervisor. Each execution runs in a MicroVM with its own kernel, which means a successful escape lands the attacker in an empty virtual machine rather than on a shared host.-->
+<!--FAQ What stops a compromised agent from exfiltrating data? | Egress is denied by default. Each sandbox carries an eBPF network filter and a DNS sinkhole restricting outbound traffic to an allowlist the customer defines, and a scanner inspects output for personal data before it leaves. Exfiltration requires a destination, and in this topology there is not one.-->
+
+<p>
+  <span data-lang-en><strong>The deployment boundary is the architecture. A control plane decides what should happen next and holds no customer data at rest; an execution plane inside your own cloud account is the only thing that touches your systems. Everything else in this teardown follows from that one split, including the answer to every question a security review will ask.</strong></span>
+  <span data-lang-es><strong>La frontera de despliegue es la arquitectura. Un plano de control decide qué debe ocurrir después y no retiene datos del cliente en reposo; un plano de ejecución dentro de su propia cuenta de nube es lo único que toca sus sistemas. Todo lo demás en este desglose se deriva de esa única división, incluida la respuesta a cada pregunta que hará una revisión de seguridad.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>This is a teardown rather than an argument. It describes how the system is actually built: which component holds what, where the trust boundary sits, and what each isolation layer is defending against. The reasoning for why topology is decided first is covered separately in the deployment topology article; this page is the implementation.</span>
+  <span data-lang-es>Esto es un desglose, no un argumento. Describe cómo está construido el sistema realmente: qué componente contiene qué, dónde está la frontera de confianza y contra qué defiende cada capa de aislamiento. El razonamiento sobre por qué la topología se decide primero se cubre aparte en el artículo de topología de despliegue; esta página es la implementación.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The split</span>
+  <span data-lang-es>La división</span>
+</h2>
+
+<p>
+  <span data-lang-en>Two planes, one hard boundary between them. The control plane is ours and runs as a service. The execution plane is yours and runs in your cloud account, under your identity provider, inside your network policy.</span>
+  <span data-lang-es>Dos planos, una frontera dura entre ellos. El plano de control es nuestro y funciona como servicio. El plano de ejecución es suyo y corre en su cuenta de nube, bajo su proveedor de identidad, dentro de su política de red.</span>
+</p>
+
+<div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+<pre class="text-white/70">┌─────────────────────────────────────────────────────────────┐
+│  CONTROL PLANE — ours                no customer data at rest│
+│                                                             │
+│   · session lifecycle, routing, agent compilation           │
+│   · policy evaluation and the pre-execution gate            │
+│   · trace collection and metering                           │
+└─────────────────────────────────────────────────────────────┘
+                            │
+                    mutual TLS
+              W3C TraceContext propagated
+                            │
+┌─────────────────────────────────────────────────────────────┐
+│  EXECUTION PLANE — yours, inside your VPC                   │
+│                                                             │
+│   ┌───────────────────────────────────────────────┐         │
+│   │  MicroVM   own kernel · hypervisor boundary   │         │
+│   │     agent-generated code runs here            │         │
+│   └───────────────────────────────────────────────┘         │
+│              │                                              │
+│         eBPF filter  +  DNS sinkhole                        │
+│         egress denied by default                            │
+│              │                                              │
+│         your warehouses · your systems of record            │
+└─────────────────────────────────────────────────────────────┘</pre>
+</div>
+
+<p>
+  <span data-lang-en>The property that matters to a reviewer is not that the control plane is well secured. It is that the control plane has nothing to secure. It never holds your records, so a compromise of our service does not become a compromise of your data.</span>
+  <span data-lang-es>La propiedad que le importa a un revisor no es que el plano de control esté bien protegido. Es que el plano de control no tiene nada que proteger. Nunca contiene sus registros, así que un compromiso de nuestro servicio no se convierte en un compromiso de sus datos.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Isolation, layer by layer</span>
+  <span data-lang-es>Aislamiento, capa por capa</span>
+</h2>
+
+<h3>
+  <span data-lang-en>1. The hypervisor boundary</span>
+  <span data-lang-es>1. La frontera del hipervisor</span>
+</h3>
+
+<p>
+  <span data-lang-en>Agent-generated code is code that no human reviewed before it executed. That is a different threat model from running your own application, and container-level isolation does not meet it. Containers share a host kernel, and kernel escapes are a known vulnerability class rather than a theoretical one.</span>
+  <span data-lang-es>El código generado por el agente es código que ningún humano revisó antes de ejecutarse. Ese es un modelo de amenaza distinto al de ejecutar su propia aplicación, y el aislamiento a nivel de contenedor no lo cubre. Los contenedores comparten kernel con el anfitrión, y los escapes de kernel son una clase de vulnerabilidad conocida, no teórica.</span>
+</p>
+
+<p>
+  <span data-lang-en>Each execution therefore runs in a MicroVM with its own kernel. The isolation boundary is the hypervisor, not a namespace. A successful escape puts the attacker inside an empty virtual machine.</span>
+  <span data-lang-es>Por eso cada ejecución corre en una MicroVM con su propio kernel. La frontera de aislamiento es el hipervisor, no un espacio de nombres. Un escape exitoso deja al atacante dentro de una máquina virtual vacía.</span>
+</p>
+
+<h3>
+  <span data-lang-en>2. Egress denied by default</span>
+  <span data-lang-es>2. Salida denegada por defecto</span>
+</h3>
+
+<p>
+  <span data-lang-en>Isolation on its own still leaves a network path out. Each sandbox therefore carries an eBPF network filter and a DNS sinkhole, restricting outbound traffic to an allowlist you define. A fully compromised agent has nowhere to send anything, because exfiltration requires a destination and there is not one.</span>
+  <span data-lang-es>El aislamiento por sí solo aún deja una ruta de red hacia fuera. Por eso cada sandbox lleva un filtro de red eBPF y un sumidero DNS, restringiendo el tráfico saliente a una lista que usted define. Un agente totalmente comprometido no tiene a dónde enviar nada, porque la exfiltración requiere un destino y no lo hay.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>Why both, and not either</span>
+    <span data-lang-es>Por qué ambos, y no uno u otro</span>
+  </h4>
+  <p>
+    <span data-lang-en>The packet filter stops traffic to an address. The DNS sinkhole stops the lookup that would have produced the address. Together they close both the direct connection and the resolution path, which is what makes the allowlist meaningful rather than advisory.</span>
+    <span data-lang-es>El filtro de paquetes detiene el tráfico hacia una dirección. El sumidero DNS detiene la resolución que habría producido esa dirección. Juntos cierran tanto la conexión directa como la ruta de resolución, que es lo que hace que la lista de permitidos sea vinculante y no orientativa.</span>
+  </p>
+</div>
+
+<h3>
+  <span data-lang-en>3. Tokenization inbound, scanning outbound</span>
+  <span data-lang-es>3. Tokenización de entrada, escaneo de salida</span>
+</h3>
+
+<p>
+  <span data-lang-en>Context-aware tokenization replaces sensitive spans before transmission and re-injects the real values after the response returns, so the user reads a complete answer while the model only ever saw placeholders. The policy is declarative and per-tenant: a category allowlist controlling which classes of data are tokenized at all, custom identifier patterns, and a known-safe denylist for values that look sensitive but are not, so over-tokenization does not degrade the answer.</span>
+  <span data-lang-es>La tokenización contextual reemplaza fragmentos sensibles antes de la transmisión y reinyecta los valores reales cuando vuelve la respuesta, de modo que el usuario lee una respuesta completa mientras el modelo solo vio marcadores. La política es declarativa y por inquilino: una lista de categorías que controla qué clases de datos se tokenizan, patrones de identificadores personalizados y una lista de exclusión para valores que parecen sensibles pero no lo son, para que la sobre-tokenización no degrade la respuesta.</span>
+</p>
+
+<p>
+  <span data-lang-en>Defence in depth means the two run in opposite directions: the tokenizer on the way in, the scanner on the way out.</span>
+  <span data-lang-es>La defensa en profundidad significa que ambos corren en direcciones opuestas: el tokenizador a la entrada, el escáner a la salida.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What the seam carries</span>
+  <span data-lang-es>Qué transporta la unión</span>
+</h2>
+
+<p>
+  <span data-lang-en>Mutual TLS in both directions, and W3C trace context propagated across the boundary so a single distributed trace spans both planes. That second property is what makes the audit story work: the control plane can prove which turn triggered which tool call without ever having seen the data that call returned.</span>
+  <span data-lang-es>TLS mutuo en ambas direcciones, y contexto de traza W3C propagado a través de la frontera para que una sola traza distribuida abarque ambos planos. Esa segunda propiedad es lo que hace funcionar la auditoría: el plano de control puede demostrar qué turno disparó qué llamada de herramienta sin haber visto nunca los datos que esa llamada devolvió.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Identity and the tool roster</span>
+  <span data-lang-es>Identidad y el catálogo de herramientas</span>
+</h2>
+
+<p>
+  <span data-lang-en>Ingress is SAML 2.0 or OIDC against Azure AD, Okta, Google, ADFS, or a custom provider. The agent acts under the identity of the person driving it, not a service account, which is what makes the authorization question answerable at all.</span>
+  <span data-lang-es>El ingreso es SAML 2.0 u OIDC contra Azure AD, Okta, Google, ADFS o un proveedor propio. El agente actúa bajo la identidad de la persona que lo dirige, no de una cuenta de servicio, que es lo que hace que la pregunta de autorización tenga respuesta.</span>
+</p>
+
+<p>
+  <span data-lang-en>The available tool roster is computed per turn as the intersection of what the platform supports, what the tenant has enabled, and what the acting user's role permits, then compiled into a signed session manifest. An instruction injected into content cannot reach for a capability outside that intersection, because the capability was never in the manifest.</span>
+  <span data-lang-es>El catálogo de herramientas disponible se calcula por turno como la intersección de lo que soporta la plataforma, lo que el inquilino ha habilitado y lo que permite el rol del usuario que actúa, y luego se compila en un manifiesto de sesión firmado. Una instrucción inyectada en el contenido no puede alcanzar una capacidad fuera de esa intersección, porque la capacidad nunca estuvo en el manifiesto.</span>
+</p>
+
+<div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+<pre class="text-white/70">available_tools = platform ∩ tenant ∩ rbac
+                        │
+                        ▼
+          signed session manifest, per turn
+                        │
+                        ▼
+        tool schemas injected just in time
+     (only when a tool is about to be used, so a
+      large connector roster does not consume
+      the context window)</pre>
+</div>
+
+<h2>
+  <span data-lang-en>Connectors as configuration</span>
+  <span data-lang-es>Conectores como configuración</span>
+</h2>
+
+<p>
+  <span data-lang-en>Connectors are declarative manifests rather than code. The layer discovers each tool schema at runtime and injects it just in time, which means adding a system is a configuration commit reviewed like any other change rather than a release. Nineteen connectors currently cover five cloud warehouses and fourteen file and service adapters.</span>
+  <span data-lang-es>Los conectores son manifiestos declarativos en lugar de código. La capa descubre cada esquema de herramienta en tiempo de ejecución y lo inyecta justo a tiempo, lo que significa que agregar un sistema es un commit de configuración revisado como cualquier otro cambio, no un lanzamiento. Diecinueve conectores cubren actualmente cinco almacenes de datos en la nube y catorce adaptadores de archivos y servicios.</span>
+</p>
+
+<p>
+  <span data-lang-en>One consequence worth stating: when a result set exceeds a size threshold, the connector materializes it to object storage and returns a pre-signed URL rather than the rows themselves. Large results never transit the model context, which bounds both cost and exposure.</span>
+  <span data-lang-es>Una consecuencia que vale la pena mencionar: cuando un conjunto de resultados supera un umbral de tamaño, el conector lo materializa en almacenamiento de objetos y devuelve una URL prefirmada en lugar de las filas. Los resultados grandes nunca transitan por el contexto del modelo, lo que acota tanto el costo como la exposición.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The restricted-egress case</span>
+  <span data-lang-es>El caso de salida restringida</span>
+</h2>
+
+<p>
+  <span data-lang-en>The topology also runs air-gapped or fully egress-restricted. Inference routes through whatever gateway your organization has already approved, deployment supports Kubernetes and Helm on premises, and the retrieval embedding model runs resident and locally rather than calling a hosted embedding service. That last detail is what makes the air-gapped case real rather than nominal — a system that must reach a hosted embedding endpoint is not air-gapped, whatever else is true of it.</span>
+  <span data-lang-es>La topología también funciona aislada o con salida totalmente restringida. La inferencia se enruta por la pasarela que su organización ya haya aprobado, el despliegue soporta Kubernetes y Helm en instalaciones propias, y el modelo de embeddings para recuperación corre residente y localmente en lugar de llamar a un servicio alojado. Ese último detalle es lo que hace real y no nominal el caso aislado: un sistema que debe alcanzar un endpoint de embeddings alojado no está aislado, sea lo que sea cierto de él.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What this shape costs</span>
+  <span data-lang-es>Lo que cuesta esta forma</span>
+</h2>
+
+<p>
+  <span data-lang-en>It is not free. You run infrastructure, you patch it, and you own an on-call rotation for it. A single-tenant hosted deployment is operationally cheaper and clears review at a large number of organizations. The two-plane split earns its cost only where a contract, a regulator, or a residency clause says the data does not leave — and in that case it is not a preference, it is the only shape that answers the question with a network diagram rather than a legal assurance.</span>
+  <span data-lang-es>No es gratis. Usted opera infraestructura, la parchea y asume una guardia para ella. Un despliegue alojado de inquilino único es operacionalmente más barato y pasa la revisión en muchísimas organizaciones. La división en dos planos justifica su costo solo donde un contrato, un regulador o una cláusula de residencia dicen que los datos no salen; y en ese caso no es una preferencia, es la única forma que responde la pregunta con un diagrama de red en lugar de una garantía legal.</span>
+</p>
+
+<p>
+  <span data-lang-en>The deployed system this teardown describes runs 60 production modules behind 1,800 automated tests, and is designed to classify each conversational turn in under 100 milliseconds before any pipeline runs.</span>
+  <span data-lang-es>El sistema desplegado que describe este desglose ejecuta 60 módulos en producción respaldados por 1.800 pruebas automatizadas, y está diseñado para clasificar cada turno conversacional en menos de 100 milisegundos antes de que corra ningún pipeline.</span>
+</p>

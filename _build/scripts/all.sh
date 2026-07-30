@@ -7,6 +7,7 @@
 #   1. make-articles    _build/src/articles/  -> _build/pages/*.{meta,body}.html
 #                       and the blog index, from the ARTICLES manifest
 #   2. make-glossary    _build/src/glossary/  -> _build/pages/*, plus the hub
+#  2b. make-controls    the governance control matrix, from the CONTROLS manifest
 #   3. extract-legal    _legacy/          -> _build/pages/* (legal text, unchanged)
 #   4. add-breadcrumbs  injects BreadcrumbList into hand-written core meta files
 #  4b. add-local-business  LocalBusiness schema on home + contact
@@ -44,6 +45,9 @@ python _build/scripts/make-articles.py
 
 step "2/15  glossary"
 python _build/scripts/make-glossary.py
+
+step "2b/15 governance control mapping"
+python _build/scripts/make-controls.py
 
 step "3/15  legal pages"
 python _build/scripts/extract-legal.py

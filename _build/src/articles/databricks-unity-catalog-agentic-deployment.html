@@ -1,0 +1,162 @@
+<!--FAQ How do you connect an AI agent to Databricks Unity Catalog safely? | Through a declarative connector manifest rather than code: the catalog is reached with a fixed set of narrow probing tools, not a general query tool. The agent searches the catalog, previews candidate tables, counts rows, and requests aggregates. Every call is validated against a policy the model cannot read, and oversized result sets never enter the model context at all.-->
+<!--FAQ Can an AI agent work against a catalog with tens of thousands of tables? | Yes, but not by loading the schema. Bulk schema injection collapses on cost, latency, and accuracy somewhere in the low thousands of tables. Retrieval-driven discovery replaces it: the agent searches for candidate tables, inspects the few that look relevant, and narrows from there — the same way an analyst who does not know the warehouse would.-->
+<!--FAQ What happens when a query against Databricks returns too much data? | It is never returned to the model. Past a row threshold the connector materialises the result to object storage and hands back a pre-signed URL. The model receives a pointer and a summary; the rows go to the user. This bounds both token cost and exposure, and it is the difference between a demo and something that survives a real catalog.-->
+
+<p>
+  <span data-lang-en><strong>An agent cannot read a 50,000-table catalog into its context, and the standard workaround — dump the schema, hand over one query tool — fails on cost, latency, and accuracy at the same time. What works against Unity Catalog is a narrow probing tool set, retrieval-driven discovery, and a hard rule that oversized results never enter the model context.</strong></span>
+  <span data-lang-es><strong>Un agente no puede cargar un catálogo de 50.000 tablas en su contexto, y la solución habitual —volcar el esquema y entregar una sola herramienta de consulta— falla en costo, latencia y precisión a la vez. Lo que funciona contra Unity Catalog es un conjunto reducido de herramientas de sondeo, descubrimiento por recuperación y una regla estricta: los resultados grandes nunca entran al contexto del modelo.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>This is a deployment playbook. It describes how the connector is shaped, what the agent is permitted to do at each step, and the three failure modes that only appear once a real catalog is behind it.</span>
+  <span data-lang-es>Esta es una guía de despliegue. Describe cómo se estructura el conector, qué se le permite hacer al agente en cada paso y los tres modos de fallo que solo aparecen cuando hay un catálogo real detrás.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Why schema injection stops working</span>
+  <span data-lang-es>Por qué deja de funcionar la inyección de esquema</span>
+</h2>
+
+<p>
+  <span data-lang-en>Every demo works against twelve tables. Load the schema into the prompt, give the model a query tool, and it performs well. The approach has no upper bound problem until it does, and then it has three at once: the schema costs more tokens than the question, retrieval accuracy falls as the table list grows, and latency rises with a context the model must re-read on every turn.</span>
+  <span data-lang-es>Toda demostración funciona con doce tablas. Cargue el esquema en el prompt, dé al modelo una herramienta de consulta y rinde bien. El enfoque no tiene problema de escala hasta que lo tiene, y entonces tiene tres a la vez: el esquema cuesta más tokens que la pregunta, la precisión de recuperación cae a medida que crece la lista de tablas, y la latencia sube con un contexto que el modelo debe releer en cada turno.</span>
+</p>
+
+<p>
+  <span data-lang-en>An enterprise Unity Catalog is not twelve tables. Treat the catalog the way a competent analyst treats an unfamiliar warehouse: search for candidates, look at a few, discard most, narrow.</span>
+  <span data-lang-es>Un Unity Catalog empresarial no son doce tablas. Trate el catálogo como lo haría un analista competente ante un almacén desconocido: busque candidatos, revise unos pocos, descarte la mayoría, acote.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The tool surface</span>
+  <span data-lang-es>La superficie de herramientas</span>
+</h2>
+
+<p>
+  <span data-lang-en>One general-purpose query tool is the wrong shape. It gives the agent maximum reach and gives the platform nothing to reason about — every call looks identical, so nothing can be gated, ranked, or costed differently. Replacing it with a small set of narrow tools makes each step inspectable.</span>
+  <span data-lang-es>Una única herramienta de consulta general es la forma equivocada. Da al agente el máximo alcance y a la plataforma nada sobre lo que razonar: todas las llamadas parecen iguales, así que nada puede acotarse, priorizarse ni costearse distinto. Reemplazarla por un conjunto reducido de herramientas específicas hace inspeccionable cada paso.</span>
+</p>
+
+<div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+<pre class="text-white/70">STEP              TOOL SHAPE            WHY IT IS SEPARATE
+──────────────────────────────────────────────────────────────────
+find candidates   catalog search        retrieval over metadata,
+                                        not a scan of the catalog
+
+inspect           table preview         bounded row count, so an
+                                        inspection can never become
+                                        an extraction
+
+size the work     row count             lets the agent decide before
+                                        it commits to a query
+
+answer            aggregate metrics     the common case is a number,
+                                        not a table
+
+search free text  text/log search       different index, different
+                                        cost profile
+
+hand off bulk     dataset pointer       materialise + pre-signed URL
+                                        (see below)</pre>
+</div>
+
+<p>
+  <span data-lang-en>The separation is the control. A preview cannot return a million rows because previews are bounded by definition, not by a parameter the model chooses. An aggregate cannot leak row-level data because it does not return rows. Narrow tools mean the policy layer has something specific to allow or deny.</span>
+  <span data-lang-es>La separación es el control. Una vista previa no puede devolver un millón de filas porque las vistas previas están acotadas por definición, no por un parámetro que elige el modelo. Un agregado no puede filtrar datos a nivel de fila porque no devuelve filas. Herramientas específicas dan a la capa de política algo concreto que permitir o denegar.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The pointer pattern</span>
+  <span data-lang-es>El patrón de puntero</span>
+</h2>
+
+<p>
+  <span data-lang-en>Past a row threshold, the connector materialises the result to object storage and returns a pre-signed URL rather than the rows. The model receives a pointer and a summary; the user receives the data. Nothing large ever transits the context window.</span>
+  <span data-lang-es>Superado un umbral de filas, el conector materializa el resultado en almacenamiento de objetos y devuelve una URL prefirmada en lugar de las filas. El modelo recibe un puntero y un resumen; el usuario recibe los datos. Nada grande transita nunca por la ventana de contexto.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>This is a security control, not only a cost one</span>
+    <span data-lang-es>Es un control de seguridad, no solo de costo</span>
+  </h4>
+  <p>
+    <span data-lang-en>Bounding tokens is the obvious benefit. The larger one is that a result the model never saw is a result the model cannot restate, summarise incorrectly, or leak into a later turn. The pointer keeps bulk data on a path that runs from the warehouse to the user without passing through an inference call.</span>
+    <span data-lang-es>Acotar tokens es el beneficio obvio. El mayor es que un resultado que el modelo nunca vio es un resultado que no puede reformular, resumir mal ni filtrar en un turno posterior. El puntero mantiene los datos masivos en una ruta que va del almacén al usuario sin pasar por una llamada de inferencia.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Three failure modes that only appear at scale</span>
+  <span data-lang-es>Tres modos de fallo que solo aparecen a escala</span>
+</h2>
+
+<h3>
+  <span data-lang-en>1. The agent answers without looking</span>
+  <span data-lang-es>1. El agente responde sin mirar</span>
+</h3>
+
+<p>
+  <span data-lang-en>Give a model a set of probing tools and it will sometimes skip them, producing a confident answer from the table names alone. The output is fluent, plausible, and grounded in nothing. This is the most dangerous failure of the three because it looks exactly like success.</span>
+  <span data-lang-es>Dé a un modelo un conjunto de herramientas de sondeo y a veces las omitirá, produciendo una respuesta segura solo a partir de los nombres de tabla. La salida es fluida, plausible y no está fundamentada en nada. Este es el más peligroso de los tres porque se parece exactamente al éxito.</span>
+</p>
+
+<p>
+  <span data-lang-en>The fix is structural rather than instructional: constrain the agent so an answer that cites no probe result is not deliverable. Asking the model in the prompt to please check first is not a control — it is a request addressed to the component that just failed to do it.</span>
+  <span data-lang-es>La solución es estructural, no instruccional: restrinja al agente para que una respuesta que no cite ningún resultado de sondeo no sea entregable. Pedirle al modelo en el prompt que por favor verifique primero no es un control: es una solicitud dirigida al componente que acaba de no hacerlo.</span>
+</p>
+
+<h3>
+  <span data-lang-en>2. The pointer URL becomes an egress channel</span>
+  <span data-lang-es>2. La URL del puntero se convierte en canal de salida</span>
+</h3>
+
+<p>
+  <span data-lang-en>The moment the system hands back a URL, it has a server-side request forgery surface. A destination the model influences is a destination an attacker who can influence the model may also reach. Restrict the pointer target to an allowlist of storage domains you control, and validate it where the model cannot reach the check.</span>
+  <span data-lang-es>En cuanto el sistema devuelve una URL, tiene una superficie de falsificación de peticiones del lado del servidor. Un destino que el modelo influye es un destino que puede alcanzar quien logre influir en el modelo. Restrinja el destino del puntero a una lista de dominios de almacenamiento que usted controla, y valide donde el modelo no pueda alcanzar la verificación.</span>
+</p>
+
+<h3>
+  <span data-lang-en>3. Subquery evasion</span>
+  <span data-lang-es>3. Evasión por subconsulta</span>
+</h3>
+
+<p>
+  <span data-lang-en>A table allowlist checked by string matching is not an allowlist. A permitted table name in the outer query with a restricted one nested inside passes a naive check and reads exactly what the policy forbade. The query has to be parsed to its syntax tree and every referenced relation checked, including inside subqueries, CTEs, and joins.</span>
+  <span data-lang-es>Una lista de tablas permitidas verificada por coincidencia de texto no es una lista de permitidos. Un nombre permitido en la consulta externa con uno restringido anidado dentro pasa una verificación ingenua y lee exactamente lo que la política prohibía. La consulta debe analizarse hasta su árbol sintáctico y verificarse cada relación referenciada, incluidas subconsultas, CTEs y uniones.</span>
+</p>
+
+<p>
+  <span data-lang-en>All three were found by attacking the system rather than by reading about them. That is the argument for red-teaming a data connector before it reaches a customer catalog: none of these appears in a functional test, because in each case the system does exactly what it was asked to do.</span>
+  <span data-lang-es>Los tres se encontraron atacando el sistema, no leyendo sobre ellos. Ese es el argumento para hacer red team a un conector de datos antes de que llegue al catálogo de un cliente: ninguno aparece en una prueba funcional, porque en cada caso el sistema hace exactamente lo que se le pidió.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Where the connector runs</span>
+  <span data-lang-es>Dónde corre el conector</span>
+</h2>
+
+<p>
+  <span data-lang-en>Inside your own cloud account, on the execution plane. Unity Catalog governs access by identity, and that governance is only meaningful if the agent acts under the identity of the person driving it rather than a shared service principal — otherwise every user inherits the union of everyone's permissions and the catalog's access model has been quietly bypassed.</span>
+  <span data-lang-es>Dentro de su propia cuenta de nube, en el plano de ejecución. Unity Catalog gobierna el acceso por identidad, y ese gobierno solo tiene sentido si el agente actúa bajo la identidad de la persona que lo dirige y no de un principal de servicio compartido; de lo contrario cada usuario hereda la unión de los permisos de todos y el modelo de acceso del catálogo ha sido eludido en silencio.</span>
+</p>
+
+<p>
+  <span data-lang-en>The connector itself is a declarative manifest rather than code: tools, authentication, gate rules, and blast-radius definitions in configuration. Adding a system becomes a configuration commit reviewed like any other change, not a release.</span>
+  <span data-lang-es>El conector en sí es un manifiesto declarativo, no código: herramientas, autenticación, reglas de compuerta y definiciones de radio de impacto en configuración. Agregar un sistema pasa a ser un commit de configuración revisado como cualquier otro cambio, no un lanzamiento.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What this costs</span>
+  <span data-lang-es>Lo que cuesta</span>
+</h2>
+
+<p>
+  <span data-lang-en>More round trips. A question that schema injection answers in one model call may take four or five probing calls here, and on a small catalog that is strictly worse — slower and no more accurate. The pattern earns its complexity somewhere north of a few hundred tables, and below that the simple approach is the right one.</span>
+  <span data-lang-es>Más viajes de ida y vuelta. Una pregunta que la inyección de esquema responde en una llamada al modelo puede requerir aquí cuatro o cinco llamadas de sondeo, y en un catálogo pequeño eso es estrictamente peor: más lento y no más preciso. El patrón justifica su complejidad en algún punto por encima de unos cientos de tablas, y por debajo de eso el enfoque simple es el correcto.</span>
+</p>
+
+<p>
+  <span data-lang-en>The question to settle before building is not how large the catalog is today. It is whether the agent will be pointed at a catalog nobody on the team can enumerate from memory.</span>
+  <span data-lang-es>La pregunta a resolver antes de construir no es qué tan grande es el catálogo hoy. Es si el agente apuntará a un catálogo que nadie del equipo pueda enumerar de memoria.</span>
+</p>

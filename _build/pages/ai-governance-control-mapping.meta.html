@@ -1,0 +1,68 @@
+
+  <title>AI Governance Control Mapping | ISO/IEC 42001 and NIST AI RMF | Axionalytics</title>
+  <meta name="description" content="Twelve controls the platform operates, mapped to the ISO/IEC 42001 areas, NIST AI RMF functions, and SP 800-53 families each one speaks to — with how to verify every claim from inside a deployment.">
+  <link rel="canonical" href="https://www.axionalytics.com/ai-governance-control-mapping.html">
+  <meta property="og:title" content="AI Governance Control Mapping | Axionalytics">
+  <meta property="og:description" content="Every control mapped to the requirement it satisfies, and how to check it yourself. Not a certification claim.">
+  <meta property="og:url" content="https://www.axionalytics.com/ai-governance-control-mapping.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://www.axionalytics.com/ai-governance-control-mapping.html#article",
+    "headline": "AI Governance Control Mapping",
+    "description": "Controls the Axionalytics platform operates, mapped to ISO/IEC 42001 areas, NIST AI RMF functions and NIST SP 800-53 families, each with a stated verification method.",
+    "inLanguage": ["en", "es"],
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/ai-governance-control-mapping.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    },
+    "about": [
+      { "@type": "Thing", "name": "ISO/IEC 42001 AI management systems", "sameAs": "https://www.iso.org/standard/42001" },
+      { "@type": "Thing", "name": "NIST AI Risk Management Framework", "sameAs": "https://www.nist.gov/itl/ai-risk-management-framework" },
+      { "@type": "Thing", "name": "NIST SP 800-207 Zero Trust Architecture", "sameAs": "https://csrc.nist.gov/pubs/sp/800/207/final" },
+      { "@type": "Thing", "name": "OWASP Top 10 for Large Language Model Applications", "sameAs": "https://owasp.org/www-project-top-10-for-large-language-model-applications/" }
+    ],
+    "citation": [
+      { "@type": "CreativeWork", "name": "ISO/IEC 42001:2023 — AI management systems", "url": "https://www.iso.org/standard/42001", "publisher": { "@type": "Organization", "name": "ISO/IEC" } },
+      { "@type": "CreativeWork", "name": "AI Risk Management Framework (AI RMF 1.0)", "url": "https://www.nist.gov/itl/ai-risk-management-framework", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "SP 800-53 Rev. 5: Security and Privacy Controls", "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "SP 800-207: Zero Trust Architecture", "url": "https://csrc.nist.gov/pubs/sp/800/207/final", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "OWASP Top 10 for Large Language Model Applications", "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/", "publisher": { "@type": "Organization", "name": "OWASP" } }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Axionalytics certified to ISO/IEC 42001?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No, and this page does not claim otherwise. It maps the controls the platform operates to the requirement areas each one speaks to, so that an organization pursuing certification can see which of its obligations the system already supports and which remain its own. Certification is granted to an organization by an accredited body; a mapping is evidence toward it, not a substitute." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a vendor SOC 2 report cover any of this?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. A SOC 2 report describes the vendor's own control environment. It does not state where your data is processed, what an agent may write in your systems, or what your auditors can reconstruct afterward. Those are properties of the deployed architecture, which is what this page documents." }
+      },
+      {
+        "@type": "Question",
+        "name": "How can these control claims be verified rather than taken on trust?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each control below states how to check it. Most are verifiable from inside a deployment in minutes: capture packets from a sandbox, compare compiled tool manifests across two roles, revoke a user and watch access drop, or open a citation and follow it to the logged call that produced it." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which NIST AI RMF functions do these controls map to?",
+        "acceptedAnswer": { "@type": "Answer", "text": "All four. GOVERN is served by identity federation, per-turn tool compilation and the human write gate; MAP by plane separation and tokenization policy; MEASURE by the grounding critic, citation provenance and distributed tracing; MANAGE by execution isolation, egress denial, policy validation and replay protection." }
+      }
+    ]
+  }
+  </script>

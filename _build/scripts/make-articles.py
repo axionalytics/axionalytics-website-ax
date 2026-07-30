@@ -160,6 +160,65 @@ S_CANSPAM    = ("https://www.ftc.gov/business-guidance/resources/can-spam-act-co
 # ---------------------------------------------------------------------------
 
 PULLQUOTES = {
+    "databricks-unity-catalog-agentic-deployment": (
+        "Pre-trained models with a differentiable access mechanism to explicit "
+        "non-parametric memory can overcome this issue",
+        "Lewis et al. (2020), Retrieval-Augmented Generation for "
+        "Knowledge-Intensive NLP Tasks",
+        "https://arxiv.org/abs/2005.11401"),
+
+    "azure-devops-ai-test-case-deployment": (
+        "Verification and validation (V&amp;V) processes are used to determine "
+        "whether the development products of a given activity conform to the "
+        "requirements of that activity and whether the product satisfies its "
+        "intended use and user needs.",
+        "IEEE 1012-2016, System, Software, and Hardware Verification and Validation",
+        "https://standards.ieee.org/ieee/1012/5609/"),
+
+    "cloud-warehouse-governed-bi-deployment": (
+        "Power BI semantic models represent a source of data that's ready for "
+        "reporting and visualization.",
+        "Microsoft Learn, Semantic models in the Power BI service",
+        "https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand"),
+
+    "crewai-autogen-multi-agent-frameworks": (
+        "Granting LLMs unchecked autonomy to take action can lead to unintended "
+        "consequences, jeopardizing reliability, privacy, and trust.",
+        "OWASP, LLM08: Excessive Agency",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/"),
+
+    "bedrock-vertex-managed-agent-runtimes": (
+        "Zero trust (ZT) is the term for an evolving set of cybersecurity "
+        "paradigms that move defenses from static, network-based perimeters to "
+        "focus on users, assets, and resources.",
+        "NIST SP 800-207, Zero Trust Architecture",
+        "https://csrc.nist.gov/pubs/sp/800/207/final"),
+
+    "langgraph-langchain-enterprise-deployment": (
+        "Granting LLMs unchecked autonomy to take action can lead to unintended "
+        "consequences, jeopardizing reliability, privacy, and trust.",
+        "OWASP, LLM08: Excessive Agency",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/"),
+
+    "two-plane-execution-architecture": (
+        "Zero trust (ZT) is the term for an evolving set of cybersecurity "
+        "paradigms that move defenses from static, network-based perimeters to "
+        "focus on users, assets, and resources.",
+        "NIST SP 800-207, Zero Trust Architecture",
+        "https://csrc.nist.gov/pubs/sp/800/207/final"),
+
+    "write-gate-architecture": (
+        "a framework to better manage risks to individuals, organizations, and "
+        "society associated with artificial intelligence (AI)",
+        "NIST, on the AI Risk Management Framework",
+        "https://www.nist.gov/itl/ai-risk-management-framework"),
+
+    "citation-provenance-architecture": (
+        "Manipulating LLMs via crafted inputs can lead to unauthorized access, "
+        "data breaches, and compromised decision-making.",
+        "OWASP, LLM01: Prompt Injection",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/"),
+
     "why-ai-pilots-fail-security-review": (
         "Zero trust (ZT) is the term for an evolving set of cybersecurity "
         "paradigms that move defenses from static, network-based perimeters to "
@@ -255,6 +314,15 @@ PULLQUOTES = {
 }
 
 SOURCES = {
+    "databricks-unity-catalog-agentic-deployment": [S_OWASP_LLM, S_RAG, S_NIST_ZT],
+    "azure-devops-ai-test-case-deployment":        [S_IEEE_1012, S_NIST_53, S_ISO_29148],
+    "cloud-warehouse-governed-bi-deployment":      [S_PBI_MODEL, S_PBI_DAX, S_ISO_42001],
+    "langgraph-langchain-enterprise-deployment": [S_NIST_ZT, S_ISO_42001, S_MCP],
+    "bedrock-vertex-managed-agent-runtimes":     [S_NIST_ZT, S_ISO_42001, S_NIST_53],
+    "crewai-autogen-multi-agent-frameworks":     [S_OWASP_LLM, S_NIST_AIRMF, S_MCP],
+    "two-plane-execution-architecture":     [S_NIST_ZT, S_NIST_53, S_ISO_42001],
+    "write-gate-architecture":              [S_NIST_AIRMF, S_NIST_53, S_OWASP_LLM],
+    "citation-provenance-architecture":     [S_OWASP_LLM, S_ATLAS, S_RAG],
     "why-ai-pilots-fail-security-review":   [S_NIST_AIRMF, S_NIST_ZT, S_ISO_42001],
     "prompt-injection-tool-abuse-defense":  [S_OWASP_LLM, S_ATLAS, S_NIST_AIRMF],
     "byoc-vs-saas-enterprise-ai":           [S_NIST_ZT, S_NIST_53, S_ISO_42001],
@@ -274,7 +342,121 @@ SOURCES = {
 
 
 # Newest first — this order drives the blog index.
+#
+# `kind` is "article" unless stated. "teardown" marks implementation documentation
+# rather than argument: an article makes a case, a teardown describes what was
+# built. They share every piece of machinery here — references, quotations,
+# pillar linking, the language split — and differ only in how they are labelled
+# and what schema type they carry.
 ARTICLES = [
+    {
+        "slug": "databricks-unity-catalog-agentic-deployment",
+        "kind": "playbook",
+        "pillar": "agentic",
+        "date": "2026-07-29",
+        "date_en": "July 2026", "date_es": "Julio 2026",
+        "cat_en": "Playbook", "cat_es": "Guía",
+        "title_en": "Deploying an Agent Against Databricks Unity Catalog",
+        "title_es": "Desplegar un Agente Contra Databricks Unity Catalog",
+        "desc_en": "Schema injection collapses somewhere past a few hundred tables. A narrow probing tool set, retrieval-driven discovery, a pointer pattern for bulk results — and the three failure modes that only appear once a real catalog is behind it.",
+        "desc_es": "La inyección de esquema colapsa pasadas unos cientos de tablas. Un conjunto reducido de herramientas de sondeo, descubrimiento por recuperación, un patrón de puntero para resultados masivos — y los tres modos de fallo que solo aparecen con un catálogo real detrás.",
+    },
+    {
+        "slug": "azure-devops-ai-test-case-deployment",
+        "kind": "playbook",
+        "pillar": "testing",
+        "date": "2026-07-29",
+        "date_en": "July 2026", "date_es": "Julio 2026",
+        "cat_en": "Playbook", "cat_es": "Guía",
+        "title_en": "Connecting an Agentic System to Azure DevOps",
+        "title_es": "Conectar un Sistema Agéntico a Azure DevOps",
+        "desc_en": "Tools split by consequence rather than by endpoint, a credential the sandbox never sees, and the two operations — pipeline triggers and stale approvals — that break a naive integration.",
+        "desc_es": "Herramientas divididas por consecuencia y no por endpoint, una credencial que el sandbox nunca ve, y las dos operaciones —disparos de pipeline y aprobaciones caducadas— que rompen una integración ingenua.",
+    },
+    {
+        "slug": "cloud-warehouse-governed-bi-deployment",
+        "kind": "playbook",
+        "pillar": "bi",
+        "date": "2026-07-29",
+        "date_en": "July 2026", "date_es": "Julio 2026",
+        "cat_en": "Playbook", "cat_es": "Guía",
+        "title_en": "Snowflake, BigQuery, Azure SQL: One Pipeline, Five Sets of Quirks",
+        "title_es": "Snowflake, BigQuery, Azure SQL: Un Pipeline, Cinco Conjuntos de Peculiaridades",
+        "desc_en": "Role-scoped visibility breaks more dashboards than any other single cause. What the warehouses share, what they do not, and why the profiling step decides your deployment topology.",
+        "desc_es": "La visibilidad por rol rompe más tableros que cualquier otra causa. Lo que comparten los almacenes, lo que no, y por qué el paso de perfilado decide su topología de despliegue.",
+    },
+    {
+        "slug": "langgraph-langchain-enterprise-deployment",
+        "kind": "comparison",
+        "pillar": "agentic",
+        "date": "2026-07-28",
+        "date_en": "July 2026", "date_es": "Julio 2026",
+        "cat_en": "Comparison", "cat_es": "Comparativa",
+        "title_en": "LangChain and LangGraph in an Enterprise Deployment",
+        "title_es": "LangChain y LangGraph en un Despliegue Empresarial",
+        "desc_en": "An orchestration library is not an alternative to a governed system — it is a component inside one. Twelve decisions the library leaves to you, and when owning them is the right call.",
+        "desc_es": "Una biblioteca de orquestación no es alternativa a un sistema gobernado: es un componente dentro de uno. Doce decisiones que la biblioteca le deja, y cuándo asumirlas es lo correcto.",
+    },
+    {
+        "slug": "bedrock-vertex-managed-agent-runtimes",
+        "kind": "comparison",
+        "pillar": "security",
+        "date": "2026-07-27",
+        "date_en": "July 2026", "date_es": "Julio 2026",
+        "cat_en": "Comparison", "cat_es": "Comparativa",
+        "title_en": "Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You",
+        "title_es": "Bedrock Agents y Vertex AI Agent Builder: Lo Que Decide por Usted un Entorno Gestionado",
+        "desc_en": "Four architectural decisions you inherit with a managed agent runtime, the one written commitment that rules it out, and why the switching cost is not where people look for it.",
+        "desc_es": "Cuatro decisiones arquitectónicas que hereda con un entorno gestionado, el único compromiso escrito que lo descarta, y por qué el costo de cambio no está donde se le busca.",
+    },
+    {
+        "slug": "crewai-autogen-multi-agent-frameworks",
+        "kind": "comparison",
+        "pillar": "agentic",
+        "date": "2026-07-26",
+        "date_en": "July 2026", "date_es": "Julio 2026",
+        "cat_en": "Comparison", "cat_es": "Comparativa",
+        "title_en": "CrewAI and AutoGen Against Enterprise Constraints",
+        "title_es": "CrewAI y AutoGen Frente a Restricciones Empresariales",
+        "desc_en": "Coordination frameworks solve delegation well. Delegation is also how an injected instruction escalates privilege, and agent count is a design cost rather than a capability.",
+        "desc_es": "Los marcos de coordinación resuelven bien la delegación. La delegación es también cómo una instrucción inyectada escala privilegios, y el número de agentes es un costo de diseño, no una capacidad.",
+    },
+    {
+        "slug": "two-plane-execution-architecture",
+        "kind": "teardown",
+        "pillar": "security",
+        "date": "2026-07-28",
+        "date_en": "July 2026", "date_es": "Julio 2026",
+        "cat_en": "Teardown", "cat_es": "Desglose",
+        "title_en": "Teardown: The Two-Plane Execution Architecture",
+        "title_es": "Desglose: La Arquitectura de Ejecución en Dos Planos",
+        "desc_en": "A control plane that holds no customer data, an execution plane inside your VPC, and a hypervisor boundary between agent-generated code and everything else. What each layer defends against, and what the shape costs.",
+        "desc_es": "Un plano de control que no retiene datos del cliente, un plano de ejecución dentro de su VPC y una frontera de hipervisor entre el código generado por el agente y todo lo demás. Contra qué defiende cada capa, y lo que cuesta esa forma.",
+    },
+    {
+        "slug": "write-gate-architecture",
+        "kind": "teardown",
+        "pillar": "agentic",
+        "date": "2026-07-27",
+        "date_en": "July 2026", "date_es": "Julio 2026",
+        "cat_en": "Teardown", "cat_es": "Desglose",
+        "title_en": "Teardown: The Pre-Execution Write Gate",
+        "title_es": "Desglose: La Puerta de Escritura Previa a la Ejecución",
+        "desc_en": "Policy the model cannot read, a tool roster compiled per turn, and a rendered blast-radius diff pinned to a version token. Three checks in the execution path, and the throughput ceiling they buy.",
+        "desc_es": "Una política que el modelo no puede leer, un catálogo de herramientas compilado por turno y un diff de radio de impacto anclado a un token de versión. Tres verificaciones en la ruta de ejecución, y el techo de rendimiento que compran.",
+    },
+    {
+        "slug": "citation-provenance-architecture",
+        "kind": "teardown",
+        "pillar": "agentic",
+        "date": "2026-07-26",
+        "date_en": "July 2026", "date_es": "Julio 2026",
+        "cat_en": "Teardown", "cat_es": "Desglose",
+        "title_en": "Teardown: Deterministic Citation Provenance",
+        "title_es": "Desglose: Procedencia Determinista de Citas",
+        "desc_en": "The model writes the answer; the backend decides what it may point at. A grounding critic, marker resolution against the execution record, and why rendering a citation is a security boundary.",
+        "desc_es": "El modelo escribe la respuesta; el backend decide a qué puede apuntar. Un crítico de fundamentación, resolución de marcadores contra el registro de ejecución, y por qué renderizar una cita es una frontera de seguridad.",
+    },
     {
         "slug": "why-ai-pilots-fail-security-review",
         "pillar": "security",
@@ -729,7 +911,17 @@ TECH_ARTICLES = {
 
 
 def schema_type(slug):
-    return "TechArticle" if slug in TECH_ARTICLES else "Article"
+    """
+    TechArticle for implementation documentation, Article for argument.
+
+    Teardowns qualify by definition — describing how a system is built is what
+    the type means — so they never need listing in TECH_ARTICLES by hand.
+    """
+    kind = next((a.get("kind", "article") for a in ARTICLES if a["slug"] == slug),
+                "article")
+    if kind in ("teardown", "playbook") or slug in TECH_ARTICLES:
+        return "TechArticle"
+    return "Article"
 
 
 def insert_pullquote(body, slug):

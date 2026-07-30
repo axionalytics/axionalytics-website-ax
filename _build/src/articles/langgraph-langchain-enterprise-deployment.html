@@ -1,0 +1,97 @@
+<!--FAQ Is LangGraph suitable for enterprise agent deployments? | Yes, for teams that want to own the graph. LangGraph gives you explicit control over state, branching, and cycles, and it is a strong choice when your differentiator is the orchestration logic itself and you have platform engineers to operate it. What it does not give you is the deployment topology, execution isolation, approval gates, or audit chain — those remain yours to design and build.-->
+<!--FAQ What is the difference between an orchestration library and a delivered system? | A library is a component you compose into a system you build and operate. A delivered system arrives with the deployment topology, isolation model, identity integration, and audit architecture already decided and implemented. The comparison is not which is better but which of those decisions you want to make yourself.-->
+<!--FAQ Can you use LangChain and still pass an enterprise security review? | Yes. Nothing about the library prevents it. The review does not examine your orchestration library — it examines where inference runs, what the agent may write, whose identity it acts under, and what an auditor can reconstruct. Those are properties of the system you build around the library, and they have to be built either way.-->
+
+<p>
+  <span data-lang-en><strong>LangChain and LangGraph are orchestration libraries. What clears an enterprise security review is a deployment topology, an isolation model, an approval gate, and an audit chain — none of which any orchestration library provides, and all of which someone has to build. That is the whole comparison, and it is a question about scope of ownership rather than about quality.</strong></span>
+  <span data-lang-es><strong>LangChain y LangGraph son bibliotecas de orquestación. Lo que aprueba una revisión de seguridad empresarial es una topología de despliegue, un modelo de aislamiento, una puerta de aprobación y una cadena de auditoría; nada de lo cual proporciona ninguna biblioteca de orquestación, y todo lo cual alguien tiene que construir. Esa es toda la comparación, y es una pregunta sobre alcance de propiedad, no sobre calidad.</strong></span>
+</p>
+
+<h2>
+  <span data-lang-en>Where LangGraph is the right answer</span>
+  <span data-lang-es>Dónde LangGraph es la respuesta correcta</span>
+</h2>
+
+<p>
+  <span data-lang-en>If the orchestration logic is your differentiator, use the library. LangGraph's explicit graph model — nodes, edges, cycles, and inspectable state — is genuinely good at the thing it does, and a team that wants to reason about control flow directly should not have that abstracted away from them.</span>
+  <span data-lang-es>Si la lógica de orquestación es su diferenciador, use la biblioteca. El modelo de grafo explícito de LangGraph —nodos, aristas, ciclos y estado inspeccionable— es genuinamente bueno en lo que hace, y a un equipo que quiere razonar directamente sobre el flujo de control no se le debería abstraer eso.</span>
+</p>
+
+<p>
+  <span data-lang-en>Three situations where it is clearly the better choice: you have platform engineers with capacity to operate what they build; the agent topology is unusual enough that a general-purpose system would fight you; or you are early enough that optionality is worth more than a settled architecture.</span>
+  <span data-lang-es>Tres situaciones donde es claramente la mejor opción: tiene ingenieros de plataforma con capacidad para operar lo que construyen; la topología de agentes es lo bastante inusual como para que un sistema de propósito general le estorbe; o está en una fase lo bastante temprana como para que la opcionalidad valga más que una arquitectura definida.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>The comparison people actually make, and why it is the wrong one</span>
+    <span data-lang-es>La comparación que la gente hace, y por qué es la equivocada</span>
+  </h4>
+  <p>
+    <span data-lang-en>Benchmarking a library against a delivered system on orchestration features compares two things that are not alternatives. The library wins on flexibility because flexibility is what it is for. The real question is which of the surrounding decisions — topology, isolation, identity, approval, audit — you intend to own, because those are what the review examines and they exist either way.</span>
+    <span data-lang-es>Comparar una biblioteca con un sistema entregado según características de orquestación compara dos cosas que no son alternativas. La biblioteca gana en flexibilidad porque para eso existe. La pregunta real es cuáles de las decisiones circundantes —topología, aislamiento, identidad, aprobación, auditoría— piensa asumir usted, porque eso es lo que examina la revisión y existen de todos modos.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>What the library leaves to you</span>
+  <span data-lang-es>Lo que la biblioteca le deja a usted</span>
+</h2>
+
+<p>
+  <span data-lang-en>Not criticisms — scope boundaries. An orchestration library is not supposed to solve these, and it would be a worse library if it tried.</span>
+  <span data-lang-es>No son críticas, son límites de alcance. Una biblioteca de orquestación no debe resolver esto, y sería peor biblioteca si lo intentara.</span>
+</p>
+
+<div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+<pre class="text-white/70">DECISION                        LIBRARY        YOU BUILD IT
+─────────────────────────────────────────────────────────────
+graph / state / branching       provided       —
+tool calling & retries          provided       —
+─────────────────────────────────────────────────────────────
+where inference runs            —              yes
+execution sandbox isolation     —              yes
+egress policy                   —              yes
+identity federation (SSO)       —              yes
+per-turn authorization          —              yes
+write approval gate             —              yes
+approval replay protection      —              yes
+citation provenance             —              yes
+end-to-end audit trace          —              yes
+data residency guarantee        —              yes</pre>
+</div>
+
+<p>
+  <span data-lang-en>Each line in the lower block is a question a security architect will ask, and none of them has a library-level answer. This is the honest shape of the build-it-yourself path: the orchestration is the part that is already solved.</span>
+  <span data-lang-es>Cada línea del bloque inferior es una pregunta que hará un arquitecto de seguridad, y ninguna tiene respuesta a nivel de biblioteca. Esta es la forma honesta del camino de construirlo uno mismo: la orquestación es la parte que ya está resuelta.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What a delivered system decides for you</span>
+  <span data-lang-es>Lo que un sistema entregado decide por usted</span>
+</h2>
+
+<p>
+  <span data-lang-en>The trade runs in both directions. A system that arrives with those decisions made has also made them without you, and if one of them is wrong for your environment you are arguing with an architecture rather than editing a file.</span>
+  <span data-lang-es>El intercambio corre en ambas direcciones. Un sistema que llega con esas decisiones tomadas también las ha tomado sin usted, y si alguna es incorrecta para su entorno estará discutiendo con una arquitectura en lugar de editando un archivo.</span>
+</p>
+
+<p>
+  <span data-lang-en>In our case those decisions are: a control plane holding no customer data with execution inside your VPC, MicroVM isolation at the hypervisor, egress denied by default, identity federated to your provider with the agent acting as the user, a human gate on every write showing a blast-radius diff, approvals pinned against replay, and citations generated by the backend rather than the model. Each is documented in a teardown and mapped to the framework requirement it answers, precisely so the decisions can be argued with rather than taken on trust.</span>
+  <span data-lang-es>En nuestro caso esas decisiones son: un plano de control que no retiene datos del cliente con ejecución dentro de su VPC, aislamiento MicroVM en el hipervisor, salida denegada por defecto, identidad federada con su proveedor y el agente actuando como el usuario, una puerta humana en cada escritura con diff de radio de impacto, aprobaciones ancladas contra reproducción, y citas generadas por el backend en lugar del modelo. Cada una está documentada en un desglose y mapeada al requisito del marco que responde, precisamente para que las decisiones puedan discutirse en vez de aceptarse a ciegas.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The cost nobody prices</span>
+  <span data-lang-es>El costo que nadie calcula</span>
+</h2>
+
+<p>
+  <span data-lang-en>Build-versus-buy analyses usually price the build as the prototype. The prototype is not the expensive part — it works in six weeks and it is genuinely impressive. The expensive part is the twelve items in the lower block of that table, each of which has to be designed, implemented, tested, and then maintained as the threat model moves.</span>
+  <span data-lang-es>Los análisis de construir-o-comprar suelen valorar la construcción como el prototipo. El prototipo no es la parte cara: funciona en seis semanas y es genuinamente impresionante. La parte cara son los doce elementos del bloque inferior de esa tabla, cada uno de los cuales hay que diseñar, implementar, probar y luego mantener a medida que se mueve el modelo de amenaza.</span>
+</p>
+
+<p>
+  <span data-lang-en>Neither path avoids that work. One of them decides who does it.</span>
+  <span data-lang-es>Ninguno de los dos caminos evita ese trabajo. Uno de ellos decide quién lo hace.</span>
+</p>

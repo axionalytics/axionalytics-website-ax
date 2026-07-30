@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  ==========================================================================
+  AXIONALYTICS
+  GENERATED FILE — do not edit directly.
+
+  Source:  _build/pages/<slug>.meta.html  (title, meta, JSON-LD)
+           _build/pages/<slug>.body.html  (page content)
+  Chrome:  _build/partials/*.html         (head, header, footer)
+  Rebuild: bash _build/build.sh
+
+  Static HTML + Tailwind CDN. No server required — GitHub Pages compatible.
+  ==========================================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Axionalytics">
+  <!-- Search Console: paste the content value from the HTML-tag verification
+       method, or delete this line if verifying by DNS. Without verification you
+       get no query data, no index coverage report, and no manual-action alerts. -->
+  <meta name="google-site-verification" content="-TslZu_rnioog2HmrqIuSxQ2l6iKYM4nwGu5T7poawM" />
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Axionalytics">
+  <meta property="og:image" content="https://www.axionalytics.com/assets/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <title>Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You | Axionalytics</title>
+  <meta name="description" content="Four architectural decisions you inherit with a managed agent runtime, the one written commitment that rules it out, and why the switching cost is not where people look for it.">
+  <link rel="canonical" href="https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You">
+  <meta property="og:description" content="Four architectural decisions you inherit with a managed agent runtime, the one written commitment that rules it out, and why the switching cost is not where people look for it.">
+  <meta property="og:url" content="https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html">
+  <meta property="article:published_time" content="2026-07-27">
+  <meta property="article:section" content="Comparison">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html#article",
+    "headline": "Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You",
+    "description": "Four architectural decisions you inherit with a managed agent runtime, the one written commitment that rules it out, and why the switching cost is not where people look for it.",
+    "datePublished": "2026-07-27",
+    "dateModified": "2026-07-27",
+    "articleSection": "Comparison",
+    "inLanguage": ["en", "es"],
+    "wordCount": 597,
+    "timeRequired": "PT3M",
+    "citation": [
+      { "@type": "CreativeWork", "name": "SP 800-207: Zero Trust Architecture", "url": "https://csrc.nist.gov/pubs/sp/800/207/final", "publisher": { "@type": "Organization", "name": "NIST" } },
+      { "@type": "CreativeWork", "name": "ISO/IEC 42001:2023 — AI management systems", "url": "https://www.iso.org/standard/42001", "publisher": { "@type": "Organization", "name": "ISO/IEC" } },
+      { "@type": "CreativeWork", "name": "SP 800-53 Rev. 5: Security and Privacy Controls", "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final", "publisher": { "@type": "Organization", "name": "NIST" } }
+    ],
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html" },
+    "isPartOf": { "@type": "Blog", "@id": "https://www.axionalytics.com/blog.html#blog" },
+    "about": { "@type": "Thing", "name": "Zero-Trust AI Governance", "url": "https://www.axionalytics.com/enterprise-ai-security.html" },
+    "author": { "@type": "Organization", "name": "Axionalytics", "url": "https://www.axionalytics.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Axionalytics",
+      "url": "https://www.axionalytics.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.axionalytics.com/assets/favicon-512.png" }
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.axionalytics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.axionalytics.com/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You", "item": "https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Do Bedrock Agents or Vertex AI Agent Builder keep data inside our perimeter?",
+        "acceptedAnswer": { "@type": "Answer", "text": "They keep it inside the cloud provider's boundary under your account, which satisfies a large number of enterprise requirements and is genuinely strong. What they do not do is keep it inside a perimeter you define independently of that provider. If a contract or regulator constrains processing to your own infrastructure or to a specific jurisdiction the provider does not offer, the managed runtime is the wrong shape." } },
+      { "@type": "Question", "name": "What does a managed agent runtime decide for you?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Where inference runs, which models are available, how the execution sandbox is isolated, and what the audit record contains. Those are good defaults chosen by a competent provider. They become a problem only when one of them conflicts with a constraint you cannot change, because they are the parts of a managed service you do not get to redesign." } },
+      { "@type": "Question", "name": "Does using AWS or Google for agents lock us in?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Partially, and in a specific place. Model access and orchestration are portable in principle; the surrounding integration — identity wiring, tool definitions, audit plumbing, the agent definitions themselves — is written against a provider-specific surface. Rebuilding that is the switching cost, and it is usually larger than the model-level portability suggests." } }
+    ]
+  }
+  </script>
+
+  <!-- Apply saved language before first paint to avoid a flash of English -->
+  <script>try{if(localStorage.getItem('axio-lang')==='es'){document.documentElement.classList.add('lang-es');document.documentElement.lang='es';}}catch(e){}</script>
+
+  <link rel="stylesheet" href="assets/tailwind.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Loaded off the critical path; noscript keeps it working without JS. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"></noscript>
+
+  <link rel="alternate" type="application/rss+xml" title="Axionalytics" href="/rss.xml">
+  <link rel="stylesheet" href="assets/axio.css">
+
+  <!-- Motion layer: the hero field, varied per page by the table in the script.
+       Deferred, so it runs after axio.js and never blocks parsing. Every effect
+       it drives is additive — with scripting off, each page renders exactly as
+       it did before this existed. make-i18n.py rewrites assets/ to ../assets/
+       for the Spanish tree. -->
+  <link rel="stylesheet" href="assets/axio-motion.css">
+  <script defer src="assets/axio-motion.js"></script>
+  <link rel="alternate" hreflang="en" href="https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html">
+  <link rel="alternate" hreflang="es" href="https://www.axionalytics.com/es/bedrock-vertex-managed-agent-runtimes.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.axionalytics.com/bedrock-vertex-managed-agent-runtimes.html">
+</head>
+<body class="bg-white text-ax-ink">
+
+<a href="#main" class="ax-skip">
+  Skip to content
+  
+</a>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header id="ax-header" class="fixed top-0 inset-x-0 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Primary">
+    <div class="flex items-center justify-between h-20">
+
+      <a href="index.html" class="ax-logo group shrink-0" aria-label="Axionalytics — home">
+        <img src="assets/logo-mark-dark.png" alt="" width="88" height="100" fetchpriority="high" decoding="async">
+        <span class="text-[1.35rem] font-heading font-bold text-white tracking-tight group-hover:text-ax-cyan transition-colors">axionalytics</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden xl:flex items-center gap-9">
+
+        <!-- Solutions mega-dropdown -->
+        <div class="ax-dropdown-host relative">
+          <button class="ax-navlink flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white transition-colors" aria-haspopup="true">
+            Solutions
+            
+            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+
+          <div class="ax-dropdown absolute left-1/2 top-full pt-5 w-[41rem]">
+            <div class="rounded-2xl border border-white/10 bg-ax-ink/95 backdrop-blur-xl shadow-ax-lift p-3 grid grid-cols-2 gap-1">
+
+              <a href="agentic-test-engineering.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-cyan"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Agentic Test Engineering
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  Requirements, source code, and merged PRs become verification tests. Legacy suites modernized in place.
+                  
+                </span>
+              </a>
+
+              <a href="enterprise-agentic-ai.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-violet"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Enterprise Agentic AI
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  Autonomous multi-step agents in your VPC. Zero-trust isolation, HITL write gates, cited provenance.
+                  
+                </span>
+              </a>
+
+              <a href="agentic-business-intelligence.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-blue"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Agentic Business Intelligence
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  Plain English plus a governed source becomes a production dashboard with a real semantic model.
+                  
+                </span>
+              </a>
+
+              <a href="agentic-revenue-development.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-magenta"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Agentic Revenue Development
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  Account discovery, research, and drafted outreach — with the send decision left to a person.
+                  
+                </span>
+              </a>
+
+              <a href="enterprise-ai-security.html" class="group rounded-xl p-4 hover:bg-white/5 transition-colors sm:col-span-2">
+                <span class="flex items-center gap-2.5 mb-1.5">
+                  <span class="w-2 h-2 rounded-full bg-ax-teal"></span>
+                  <span class="font-heading font-bold text-white text-sm">
+                    Zero-Trust AI Governance
+                    
+                  </span>
+                </span>
+                <span class="block text-xs text-white/55 leading-relaxed pl-[1.15rem]">
+                  The architecture that gets agentic systems through security review instead of stuck in it.
+                  
+                </span>
+              </a>
+
+              <div class="col-span-2 mt-1 rounded-xl bg-white/[0.03] border border-white/10 p-4 flex items-center justify-between gap-4">
+                <div>
+                  <p class="font-heading font-bold text-white text-sm mb-0.5">
+                    Not sure which applies?
+                    
+                  </p>
+                  <p class="text-xs text-white/55">
+                    Model the financial case in your browser. Nothing is sent until you ask for it.
+                    
+                  </p>
+                </div>
+                <a href="roi-calculator.html" class="ax-btn ax-btn-primary text-xs px-4 py-2.5 shrink-0">
+                  ROI Calculator
+                  
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="enterprise-ai-security.html" data-nav-for="enterprise-ai-security.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          Security
+          
+        </a>
+        <a href="case-studies.html" data-nav-for="case-studies.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          Case Studies
+          
+        </a>
+        <a href="pricing.html" data-nav-for="pricing.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          Pricing
+          
+        </a>
+        <a href="about.html" data-nav-for="about.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          About
+          
+        </a>
+        <a href="contact.html" data-nav-for="contact.html" class="ax-navlink text-sm font-semibold text-white/70 hover:text-white transition-colors">
+          Contact
+          
+        </a>
+      </div>
+
+      <!-- Right cluster -->
+      <div class="hidden xl:flex items-center gap-3">
+        <a href="es/bedrock-vertex-managed-agent-runtimes.html" hreflang="es" aria-label="Ver esta página en español" class="flex items-center gap-1.5 text-xs font-bold text-white/70 hover:text-white transition-colors px-2.5 py-2 rounded-lg hover:bg-white/5"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>ES</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary text-sm px-5 py-2.5">
+          Book a Technical Briefing
+          
+        </a>
+      </div>
+
+      <button id="ax-drawer-open" class="xl:hidden text-white p-2 -mr-2" aria-expanded="false" aria-controls="ax-drawer" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div id="ax-drawer" class="ax-drawer fixed inset-y-0 right-0 w-[21rem] max-w-full bg-ax-ink border-l border-white/10 z-50 xl:hidden overflow-y-auto ax-scroll-dark" aria-hidden="true">
+    <div class="flex flex-col min-h-full p-6">
+      <div class="flex justify-between items-center mb-8">
+        <span class="font-heading font-bold text-white">
+          Menu
+        </span>
+        <button id="ax-drawer-close" class="text-white/70 hover:text-white p-2 -mr-2" aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Solutions
+      </p>
+      <nav class="flex flex-col gap-1 mb-7">
+        <a href="agentic-test-engineering.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Agentic Test Engineering
+        </a>
+        <a href="enterprise-agentic-ai.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Enterprise Agentic AI
+        </a>
+        <a href="agentic-business-intelligence.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Agentic Business Intelligence
+        </a>
+        <a href="agentic-revenue-development.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Agentic Revenue Development
+        </a>
+        <a href="enterprise-ai-security.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Zero-Trust AI Governance
+        </a>
+      </nav>
+
+      <p class="text-2xs font-bold uppercase tracking-[0.18em] text-white/35 mb-3">
+        Company
+      </p>
+      <nav class="flex flex-col gap-1">
+        <a href="case-studies.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Case Studies
+        </a>
+        <a href="roi-calculator.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          ROI Calculator
+        </a>
+        <a href="glossary.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Glossary
+        </a>
+        <a href="pricing.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Pricing
+        </a>
+        <a href="about.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          About
+        </a>
+        <a href="contact.html" class="text-white/80 hover:text-ax-cyan font-medium py-2 text-sm transition-colors">
+          Contact
+        </a>
+      </nav>
+
+      <div class="mt-auto pt-8">
+        <a href="es/bedrock-vertex-managed-agent-runtimes.html" hreflang="es" aria-label="Ver esta página en español" class="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white/80 border border-white/15 rounded-xl py-3 mb-3 hover:bg-white/5 transition-colors"><svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg><span>Español</span></a>
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary w-full py-3.5 text-sm">
+          Book a Technical Briefing
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="ax-scrim" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 xl:hidden opacity-0 pointer-events-none transition-opacity"></div>
+</header>
+
+<main id="main">
+
+<!-- ==========================================================================
+     ARTICLE HEADER
+     Generated by _build/scripts/make-articles.py from _build/src/articles/bedrock-vertex-managed-agent-runtimes.html
+     ========================================================================== -->
+<section class="ax-hero ax-noise relative pt-36 pb-16 lg:pt-44 lg:pb-20 overflow-hidden">
+  <div class="ax-grid-bg"></div>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <nav class="flex items-center gap-2 text-xs font-semibold text-white/35 mb-8 ax-reveal" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-ax-cyan transition-colors">
+        Home
+      </a>
+      <span>/</span>
+      <a href="blog.html" class="hover:text-ax-cyan transition-colors">Blog</a>
+      <span>/</span>
+      <span class="text-white/60">
+        Comparison
+      </span>
+    </nav>
+
+    <span class="ax-pill ax-pill-dark mb-6 ax-reveal">
+      <span class="w-1.5 h-1.5 rounded-full" style="background:#0EA5A5"></span>
+      Comparison
+    </span>
+
+    <h1 class="font-heading font-extrabold text-white text-[1.95rem] sm:text-4xl lg:text-[2.75rem] leading-[1.1] mb-6 ax-reveal">
+      Bedrock Agents and Vertex AI Agent Builder: What a Managed Runtime Decides for You
+      
+    </h1>
+
+    <p class="text-lg text-white/60 leading-relaxed mb-7 ax-reveal">
+      Four architectural decisions you inherit with a managed agent runtime, the one written commitment that rules it out, and why the switching cost is not where people look for it.
+      
+    </p>
+
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-white/40 ax-reveal">
+      <time datetime="2026-07-27">
+        July 2026
+      </time>
+      <span class="w-1 h-1 rounded-full bg-white/20"></span>
+      <span>
+        3 min read
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ARTICLE BODY
+     ========================================================================== -->
+<article class="py-16 lg:py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="ax-prose">
+      <p>
+        <strong>Amazon Bedrock Agents and Vertex AI Agent Builder resolve the deployment question by answering it for you: execution runs in the provider's managed runtime, inside your account, under their isolation model. That is the right answer for most organizations, and the wrong one for the specific case where a contract, a regulator, or a residency clause constrains processing to infrastructure you control directly.</strong>
+        
+      </p>
+
+      <h2>
+        Where the managed runtime genuinely wins
+        
+      </h2>
+
+      <p>
+        If you are already committed to one cloud, the managed runtime is the shortest credible path to production, and pretending otherwise would be dishonest. Identity is already federated. The audit plane already exists and your security team already reads it. Model access, scaling, and patching are somebody else's on-call rotation. Procurement is an existing contract rather than a new vendor review.
+        
+      </p>
+
+      <figure class="my-9 border-l-2 border-ax-blue pl-6">
+        <p class="ax-label text-ax-ink/40 mb-2.5">
+          From the standard
+        </p>
+        <blockquote class="font-heading text-lg lg:text-xl leading-relaxed text-ax-ink/85">
+          &ldquo;Zero trust (ZT) is the term for an evolving set of cybersecurity paradigms that move defenses from static, network-based perimeters to focus on users, assets, and resources.&rdquo;
+        </blockquote>
+        <figcaption class="mt-3 text-sm text-ax-ink/50">
+          NIST SP 800-207, Zero Trust Architecture &mdash;
+          <a href="https://csrc.nist.gov/pubs/sp/800/207/final" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">csrc.nist.gov</a>
+        </figcaption>
+      </figure>
+
+      <p>
+        That last point decides more deployments than any architectural argument. A capability available under an existing agreement ships months before one that requires a new vendor through <a href="enterprise-ai-security.html">security review</a>.
+        
+      </p>
+
+      <h2>
+        The four decisions you inherit
+        
+      </h2>
+
+      <div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+      <pre class="text-white/70">DECISION                 MANAGED RUNTIME          BYOC EXECUTION PLANE
+      ──────────────────────────────────────────────────────────────────────
+      where inference runs     provider's region        gateway you approved,
+                               and endpoints            including on-premises
+
+      sandbox isolation        provider's model,        hypervisor boundary you
+                               not usually specified    can inspect from inside
+                               to the tenant
+
+      egress control           provider's network       eBPF filter + DNS
+                               controls                 sinkhole, allowlist
+                                                        you define
+
+      audit record             provider's log           distributed trace you
+                               schema and retention     own, spanning both
+                                                        planes</pre>
+      </div>
+
+      <p>
+        None of these is a defect. They are the terms of a managed service: you accept the provider's answers in exchange for not having to build them. The question is only whether any of the four collides with a constraint you cannot negotiate.
+        
+      </p>
+
+      <h2>
+        The test that decides it
+        
+      </h2>
+
+      <p>
+        Not "how sensitive is this data" — everyone answers "very", and the answer carries no information. Ask instead: <em>is there a written commitment, to a regulator or to a customer, that constrains where this data may be processed?</em>
+        
+      </p>
+
+      <p>
+        If the answer is no, use the managed runtime. It is faster, cheaper to operate, and the isolation model is built by a team with more security engineers than you will ever hire for this. If the answer is yes, the question becomes whether the provider's regions and terms satisfy that commitment — and where they do not, no data processing agreement changes where the packets go.
+        
+      </p>
+
+      <div class="highlight-box">
+        <h4>
+          The air-gapped case is the clean discriminator
+          
+        </h4>
+        <p>
+          A managed cloud runtime cannot run in an environment with no route to the provider. If your deployment target is genuinely air-gapped or fully egress-restricted, the decision is already made and the remaining question is only whether the alternative is honestly air-gapped — a system that must reach a hosted embedding endpoint is not, whatever else is true of it.
+          
+        </p>
+      </div>
+
+      <h2>
+        What is portable, and what is not
+        
+      </h2>
+
+      <p>
+        Model access is portable in principle — the same families are available across providers, and routing inference elsewhere is a configuration change. The orchestration logic is portable with effort. What is not portable is the integration surface: tool definitions written against the provider's schema, identity wiring, audit plumbing, and the agent definitions themselves.
+        
+      </p>
+
+      <p>
+        That surface is where the switching cost actually lives, and it is usually larger than a model-portability discussion suggests. Worth pricing before it is load-bearing, not after.
+        
+      </p>
+
+      <h2>
+        A reasonable middle
+        
+      </h2>
+
+      <p>
+        These are not mutually exclusive. A common and sensible shape is the managed runtime for workloads on data that may leave, and a controlled execution plane for the subset genuinely constrained by contract or regulation. Splitting by data class rather than by preference keeps the fast path fast and reserves the expensive topology for the cases that actually require it.
+        
+      </p>
+    </div>
+
+    <aside class="mt-14 pt-8 border-t border-ax-ink/10">
+      <p class="ax-label text-ax-ink/40 mb-4">
+        References
+      </p>
+      <ol class="space-y-2.5 text-sm">
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">01</span>
+          <span>
+            <a href="https://csrc.nist.gov/pubs/sp/800/207/final" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">SP 800-207: Zero Trust Architecture</a>
+            <span class="text-ax-ink/45"> — NIST</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">02</span>
+          <span>
+            <a href="https://www.iso.org/standard/42001" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">ISO/IEC 42001:2023 — AI management systems</a>
+            <span class="text-ax-ink/45"> — ISO/IEC</span>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-mono text-2xs text-ax-ink/35 pt-1 shrink-0">03</span>
+          <span>
+            <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final" target="_blank" rel="noopener noreferrer" class="text-ax-blue hover:underline">SP 800-53 Rev. 5: Security and Privacy Controls</a>
+            <span class="text-ax-ink/45"> — NIST</span>
+          </span>
+        </li>
+      </ol>
+    </aside>
+
+    <!-- Cluster -> pillar link -->
+    <aside class="mt-14 rounded-2xl border border-ax-ink/10 bg-ax-mist p-7">
+      <p class="ax-label text-ax-ink/40 mb-3">
+        The system behind this
+      </p>
+      <h2 class="font-heading font-bold text-xl mb-2.5">
+        <a href="enterprise-ai-security.html" class="hover:text-ax-blue transition-colors">
+          Zero-Trust AI Governance
+        </a>
+      </h2>
+      <p class="text-ax-ink/65 leading-relaxed mb-5">
+        The deployment topology, isolation model, and audit architecture that get agentic systems through security review.
+      </p>
+      <a href="enterprise-ai-security.html" class="ax-btn ax-btn-outline px-5 py-2.5 text-sm">
+        How it works
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5-5 5M5 12h13"/></svg>
+      </a>
+    </aside>
+
+    <div class="mt-10 pt-8 border-t border-ax-ink/10 flex flex-wrap items-center gap-4">
+      <img src="assets/logo-mark.png" alt="" class="w-12 h-12 object-contain" width="141" height="160" loading="lazy" decoding="async">
+      <div>
+        <p class="font-heading font-bold">Axionalytics</p>
+        <p class="text-sm text-ax-ink/55">
+          Production agentic AI for enterprise engineering, data, and revenue teams.
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ==========================================================================
+     RELATED + CTA
+     ========================================================================== -->
+<section class="ax-band py-20 lg:py-24 relative overflow-hidden">
+  <div class="ax-grid-bg opacity-50"></div>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+
+    <p class="ax-eyebrow text-ax-cyan mb-7 ax-reveal">
+      Keep reading
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-4 mb-14 ax-stagger">
+      <a href="two-plane-execution-architecture.html" class="rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+        <p class="text-2xs font-bold uppercase tracking-wider text-ax-cyan mb-2">
+          Teardown
+        </p>
+        <p class="font-heading font-bold text-white leading-snug">
+          Teardown: The Two-Plane Execution Architecture
+        </p>
+      </a>
+      <a href="why-ai-pilots-fail-security-review.html" class="rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+        <p class="text-2xs font-bold uppercase tracking-wider text-ax-cyan mb-2">
+          Security
+        </p>
+        <p class="font-heading font-bold text-white leading-snug">
+          Why Enterprise AI Pilots Die in Security Review
+        </p>
+      </a>
+      <a href="prompt-injection-tool-abuse-defense.html" class="rounded-xl border border-white/10 bg-white/[0.03] p-5 hover:border-ax-cyan/40 hover:bg-white/[0.06] transition-colors">
+        <p class="text-2xs font-bold uppercase tracking-wider text-ax-cyan mb-2">
+          Security
+        </p>
+        <p class="font-heading font-bold text-white leading-snug">
+          Prompt Injection Is a Containment Problem, Not a Prompting Problem
+        </p>
+      </a>
+    </div>
+
+    <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 lg:p-10 text-center ax-reveal">
+      <h2 class="font-heading font-extrabold text-2xl lg:text-3xl text-white leading-tight mb-4">
+        Facing this in your own environment?
+        
+      </h2>
+      <p class="text-white/60 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Forty-five minutes with the engineers who build these systems. Bring the constraint that has been blocking you — you will leave with an architecture opinion whether or not you work with us.
+        
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3.5 justify-center">
+        <a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="ax-btn ax-btn-primary px-7 py-3.5">
+          Book a Technical Briefing
+        </a>
+        <a href="roi-calculator.html" class="ax-btn ax-btn-ghost px-7 py-3.5">
+          Model the ROI
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="bg-ax-void text-white pt-16 pb-10">
+  <hr class="ax-rule-spectrum mb-16 max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 mb-14">
+
+      <div class="lg:col-span-5">
+        <a href="index.html" class="ax-logo mb-5">
+          <img src="assets/logo-mark-dark.png" alt="Axionalytics" width="88" height="100" loading="lazy" decoding="async">
+          <span class="text-[1.35rem] font-heading font-bold">axionalytics</span>
+        </a>
+        <p class="text-white/50 leading-relaxed max-w-sm mb-7 text-[0.95rem]">
+          Production agentic AI for Fortune 500 engineering, data, and revenue organizations. Built in the Quad Cities, Iowa. Deployed inside your perimeter.
+          
+        </p>
+        <div class="flex gap-2.5">
+          <a href="https://www.linkedin.com/company/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="LinkedIn">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://wa.me/19562079368" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="WhatsApp">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/axionalytics" target="_blank" rel="noopener" class="w-10 h-10 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center hover:border-ax-cyan/50 hover:bg-ax-cyan/10 transition-colors" aria-label="Instagram">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Solutions
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="agentic-test-engineering.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agentic Test Engineering</a></li>
+          <li><a href="enterprise-agentic-ai.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Enterprise Agentic AI</a></li>
+          <li><a href="agentic-business-intelligence.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agentic Business Intelligence</a></li>
+          <li><a href="agentic-revenue-development.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Agentic Revenue Development</a></li>
+          <li><a href="enterprise-ai-security.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Zero-Trust AI Governance</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Company
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="about.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            About</a></li>
+          <li><a href="case-studies.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Case Studies</a></li>
+          <li><a href="blog.html" class="text-white/65 hover:text-ax-cyan transition-colors">Blog</a></li>
+          <li><a href="contact.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h2 class="font-heading font-bold text-sm uppercase tracking-wider text-white/40 mb-5">
+          Resources
+        </h2>
+        <ul class="space-y-3 text-[0.95rem]">
+          <li><a href="roi-calculator.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            ROI Calculator</a></li>
+          <li><a href="glossary.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Glossary</a></li>
+          <li><a href="pricing.html" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Pricing</a></li>
+          <li><a href="https://calendar.app.google/AYww7wSmkwANWDxR9" target="_blank" rel="noopener" class="text-white/65 hover:text-ax-cyan transition-colors">
+            Book a Briefing</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/[0.08] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-white/35 text-sm">
+        © <span data-year>2026</span> Axionalytics.
+        All rights reserved.
+      </p>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+        <a href="privacy.html" class="text-white/35 hover:text-white transition-colors">
+          Privacy</a>
+        <a href="terms.html" class="text-white/35 hover:text-white transition-colors">
+          Terms</a>
+        <a href="accessibility.html" class="text-white/35 hover:text-white transition-colors">
+          Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/axio.js"></script>
+<script src="assets/axio-analytics.js"></script>
+</body>
+</html>

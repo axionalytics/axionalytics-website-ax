@@ -1,0 +1,100 @@
+# =============================================================================
+# AI CITATION MONITOR — weekly
+# -----------------------------------------------------------------------------
+# Asks the engines our buyers' questions and commits what they cited. This is
+# the first agent this company runs on its own marketing; its output is both the
+# AICF baseline and, once there is a trend worth showing, publishable material.
+#
+# BEFORE THIS DOES ANYTHING, add repository secrets:
+#   ANTHROPIC_API_KEY     — required
+#   OPENAI_API_KEY        — optional, adapter not yet implemented
+#   PERPLEXITY_API_KEY    — optional, adapter not yet implemented
+#   GEMINI_API_KEY        — optional, adapter not yet implemented
+#
+# Engines without a key are skipped, so this runs useful the moment one exists.
+# Actions are free on public repositories.
+#
+# The results land in _build/data/aicf/, which is inside the folder GitHub Pages
+# does not publish — the raw data stays private until we decide to publish a
+# write-up from it.
+# =============================================================================
+name: AI citation monitor
+
+on:
+  schedule:
+    # 07:00 UTC every Monday. Weekly, not daily: engines are non-deterministic
+    # and a daily series would be mostly sampling noise at four times the cost.
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Only ask the first N prompts (leave blank for all 50)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aicf
+  cancel-in-progress: false
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Until a key exists there is nothing to ask, and a scheduled job that
+      # fails every Monday trains you to ignore its notifications — by the time
+      # a real failure arrives, nobody is reading them. Skip cleanly instead.
+      - name: Is any engine configured?
+        id: gate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No ANTHROPIC_API_KEY secret set — skipping."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # The site itself has no dependencies and this must not change that — the
+      # SDK is installed here, in the runner, and never enters the build.
+      - name: Install the Anthropic SDK
+        if: steps.gate.outputs.configured == 'true'
+        run: pip install --quiet anthropic
+
+      - name: Ask the engines
+        if: steps.gate.outputs.configured == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -n "${{ inputs.limit }}" ]; then
+            python _build/scripts/check-citations.py --limit "${{ inputs.limit }}"
+          else
+            python _build/scripts/check-citations.py
+          fi
+
+      - name: Commit the reading
+        if: steps.gate.outputs.configured == 'true'
+        run: |
+          if [ -z "$(git status --porcelain _build/data/aicf)" ]; then
+            echo "no new results — nothing to commit"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _build/data/aicf
+          git commit -m "AICF reading for $(date -u +%G-W%V)"
+          git push

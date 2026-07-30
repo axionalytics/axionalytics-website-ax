@@ -1,0 +1,138 @@
+<!--FAQ Which cloud warehouses can an agentic BI system connect to? | Snowflake, Databricks, BigQuery, Azure SQL, and PostgreSQL cover the large majority of enterprise deployments, and they share one adapter surface: connect, discover schema, profile, and emit a governed semantic model. What differs between them is authentication, type mapping, and how each reports the metadata the profiling step depends on.-->
+<!--FAQ Does the generated Power BI model belong to us or to the vendor? | To you. The output is a standard .pbip project folder — tables, relationships, DAX measures, visuals, and page layouts — that opens in Power BI Desktop and is edited by your BI team without the generating system present. If it cannot be opened and edited without the tool that produced it, it is not a deliverable.-->
+<!--FAQ How long does a dashboard build take against a cloud warehouse? | Cold builds are dominated by schema discovery and inference. Rebuilds against an unchanged schema skip inference entirely through incremental detection and complete in a small fraction of the time at no inference cost. The gap between the two is the number worth measuring in your own environment before committing to a refresh cadence.-->
+
+<p>
+  <span data-lang-en><strong>Snowflake, Databricks, BigQuery, Azure SQL, and PostgreSQL are one integration surface with five sets of quirks. The pipeline is identical — connect, discover, profile, generate, validate, package — and what changes per warehouse is authentication, type mapping, and how much the catalog will tell you before you have to go and look.</strong></span>
+  <span data-lang-es><strong>Snowflake, Databricks, BigQuery, Azure SQL y PostgreSQL son una sola superficie de integración con cinco conjuntos de peculiaridades. El pipeline es idéntico —conectar, descubrir, perfilar, generar, validar, empaquetar— y lo que cambia por almacén es la autenticación, el mapeo de tipos y cuánto le dirá el catálogo antes de que tenga que ir a mirar.</strong></span>
+</p>
+
+<p>
+  <span data-lang-en>This is a deployment playbook for pointing a generation pipeline at a governed warehouse and getting back a Power BI artifact your team owns. It covers what is common, what is not, and the two things that decide whether the output is usable.</span>
+  <span data-lang-es>Esta es una guía de despliegue para apuntar un pipeline de generación a un almacén gobernado y obtener un artefacto de Power BI que su equipo posee. Cubre lo que es común, lo que no, y las dos cosas que deciden si la salida es utilizable.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The shared pipeline</span>
+  <span data-lang-es>El pipeline compartido</span>
+</h2>
+
+<div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+<pre class="text-white/70">connect          driver + credential, read-only role
+     │
+     ▼
+discover         tables, columns, types, keys, relationships
+     │           ← the warehouse-specific part lives here
+     ▼
+profile          cardinality, null density, candidate dimensions
+     │           and measures
+     ▼
+generate         semantic model: tables, relationships,
+     │           DAX measures, visuals, page layout
+     ▼
+validate         self-correction loop — errors are fixed and
+     │           re-checked, bounded by a retry limit
+     ▼
+package          .pbip project folder — opens in Power BI Desktop</pre>
+</div>
+
+<p>
+  <span data-lang-en>Only the discovery step is genuinely warehouse-specific. Everything downstream operates on a normalised description of the schema, which is why adding a warehouse is a driver and a metadata query rather than a new pipeline.</span>
+  <span data-lang-es>Solo el paso de descubrimiento es genuinamente específico del almacén. Todo lo posterior opera sobre una descripción normalizada del esquema, razón por la cual agregar un almacén es un driver y una consulta de metadatos, no un pipeline nuevo.</span>
+</p>
+
+<h2>
+  <span data-lang-en>What differs per warehouse</span>
+  <span data-lang-es>Qué difiere por almacén</span>
+</h2>
+
+<div class="rounded-2xl border border-ax-ink/10 bg-ax-void p-5 lg:p-6 ax-diagram ax-scroll-dark my-8">
+<pre class="text-white/70">WAREHOUSE     WATCH FOR
+──────────────────────────────────────────────────────────────
+Snowflake     Role-scoped visibility: the schema you discover is
+              the schema the role can see. Profile under the same
+              role the refresh will use, or the model references
+              tables the report cannot read.
+
+Databricks    Unity Catalog governs by identity. Three-level
+              namespace (catalog.schema.table) — flatten it and
+              you will collide names across catalogs.
+
+BigQuery      Dataset location is part of the identity. Nested
+              and repeated fields have no direct Power BI
+              equivalent and need an explicit flattening rule.
+
+Azure SQL     Closest to a conventional relational source, and
+              the one most likely to carry legacy type quirks
+              that map badly to a semantic model.
+
+PostgreSQL    Fastest to stand up and the usual choice for
+              validating the pipeline before pointing it at a
+              production warehouse.</pre>
+</div>
+
+<p>
+  <span data-lang-en>The role-scoped visibility point applies to all five and causes the most confusing failures. A model generated under an administrative role and refreshed under a reporting role produces a report that worked once and then broke, with an error that names a permission rather than the design decision that caused it.</span>
+  <span data-lang-es>El punto de visibilidad por rol aplica a los cinco y causa los fallos más confusos. Un modelo generado bajo un rol administrativo y actualizado bajo un rol de informes produce un informe que funcionó una vez y luego se rompió, con un error que menciona un permiso en lugar de la decisión de diseño que lo causó.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Connect read-only, and mean it</span>
+  <span data-lang-es>Conéctese en solo lectura, y en serio</span>
+</h2>
+
+<p>
+  <span data-lang-en>The generation pipeline reads schema and samples data. It has no reason to hold write access to the warehouse, and granting it removes the simplest argument you have in a security review. A read-only role scoped to the specific schemas in play makes the blast radius of a compromised pipeline a disclosure question rather than an integrity one.</span>
+  <span data-lang-es>El pipeline de generación lee esquema y muestrea datos. No tiene razón para tener acceso de escritura al almacén, y concederlo elimina el argumento más simple que tiene en una revisión de seguridad. Un rol de solo lectura limitado a los esquemas en juego convierte el radio de impacto de un pipeline comprometido en una cuestión de divulgación y no de integridad.</span>
+</p>
+
+<div class="highlight-box">
+  <h4>
+    <span data-lang-en>Profiling reads data, not just metadata</span>
+    <span data-lang-es>El perfilado lee datos, no solo metadatos</span>
+  </h4>
+  <p>
+    <span data-lang-en>Cardinality and null density cannot be inferred from column types. The profiling step samples rows, which means it touches real data and belongs inside whatever perimeter that data is governed by. If the warehouse holds regulated data, the pipeline runs where the warehouse runs — this is a deployment topology question, not a connector setting.</span>
+    <span data-lang-es>La cardinalidad y la densidad de nulos no pueden inferirse de los tipos de columna. El paso de perfilado muestrea filas, lo que significa que toca datos reales y pertenece dentro del perímetro que gobierna esos datos. Si el almacén contiene datos regulados, el pipeline corre donde corre el almacén: esta es una cuestión de topología de despliegue, no un ajuste del conector.</span>
+  </p>
+</div>
+
+<h2>
+  <span data-lang-en>Cold build versus warm rebuild</span>
+  <span data-lang-es>Construcción en frío frente a reconstrucción en caliente</span>
+</h2>
+
+<p>
+  <span data-lang-en>A first build against an unfamiliar schema spends most of its time in discovery and inference. A rebuild of the same source with an unchanged schema skips inference entirely — incremental detection compares the schema, finds it identical, and reuses the model at no inference cost.</span>
+  <span data-lang-es>Una primera construcción contra un esquema desconocido pasa la mayor parte del tiempo en descubrimiento e inferencia. Una reconstrucción de la misma fuente con esquema sin cambios omite la inferencia por completo: la detección incremental compara el esquema, lo encuentra idéntico y reutiliza el modelo sin costo de inferencia.</span>
+</p>
+
+<p>
+  <span data-lang-en>That gap is the number to measure in your own environment before setting a refresh cadence, because it changes the economics of scheduling. A nightly rebuild costs almost nothing when the schema is stable and costs a full build every time somebody adds a column.</span>
+  <span data-lang-es>Esa diferencia es la cifra a medir en su propio entorno antes de fijar una cadencia de actualización, porque cambia la economía de la programación. Una reconstrucción nocturna cuesta casi nada cuando el esquema es estable y cuesta una construcción completa cada vez que alguien agrega una columna.</span>
+</p>
+
+<h2>
+  <span data-lang-en>The output has to survive without the tool</span>
+  <span data-lang-es>La salida debe sobrevivir sin la herramienta</span>
+</h2>
+
+<p>
+  <span data-lang-en>The deliverable is a standard <code>.pbip</code> project folder: tables, relationships, DAX measures, visuals, page layouts. It opens in Power BI Desktop and your BI team edits it like anything else they maintain.</span>
+  <span data-lang-es>El entregable es una carpeta de proyecto <code>.pbip</code> estándar: tablas, relaciones, medidas DAX, visuales y diseños de página. Se abre en Power BI Desktop y su equipo de BI la edita como cualquier otra cosa que mantenga.</span>
+</p>
+
+<p>
+  <span data-lang-en>This is the property to insist on regardless of who builds the pipeline. A generated artifact that can only be edited through the generating system is not a dashboard you own — it is a dependency with a dashboard-shaped interface, and the cost of that shows up the first time the tool is unavailable and a number on the board is wrong.</span>
+  <span data-lang-es>Esta es la propiedad que hay que exigir sin importar quién construya el pipeline. Un artefacto generado que solo puede editarse a través del sistema que lo generó no es un tablero que usted posee: es una dependencia con forma de tablero, y el costo de eso aparece la primera vez que la herramienta no está disponible y una cifra del consejo está equivocada.</span>
+</p>
+
+<h2>
+  <span data-lang-en>Where this fits, and where it does not</span>
+  <span data-lang-es>Dónde encaja esto y dónde no</span>
+</h2>
+
+<p>
+  <span data-lang-en>It fits where the same dashboard is being hand-built repeatedly against a governed source that already has a semantic definition worth inheriting. It does not fit where the metric definitions are the unsettled part — a generation pipeline will faithfully encode whatever inconsistency exists in the warehouse, and produce a fast, confident, governed version of the wrong number.</span>
+  <span data-lang-es>Encaja donde el mismo tablero se construye a mano repetidamente contra una fuente gobernada que ya tiene una definición semántica que merece heredarse. No encaja donde las definiciones de métricas son la parte no resuelta: un pipeline de generación codificará fielmente cualquier inconsistencia que exista en el almacén, y producirá una versión rápida, segura y gobernada de la cifra equivocada.</span>
+</p>

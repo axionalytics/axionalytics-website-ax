@@ -66,6 +66,7 @@ destroying the Spanish tree.
 |---|---|---|
 | 1 | `make-articles.py` | Articles + blog index, from the `ARTICLES` manifest |
 | 2 | `make-glossary.py` | Glossary entries + hub, from the `TERMS` manifest |
+| 2b | `make-controls.py` | The governance control matrix, from the `CONTROLS` manifest |
 | 3 | `extract-legal.py` | Re-wraps the legal pages from `_legacy/`, wording unchanged |
 | 4 | `add-breadcrumbs.py` | `BreadcrumbList` data for hand-written pages |
 | 4b | `add-local-business.py` | `LocalBusiness` data on home and contact |
@@ -83,7 +84,8 @@ destroying the Spanish tree.
 | 15 | `check-links.py` | Every link, anchor, asset, id, and control resolves. Non-zero exit fails the build. |
 
 Run by hand only when needed: `make-logo-assets.py` (regenerates logo PNGs and
-favicons), `install-hooks.sh` (once per clone, see below).
+favicons), `install-hooks.sh` (once per clone, see below), `check-citations.py`
+(see below — it is not part of the build and never will be).
 
 ### What step 15 checks, and why
 
@@ -184,6 +186,37 @@ standard is cited identically wherever it appears. Each one renders as a visible
 reference list and as `citation` in the page's structured data. Run
 `check-links.py --external` after changing any of them.
 
+**Three kinds of long-form page.** Everything in the `ARTICLES` manifest shares
+one generator and one pipeline; `kind` decides only how it is labelled and which
+schema type it carries.
+
+| `kind` | Is | Schema |
+|---|---|---|
+| `article` (default) | Makes a case | `Article`, or `TechArticle` if listed in `TECH_ARTICLES` |
+| `teardown` | Documents what was built | `TechArticle` automatically |
+| `comparison` | Weighs us against a named alternative | `Article` |
+| `playbook` | How to deploy into a named environment | `TechArticle` automatically |
+
+Teardowns keep their architecture diagrams as literal text in `<pre>`, never as
+images — plain text survives retrieval intact and an image discards all of it.
+Comparisons must state plainly where the alternative is the better choice; a page
+that never concedes a point reads as vendor copy, and both buyers and synthesis
+models discount it accordingly.
+
+**One rule for playbooks, and it is not negotiable: only write one for an
+environment we have actually deployed into.** A playbook assembled from a
+vendor's documentation rather than from a deployment is indistinguishable from
+every other such page on the internet, contributes nothing a retrieval model has
+not already read a hundred times, and would be the one dishonest page on a site
+whose entire argument is that it does not do that. If nobody on the team has run
+it against a real instance, the correct number of playbooks is zero.
+
+**The control mapping.** `make-controls.py` renders one page from a `CONTROLS`
+manifest: each control the platform operates, the framework areas it answers, and
+how to verify it from inside a deployment. It deliberately does **not** assert
+ISO/IEC 42001 sub-clause numbers — the standard is paywalled, and false precision
+would defeat the page's purpose. Read the header comment before adding a control.
+
 **Pull quotes.** `PULLQUOTES` in `make-articles.py` holds one verbatim quotation
 per article, from a source that article already cites, rendered after the second
 paragraph. Every string in that table is copied from the source and not
@@ -225,6 +258,43 @@ Step 6 and step 14 read an editorial substitution list from `_private/`, which i
 outside version control. In a fresh clone both announce that the list is absent
 and do nothing — correct behaviour, since the committed sources already reflect
 every substitution.
+
+---
+
+## The citation monitor
+
+`_build/scripts/check-citations.py` asks generative engines the fifty questions
+in `_build/data/prompts.json` and records who they cite. It is the metric that
+replaces rank tracking: when a buyer asks an engine a question in this category,
+how often are we named?
+
+```bash
+python _build/scripts/check-citations.py --dry-run     # no API calls
+python _build/scripts/check-citations.py --limit 5     # smoke test
+```
+
+It is **not** part of `all.sh` and should not be added to it — nobody wants fifty
+API calls because they fixed a typo. It runs weekly from
+`.github/workflows/aicf.yml` and commits its reading to `_build/data/aicf/`,
+which is inside the folder GitHub Pages does not publish, so the raw data stays
+private until there is a write-up worth shipping.
+
+Two things to know before reading a result:
+
+**The prompt set is frozen.** A set that drifts produces a trend line comparing
+different questions to each other. Additions go in a v2 file, never merged back.
+
+**One run is noise.** Engines are non-deterministic — the same prompt returns
+different citations on different days, so a single week's dip is usually sampling
+rather than a regression. Report the four-week rolling average.
+
+The Anthropic adapter is implemented; the other three are stubs that raise until
+someone writes them against that provider's current documentation. Google AI
+Overviews is deliberately absent — it has no API, and scraping the SERP breaks
+Google's terms and would break again every time the markup shifts.
+
+`pip install anthropic` is needed only where the monitor runs. It is installed in
+the workflow runner and never enters the site build, which stays dependency-free.
 
 ---
 
